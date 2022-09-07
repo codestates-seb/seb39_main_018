@@ -1,3 +1,3 @@
 # seb39_main_Team_018
-### name
+## team people
 yj , es , hj ,jh
