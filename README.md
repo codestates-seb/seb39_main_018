@@ -13,3 +13,5 @@ BE : 박혜진,김지홍<br>
 ## 🗽 웹 구조 & 설계
 
 https://www.figma.com/file/OjNyJIT2pJ3zU6CrzaQh7m/Stack-OverFlow?node-id=0%3A1
+
+## 스키마 & API 
