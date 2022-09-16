@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Footer from './common/footer';
-import Main from './Components/main';
+import Footer from './common/Footer';
+import Main from './components/Main';
 import GlobalStyle from './globalStyle.jsx';
 
 const App = () => {
@@ -9,8 +9,8 @@ const App = () => {
     <>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Footer />} />
-        <Route path="/footer" element={<Main />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/footer" element={<Footer />} />
       </Routes>
     </>
   );

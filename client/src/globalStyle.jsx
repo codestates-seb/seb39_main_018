@@ -6,14 +6,24 @@ const GlobalStyle = createGlobalStyle`
         --lightgray : #d9d9d9;
         --gray : #aaaaaa;
         --red : red;
+        --skyblue : #2a86e2;
+        --white : #fdfeff;
+        --darkgray : #6b6b6b;
         
         // font-size
-        --xsmall : 9px;
-        --small : 13px;
-        --medium : 20px;
-        --large : 28px;
-        --xlarge : 36px;
-        //
+        --f-xsmall : 9px;
+        --f-small : 16px;
+        --f-medium : 20px;
+        --f-large : 28px;
+        --f-xlarge : 36px;
+
+        //border-radius
+        --b-xsmall : 5px;
+        --b-small : 10px;
+        --b-medium : 15px;
+        --b-large : 20px;
+        --b-xlarge : 25px;
+    }
 `;
 
 export default GlobalStyle;
