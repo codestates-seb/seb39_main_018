@@ -5,7 +5,7 @@ import {
   FooterTopBox,
   FooterBottom,
   FooterBottomBox,
-} from './CommonStyle/Footerstyle';
+} from '../style/CommonStyle/Footerstyle';
 
 const Footer = () => {
   return <FooterUI />;

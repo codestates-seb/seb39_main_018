@@ -5,7 +5,7 @@ import { BiSearchAlt2 } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { HiMenu, HiOutlineTicket } from 'react-icons/hi';
-import HeaderStyle from '../style/HeaderStyle';
+import HeaderStyle from '../style/CommonStyle/HeaderStyle';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
