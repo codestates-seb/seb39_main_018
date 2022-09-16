@@ -1,10 +1,6 @@
-# dependencies
+# 커밋하기 전에 민감한 파일 설정
+
+# client
 node_modules
-
-
-# mac.
 .DS_Store
-
-# misc
-.env
 .env
