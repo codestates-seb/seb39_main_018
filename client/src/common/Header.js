@@ -16,37 +16,38 @@ const Headers = () => {
   const navigate = useNavigate();
   return (
     <HeaderStyle>
-      <div className="header-left">
+      <HeaderLeft>
         <h3 className="SORT">
           SORT
           <FaApple onClick={() => navigate('/footer')} />
         </h3>
 
-        <div className="header-left-low">
+        <HeaderLeftLow>
           <HiMenu />
-          <div className="sellownrealticket">Sell Own Real Ticket 🎫 </div>
-        </div>
-      </div>
+          <SellOwnRealTicket>Sell Own Real Ticket 🎫 </SellOwnRealTicket>
+        </HeaderLeftLow>
+      </HeaderLeft>
 
-      <div className="header-mid">
-        <div className="header-search">
+      <HeaderMid>
+        <HeaderSearch>
           <input type="text" placeholder="원하는 티켓을 검색해보세요." />
           <BiSearchAlt2 />
-        </div>
-      </div>
+        </HeaderSearch>
+      </HeaderMid>
 
-      <div className="header-right">
+      <HeaderRight>
         <BsPerson />
         <FaRegCommentAlt />
         <IoSettingsOutline />
-      </div>
+      </HeaderRight>
 
-      <div className="header-right-low">
-        <div className="sellbutton">
-          <HiOutlineTicket />
-          <h3 className="sell">판매하기</h3>
-        </div>
-      </div>
+      <HeaderRightLow>
+        <SellButton>
+          <h3 className="sell">
+            판매하기 <HiOutlineTicket />
+          </h3>
+        </SellButton>
+      </HeaderRightLow>
     </HeaderStyle>
   );
 };

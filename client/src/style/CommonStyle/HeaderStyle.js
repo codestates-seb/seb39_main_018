@@ -10,4 +10,6 @@ const HeaderStyle = styled.div`
   justify-content: space-around;
 `;
 
+const HeaderLeft = styled.div``;
+
 export default HeaderStyle;

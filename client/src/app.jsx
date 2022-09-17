@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './common/Footer';
-import Main from './components/Main';
+import Main from './Components/Main';
 import GlobalStyle from './globalStyle.jsx';
 
 const App = () => {
