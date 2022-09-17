@@ -9,7 +9,36 @@ const HeaderStyle = styled.div`
   margin-bottom: 50px;
   justify-content: space-around;
 `;
-
 const HeaderLeft = styled.div``;
 
-export default HeaderStyle;
+const SORT = styled.div`
+  font-size: 30px;
+  font-weight: bold;
+  color: blue;
+`;
+
+const HeaderLeftLow = styled.div``;
+
+const SellOwnRealTicket = styled.div``;
+
+const HeaderMid = styled.div``;
+
+const HeaderSearch = styled.div``;
+const HeaderRight = styled.div``;
+const HeaderRightLow = styled.div``;
+const Sell = styled.div``;
+const SellButton = styled.div``;
+
+export {
+  HeaderStyle,
+  HeaderLeft,
+  SORT,
+  HeaderLeftLow,
+  SellOwnRealTicket,
+  HeaderMid,
+  HeaderSearch,
+  HeaderRight,
+  HeaderRightLow,
+  Sell,
+  SellButton,
+};
