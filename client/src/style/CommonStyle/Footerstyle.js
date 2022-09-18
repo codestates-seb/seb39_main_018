@@ -2,46 +2,59 @@ import styled from 'styled-components';
 import GlobalStyle from '../../globalStyle.jsx';
 
 const FooterContainer = styled.div`
-  border: 1px solid var(--gray);
+  border-top: 1px solid black;
+  box-shadow: inset 3px 5px 1px black;
   width: 100%;
-  height: 300px;
+  height: 250px;
 `;
 
-const FooterTopBox = styled.div`
+const AllSetting = styled.div`
   display: flex;
-  margin: 0 100px;
   justify-content: center;
   align-items: center;
+`;
+
+const FooterTopBox = styled(AllSetting)`
   border-bottom: 1px solid var(--lightgray);
 `;
 
-const FooterBottomBox = styled.div`
+const FooterBottomBox = styled(AllSetting)`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 `;
 
-const FooterTop = styled.div`
-  margin: 0px 100px;
-  text-align: center;
-  h3 {
-    margin: 30px 0;
-  }
+const FooterTitle = styled(AllSetting)`
+  justify-content: space-evenly;
+  margin: 20px 0;
+  font-weight: bold;
+  font-size: var(--f-medium);
+`;
+
+const FooterTop = styled(AllSetting)`
+  margin-left: 275px;
+  margin-right: 250px;
+  margin-bottom: 20px;
+  justify-content: space-around;
+  flex-direction: column;
   p {
-    padding: 0px;
     cursor: pointer;
+    margin: 0px;
+    padding: 5px;
   }
   .intro {
-    padding: 7px;
+    padding: 3px;
   }
 `;
 
 const FooterBottom = styled.div`
-  margin: 20px;
-  font-size: var(--xsmall);
+  font-size: var(--f-xsmall);
+  margin: 0 10px;
   .service {
+    font-size: var(--f-xsmall);
     width: 455px;
   }
 `;
 
-export { FooterContainer, FooterTopBox, FooterTop, FooterBottomBox, FooterBottom };
+export { FooterContainer, FooterTopBox, FooterTop, FooterBottomBox, FooterBottom, FooterTitle };
