@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
     :root {
         // Color
         --lightgray : #d9d9d9;
