@@ -4,50 +4,61 @@ import { BiSearchAlt2 } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import { IoSettingsOutline } from 'react-icons/io5';
 import { HiMenu, HiOutlineTicket } from 'react-icons/hi';
-import HeaderStyle from '../style/CommonStyle/HeaderStyle';
+import {
+  HeaderStyle,
+  HeaderLeft,
+  SORT,
+  HeaderLeftLow,
+  SellOwnRealTicket,
+  HeaderMid,
+  HeaderSearch,
+  HeaderRight,
+  HeaderRightLow,
+  Sell,
+  SellButton,
+} from '../style/CommonStyle/HeaderStyle';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   return <Headers />;
 };
-
 const Headers = () => {
   const navigate = useNavigate();
   return (
     <HeaderStyle>
-      <div className="header-left">
-        <h3 className="SORT">
+      <HeaderLeft>
+        <SORT>
           SORT
           <FaApple onClick={() => navigate('/footer')} />
-        </h3>
+        </SORT>
 
-        <div className="header-left-low">
+        <HeaderLeftLow>
           <HiMenu />
-          <div className="sellownrealticket">Sell Own Real Ticket 🎫 </div>
-        </div>
-      </div>
+          <SellOwnRealTicket>Sell Own Real Ticket 🎫 </SellOwnRealTicket>
+        </HeaderLeftLow>
+      </HeaderLeft>
 
-      <div className="header-mid">
-        <div className="header-search">
+      <HeaderMid>
+        <HeaderSearch>
           <input type="text" placeholder="원하는 티켓을 검색해보세요." />
           <BiSearchAlt2 />
-        </div>
-      </div>
+        </HeaderSearch>
+      </HeaderMid>
 
-      <div className="header-right">
-        <BsPerson />
+      <HeaderRight>
+        <BsPerson onClick={() => navigate('/mypage')} />
         <FaRegCommentAlt />
         <IoSettingsOutline />
-      </div>
+      </HeaderRight>
 
-      <div className="header-right-low">
-        <div className="sellbutton">
-          <HiOutlineTicket />
-          <h3 className="sell">판매하기</h3>
-        </div>
-      </div>
+      <HeaderRightLow>
+        <SellButton>
+          <Sell>
+            판매하기 <HiOutlineTicket />
+          </Sell>
+        </SellButton>
+      </HeaderRightLow>
     </HeaderStyle>
   );
 };
-
 export default Header;
