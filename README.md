@@ -1,7 +1,9 @@
 ### Client setup
 
 ```Md
-TUTORIAL-REACT-WEBPACK
+SEB_MAIN_018
+
+client
 └───src
 │   └───App.js
 │   └───index.js
