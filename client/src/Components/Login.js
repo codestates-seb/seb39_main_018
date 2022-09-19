@@ -1,7 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
-  return <div>Login</div>;
-}
+const Login = () => {
+  const navigate = useNavigate();
+};
 
 export default Login;

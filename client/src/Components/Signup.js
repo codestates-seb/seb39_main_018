@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect, useState, useCallback } from 'react';
+import { get } from '../util/axios';
+import { useState, useCallback } from 'react';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -14,28 +15,59 @@ const Signup = () => {
   const onChangePasswordCheck = useCallback(
     (e) => {
       setPasswordCheck(e.target.value);
-      setMismatchError(e.target.value !== password);
+      setMismatchError(e.target.value !== password.value);
     },
     [password],
   );
 
-  const register = () => {
-    if (id !== '' && email !== '' && password !== '') {
-      axios
-        .post('', {
-          headers: {},
-          id: id,
-          password: password,
-          email: email,
-        })
-        .then((res) => {
-          navigate('/');
-        })
-        .catch((err) => {
-          window.alert('회원가입 실패!');
-          console.log(err);
-        });
+  async function register() {
+    if (id.value !== '' && email.value !== '' && password.value === passwordCheck.value) {
+      let parameter = {};
+      parameter = {
+        id: id.value,
+        password: password.value,
+        email: email.value,
+      };
+      const registerClient = await get(``, parameter);
+      const registerClientUser = await registerClient.json();
+      return registerClientUser;
     }
+  }
+
+  const checkId = (value) => {
+    if (value.length === 0 || value === '') {
+      setId({ value: value, text: '아이디를 입력해주세요!', hidden: false });
+      return;
+    }
+    if (value.length < 8) {
+      setId({ value: value, text: '아이디를 8글자 이상 입력해주세요!', hidden: false });
+      return;
+    }
+    setId({ value: value, text: '', hidden: true });
+  };
+
+  const checkPassword = (value) => {
+    if (value.length === 0 || value === '') {
+      setPassword({ value: value, text: '비번 입력해주세요!', hidden: false });
+      return;
+    }
+    if (value.length < 8) {
+      setPassword({ value: value, text: '비번을 8글자 이상 입력해주세요!', hidden: false });
+      return;
+    }
+    setPassword({ value: value, text: '', hidden: true });
+  };
+
+  const checkEmail = (value) => {
+    if (value.length === 0 || value === '') {
+      setEmail({ value: value, text: '이멜ㄹ 입력해주세요!', hidden: false });
+      return;
+    }
+    if (!value.includes('@')) {
+      setEmail({ value: value, text: '이메일 형식이 올바르지 않습니다!', hidden: false });
+      return;
+    }
+    setEmail({ value: value, text: '', hidden: true });
   };
 
   return (
@@ -46,37 +78,30 @@ const Signup = () => {
         <input
           id="id"
           type="text"
-          placeholder="아이디를 입력해주세요"
-          value={id}
-          onChange={(e) => {
-            setId(e.target.value);
-          }}
+          defaultValue={id.value}
+          onChange={(e) => checkId(e.target.value)}
         />
-        {!id && <span>아이디 입력해주세요.</span>}
+        <span hidden={id.hidden}>{id.text}</span>
       </div>
       <div className="password">
         비번
         <input
           id="password"
           type="text"
-          placeholder="비번 입력해주세요"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
+          defaultValue={password.value}
+          onChange={(e) => checkPassword(e.target.value)}
         />
-        {!password && <span>비번 입력해주세요.</span>}
+        <span hidden={password.hidden}>{password.text}</span>
       </div>
       <div className="passwordcheck">
         비번 확인
         <input
           id="password-check"
           type="text"
-          placeholder="비번 입력해주세요"
-          value={passwordCheck}
+          defaultValue={passwordCheck.value}
           onChange={onChangePasswordCheck}
         />
-        {!passwordCheck && <span>비번확인 입력해주세요.</span>}
+        <span hidden={passwordCheck.hidden}>{passwordCheck.text}</span>
       </div>
       {mismatchError && <span>비번이 일치하지 않습니다.</span>}
 
@@ -85,13 +110,10 @@ const Signup = () => {
         <input
           id="email"
           type="text"
-          placeholder="이메일 입력해주세요"
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
+          defaultValue={email.value}
+          onChange={(e) => checkEmail(e.target.value)}
         />
-        {!email && <span>이멜 입력해주세요.</span>}
+        <span hidden={email.hidden}>{email.text}</span>
       </div>
       <div className="fin">
         <button
