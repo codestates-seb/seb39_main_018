@@ -1,6 +1,6 @@
 ### Client setup
 
-```js
+```Md
 TUTORIAL-REACT-WEBPACK
 └───src
 │   └───App.js
