@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaApple, FaRegCommentAlt } from 'react-icons/fa';
-
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { BsPerson } from 'react-icons/bs';
 import { IoSettingsOutline } from 'react-icons/io5';
