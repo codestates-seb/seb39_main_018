@@ -1,11 +1,10 @@
 import React from 'react';
 import {
   FooterContainer,
-  FooterTop,
+  FooterContent,
   FooterTopBox,
   FooterBottom,
   FooterBottomBox,
-  FooterTitle,
 } from '../style/CommonStyle/Footerstyle';
 
 const Footer = () => {
@@ -15,23 +14,21 @@ const Footer = () => {
 const FooterUI = () => {
   return (
     <FooterContainer>
-      <FooterTitle>
-        <div className="title_intro">INTRODUCE</div>
-        <div className="title_conact">CONACT</div>
-      </FooterTitle>
       <FooterTopBox>
-        <FooterTop>
-          <p className="intro">Home</p>
-          <p className="intro">Menu</p>
-          <p className="intro">About</p>
-          <p className="intro">Help</p>
-        </FooterTop>
-        <FooterTop>
+        <FooterContent>
+          <h3>INTRODUCE</h3>
+          <p>Home</p>
+          <p>Menu</p>
+          <p>About</p>
+          <p>Help</p>
+        </FooterContent>
+        <FooterContent>
+          <h3>CONACT</h3>
           <p>Eunsoo</p>
           <p>YeonJoo</p>
           <p>HyeJin</p>
           <p>JiHong</p>
-        </FooterTop>
+        </FooterContent>
       </FooterTopBox>
       <FooterBottomBox>
         <FooterBottom>By Corporation Ⓒ2022</FooterBottom>
