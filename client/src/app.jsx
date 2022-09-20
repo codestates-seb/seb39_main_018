@@ -5,6 +5,9 @@ import Mypage from './Components/Mypage';
 import Main from './Components/Main';
 import GlobalStyle from './globalStyle.jsx';
 import Signup from './Components/Signup';
+import Chat from './Components/Chat';
+import Logout from './Components/Logout';
+import Login from './Components/Login';
 
 const App = () => {
   return (
@@ -15,6 +18,9 @@ const App = () => {
         <Route path="/footer" element={<Footer />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/chat" element={<Chat />} />
       </Routes>
     </>
   );

@@ -22,7 +22,6 @@ const Signup = () => {
 
   async function register() {
     if (id.value.length > 7 && email.value.includes('@' && '.') && !mismatchError) {
-      console.log('dd');
       let parameter = {};
       parameter = {
         id: id.value,

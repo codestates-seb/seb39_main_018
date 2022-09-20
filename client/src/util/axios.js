@@ -19,11 +19,27 @@ const get = (url, parameter) => {
       navigate('/');
     })
     .catch((err) => {
-      window.alert('회원가입 실패!');
+      window.alert('실패!');
       console.log(err);
     });
 };
 
-function post(url, parameter) {}
+const post = (url, parameter) => {};
 
-export { get, post };
+const axiosDelete = (url, parameter) => {
+  axios
+    .delete('url', {
+      headers: {},
+      parameter: parameter,
+    })
+    .then((res) => {
+      window.alert('성공!');
+      navigate('/');
+    })
+    .catch((err) => {
+      window.alert('땡');
+      console.log(err);
+    });
+};
+
+export { get, post, axiosDelete };

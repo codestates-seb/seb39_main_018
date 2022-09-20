@@ -2,6 +2,26 @@ import React from 'react';
 import { useState } from 'react';
 import { get } from '../util/axios';
 import { useRef } from 'react';
+import KakaoLogin from './SocialLogin/KakaoLogin';
+import {
+  LoginContainer,
+  LoginTitle,
+  IdBox,
+  LoginBox,
+  NameBox,
+  IdInput,
+  HiddenMessage,
+  PasswordBox,
+  PasswordInput,
+  LinkBox,
+  AutoLogin,
+  IdOrPwFind,
+  GoSignUp,
+  LoginButton,
+  SnsLogin,
+  GoogleLogin,
+  NaverLogin,
+} from '../style/LoginStyle';
 
 const Login = () => {
   const idInput = useRef();
@@ -10,6 +30,8 @@ const Login = () => {
   const [userPassword, setUserPassword] = useState('');
 
   const userlogin = async () => {
+    console.log('userid', userid);
+    console.log(userPassword);
     if (userid !== '' && userPassword !== '') {
       let parameter = {};
       parameter = {
@@ -43,40 +65,54 @@ const Login = () => {
   };
 
   return (
-    <div className="exex">
-      <h3>로그인</h3>
-      <div className="idid">
-        아이디
-        <input
-          ref={idInput}
-          id="id"
-          type="text"
-          defaultValue={userid.value}
-          onChange={(e) => checkUserId(e.target.value)}
-        />
-        <span hidden={userid.hidden}>{userid.text}</span>
-      </div>
-      <div className="passpass">
-        비번
-        <input
-          ref={passwordInput}
-          id="password"
-          type="text"
-          defaultValue={userPassword.value}
-          onChange={(e) => checkUserPassword(e.target.value)}
-        />
-        <span hidden={userPassword.hidden}>{userPassword.text}</span>
-      </div>
-      <div className="finfin">
-        <button
+    <LoginContainer>
+      <LoginBox>
+        <LoginTitle>LOGIN</LoginTitle>
+        <IdBox>
+          <NameBox>User ID</NameBox>
+          <IdInput
+            ref={idInput}
+            id="id"
+            type="text"
+            defaultValue={userid.value}
+            onChange={(e) => checkUserId(e.target.value)}
+          />
+          <HiddenMessage hidden={userid.hidden}>{userid.text}</HiddenMessage>
+        </IdBox>
+
+        <PasswordBox>
+          <NameBox>비번</NameBox>
+          <PasswordInput
+            ref={passwordInput}
+            id="password"
+            type="text"
+            defaultValue={userPassword.value}
+            onChange={(e) => checkUserPassword(e.target.value)}
+          />
+          <HiddenMessage hidden={userPassword.hidden}>{userPassword.text}</HiddenMessage>
+        </PasswordBox>
+
+        <LinkBox>
+          <AutoLogin>자동로그인</AutoLogin>
+          <IdOrPwFind>ID/PW 찾기</IdOrPwFind>
+          <GoSignUp>회원가입</GoSignUp>
+        </LinkBox>
+
+        <LoginButton
           onClick={() => {
             userlogin();
           }}
         >
           로그인
-        </button>
-      </div>
-    </div>
+        </LoginButton>
+
+        <SnsLogin>
+          <GoogleLogin>Google</GoogleLogin>
+          <KakaoLogin />
+          <NaverLogin>Naver</NaverLogin>
+        </SnsLogin>
+      </LoginBox>
+    </LoginContainer>
   );
 };
 
