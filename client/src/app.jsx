@@ -5,6 +5,7 @@ import Mypage from './Components/Mypage';
 import Main from './Components/Main';
 import GlobalStyle from './globalStyle.jsx';
 import Signup from './Components/Signup';
+import Chat from './Components/Chat';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/footer" element={<Footer />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/chat" element={<Chat/ >} />
       </Routes>
     </>
   );
