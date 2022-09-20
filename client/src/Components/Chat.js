@@ -20,7 +20,7 @@ const Chat = () => {
 
 const ChatUI = () => {
 
-   const [ chatMsg, setChatMsg ] = useState('');
+   const [ chatMsg, setChatMsg ] = useState([]);
    const [msg , setMsg] = useState({user : ''});
 
     // let msg = {id : 'babo' , user: ''}
@@ -32,17 +32,17 @@ const ChatUI = () => {
     
       useEffect(() => {
         socket.on("message", (message) => {
-            setChatMsg([chatMsg,...message]);
+            setChatMsg([...chatMsg, message]);
         });
       }, [chatMsg]);
-
+      console.log(chatMsg)
 
     const messages = (e) => {
         let user = e.target.value;
         setMsg({user});
         if(e.key === 'Enter'){
             socket.emit("message", msg );
-            e.target.value = '';
+            setMsg({user : ''});
         }
        
     }
@@ -53,9 +53,16 @@ const ChatUI = () => {
             <div>
        
             </div>
-            <div>
-               {chatMsg}
-            </div>
+            
+               {chatMsg.map( (li,i) => {
+                return(
+                    <div key={i} className="chat_body">
+                        {li}
+                    </div>
+                    
+                )
+               })}
+           
         </ChatContainer>
         <ChatContainer>
             <label>

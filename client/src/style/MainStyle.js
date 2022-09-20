@@ -6,7 +6,7 @@ const MainContainer = styled.div`
   border: 1px solid black;
   margin-bottom: 50px;
   display: flex;
-justify-content: center;
+  justify-content: center;
 `;
 
 export { MainContainer} ; 
