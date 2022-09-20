@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
         
         // font-size
         --f-xsmall : 9px;
-        --f-small : 16px;
+        --f-small : 13px;
         --f-medium : 20px;
         --f-large : 28px;
         --f-xlarge : 36px;
