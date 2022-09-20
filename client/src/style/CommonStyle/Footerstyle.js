@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import GlobalStyle from '../../globalStyle.jsx';
 
 const FooterContainer = styled.div`
-  border-top: 1px solid black;
-  box-shadow: inset 3px 5px 1px black;
+  border-top: 1px solid var(--lightgray);
   width: 100%;
   height: 250px;
 `;
@@ -25,36 +24,26 @@ const FooterBottomBox = styled(AllSetting)`
   padding: 10px;
 `;
 
-const FooterTitle = styled(AllSetting)`
-  justify-content: space-evenly;
-  margin: 20px 0;
-  font-weight: bold;
-  font-size: var(--f-medium);
-`;
-
-const FooterTop = styled(AllSetting)`
-  margin-left: 275px;
-  margin-right: 250px;
-  margin-bottom: 20px;
-  justify-content: space-around;
+const FooterContent = styled(AllSetting)`
+  margin: 20px 150px;
   flex-direction: column;
   p {
+    font-size: var(--f-small);
     cursor: pointer;
-    margin: 0px;
     padding: 5px;
   }
-  .intro {
-    padding: 3px;
+  h3 {
+    margin: 20px;
   }
 `;
 
 const FooterBottom = styled.div`
   font-size: var(--f-xsmall);
-  margin: 0 10px;
+  margin: 10px 10px;
   .service {
     font-size: var(--f-xsmall);
     width: 455px;
   }
 `;
 
-export { FooterContainer, FooterTopBox, FooterTop, FooterBottomBox, FooterBottom, FooterTitle };
+export { FooterContainer, FooterTopBox, FooterContent, FooterBottomBox, FooterBottom };
