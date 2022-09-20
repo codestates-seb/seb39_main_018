@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # seb39_main_Team_018
 ### 😎 인원 
 |역할|이름|
@@ -18,3 +19,23 @@
 https://www.figma.com/file/OjNyJIT2pJ3zU6CrzaQh7m/Stack-OverFlow?node-id=0%3A1
 
 ## 🗽 스키마 & API 설계
+=======
+### Client setup
+
+```Md
+SEB_MAIN_018
+
+client
+└───src
+│   └───App.js
+│   └───index.js
+|   └───index.html
+|   └───index.css
+└───.eslintrc.json
+└───.prettierrc.json
+└───babel.config.js
+└───package-lock.json
+└───package.json
+└───webpack.config.json
+```
+>>>>>>> 4b6e5d2e0183d2b2ec9c70d1fcb955aea3546df9
