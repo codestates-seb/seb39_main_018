@@ -29,6 +29,10 @@ const Sell = styled(AllSets)`
   background: var(--gray);
   font-size: var(--f-small);
   color: var(--white);
+  ${Sell}:hover {
+    background: var(--lightgray);
+  }
+
   .text {
     margin-left: 20px;
   }
@@ -92,6 +96,10 @@ const PostAllSets = styled(AllSets)`
   border-radius: var(--b-medium);
   box-shadow: -2px -2px 10px, 10px 3px 15px var(--gray);
   background: var(--lightgray);
+  ${PostAllSets}:active {
+    box-shadow: inset 3px 3px 10px;
+    background: var(--lightgray);
+  }
 `;
 
 const Edit = styled(PostAllSets)``;
