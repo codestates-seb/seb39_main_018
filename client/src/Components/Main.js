@@ -4,14 +4,14 @@ import Header from '../common/Header';
 import BtnComponent from '../common/ui/Button';
 import Chat from './Chat';
 import Detail from './PostDetail';
-import Tag from '../common/ui/Tag';
+import TagUI from '../common/ui/Tag';
 import { MainContainer } from '../style/MainStyle';
 
 const Main = () => {
   return (
     <>
       <Header />
-      <BtnComponent/>
+      <Detail />
       <Footer />
     </>
   );
@@ -20,7 +20,7 @@ const Main = () => {
 const MainPage = () => {
   return (
     <MainContainer>
-      <Tag />
+      <TagUI />
     </MainContainer>
   );
 };

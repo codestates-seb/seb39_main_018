@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-const TagContainer = styled.div`
-  margin: 20px;
+const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +14,7 @@ const TagContainer = styled.div`
   color: white;
   cursor: pointer;
 
-  ${TagContainer}:hover {
+  ${Container}:hover {
     background: pink;
     .tag_cancel {
       display: block;
@@ -31,51 +30,35 @@ const TagContainer = styled.div`
     position: relative;
     font-size: 13px;
   }
-
-  .circle1 {
-    position: absolute;
-    left: -11px;
-    top: -11px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
-    content: '';
-  }
-  .circle2 {
-    position: absolute;
-    right: -11px;
-    top: -11px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
-    content: '';
-  }
-  .circle3 {
-    position: absolute;
-    left: -11px;
-    bottom: -11px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
-    content: '';
-  }
-  .circle4 {
-    position: absolute;
-    right: -11px;
-    bottom: -11px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
-    content: '';
-  }
 `;
 
-const Tag1 = styled(TagContainer)``;
+//-- 태그 모서리 둥글게 깍는 요소
+const CircleSet = styled.div`
+  position: absolute;
+  right: -11px;
+  bottom: -11px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--lightgray);
+  content: '';
+`;
+const Circle1 = styled(CircleSet)`
+  left: -11px;
+  top: -11px;
+`;
+const Circle2 = styled(CircleSet)`
+  right: -11px;
+  top: -11px;
+`;
+const Circle3 = styled(CircleSet)`
+  left: -11px;
+  bottom: -11px;
+`;
+const Circle4 = styled(CircleSet)`
+  right: -11px;
+  bottom: -11px;
+`;
+/// -------------------------------
 
-const Tag2 = styled(TagContainer)``;
-
-export default { TagContainer, Tag1, Tag2 };
+export default { Container, Circle1, Circle2, Circle3, Circle4 };
