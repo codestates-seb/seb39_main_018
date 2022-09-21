@@ -8,6 +8,7 @@ import Signup from './Components/Signup';
 import Chat from './Components/Chat';
 import Logout from './Components/Logout';
 import Login from './Components/Login';
+import Kakao from './Components/SocialLogin/Kakao';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/oauth/callback/kakao" element={<Kakao />} />
       </Routes>
     </>
   );

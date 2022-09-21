@@ -40,6 +40,9 @@ module.exports = {
     new webpack.DefinePlugin({
       process: { env: {} },
     }),
+    new webpack.DefinePlugin({
+      KAKAO_CLIENT_ID: JSON.stringify(process.env.KAKAO_CLIENT_ID),
+    }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
