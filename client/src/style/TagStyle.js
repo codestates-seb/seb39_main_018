@@ -14,23 +14,23 @@ const TagContainer = styled.div`
   font-size: var(--f-xsmall);
   color: white;
   cursor: pointer;
-  
+
   ${TagContainer}:hover {
-      background: pink;
-      .tag_cancel {
-        display: block;
-    }
-    }
-   
-    p {
-        margin: 3px;
-    }
-    
+    background: pink;
     .tag_cancel {
-      display: none;
-      position: relative;
-      font-size: 13px;
+      display: block;
     }
+  }
+
+  p {
+    margin: 3px;
+  }
+
+  .tag_cancel {
+    display: none;
+    position: relative;
+    font-size: 13px;
+  }
 
   .circle1 {
     position: absolute;
@@ -74,4 +74,8 @@ const TagContainer = styled.div`
   }
 `;
 
-export { TagContainer };
+const Tag1 = styled(TagContainer)``;
+
+const Tag2 = styled(TagContainer)``;
+
+export default { TagContainer, Tag1, Tag2 };

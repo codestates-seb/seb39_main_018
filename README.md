@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # seb39_main_Team_018
 ### 😎 인원 
 |역할|이름|
@@ -38,4 +38,3 @@ client
 └───package.json
 └───webpack.config.json
 ```
->>>>>>> 4b6e5d2e0183d2b2ec9c70d1fcb955aea3546df9

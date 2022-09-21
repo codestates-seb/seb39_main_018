@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { PostPageBtn } from './ButtonStyle';
 
 const PostContainer = styled.div`
   width: 100%;
@@ -50,13 +51,19 @@ const InfoTop = styled.div`
   width: 100%;
   height: 20%;
   border-bottom: 1px solid black;
-  p,h2 {
+  p,
+  h2 {
     padding: 10px;
   }
 `;
 const InfoBottom = styled(InfoTop)`
   border: none;
   height: 80%;
+`;
+const BtnComponent = styled.div`
+  width: 95%;
+  margin: 15px;
+  display: flex;
 `;
 
 const PicListCntr = styled(AllSetting)`
@@ -80,4 +87,5 @@ export {
   BoardCntr,
   SellerCntr,
   Category,
+  BtnComponent,
 };

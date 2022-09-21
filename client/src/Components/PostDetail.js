@@ -1,4 +1,5 @@
 import React from 'react';
+import { PostPageBtn } from '../style/ButtonStyle';
 import {
   PostContainer,
   PostContent,
@@ -10,6 +11,7 @@ import {
   BoardCntr,
   SellerCntr,
   Category,
+  BtnComponent,
 } from '../style/PostDetailStyle';
 
 const Detail = () => {
@@ -52,6 +54,12 @@ const PostInfo = () => {
         <p>기간 : 2022/10/22</p>
         <p>좌석 : J열 32번 , F열 12번</p>
         <p>태그 : 비행기표,캘리포니아,비즈니스석</p>
+        <BtnComponent>
+
+        </BtnComponent>
+        <BtnComponent>
+
+        </BtnComponent>
       </InfoBottom>
     </InfoCntr>
   );
