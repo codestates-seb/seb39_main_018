@@ -2,6 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
+
+console.log(process.env.KAKAO_CLIENT_ID);
 
 module.exports = {
   mode: 'development',
@@ -37,12 +40,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin({
-      process: { env: {} },
-    }),
-    new webpack.DefinePlugin({
-      KAKAO_CLIENT_ID: JSON.stringify(process.env.KAKAO_CLIENT_ID),
-    }),
+    new Dotenv(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',

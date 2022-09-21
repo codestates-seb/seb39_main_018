@@ -1,6 +1,6 @@
 import React from 'react';
 import { RiKakaoTalkFill } from 'react-icons/ri';
-import { KakaoLoginButton } from './KakaoLoginStyle';
+import { KakaoLoginButton } from './KakaoLoginStyle.js';
 
 const KAKA0_HOST = 'https://kauth.kakao.com/oauth/authorize';
 const ClientID = process.env.KAKAO_CLIENT_ID;

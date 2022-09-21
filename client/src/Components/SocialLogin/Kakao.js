@@ -2,7 +2,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
-import Main from '../Main';
+import Main from '../Main.js';
 import { useNavigate } from 'react-router-dom';
 
 const Kakao = () => {
