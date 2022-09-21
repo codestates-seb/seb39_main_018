@@ -2,9 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
+const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-
-console.log(process.env.KAKAO_CLIENT_ID);
 
 module.exports = {
   mode: 'development',
@@ -19,6 +18,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'docs'),
     },
+    hot: true,
     compress: true,
     port: 3003,
     historyApiFallback: true,
@@ -31,6 +31,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: ['react-refresh/babel'],
         },
       },
       {
@@ -41,6 +42,9 @@ module.exports = {
   },
   plugins: [
     new Dotenv(),
+
+    new RefreshWebpackPlugin(),
+
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',

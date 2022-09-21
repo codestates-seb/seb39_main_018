@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <>
       <Header />
-      <BtnComponent/>
+      <BtnComponent />
       <Footer />
     </>
   );

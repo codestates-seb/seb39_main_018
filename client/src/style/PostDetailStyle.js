@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PostPageBtn } from './ButtonStyle';
 
-const PostContainer = styled.div`
+const Container = styled.div`
   width: 100%;
   min-height: 500px;
   border: 1px solid black;
@@ -9,16 +9,12 @@ const PostContainer = styled.div`
   justify-content: center;
 `;
 
-const PostContent = styled(PostContainer)`
+const Content = styled(Container)`
   width: 80%;
   border: 1px solid black;
   padding: 10px;
   flex-wrap: wrap;
   align-items: center;
-  .product_info {
-    width: 100%;
-    padding: 30px;
-  }
 `;
 
 const AllSetting = styled.div`
@@ -40,11 +36,12 @@ const Category = styled(AllSetting)`
     flex-direction: row;
   }
 `;
-const PicCntr = styled(AllSetting)`
+const Picture = styled(AllSetting)`
   width: 49%;
 `;
 
-const InfoCntr = styled(AllSetting)`
+//-- 판매 정보 컴포넌트
+const Info = styled(AllSetting)`
   width: 49%;
 `;
 const InfoTop = styled.div`
@@ -52,7 +49,7 @@ const InfoTop = styled.div`
   height: 20%;
   border-bottom: 1px solid black;
   p,
-  h2 {
+  h1 {
     padding: 10px;
   }
 `;
@@ -60,32 +57,53 @@ const InfoBottom = styled(InfoTop)`
   border: none;
   height: 80%;
 `;
-const BtnComponent = styled.div`
-  width: 95%;
-  margin: 15px;
+const InfoSet = styled.div`
+  width: 100%;
   display: flex;
+  align-items: center;
+  margin: 10px 0;
+  .title {
+    font-size: var(--f-medium);
+  }
+  .data {
+    font-size: var(--f-small);
+  }
 `;
 
-const PicListCntr = styled(AllSetting)`
+const StartDate = styled(InfoSet)``;
+const EndDate = styled(InfoSet)``;
+const Seat = styled(InfoSet)``;
+const Tags = styled(InfoSet)`
+  margin: 0 10px;
+`;
+const Btn = styled(InfoSet)``;
+
+///--------------------------------------
+
+const PicList = styled(AllSetting)`
   width: 100%;
   height: 200px;
 `;
 
-const BoardCntr = styled(PicListCntr)`
+const Board = styled(PicList)`
   height: 300px;
 `;
-const SellerCntr = styled(PicListCntr)``;
+const Seller = styled(PicList)``;
 
-export {
-  PostContainer,
-  PostContent,
-  PicCntr,
+export default {
+  Container,
+  Content,
+  Picture,
+  Info,
   InfoTop,
   InfoBottom,
-  InfoCntr,
-  PicListCntr,
-  BoardCntr,
-  SellerCntr,
+  PicList,
+  Board,
+  Seller,
   Category,
-  BtnComponent,
+  StartDate,
+  EndDate,
+  Seat,
+  Tags,
+  Btn,
 };
