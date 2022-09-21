@@ -58,8 +58,10 @@ const InfoBottom = styled(InfoTop)`
   height: 80%;
 `;
 const InfoSet = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
+  margin: 10px 0;
   .title {
     font-size: var(--f-medium);
   }
@@ -72,9 +74,10 @@ const StartDate = styled(InfoSet)``;
 const EndDate = styled(InfoSet)``;
 const Seat = styled(InfoSet)``;
 const Tags = styled(InfoSet)`
-  
-  
+  margin: 0 10px;
 `;
+const Btn = styled(InfoSet)``;
+
 ///--------------------------------------
 
 const PicList = styled(AllSetting)`
@@ -102,4 +105,5 @@ export default {
   EndDate,
   Seat,
   Tags,
+  Btn,
 };

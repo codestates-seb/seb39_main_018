@@ -20,6 +20,26 @@ const TagUI = () => {
         <Tag.Circle3 />
         <Tag.Circle4 />
       </Tag.Container>
+      <Tag.Container>
+        <p className="tag_text">비행기티켓</p>
+        <p className="tag_cancel">
+          <MdCancel />
+        </p>
+        <Tag.Circle1 />
+        <Tag.Circle2 />
+        <Tag.Circle3 />
+        <Tag.Circle4 />
+      </Tag.Container>
+      <Tag.Container>
+        <p className="tag_text">솔트</p>
+        <p className="tag_cancel">
+          <MdCancel />
+        </p>
+        <Tag.Circle1 />
+        <Tag.Circle2 />
+        <Tag.Circle3 />
+        <Tag.Circle4 />
+      </Tag.Container>
     </>
   );
 };
