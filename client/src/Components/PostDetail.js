@@ -1,6 +1,7 @@
 import React from 'react';
 import Post from '../style/PostDetailStyle';
 import TagUI from '../common/ui/Tag';
+import { MessageBtn } from '../common/ui/Button';
 
 const Detail = () => {
   return (
@@ -43,16 +44,19 @@ const PostInfo = () => {
           <p className="data">7시간전</p>
         </Post.StartDate>
         <Post.EndDate>
-        <p className="title">기간 :</p>
-        <p className="data">2022/10/22</p>
+          <p className="title">기간 :</p>
+          <p className="data">2022/10/22</p>
         </Post.EndDate>
         <Post.Seat>
-        <p className="title">좌석 : </p>
+          <p className="title">좌석 : </p>
           <p className="data">J열 32번 , F열 12번</p>
         </Post.Seat>
         <Post.Tags>
-        <TagUI></TagUI>
+          <TagUI />
         </Post.Tags>
+        <Post.Btn>
+          <MessageBtn></MessageBtn>
+        </Post.Btn>
       </Post.InfoBottom>
     </Post.Info>
   );
