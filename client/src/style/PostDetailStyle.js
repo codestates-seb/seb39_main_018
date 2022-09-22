@@ -20,14 +20,14 @@ const Content = styled(Container)`
 const AllSetting = styled.div`
   background: var(--lightgray);
   margin-right: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: 600px;
   min-width: 350px;
   height: 500px;
 `;
 
 const Category = styled(AllSetting)`
-  width: 100%;
+  position: fixed;
   height: 30px;
   margin: 10px 10px;
   .category_list {
@@ -79,13 +79,16 @@ const Tags = styled(InfoSet)`
 const Btn = styled(InfoSet)`
   justify-content: space-between;
   flex-wrap: wrap;
+  height: 35px;
   .top {
     margin: 8px;
     width: 100%;
+    height: 100%;
     border: 1px solid blue;
   }
   .bottom1,
   .bottom2 {
+    height: 100%;
     width: 45%;
     margin: 8px;
   }
@@ -97,7 +100,7 @@ const Btn = styled(InfoSet)`
 const PicList = styled(AllSetting)`
   display: flex;
   align-items: center;
-  justify-content :center;
+  justify-content: center;
   width: 100%;
   height: 200px;
 
@@ -118,9 +121,27 @@ const NextPicture = styled.div`
 
 ///--------------------------------------
 
+// -- 상품 설명 보드
 const Board = styled(PicList)`
   height: 300px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  .title {
+    width: 98%;
+    margin: 10px;
+    border: 1px solid black;
+    font-size: var(--f-medium);
+  }
+  .body {
+    width: 98%;
+    margin: 10px;
+    border: 1px solid black;
+  }
 `;
+
+///--------------------------------------
+
 const Seller = styled(PicList)``;
 
 export default {
