@@ -41,7 +41,7 @@ const PostInfo = () => {
   return (
     <Post.Info>
       <Post.InfoTop>
-        <h1>인천 캘리포니아행 티켓 팝니다.</h1>
+        <h1>부산 가는 KTX 표 팝니다.</h1>
         <p>150,000 원</p>
       </Post.InfoTop>
       <Post.InfoBottom>
