@@ -3,25 +3,8 @@ import { useState } from 'react';
 import { get } from '../util/axios';
 import { useRef } from 'react';
 import KakaoLogin from './SocialLogin/KakaoLogin';
-import {
-  LoginContainer,
-  LoginTitle,
-  IdBox,
-  LoginBox,
-  NameBox,
-  IdInput,
-  HiddenMessage,
-  PasswordBox,
-  PasswordInput,
-  LinkBox,
-  AutoLogin,
-  IdOrPwFind,
-  GoSignUp,
-  LoginButton,
-  SnsLogin,
-  GoogleLogin,
-  NaverLogin,
-} from '../style/LoginStyle';
+import Logins from '../style/LoginStyle';
+import NaverLogin from './SocialLogin/NaverLogin';
 
 const Login = () => {
   const idInput = useRef();
@@ -65,54 +48,57 @@ const Login = () => {
   };
 
   return (
-    <LoginContainer>
-      <LoginBox>
-        <LoginTitle>LOGIN</LoginTitle>
-        <IdBox>
-          <NameBox>User ID</NameBox>
-          <IdInput
+    <Logins.Container>
+      <Logins.Box>
+        <Logins.Title>LOGIN</Logins.Title>
+        <Logins.IdBox>
+          <Logins.NameBox>User ID</Logins.NameBox>
+          <Logins.IdInput
             ref={idInput}
             id="id"
             type="text"
             defaultValue={userid.value}
             onChange={(e) => checkUserId(e.target.value)}
           />
-          <HiddenMessage hidden={userid.hidden}>{userid.text}</HiddenMessage>
-        </IdBox>
+          <Logins.HiddenMessage hidden={userid.hidden}>{userid.text}</Logins.HiddenMessage>
+        </Logins.IdBox>
 
-        <PasswordBox>
-          <NameBox>비번</NameBox>
-          <PasswordInput
+        <Logins.PasswordBox>
+          <Logins.NameBox>비번</Logins.NameBox>
+          <Logins.PasswordInput
             ref={passwordInput}
             id="password"
             type="text"
             defaultValue={userPassword.value}
             onChange={(e) => checkUserPassword(e.target.value)}
           />
-          <HiddenMessage hidden={userPassword.hidden}>{userPassword.text}</HiddenMessage>
-        </PasswordBox>
+          <Logins.HiddenMessage hidden={userPassword.hidden}>
+            {userPassword.text}
+          </Logins.HiddenMessage>
+        </Logins.PasswordBox>
 
-        <LinkBox>
-          <AutoLogin>자동로그인</AutoLogin>
-          <IdOrPwFind>ID/PW 찾기</IdOrPwFind>
-          <GoSignUp>회원가입</GoSignUp>
-        </LinkBox>
+        <Logins.LinkBox>
+          <Logins.AutoLogin>자동로그인</Logins.AutoLogin>
+          <Logins.IdOrPwFind>ID/PW 찾기</Logins.IdOrPwFind>
+          <Logins.GoSignUp>회원가입</Logins.GoSignUp>
+        </Logins.LinkBox>
 
-        <LoginButton
+        <Logins.Button
           onClick={() => {
             userlogin();
           }}
         >
           로그인
-        </LoginButton>
+        </Logins.Button>
 
-        <SnsLogin>
-          <GoogleLogin>Google</GoogleLogin>
+        <Logins.SnsLogin>
+          <Logins.GoogleLogin>Google</Logins.GoogleLogin>
           <KakaoLogin />
-          <NaverLogin>Naver</NaverLogin>
-        </SnsLogin>
-      </LoginBox>
-    </LoginContainer>
+          <NaverLogin />
+          <Logins.NaverLogin>Naver</Logins.NaverLogin>
+        </Logins.SnsLogin>
+      </Logins.Box>
+    </Logins.Container>
   );
 };
 
