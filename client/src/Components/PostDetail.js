@@ -2,7 +2,7 @@ import React from 'react';
 import Post from '../style/PostDetailStyle';
 import TagUI from '../common/ui/Tag';
 import { LikeBtn, MessageBtn, ReadBtn } from '../common/ui/Button';
-import { AiOutlineRight, AiOutlineLeft } from '../Components/icons/Icons';
+import { LeftIcon, RightIcon, CheckIcon } from '../Components/icons/Icons';
 
 const Detail = () => {
   return (
@@ -14,6 +14,7 @@ const Detail = () => {
         <PictureList />
         <PostBoard />
         <PostSeller />
+        <SellerReviews />
       </Post.Content>
     </Post.Container>
   );
@@ -85,14 +86,14 @@ const PictureList = () => {
   return (
     <Post.PicList>
       <div className="list_icon">
-        <AiOutlineLeft />
+        <LeftIcon />
       </div>
       <Post.NextPicture />
       <Post.NextPicture />
       <Post.NextPicture />
       <Post.NextPicture />
       <div className="list_icon">
-        <AiOutlineRight />
+        <RightIcon />
       </div>
     </Post.PicList>
   );
@@ -101,19 +102,115 @@ const PictureList = () => {
 // 상세페이지 상품설명 컴포넌트
 const PostBoard = () => {
   return (
-    <Post.Board>
-      <div className="title">상품설명</div>
+    <Post.Description>
+      <div className="item_title">상품설명</div>
       <div className="body">
         25일 출발인데 사정이 생겨 가지 못하게 되었네요 ..ㅠ 충분히 저렴하게 올려서 에눌 문의는
         차단합니다. 반품 X 교환 X 신중하게 구매하실분만 톡 ㄱㄱ
       </div>
-    </Post.Board>
+      <Post.SubInfo>
+        <Post.SellArea>
+          <p className="subinfo_title">거래지역</p>
+          <p className="subinfo_body">서울시 강남구 신사동</p>
+        </Post.SellArea>
+        <Post.Views>
+          <p className="subinfo_title">조회수</p>
+          <p className="subinfo_title">21</p>
+        </Post.Views>
+      </Post.SubInfo>
+    </Post.Description>
   );
 };
 
 // 상세페이지 판매자 컴포넌트
 const PostSeller = () => {
-  return <Post.Seller></Post.Seller>;
+  return (
+    <Post.Seller>
+      <Post.SellerTitle>판매자</Post.SellerTitle>
+      <Post.SellerInfo>
+        <div className="img">
+          <img src="https://i.pinimg.com/474x/07/08/ff/0708ff1a9c43249e39813d1c262adb34--amumu-league-of-legends-league-of-legends-tattoo.jpg" />
+        </div>
+        <div className="infoBox">
+          <p>최붕대 님</p>
+          <div className="rating_info">
+            <p>★★★★★</p>
+            <p>상품</p>
+            <p>10</p>
+            <p>후기</p>
+            <p>22</p>
+          </div>
+          <div className="area_auth">
+            <p>
+              <CheckIcon />
+            </p>
+            <p>지역인증 완료</p>
+          </div>
+        </div>
+      </Post.SellerInfo>
+      <Post.Btn>
+        <div className="bottom2">
+          <LikeBtn />
+        </div>
+        <div className="bottom2">
+          <LikeBtn />
+        </div>
+      </Post.Btn>
+    </Post.Seller>
+  );
+};
+
+const SellerReviews = () => {
+  return (
+    <Post.Review>
+      <div className="item_title">
+        <p className="title_text">거래후기</p>
+        <p className="title_reviews">(7++)</p>
+      </div>
+      <Post.ReviewInfo>
+        <div className="review">
+          <div className="profile">
+            <div className="img"></div>
+            <p className="user_name">라떼한잔</p>
+          </div>
+          <div className="rating">
+            <p className="starIcon">★★★★★</p>
+            <p className="review_date">2022-09-18</p>
+          </div>
+          <div className="rebiew_body">
+          덕분에 남자친구랑 전시회 저렴하게 다녀 올 수 있었습니다ㅎㅎ
+          </div>
+        </div>
+        <div className="review">
+          <div className="profile">
+            <div className="img"></div>
+            <p className="user_name">김계란</p>
+          </div>
+          <div className="rating">
+            <p className="starIcon">★★★★★</p>
+            <p className="review_date">2022-09-18</p>
+          </div>
+          <div className="rebiew_body">
+            신세계 상품권 구매했는데 거의 반값에 구매해서 덕분에 닭가슴살 3배로 구매 했내요
+            감사합니당
+          </div>
+        </div>
+        <div className="review">
+          <div className="profile">
+            <div className="img"></div>
+            <p className="user_name">니네집난장판</p>
+          </div>
+          <div className="rating">
+            <p className="starIcon">★★★★★</p>
+            <p className="review_date">2022-09-18</p>
+          </div>
+          <div className="rebiew_body">
+          AOMG 공연 잘봄 ㄱㅅ
+          </div>
+        </div>
+      </Post.ReviewInfo>
+    </Post.Review>
+  );
 };
 
 export default Detail;

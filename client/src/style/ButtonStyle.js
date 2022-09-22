@@ -104,7 +104,7 @@ const XXBtn2 = styled(XXBtn)`
 // --- 게시글 조회,수정,삭제,좋아요,메세지 버튼모음
 const PostAllSets = styled(AllSets)`
   height: 100%;
-  border-radius: var(--b-medium);
+  border-radius: var(--b-small);
   box-shadow: -2px -2px 10px, 10px 3px 15px var(--gray);
   background: var(--lightgray);
   ${PostAllSets}:active {
