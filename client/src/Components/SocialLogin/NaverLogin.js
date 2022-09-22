@@ -41,9 +41,7 @@ const NaverLogin = () => {
     <>
       <NaverIdLogin ref={naverRef} id="naverIdLogin" />
       <NaverLoginBtn onClick={handleNaverLogin}>
-        <SiNaver
-          style={{ color: 'white', width: 30, height: 30, marginLeft: 10, backgroundSize: 30 }}
-        />
+        <SiNaver style={{ color: 'white', width: 15, height: 15 }} />
         <NaverLoginTitle>네이버 로그인</NaverLoginTitle>
       </NaverLoginBtn>
     </>
@@ -58,16 +56,24 @@ const NaverIdLogin = styled.div`
 
 const NaverLoginBtn = styled.button`
   display: flex;
+  width: 100%;
+  height: 40px;
+  padding: 9px 12px;
+  outline: none;
   align-items: center;
-  width: 360px;
-  height: 56px;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
   background-color: #03c75a;
-  border-radius: 6px;
+  margin-bottom: 10px;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 const NaverLoginTitle = styled.span`
-  margin-left: 90px;
-  font-weight: 400;
+  margin-left: 130px;
   font-size: 14px;
-  line-height: 24px;
+  font-weight: lighter;
+  color: #fff;
 `;

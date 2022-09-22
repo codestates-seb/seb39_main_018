@@ -1,55 +1,159 @@
 import styled from 'styled-components';
 
-const Container = styled.div``;
+const Container = styled.div`
+  margin: 0 auto;
+  /* padding: 60px 0 160px; */
+  width: 400px;
 
-const Box = styled.div``;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, AppleSDGothicNeo-Regular, NanumBarunGothic,
+    NanumGothic, 나눔고딕, Segoe UI, Helveica, Arial, Malgun Gothic, Dotum, sans-serif;
+`;
 
-const Title = styled.h3``;
+const Box = styled.div`
+  margin: 0;
+  padding: 0;
+`;
 
-const IdBox = styled.div``;
+const TopHeader = styled.div`
+  margin-bottom: 40px;
+  text-align: center;
+`;
 
-const NameBox = styled.div``;
+const Title = styled.h3`
+  display: block;
+  padding: 30px 0 0 0;
+  font-size: 25px;
+  font-weight: 900;
+  font-style: italic;
+  color: #111;
+`;
 
-const IdInput = styled.input``;
+const SubTitle = styled.h3`
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+`;
 
-const HiddenMessage = styled.span``;
+const IdBox = styled.div`
+  position: relative;
+  padding: 20px 0 20px;
+`;
 
-const PasswordBox = styled.div``;
+const NameBox = styled.div`
+  font-size: 13px;
+  font-weight: 640;
+  line-height: 18px;
+`;
 
-const PasswordInput = styled.input``;
+const InputBox = styled.input`
+  position: relative;
+  padding-right: 30px;
+  height: 38px;
+  width: 92.5%;
+  font-size: 13px;
+  letter-spacing: -0.15px;
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 10, 0.2);
 
-const LinkBox = styled.div``;
+  &:focus {
+    border-bottom: 1px solid #111;
+  }
+`;
 
-const AutoLogin = styled.a``;
+const HiddenMessage = styled.span`
+  display: block;
+  position: absolute;
+  line-height: 16px;
+  letter-spacing: -0.4px;
+  font-size: 11px;
+  color: rgba(900, 20, 0, 0.7);
+`;
 
-const IdOrPwFind = styled.a``;
+const PasswordBox = styled.div`
+  padding-top: 15px;
+  padding-bottom: 25px;
+`;
 
-const GoSignUp = styled.a``;
+const LinkBox = styled.div`
+  display: flex;
+  margin: 0;
+  border: 0;
+  font-size: 12px;
+  color: #8d8d8d;
+  padding-bottom: 20px;
+`;
 
-const Button = styled.button``;
+const AutoLogin = styled.a`
+  padding-left: 5px;
+`;
 
-const SnsLogin = styled.div``;
+const IdOrPwFind = styled.a`
+  transform: translateX(235px);
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
-const GoogleLogin = styled.div``;
+const Button = styled.button`
+  width: 100%;
+  height: 40px;
+  padding: 9px 12px;
+  outline: none;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  font-weight: lighter;
+  background-color: #ebebeb;
+  color: #fff;
+  background-color: #222;
+  text-decoration: none;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
 
-const NaverLogin = styled.div``;
+  &:hover {
+    background-color: #222;
+    opacity: 0.8;
+    color: #fff;
+  }
+`;
+
+const GoSignUp = styled.div`
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 11px;
+`;
+
+const AreYouAMember = styled.a`
+  color: #bcbcbc;
+`;
+
+const RealJoin = styled.a`
+  padding-left: 7px;
+  text-decoration: underline;
+  color: #000;
+  cursor: pointer;
+`;
 
 export default {
   Container,
   IdBox,
   Box,
+  TopHeader,
   Title,
+  SubTitle,
   NameBox,
-  IdInput,
+  InputBox,
   HiddenMessage,
   PasswordBox,
-  PasswordInput,
   LinkBox,
   AutoLogin,
   IdOrPwFind,
   GoSignUp,
   Button,
-  SnsLogin,
-  GoogleLogin,
-  NaverLogin,
+  AreYouAMember,
+  RealJoin,
 };
