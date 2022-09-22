@@ -41,44 +41,44 @@ const PostPicture = () => {
 // 상세페이지 판매정보 컴포넌트
 const PostInfo = () => {
   return (
-    <Post.Info>
+    <Post.ItemInfo>
       <Post.InfoTop>
         <h1>부산 가는 KTX 표 팝니다.</h1>
         <p>150,000 원</p>
       </Post.InfoTop>
       <Post.InfoBottom>
         <Post.StartDate>
-          <p className="title">등록 :</p>
-          <p className="data">7시간전</p>
+          <p className="info_title">등록 :</p>
+          <p className="infor_data">7시간전</p>
         </Post.StartDate>
         <Post.EndDate>
-          <p className="title">기간 :</p>
-          <p className="data">2022/10/22</p>
+          <p className="info_title">기간 :</p>
+          <p className="infor_data">2022/10/22</p>
         </Post.EndDate>
         <Post.Seat>
-          <p className="title">좌석 : </p>
-          <p className="data">J열 32번 , F열 12번</p>
+          <p className="info_title">좌석 : </p>
+          <p className="infor_data">J열 32번 , F열 12번</p>
         </Post.Seat>
         <Post.Seat>
-          <p className="title">거래지역 : </p>
-          <p className="data">J열 32번 , F열 12번</p>
+          <p className="info_title">거래지역 : </p>
+          <p className="infor_data">J열 32번 , F열 12번</p>
         </Post.Seat>
         <Post.Tags>
           <TagUI />
         </Post.Tags>
         <Post.Btn>
-          <div className="bottom1">
+          <div className="top_btn">
             <LikeBtn />
           </div>
-          <div className="bottom2">
+          <div className="top_btn">
             <ReadBtn />
           </div>
-          <div className="top">
+          <div className="bottom_btn">
             <MessageBtn />
           </div>
         </Post.Btn>
       </Post.InfoBottom>
-    </Post.Info>
+    </Post.ItemInfo>
   );
 };
 // 상세페이지 사진 리스트 컴포넌트
@@ -131,7 +131,7 @@ const PostSeller = () => {
         <div className="img">
           <img src="https://i.pinimg.com/474x/07/08/ff/0708ff1a9c43249e39813d1c262adb34--amumu-league-of-legends-league-of-legends-tattoo.jpg" />
         </div>
-        <div className="infoBox">
+        <Post.InfoBox>
           <p>최붕대 님</p>
           <div className="rating_info">
             <p>★★★★★</p>
@@ -146,7 +146,7 @@ const PostSeller = () => {
             </p>
             <p>지역인증 완료</p>
           </div>
-        </div>
+        </Post.InfoBox>
       </Post.SellerInfo>
       <Post.Btn>
         <div className="bottom2">
@@ -178,7 +178,7 @@ const SellerReviews = () => {
             <p className="review_date">2022-09-18</p>
           </div>
           <div className="rebiew_body">
-          덕분에 남자친구랑 전시회 저렴하게 다녀 올 수 있었습니다ㅎㅎ
+            덕분에 남자친구랑 전시회 저렴하게 다녀 올 수 있었습니다ㅎㅎ
           </div>
         </div>
         <div className="review">
@@ -204,9 +204,7 @@ const SellerReviews = () => {
             <p className="starIcon">★★★★★</p>
             <p className="review_date">2022-09-18</p>
           </div>
-          <div className="rebiew_body">
-          AOMG 공연 잘봄 ㄱㅅ
-          </div>
+          <div className="rebiew_body">AOMG 공연 잘봄 ㄱㅅ</div>
         </div>
       </Post.ReviewInfo>
     </Post.Review>
