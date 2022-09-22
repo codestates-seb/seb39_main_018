@@ -20,7 +20,7 @@ const Content = styled(Container)`
 const AllSetting = styled.div`
   background: var(--lightgray);
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   width: 600px;
   min-width: 350px;
   height: 500px;
@@ -93,10 +93,30 @@ const Btn = styled(InfoSet)`
 
 ///--------------------------------------
 
+//--- 게시한 사진 리스트
 const PicList = styled(AllSetting)`
+  display: flex;
+  align-items: center;
+  justify-content :center;
   width: 100%;
   height: 200px;
+
+  .list_icon {
+    display: flex;
+    justify-content: center;
+    font-size: var(--f-xlarge);
+    width: 10%;
+  }
 `;
+
+const NextPicture = styled.div`
+  width: 20%;
+  height: 95%;
+  background: #ffffff;
+  margin: 0 10px;
+`;
+
+///--------------------------------------
 
 const Board = styled(PicList)`
   height: 300px;
@@ -111,6 +131,7 @@ export default {
   InfoTop,
   InfoBottom,
   PicList,
+  NextPicture,
   Board,
   Seller,
   Category,
