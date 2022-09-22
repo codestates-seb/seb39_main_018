@@ -76,7 +76,20 @@ const Seat = styled(InfoSet)``;
 const Tags = styled(InfoSet)`
   margin: 0 10px;
 `;
-const Btn = styled(InfoSet)``;
+const Btn = styled(InfoSet)`
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .top {
+    margin: 8px;
+    width: 100%;
+    border: 1px solid blue;
+  }
+  .bottom1,
+  .bottom2 {
+    width: 45%;
+    margin: 8px;
+  }
+`;
 
 ///--------------------------------------
 

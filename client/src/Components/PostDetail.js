@@ -1,7 +1,7 @@
 import React from 'react';
 import Post from '../style/PostDetailStyle';
 import TagUI from '../common/ui/Tag';
-import { MessageBtn } from '../common/ui/Button';
+import { LikeBtn, MessageBtn, ReadBtn } from '../common/ui/Button';
 
 const Detail = () => {
   return (
@@ -17,6 +17,8 @@ const Detail = () => {
     </Post.Container>
   );
 };
+
+// 상세페이지 상단 카테고리 컴포넌트
 const PostCategory = () => {
   return (
     <Post.Category>
@@ -28,9 +30,13 @@ const PostCategory = () => {
     </Post.Category>
   );
 };
+
+// 상세페이지 사진 컴포넌트
 const PostPicture = () => {
   return <Post.Picture></Post.Picture>;
 };
+
+// 상세페이지 판매정보 컴포넌트
 const PostInfo = () => {
   return (
     <Post.Info>
@@ -55,18 +61,31 @@ const PostInfo = () => {
           <TagUI />
         </Post.Tags>
         <Post.Btn>
-          <MessageBtn></MessageBtn>
+          <div className="bottom1">
+            <LikeBtn />
+          </div>
+          <div className="bottom2">
+            <ReadBtn />
+          </div>
+          <div className="top">
+            <MessageBtn />
+          </div>
         </Post.Btn>
       </Post.InfoBottom>
     </Post.Info>
   );
 };
+// 상세페이지 사진 리스트 컴포넌트
 const PictureList = () => {
   return <Post.PicList></Post.PicList>;
 };
+
+// 상세페이지 상품설명 컴포넌트
 const PostBoard = () => {
   return <Post.Board></Post.Board>;
 };
+
+// 상세페이지 판매자 컴포넌트
 const PostSeller = () => {
   return <Post.Seller></Post.Seller>;
 };
