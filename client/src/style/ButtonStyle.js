@@ -24,7 +24,7 @@ const Post = styled(Basic)``;
 
 const AllSets = styled.div`
   width: 100%;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -104,7 +104,7 @@ const XXBtn2 = styled(XXBtn)`
 
 // --- 게시글 조회,수정,삭제,좋아요,메세지 버튼모음
 const PostAllSets = styled(AllSets)`
-  padding: 20px;
+  padding: 20px 0;
   height: 20px;
   border-radius: var(--b-medium);
   box-shadow: -2px -2px 10px, 10px 3px 15px var(--gray);
