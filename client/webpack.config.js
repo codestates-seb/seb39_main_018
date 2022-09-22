@@ -5,7 +5,6 @@ const webpack = require('webpack');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
-
 module.exports = {
   mode: 'development',
   entry: './src/index.jsx',
@@ -48,6 +47,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    
   ],
 };

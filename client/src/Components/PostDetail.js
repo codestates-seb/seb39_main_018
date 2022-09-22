@@ -2,6 +2,7 @@ import React from 'react';
 import Post from '../style/PostDetailStyle';
 import TagUI from '../common/ui/Tag';
 import { LikeBtn, MessageBtn, ReadBtn } from '../common/ui/Button';
+import { AiOutlineRight, AiOutlineLeft } from '../Components/icons/Icons';
 
 const Detail = () => {
   return (
@@ -77,7 +78,20 @@ const PostInfo = () => {
 };
 // 상세페이지 사진 리스트 컴포넌트
 const PictureList = () => {
-  return <Post.PicList></Post.PicList>;
+  return (
+    <Post.PicList>
+      <div className="list_icon">
+        <AiOutlineLeft />
+      </div>
+      <Post.NextPicture />
+      <Post.NextPicture />
+      <Post.NextPicture />
+      <Post.NextPicture />
+      <div className="list_icon">
+        <AiOutlineRight />
+      </div>
+    </Post.PicList>
+  );
 };
 
 // 상세페이지 상품설명 컴포넌트
