@@ -58,6 +58,10 @@ const PostInfo = () => {
           <p className="title">좌석 : </p>
           <p className="data">J열 32번 , F열 12번</p>
         </Post.Seat>
+        <Post.Seat>
+          <p className="title">거래지역 : </p>
+          <p className="data">J열 32번 , F열 12번</p>
+        </Post.Seat>
         <Post.Tags>
           <TagUI />
         </Post.Tags>
@@ -96,7 +100,15 @@ const PictureList = () => {
 
 // 상세페이지 상품설명 컴포넌트
 const PostBoard = () => {
-  return <Post.Board></Post.Board>;
+  return (
+    <Post.Board>
+      <div className="title">상품설명</div>
+      <div className="body">
+        25일 출발인데 사정이 생겨 가지 못하게 되었네요 ..ㅠ 충분히 저렴하게 올려서 에눌 문의는
+        차단합니다. 반품 X 교환 X 신중하게 구매하실분만 톡 ㄱㄱ
+      </div>
+    </Post.Board>
+  );
 };
 
 // 상세페이지 판매자 컴포넌트

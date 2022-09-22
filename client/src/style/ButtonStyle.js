@@ -31,6 +31,7 @@ const AllSets = styled.div`
 `;
 const FrameTest = styled.div`
   width: 140px;
+  height: 40px;
 `;
 /// -------------------------------------- ///
 
@@ -65,8 +66,6 @@ const Sell = styled(AllSets)`
 // --- 등록,인증,탈퇴,확인,취소 버튼모음
 
 const BasicAllSet = styled(AllSets)`
-  height: 30px;
-  padding: 15px;
   border: 3px solid #ffffff;
   border-radius: var(--b-large);
   background: var(--lightgray);
@@ -104,8 +103,7 @@ const XXBtn2 = styled(XXBtn)`
 
 // --- 게시글 조회,수정,삭제,좋아요,메세지 버튼모음
 const PostAllSets = styled(AllSets)`
-  padding: 20px 0;
-  height: 20px;
+  height: 100%;
   border-radius: var(--b-medium);
   box-shadow: -2px -2px 10px, 10px 3px 15px var(--gray);
   background: var(--lightgray);
