@@ -1,4 +1,7 @@
-import { BsFillArrowRightCircleFill } from 'react-icons/bs';
-import { AiOutlineRightCircle } from 'react-icons/ai';
+import { AiOutlineRight , AiOutlineLeft} from 'react-icons/ai';
 
-export { BsFillArrowRightCircleFill, AiOutlineRightCircle };
+
+// 화살표 아이콘 BsFillArrowRightCircleFill , AiOutlineRightCircle
+
+
+export { AiOutlineRight , AiOutlineLeft};
