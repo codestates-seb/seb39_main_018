@@ -1,27 +1,31 @@
 import styled from 'styled-components';
 
 const KakaoLoginButton = styled.button`
-  width: 10%;
-  max-width: 15rem;
-  height: 2.5rem;
-  border: 0;
-  border-radius: 0.5rem;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding: 9px 12px;
+  outline: none;
+  align-items: center;
+  border-radius: 5px;
   background-color: #fee900;
-  cursor: pointer;
+  outline: none;
+  margin-bottom: 10px;
 
-  :hover {
-    background-color: #fee100;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
   }
 
   svg {
-    height: 1rem;
-    margin-right: 0.75rem;
+    font-size: 16px;
   }
 
   span {
-    font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.85);
-    vertical-align: bottom;
+    margin-left: 130px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: lighter;
   }
 `;
 

@@ -24,11 +24,11 @@ const Mypage = () => {
   return (
     <React.Fragment>
       <button onClick={openSignUpModal}>모달회원가입</button>
-      <Modal open={signUpModalOn} close={closeSignUpModal} header="모달 회원가입">
+      <Modal open={signUpModalOn} close={closeSignUpModal}>
         흑흑
       </Modal>
       <button onClick={openSignInModal}>모달로그인</button>
-      <Modal open={signInModalOn} close={closeSignInModal} header="모달 로그인">
+      <Modal open={signInModalOn} close={closeSignInModal}>
         <Login />
       </Modal>
     </React.Fragment>
