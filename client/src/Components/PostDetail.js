@@ -2,6 +2,8 @@ import React from 'react';
 import Post from '../style/PostDetailStyle';
 import TagUI from '../common/ui/Tag';
 import { LikeBtn, MessageBtn, ReadBtn } from '../common/ui/Button';
+import {BsFillArrowRightCircleFill}  from 'react-icons/bs'
+import {AiOutlineRightCircle} from 'react-icons/ai'
 
 const Detail = () => {
   return (
