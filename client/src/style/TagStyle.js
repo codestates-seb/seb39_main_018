@@ -5,9 +5,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 120px;
+  width: 100px;
   height: 40px;
-  margin: 10px;
+  margin: 20px 10px;
   border-radius: 10px;
   text-align: center;
   background: skyblue;
