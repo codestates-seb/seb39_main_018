@@ -29,11 +29,7 @@
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.1",
-    "dotenv": "^16.0.2",
-<<<<<<< HEAD
     "dotenv-webpack": "^8.0.1",
-=======
->>>>>>> 6d6987957ca0145a4a467deaee29bea6c9669ee9
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",

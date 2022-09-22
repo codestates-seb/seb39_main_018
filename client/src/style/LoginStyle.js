@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const LoginContainer = styled.div``;
+const Container = styled.div``;
 
-const LoginBox = styled.div``;
+const Box = styled.div``;
 
-const LoginTitle = styled.h3``;
+const Title = styled.h3``;
 
 const IdBox = styled.div``;
 
@@ -26,7 +26,7 @@ const IdOrPwFind = styled.a``;
 
 const GoSignUp = styled.a``;
 
-const LoginButton = styled.button``;
+const Button = styled.button``;
 
 const SnsLogin = styled.div``;
 
@@ -34,11 +34,11 @@ const GoogleLogin = styled.div``;
 
 const NaverLogin = styled.div``;
 
-export {
-  LoginContainer,
-  LoginTitle,
+export default {
+  Container,
   IdBox,
-  LoginBox,
+  Box,
+  Title,
   NameBox,
   IdInput,
   HiddenMessage,
@@ -48,7 +48,7 @@ export {
   AutoLogin,
   IdOrPwFind,
   GoSignUp,
-  LoginButton,
+  Button,
   SnsLogin,
   GoogleLogin,
   NaverLogin,

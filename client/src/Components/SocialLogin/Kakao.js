@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Kakao = () => {
   const navigate = useNavigate();
+
   useEffect(() => {
     let params = new URL(document.location.toString()).searchParams;
     let code = params.get('code'); // 인가코드
