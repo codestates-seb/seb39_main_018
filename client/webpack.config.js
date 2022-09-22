@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
+console.log(process.env.KAKAO_CLIENT_ID);
 
 module.exports = {
   mode: 'development',
@@ -43,11 +44,12 @@ module.exports = {
   },
   plugins: [
     new Dotenv(),
+
     new RefreshWebpackPlugin(),
+
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    
   ],
 };

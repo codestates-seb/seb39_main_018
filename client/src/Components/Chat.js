@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ChatContainer, Scrollbar, ChatContent } from '../style/ChatStyle';
 import io from 'socket.io-client';
 
-const endpoint = 'http://localhost:8080'; // heroku로 socket 배포한 서버
+const endpoint = 'https://jjjserver.herokuapp.com'; // heroku로 socket 배포한 서버
 let socket = io(endpoint, {
   cors: {
     origin: '*',
@@ -33,14 +33,13 @@ const ChatUI = () => {
       setChatMsg([...chatMsg, res]);
     });
     socket.on('inputMsg', (res) => {
-        setChatMsg([...chatMsg, res]);
-      });
+      setChatMsg([...chatMsg, res]);
+    });
   }, [chatMsg]);
 
-
   const inputHandle = (key) => (e) => {
-    if (key === 'id') setChatID({[key] : e.target.value });
-    setChatText({[key] : e.target.value });
+    if (key === 'id') setChatID({ [key]: e.target.value });
+    setChatText({ [key]: e.target.value });
   };
 
   const sendEnter = (e) => {
@@ -71,20 +70,12 @@ const ChatUI = () => {
         <ChatContent>
           <div className="iss">
             <label>아이디입력</label>
-            <input
-              onChange={inputHandle('id')}
-              onKeyUp={sendEnter}
-              value={chatText.id}
-            />
+            <input onChange={inputHandle('id')} onKeyUp={sendEnter} value={chatText.id} />
             <button onClick={send}>전송</button>
           </div>
           <div className="iss">
             <label>채팅입력</label>
-            <input
-              onChange={inputHandle('message')}
-              onKeyUp={sendEnter}
-              value={chatText.message}
-            />
+            <input onChange={inputHandle('message')} onKeyUp={sendEnter} value={chatText.message} />
             <button onClick={send}>전송</button>
           </div>
         </ChatContent>
