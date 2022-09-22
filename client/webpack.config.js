@@ -1,11 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
-const dotenv = require('dotenv');
-
-dotenv.config();
+const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -43,20 +41,11 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new RefreshWebpackPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    new webpack.DefinePlugin({
-      'process.env': JSON.stringify(procss.env),
-    }),
   ],
-  resolve: {
-    fallback: {
-      fs: false,
-      path: false,
-      os: false,
-    },
-  },
 };
