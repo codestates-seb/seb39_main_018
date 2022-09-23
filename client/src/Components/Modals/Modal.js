@@ -25,17 +25,11 @@ const Modal = (props) => {
     <div className={open ? 'modal open' : 'modal close'}>
       <section>
         <header>
-          {header}
           <button className="close" onClick={close}>
             &times;
           </button>
         </header>
         <main>{props.children}</main>
-        <footer>
-          <button className="close" onClick={close}>
-            close
-          </button>
-        </footer>
       </section>
     </div>
   );

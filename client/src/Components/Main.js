@@ -5,6 +5,7 @@ import BtnComponent from '../common/ui/Button';
 import Chat from './Chat';
 import Detail from './PostDetail';
 import Tag from '../common/ui/Tag';
+import InputComponent from '../common/ui/Input';
 import { MainContainer } from '../style/MainStyle';
 import DetailPage from '../pages/ItemDetail';
 
@@ -21,7 +22,7 @@ const Main = () => {
 const MainPage = () => {
   return (
     <MainContainer>
-      <Tag />
+      <InputComponent />
     </MainContainer>
   );
 };

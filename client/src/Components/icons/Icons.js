@@ -1,3 +1,4 @@
+
 import { AiOutlineRight, AiOutlineLeft } from 'react-icons/ai';
 import { BsFillPatchCheckFill } from 'react-icons/bs';
 
@@ -8,3 +9,8 @@ export {
   AiOutlineLeft as LeftIcon,
   BsFillPatchCheckFill as CheckIcon,
 };
+
+import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { AiOutlineRightCircle } from 'react-icons/ai';
+
+export { BsFillArrowRightCircleFill, AiOutlineRightCircle };
