@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const refreshPlugin = ['react-refresh/babel'];
+
 
 module.exports = {
   mode: 'development',
@@ -31,7 +33,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
-          plugins: ['react-refresh/babel'],
+          plugins: refreshPlugin,
         },
       },
       {
