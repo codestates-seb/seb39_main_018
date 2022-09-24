@@ -23,6 +23,7 @@ const SubTitle = styled.h3`
 const Certified = styled.div`
   width: 40%;
   transform: translate(285px, -40px);
+  margin-bottom: -40px;
 `;
 
 const CertifiedButton = styled.button`

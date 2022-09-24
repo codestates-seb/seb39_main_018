@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   margin: 0 auto;
-  /* padding: 60px 0 160px; */
   width: 400px;
 
   font-family: -apple-system, BlinkMacSystemFont, Roboto, AppleSDGothicNeo-Regular, NanumBarunGothic,
@@ -37,7 +36,7 @@ const SubTitle = styled.h3`
 const IdBox = styled.div`
   box-sizing: border-box;
   position: relative;
-  /* padding: 0 0 20px; */
+  padding-bottom: 25px;
 `;
 
 const NameBox = styled.div`
@@ -72,7 +71,6 @@ const HiddenMessage = styled.span`
 `;
 
 const PasswordBox = styled.div`
-  padding-top: 30px;
   padding-bottom: 25px;
 `;
 
