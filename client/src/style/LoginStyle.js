@@ -35,8 +35,9 @@ const SubTitle = styled.h3`
 `;
 
 const IdBox = styled.div`
+  box-sizing: border-box;
   position: relative;
-  padding: 20px 0 20px;
+  /* padding: 0 0 20px; */
 `;
 
 const NameBox = styled.div`
@@ -71,7 +72,7 @@ const HiddenMessage = styled.span`
 `;
 
 const PasswordBox = styled.div`
-  padding-top: 15px;
+  padding-top: 30px;
   padding-bottom: 25px;
 `;
 
