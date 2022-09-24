@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import KakaoLogin from './SocialLogin/KakaoLogin';
 import Logins from '../style/LoginStyle';
 import NaverLogin from './SocialLogin/NaverLogin';
+import axios from 'axios';
 
 const Login = () => {
   const idInput = useRef();
@@ -12,16 +13,32 @@ const Login = () => {
   const [userid, setUserId] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
-  const userlogin = async () => {
+  const userlogin = () => {
     if (userid !== '' && userPassword !== '') {
-      let parameter = {};
-      parameter = {
-        userid: userid.value,
-        userPassword: userPassword.value,
-      };
-      const loginClient = await get('url', parameter);
-      return loginClient;
+      axios
+        .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
+          headers: {},
+          id: id,
+          password: password,
+        })
+        .then((res) => {
+          resolve(res);
+          navigate('/');
+        })
+        .catch((err) => {
+          window.alert('로그인 실패!');
+          console.log(err);
+        });
     }
+
+    //   let parameter = {};
+    //   parameter = {
+    //     userid: userid.value,
+    //     userPassword: userPassword.value,
+    //   };
+    //   const loginClient = await get('url', parameter);
+    //   return loginClient;
+    // }
     if (userid === '') {
       idInput.current.focus();
     } else if (userPassword === '') {
