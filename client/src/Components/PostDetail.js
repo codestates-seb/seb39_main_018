@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Post from '../style/PostDetailStyle';
 import TagUI from '../common/ui/Tag';
 import { LikeBtn, MessageBtn, ReadBtn } from '../common/ui/Button';
 import { LeftIcon, RightIcon, CheckIcon } from '../Components/icons/Icons';
+import axios from 'axios';
+import saves from '../util/detailLogic';
 
 const Detail = () => {
+
+  let data = saves()
+  console.log(data);
+
+  // img , price , postedDate , endData, seat , area , tag,
+  // img
+  // description , area , views , 
+  // userimg , username , pricecount, reviewcount, area ? true false
+  // reviews , userimg , username , postedDate, description
+
+  
+
   return (
     <Post.Container>
       <Post.Content>
