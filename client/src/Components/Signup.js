@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { get } from '../util/axios';
 import { useState, useCallback } from 'react';
+import { useRef } from 'react';
 import Logins from '../style/LoginStyle';
 import Signups from '../style/SignupStyle';
-import Login from './Login';
 
 const Signup = () => {
   const navigate = useNavigate();
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState('');
+  const [id, setId] = useState({ value: '', text: '', hidden: true });
+  const [password, setPassword] = useState({ value: '', text: '', hidden: true });
+  const [passwordCheck, setPasswordCheck] = useState({ value: '', text: '', hidden: true });
   const [mismatchError, setMismatchError] = useState(false);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState({ value: '', text: '', hidden: true });
+
+  const emailInput = useRef();
+  const idInput = useRef();
+  const passwordInput = useRef();
+  const passwordCheckInput = useRef();
 
   const onChangePasswordCheck = useCallback(
     (e) => {
@@ -23,37 +27,38 @@ const Signup = () => {
     [password],
   );
 
-  async function register() {
-    if (id.value.length > 7 && email.value.includes('@') && !mismatchError) {
-      let parameter = {};
-      parameter = {
-        id: id.value,
-        password: password.value,
-        email: email.value,
-      };
-      const registerClient = await get(``, parameter);
-      return registerClient;
+  const register = () => {
+    if (email === '') {
+      emailInput.current.focus();
+      return;
+    } else if (id === '') {
+      idInput.current.focus();
+      return;
+    } else if (password === '') {
+      passwordInput.current.focus();
+      return;
+    } else if (passwordCheck === '') {
+      passwordCheckInput.current.focus();
+      return;
     }
-  }
 
-  // const register = () => {
-  //   if (id.value !== '' && email.value !== '' && password.value === passwordCheck.value) {
-  //     axios
-  //       .post('', {
-  //         headers: {},
-  //         id: id,
-  //         password: password,
-  //         email: email,
-  //       })
-  //       .then((res) => {
-  //         navigate('/');
-  //       })
-  //       .catch((err) => {
-  //         window.alert('회원가입 실패!');
-  //         console.log(err);
-  //       });
-  //   }
-  // };
+    if (email !== '' && id !== '' && !mismatchError) {
+      axios
+        .post('', {
+          headers: {},
+          id: id,
+          password: password,
+          email: email,
+        })
+        .then((res) => {
+          navigate('/');
+        })
+        .catch((err) => {
+          window.alert('회원가입 실패!');
+          console.log(err);
+        });
+    }
+  };
 
   const checkId = (value) => {
     let checkKor = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
@@ -115,8 +120,10 @@ const Signup = () => {
         </Logins.TopHeader>
 
         <Logins.IdBox>
-          <Logins.NameBox>이메일</Logins.NameBox>
+          <Logins.NameBox color={!email.hidden ? 'red' : 'black'}>이메일</Logins.NameBox>
           <Logins.InputBox
+            color={!email.hidden ? 'red' : 'black'}
+            ref={emailInput}
             id="email"
             type="email"
             placeholder="예) sort@sort.co.kr"
@@ -131,9 +138,11 @@ const Signup = () => {
         </Logins.IdBox>
 
         <Logins.IdBox>
-          <Logins.NameBox>
+          <Logins.NameBox color={!id.hidden ? 'red' : 'black'}>
             아이디
             <Logins.InputBox
+              color={!id.hidden ? 'red' : 'black'}
+              ref={idInput}
               id="id"
               type="text"
               defaultValue={id.value}
@@ -144,9 +153,11 @@ const Signup = () => {
         </Logins.IdBox>
 
         <Logins.PasswordBox>
-          <Logins.NameBox>
+          <Logins.NameBox color={!password.hidden ? 'red' : 'black'}>
             비밀번호
             <Logins.InputBox
+              color={!password.hidden ? 'red' : 'black'}
+              ref={passwordInput}
               id="password"
               type="password"
               defaultValue={password.value}
@@ -156,9 +167,11 @@ const Signup = () => {
           </Logins.NameBox>
         </Logins.PasswordBox>
         <Logins.PasswordBox>
-          <Logins.NameBox>
+          <Logins.NameBox color={!passwordCheck.hidden ? 'red' : 'black'}>
             비밀번호 확인
             <Logins.InputBox
+              color={!passwordCheck.hidden ? 'red' : 'black'}
+              ref={passwordCheckInput}
               id="password-check"
               type="password"
               defaultValue={passwordCheck.value}

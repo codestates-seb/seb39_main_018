@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './common/Footer';
 import Mypage from './Components/Mypage';
@@ -12,6 +12,10 @@ import Kakao from './Components/SocialLogin/Kakao';
 import Naver from './Components/SocialLogin/Naver';
 
 const App = () => {
+  useEffect(() => {
+    window.Kakao.init('7f72f6bd7dc714fa93bd9794498a7a2b');
+  }, []);
+
   return (
     <>
       <GlobalStyle />

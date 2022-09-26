@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useId } from 'react';
 import { useState } from 'react';
-import { get } from '../util/axios';
 import { useRef } from 'react';
 import KakaoLogin from './SocialLogin/KakaoLogin';
 import Logins from '../style/LoginStyle';
 import NaverLogin from './SocialLogin/NaverLogin';
 import axios from 'axios';
 
-const Login = () => {
+const Login = (props) => {
   const idInput = useRef();
   const passwordInput = useRef();
-  const [userid, setUserId] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const [userid, setUserId] = useState({ value: '', text: '', hidden: true });
+  const [userPassword, setUserPassword] = useState({ value: '', text: '', hidden: true });
 
   const userlogin = () => {
-    if (userid !== '' && userPassword !== '') {
+    console.log(userid.value);
+    console.log(userPassword.value);
+
+    if (userid.value === '') {
+      idInput.current.focus();
+      return;
+    } else if (userPassword.value === '') {
+      passwordInput.current.focus();
+      return;
+    }
+
+    if (userid.value !== '' && userPassword.value !== '') {
       axios
         .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
           headers: {},
@@ -24,25 +34,19 @@ const Login = () => {
         .then((res) => {
           resolve(res);
           navigate('/');
+
+          if (checkedBox) {
+            localStorage.setItem('login', token); // 서버 토큰값
+          } else {
+            sessionStorage.setItem('login', token);
+          }
         })
         .catch((err) => {
           window.alert('로그인 실패!');
           console.log(err);
         });
-    }
-
-    //   let parameter = {};
-    //   parameter = {
-    //     userid: userid.value,
-    //     userPassword: userPassword.value,
-    //   };
-    //   const loginClient = await get('url', parameter);
-    //   return loginClient;
-    // }
-    if (userid === '') {
-      idInput.current.focus();
-    } else if (userPassword === '') {
-      passwordInput.current.focus();
+    } else {
+      console.log('로그인 실패');
     }
   };
 
@@ -62,16 +66,15 @@ const Login = () => {
     setUserPassword({ value: value, text: '', hidden: true });
   };
 
+  const SignupClick = () => {
+    props.signupClickInLogin();
+  };
+
   // 자동로그인 체크박스
-  const [checkedBox, setCheckedBox] = useState(new Set());
+  const [checkedBox, setCheckedBox] = useState(false);
   // 체크 O
   const handleCheckdBox = (id, isChecked) => {
     if (isChecked) {
-      checkedBox.add(id);
-      setCheckedBox(checkedBox);
-      // 체크 X -> delete
-    } else if (!isChecked && checkedBox.has(id)) {
-      checkedBox.delete(id);
       setCheckedBox(checkedBox);
     }
   };
@@ -85,8 +88,9 @@ const Login = () => {
         </Logins.TopHeader>
 
         <Logins.IdBox>
-          <Logins.NameBox>아이디</Logins.NameBox>
+          <Logins.NameBox color={!userid.hidden ? 'red' : 'black'}>아이디</Logins.NameBox>
           <Logins.InputBox
+            color={!userid.hidden ? 'red' : 'black'}
             ref={idInput}
             id="id"
             type="text"
@@ -98,8 +102,9 @@ const Login = () => {
         </Logins.IdBox>
 
         <Logins.PasswordBox>
-          <Logins.NameBox>비밀번호</Logins.NameBox>
+          <Logins.NameBox color={!userPassword.hidden ? 'red' : 'black'}>비밀번호</Logins.NameBox>
           <Logins.InputBox
+            color={!userPassword.hidden ? 'red' : 'black'}
             ref={passwordInput}
             id="password"
             type="password"
@@ -129,7 +134,7 @@ const Login = () => {
 
         <Logins.GoSignUp>
           <Logins.AreYouAMember>회원이 아니신가요?</Logins.AreYouAMember>
-          <Logins.RealJoin>회원가입</Logins.RealJoin>
+          <Logins.RealJoin onClick={() => SignupClick()}>회원가입</Logins.RealJoin>
         </Logins.GoSignUp>
       </Logins.Box>
     </Logins.Container>
