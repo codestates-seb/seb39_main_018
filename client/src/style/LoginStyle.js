@@ -43,10 +43,10 @@ const NameBox = styled.div`
   font-size: 13px;
   font-weight: 640;
   line-height: 18px;
+  color: ${(props) => (props.color === 'red' ? 'rgba(900, 20, 0, 0.7)' : '##ebebeb')}; ;
 `;
 
 const InputBox = styled.input`
-  position: relative;
   padding-right: 30px;
   height: 38px;
   width: 92.5%;
@@ -54,7 +54,8 @@ const InputBox = styled.input`
   letter-spacing: -0.15px;
   outline: 0;
   border: 0;
-  border-bottom: 1px solid rgba(0, 0, 10, 0.2);
+  border-bottom: ${(props) =>
+    props.color === 'red' ? '1px solid rgba(900, 20, 0, 0.7)' : '1px solid #ebebeb'};
 
   &:focus {
     border-bottom: 1px solid #111;

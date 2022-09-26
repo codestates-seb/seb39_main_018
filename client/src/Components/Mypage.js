@@ -22,6 +22,12 @@ const Mypage = () => {
     setSignInModalOn(false);
   };
 
+  const loginCloseSignupOpen = () => {
+    setSignInModalOn(false);
+
+    setSignUpModalOn(true);
+  };
+
   return (
     <React.Fragment>
       <button onClick={openSignUpModal}>모달회원가입</button>
@@ -30,7 +36,7 @@ const Mypage = () => {
       </Modal>
       <button onClick={openSignInModal}>모달로그인</button>
       <Modal open={signInModalOn} close={closeSignInModal}>
-        <Login />
+        <Login signupClickInLogin={loginCloseSignupOpen} />
       </Modal>
     </React.Fragment>
   );
