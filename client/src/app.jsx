@@ -11,6 +11,9 @@ import Login from './Components/Login';
 import Kakao from './Components/SocialLogin/Kakao';
 import Naver from './Components/SocialLogin/Naver';
 import Find from './Components/Find';
+import Detail from './Components/PostDetail';
+import TESTS from './Components/SocialLogin/eKakaoLoginbtn';
+import TEST2 from './Components/SocialLogin/eKaKaoRestApi';
 
 const App = () => {
   useEffect(() => {
@@ -21,12 +24,15 @@ const App = () => {
     <>
       <GlobalStyle />
       <Routes>
+        <Route path="/test" element={<TEST2 />} />
+        <Route path="/okakao" element={<TESTS />} />
         <Route path="/" element={<Main />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="/mypage" element={<Mypage />} />
-        {/* <Route path="/logout" element={<Logout />} /> */}
-        {/* <Route path="/signup" element={<Signup />} /> */}
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/detail" element={<Detail />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/find" element={<Find />} />
         <Route path="/oauth/callback/kakao" element={<Kakao />} />
