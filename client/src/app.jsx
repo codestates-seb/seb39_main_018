@@ -10,6 +10,7 @@ import Logout from './Components/Logout';
 import Login from './Components/Login';
 import Kakao from './Components/SocialLogin/Kakao';
 import Naver from './Components/SocialLogin/Naver';
+import Detail from './Components/PostDetail';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/login" element={<Login />} />
+        <Route path='/detail' element={<Detail />} />
         <Route path="/chat" element={<Chat />} />
         <Route path="/oauth/callback/kakao" element={<Kakao />} />
         <Route path="/oauth/callback/naver" element={<Naver />} />
