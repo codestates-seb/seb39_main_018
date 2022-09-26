@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import Footer from '../common/Footer';
-import Header from '../common/Header';
-import BtnComponent from '../common/ui/Button';
-import Chat from './Chat';
-import Detail from './PostDetail';
-import Tag from '../common/ui/Tag';
-import InputComponent from '../common/ui/Input';
+import Footer from '../Components/Common/Footer/Footer';
+import Header from '../Components/Common/Header/Header';
+import { BasicBtn } from '../Components/Common/Button/Buttons';
+import { UpIcon, DownIcon } from '../Components/Common/Icons/Icons';
+import ItemList from '../Components/ItemList/Item';
+import InputUI from '../Components/Common/Input/Input';
 import {
   ItemSection,
   MainContainer,
@@ -19,28 +18,29 @@ import {
   TagFilter,
   FilterTopBox,
   FilterBottomBox,
-  ViewMore,
-} from '../style/MainStyle';
-import { InputUI } from '../common/ui/Input';
-import { UpIcon, DownIcon } from './icons/Icons';
+  ViewMoreSection,
+  ViewMoreBtn,
+} from '../Components/ItemList/MainStyle';
 
-const Main = () => {
+
+
+const MainPage = () => {
   return (
     <>
       <Header />
-      <MainPage />
+      <ItemsContainer />
       <Footer />
     </>
   );
 };
 
-const MainPage = () => {
+const ItemsContainer = () => {
   return (
     <MainContainer>
       <MainContent>
         <Filter />
-        <Items />
-        <ViewMoreBtn />
+        <ItemList />
+        <ViewMore />
       </MainContent>
     </MainContainer>
   );
@@ -75,12 +75,14 @@ const Filter = () => {
   );
 };
 
-const Items = () => {
-  return <ItemSection></ItemSection>;
+const ViewMore = () => {
+  return (
+    <ViewMoreSection>
+      <ViewMoreBtn>
+        <BasicBtn name="더보기" background="white" color="balck" />
+      </ViewMoreBtn>
+    </ViewMoreSection>
+  );
 };
 
-const ViewMoreBtn = () => {
-  return <ViewMore></ViewMore>;
-};
-
-export default Main;
+export default MainPage;

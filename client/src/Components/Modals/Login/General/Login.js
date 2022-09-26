@@ -1,9 +1,9 @@
 import React, { useId } from 'react';
 import { useState } from 'react';
 import { useRef } from 'react';
-import KakaoLogin from './SocialLogin/KakaoLogin';
-import Logins from '../style/LoginStyle';
-import NaverLogin from './SocialLogin/NaverLogin';
+import KakaoLogin from '../KaKao/KakaoLogin';
+import Logins from './LoginStyle';
+import NaverLogin from '../Naver/NaverLogin';
 import axios from 'axios';
 
 const Login = (props) => {

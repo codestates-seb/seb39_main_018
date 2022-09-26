@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Post from '../style/PostDetailStyle';
-import TagUI from '../common/ui/Tag';
-import { LikeBtn, MessageBtn, ReadBtn } from '../common/ui/Button';
-import { LeftIcon, RightIcon, CheckIcon } from '../Components/icons/Icons';
+import Post from '../Components/ItemDetail/DetailStyle';
+import TagUI from '../Components/Common/Tag/Tag';
+import { LikeBtn, MessageBtn, ReadBtn } from '../Components/Common/Button/Buttons';
+import { LeftIcon, RightIcon, CheckIcon } from '../Components/Common/Icons/Icons';
 import axios from 'axios';
 import saves from '../util/detailLogic';
 
 
-const Detail = () => {
+const DetailPage = () => {
 
   let data = saves()
   console.log(data);
@@ -228,4 +228,4 @@ const SellerReviews = () => {
   );
 };
 
-export default Detail;
+export default DetailPage;

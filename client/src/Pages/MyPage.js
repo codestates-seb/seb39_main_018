@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Modal from './Modals/Modal';
-import Login from './Login';
-import Signup from './Signup';
-import Find from './Find';
+import Modal from '../Components/Modals/Modal';
+import Login from '../Components/Modals/Login/General/Login';
+import Signup from '../Components/Modals/SignUp/Signup';
+import Find from '../Components/Modals/IDPWFind/Find';
 
-const Mypage = () => {
+const MyPage = () => {
   // 모달창 노출 여부 state
   const [signUpModalOn, setSignUpModalOn] = useState(false);
   const [signInModalOn, setSignInModalOn] = useState(false);
@@ -66,4 +66,4 @@ const Mypage = () => {
   );
 };
 
-export default Mypage;
+export default MyPage;

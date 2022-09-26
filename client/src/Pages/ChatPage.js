@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ChatContainer, Scrollbar, ChatContent } from '../style/ChatStyle';
+import { ChatContainer, Scrollbar, ChatContent } from '../Components/Chat/ChatStyle';
 import io from 'socket.io-client';
 
 const endpoint = 'https://jjjserver.herokuapp.com'; // heroku로 socket 배포한 서버
@@ -9,7 +9,7 @@ let socket = io(endpoint, {
   },
 });
 
-const Chat = () => {
+const ChatPage = () => {
   return (
     <>
       <ChatUI />
@@ -84,4 +84,4 @@ const ChatUI = () => {
   );
 };
 
-export default Chat;
+export default ChatPage;

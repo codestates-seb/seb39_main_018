@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { PostPageBtn } from './ButtonStyle';
 
 const Container = styled.div`
   width: 100%;

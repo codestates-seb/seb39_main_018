@@ -1,24 +1,12 @@
 import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Footer from './common/Footer';
-import Mypage from './Components/Mypage';
-import Main from './Components/Main';
 import GlobalStyle from './globalStyle.jsx';
-import Signup from './Components/Signup';
-import Chat from './Components/Chat';
-import Logout from './Components/Logout';
-import Login from './Components/Login';
-import Kakao from './Components/SocialLogin/Kakao';
-import Naver from './Components/SocialLogin/Naver';
-import Detail from './Components/PostDetail';
-import Find from './Components/Find';
-import TESTS from './Components/SocialLogin/eKakaoLoginbtn';
-import TEST2 from './Components/SocialLogin/eKaKaoRestApi';
-
+import Routers from './Router/Routers.js';
+import { BrowserRouter } from 'react-router-dom';
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
+<<<<<<< HEAD
       <Routes>
         <Route path="/test" element={<TEST2 />} />
         <Route path="/okakao" element={<TESTS />} />
@@ -31,6 +19,10 @@ const App = () => {
         <Route path="/oauth/callback/naver" element={<Naver />} />
       </Routes>
     </>
+=======
+      <Routers />
+    </BrowserRouter>
+>>>>>>> d654cff0516ef69e3b425d9fa725e1fecc0bd73b
   );
 };
 

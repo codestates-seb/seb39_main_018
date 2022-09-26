@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useCallback } from 'react';
 import { useRef } from 'react';
-import Logins from '../style/LoginStyle';
-import Signups from '../style/SignupStyle';
+import Logins from '../Login/General/LoginStyle';
+import Signups from './SignupStyle';
 
 const Signup = () => {
   const navigate = useNavigate();

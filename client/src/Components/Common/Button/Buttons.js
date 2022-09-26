@@ -1,10 +1,12 @@
-import React from 'react';
-import Btn from '../../style/ButtonStyle';
-import { HiOutlineTicket } from 'react-icons/hi';
+import React, { useState } from 'react';
+import { TicketIcon } from '../Icons/Icons';
+import Btn from './ButtonStyle';
+;
+
 
 const BtnComponent = () => {
   return (
-    <Btn.MainContaier>
+    <Btn.BtnContaier>
       <Btn.Test>
         <TestBtn />
       </Btn.Test>
@@ -24,11 +26,11 @@ const BtnComponent = () => {
         <Btn.FrameTest>
           <MessageBtn />
         </Btn.FrameTest>
+        <Btn.FrameTest>
+          <BasicBtn  />
+        </Btn.FrameTest>
       </Btn.Post>
       <Btn.Basic>
-        <Btn.FrameTest>
-          <LikeBtn />
-        </Btn.FrameTest>
         <Btn.FrameTest>
           <CancelBtn />
         </Btn.FrameTest>
@@ -45,7 +47,7 @@ const BtnComponent = () => {
           <DropOutBtn />
         </Btn.FrameTest>
       </Btn.Basic>
-    </Btn.MainContaier>
+    </Btn.BtnContaier>
   );
 };
 export default BtnComponent;
@@ -55,7 +57,7 @@ const SellBtn = () => {
     <Btn.AllSets>
       <Btn.Sell>
         <div className="icon">
-          <HiOutlineTicket />
+          <TicketIcon/>
         </div>
         <div className="text">판매하기</div>
       </Btn.Sell>
@@ -104,6 +106,10 @@ const MessageBtn = () => {
   return <Btn.Message>메세지보내기</Btn.Message>;
 };
 
+const BasicBtn = ({ name,background,color }) => {
+  return <Btn.Button1 background={background} color={color} >{name}</Btn.Button1>;
+};
+
 export {
   SellBtn,
   ReadBtn,
@@ -116,4 +122,5 @@ export {
   CreateBtn,
   AuthBtn,
   DropOutBtn,
+  BasicBtn,
 };

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import GlobalStyle from '../../globalStyle.jsx';
 
 const FooterContainer = styled.div`
   border-top: 1px solid var(--lightgray);

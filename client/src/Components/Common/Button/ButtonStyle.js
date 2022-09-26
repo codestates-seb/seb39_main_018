@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import GlobalStyle from '../globalStyle.jsx';
 
 //-- 버튼 페이지 화면 정리 컴포넌트
-const MainContaier = styled.div`
+const BtnContaier = styled.div`
   width: 100%;
   height: 700px;
   border: 1px solid black;
@@ -10,7 +9,7 @@ const MainContaier = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
 `;
-const Basic = styled(MainContaier)`
+const Basic = styled(BtnContaier)`
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -105,12 +104,8 @@ const XXBtn2 = styled(XXBtn)`
 const PostAllSets = styled(AllSets)`
   height: 100%;
   border-radius: var(--b-small);
-  box-shadow: -2px -2px 10px, 10px 3px 15px var(--gray);
   background: var(--lightgray);
-  ${PostAllSets}:active {
-    box-shadow: inset 3px 3px 10px;
-    background: var(--lightgray);
-  }
+ 
 `;
 
 const Edit = styled(PostAllSets)``;
@@ -119,10 +114,28 @@ const Different = styled(PostAllSets)``;
 const Like = styled(PostAllSets)``;
 const Message = styled(PostAllSets)``;
 
+const Button1 = styled(PostAllSets)`
+  background: ${(prop) => prop.background};
+  color: ${(prop) => prop.color || 'white'};
+  ${Button1}:active {
+    box-shadow: inset 3px 3px 10px;
+    background: darkcyan;
+  }
+`;
+const Button2 = styled(PostAllSets)`
+  box-shadow: -2px -2px 10px, 10px 3px 15px var(--gray);
+  background: ${(prop) => prop.background};
+  color: ${(prop) => prop.color || 'white'};
+  ${Button2}:active {
+    box-shadow: inset 3px 3px 10px;
+    background: var(--lightgray);
+  }
+`;
+
 /// -------------------------------------- ///
 
 export default {
-  MainContaier,
+  BtnContaier,
   Test,
   Basic,
   Post,
@@ -141,4 +154,5 @@ export default {
   Different,
   Like,
   Message,
+  Button1,
 };
