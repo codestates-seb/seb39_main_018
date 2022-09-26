@@ -16,10 +16,6 @@ import TESTS from './Components/SocialLogin/eKakaoLoginbtn';
 import TEST2 from './Components/SocialLogin/eKaKaoRestApi';
 
 const App = () => {
-  useEffect(() => {
-    window.Kakao.init('7f72f6bd7dc714fa93bd9794498a7a2b');
-  }, []);
-
   return (
     <>
       <GlobalStyle />
