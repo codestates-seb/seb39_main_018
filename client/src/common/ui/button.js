@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Btn from '../../style/ButtonStyle';
 import { HiOutlineTicket } from 'react-icons/hi';
 
@@ -24,11 +24,11 @@ const BtnComponent = () => {
         <Btn.FrameTest>
           <MessageBtn />
         </Btn.FrameTest>
+        <Btn.FrameTest>
+          <BasicBtn  />
+        </Btn.FrameTest>
       </Btn.Post>
       <Btn.Basic>
-        <Btn.FrameTest>
-          <LikeBtn />
-        </Btn.FrameTest>
         <Btn.FrameTest>
           <CancelBtn />
         </Btn.FrameTest>
@@ -104,6 +104,10 @@ const MessageBtn = () => {
   return <Btn.Message>메세지보내기</Btn.Message>;
 };
 
+const BasicBtn = ({ name,background,color }) => {
+  return <Btn.Button1 background={background} color={color} >{name}</Btn.Button1>;
+};
+
 export {
   SellBtn,
   ReadBtn,
@@ -116,4 +120,5 @@ export {
   CreateBtn,
   AuthBtn,
   DropOutBtn,
+  BasicBtn,
 };

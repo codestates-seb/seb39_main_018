@@ -6,6 +6,8 @@ import Chat from './Chat';
 import Detail from './PostDetail';
 import Tag from '../common/ui/Tag';
 import InputComponent from '../common/ui/Input';
+import { BasicBtn } from '../common/ui/Button';
+
 import {
   ItemSection,
   MainContainer,
@@ -19,10 +21,12 @@ import {
   TagFilter,
   FilterTopBox,
   FilterBottomBox,
-  ViewMore,
+  ViewMoreSection,
+  ViewMoreBtn,
 } from '../style/MainStyle';
 import { InputUI } from '../common/ui/Input';
 import { UpIcon, DownIcon } from './icons/Icons';
+import ItemList from './Item';
 
 const Main = () => {
   return (
@@ -39,8 +43,8 @@ const MainPage = () => {
     <MainContainer>
       <MainContent>
         <Filter />
-        <Items />
-        <ViewMoreBtn />
+        <ItemList />
+        <ViewMore />
       </MainContent>
     </MainContainer>
   );
@@ -75,12 +79,14 @@ const Filter = () => {
   );
 };
 
-const Items = () => {
-  return <ItemSection></ItemSection>;
-};
-
-const ViewMoreBtn = () => {
-  return <ViewMore></ViewMore>;
+const ViewMore = () => {
+  return (
+    <ViewMoreSection>
+      <ViewMoreBtn>
+        <BasicBtn name="더보기" background="white" color="balck" />
+      </ViewMoreBtn>
+    </ViewMoreSection>
+  );
 };
 
 export default Main;
