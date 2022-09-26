@@ -28,8 +28,8 @@ const Login = (props) => {
       axios
         .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
           headers: { 'Content-Type': 'application/json' },
-          id: id,
-          password: password,
+          id: userid,
+          password: userPassword,
         })
         .then((res) => {
           resolve(res);
@@ -124,7 +124,7 @@ const Login = (props) => {
         <Logins.LinkBox>
           <input type="checkbox" onChange={(e) => handleCheckdBox(e)} />
           <Logins.AutoLogin>로그인 유지하기</Logins.AutoLogin>
-          <Logins.IdOrPwFind onClick={() => FindClick()}>PW 찾기</Logins.IdOrPwFind>
+          <Logins.IdOrPwFind onClick={() => FindClick()}>비밀번호 찾기</Logins.IdOrPwFind>
         </Logins.LinkBox>
 
         <Logins.Button

@@ -90,7 +90,7 @@ const AutoLogin = styled.a`
 `;
 
 const IdOrPwFind = styled.a`
-  transform: translateX(260px);
+  transform: translateX(240px);
   cursor: pointer;
 `;
 
