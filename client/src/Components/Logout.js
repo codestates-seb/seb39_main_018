@@ -4,7 +4,7 @@ import axios from 'axios';
 function Logout() {
   const userLogoutHandler = () => {
     axios
-      .delete('url')
+      .delete('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board')
       .then((res) => {
         //console.log(res.data)
         alert('로그아웃 성공');

@@ -90,10 +90,8 @@ const AutoLogin = styled.a`
 `;
 
 const IdOrPwFind = styled.a`
-  transform: translateX(235px);
-  &:hover {
-    cursor: pointer;
-  }
+  transform: translateX(260px);
+  cursor: pointer;
 `;
 
 const Button = styled.button`

@@ -44,8 +44,8 @@ const Signup = () => {
 
     if (email.value !== '' && id.value !== '' && !mismatchError) {
       axios
-        .post('', {
-          headers: {},
+        .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
+          headers: { 'Content-Type': 'application/json' },
           id: id,
           password: password,
           email: email,

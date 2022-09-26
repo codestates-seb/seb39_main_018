@@ -27,12 +27,13 @@ const Login = (props) => {
     if (userid.value !== '' && userPassword.value !== '') {
       axios
         .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
-          headers: {},
+          headers: { 'Content-Type': 'application/json' },
           id: id,
           password: password,
         })
         .then((res) => {
           resolve(res);
+          window.alert('로그인 성공!');
           navigate('/');
 
           if (checkedBox) {
@@ -68,6 +69,10 @@ const Login = (props) => {
 
   const SignupClick = () => {
     props.signupClickInLogin();
+  };
+
+  const FindClick = () => {
+    props.findClickInLogin();
   };
 
   // 자동로그인 체크박스
@@ -119,7 +124,7 @@ const Login = (props) => {
         <Logins.LinkBox>
           <input type="checkbox" onChange={(e) => handleCheckdBox(e)} />
           <Logins.AutoLogin>로그인 유지하기</Logins.AutoLogin>
-          <Logins.IdOrPwFind>ID/PW 찾기</Logins.IdOrPwFind>
+          <Logins.IdOrPwFind onClick={() => FindClick()}>PW 찾기</Logins.IdOrPwFind>
         </Logins.LinkBox>
 
         <Logins.Button
