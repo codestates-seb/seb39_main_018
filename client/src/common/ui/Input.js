@@ -14,6 +14,7 @@ const InputComponent = () => {
     </>
   );
 };
+export default InputComponent;
 
 const InputUI = () => {
   return (
@@ -23,4 +24,5 @@ const InputUI = () => {
   );
 };
 
-export default InputComponent;
+export { InputUI };
+

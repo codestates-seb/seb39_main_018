@@ -6,6 +6,7 @@ import { LeftIcon, RightIcon, CheckIcon } from '../Components/icons/Icons';
 import axios from 'axios';
 import saves from '../util/detailLogic';
 
+
 const Detail = () => {
 
   let data = saves()
