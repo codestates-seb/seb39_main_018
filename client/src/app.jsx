@@ -24,9 +24,6 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="/mypage" element={<Mypage />} />
-        {/* <Route path="/logout" element={<Logout />} /> */}
-        {/* <Route path="/signup" element={<Signup />} /> */}
-        {/* <Route path="/login" element={<Login />} /> */}
         <Route path="/chat" element={<Chat />} />
         <Route path="/find" element={<Find />} />
         <Route path="/oauth/callback/kakao" element={<Kakao />} />

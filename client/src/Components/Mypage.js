@@ -55,12 +55,12 @@ const Mypage = () => {
 
       <button onClick={openSignInModal}>모달로그인</button>
       <Modal open={signInModalOn} close={closeSignInModal}>
-        <Login signupClickInLogin={loginCloseSignupOpen} />
+        <Login signupClickInLogin={loginCloseSignupOpen} findClickInLogin={loginCloseFindOpen} />
       </Modal>
 
       <button onClick={openFindModal}>id/pw찾기</button>
       <Modal open={findModalOn} close={closeFindModal}>
-        <Find findClickInLogin={loginCloseFindOpen} />
+        <Find />
       </Modal>
     </React.Fragment>
   );
