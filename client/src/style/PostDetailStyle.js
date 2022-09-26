@@ -10,10 +10,10 @@ const Container = styled.div`
 `;
 
 const Content = styled(Container)`
-  width: 1000px;
+  width: 1200px;
   border: 1px solid black;
   flex-wrap: wrap;
-  align-items: center;
+
 `;
 
 const AllSetting = styled.div`
