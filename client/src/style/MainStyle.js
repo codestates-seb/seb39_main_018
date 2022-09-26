@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const MainContainer = styled.div`
   width: 100%;
   min-height: 500px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
 `;
@@ -11,11 +10,13 @@ const MainContainer = styled.div`
 const MainContent = styled(MainContainer)`
   width: 1200px;
   border: 1px solid black;
+  margin-bottom: 30px;
   flex-wrap: wrap;
 `;
 
 const AllOption = styled.div`
   display: flex;
+  align-items: center;
   margin: 10px 0;
   width: 100%;
   background: var(--lightgray);
@@ -72,12 +73,16 @@ const TagFilter = styled.div``;
 //--------------------------------------
 
 //-- 상품 컴포넌트
-const ItemSection = styled(AllOption)`
-  height: 500px;
+
+const ViewMoreSection = styled(AllOption)`
+  height: 80px;
+  justify-content: center;
+  margin: 20px;
 `;
 
-const ViewMore = styled(AllOption)`
-  height: 100px;
+const ViewMoreBtn = styled.div`
+  width: 150px;
+  height: 100%;
 `;
 
 export {
@@ -92,6 +97,6 @@ export {
   SearchFilter,
   SortByOption,
   TagFilter,
-  ItemSection,
-  ViewMore,
+  ViewMoreSection,
+  ViewMoreBtn,
 };
