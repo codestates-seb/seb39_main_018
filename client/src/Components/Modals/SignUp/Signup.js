@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import Logins from '../Login/General/LoginStyle';
 import Signups from './SignupStyle';
 
-const SignUp = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const [id, setId] = useState({ value: '', text: '', hidden: true });
   const [password, setPassword] = useState({ value: '', text: '', hidden: true });
@@ -26,6 +26,29 @@ const SignUp = () => {
     },
     [password],
   );
+
+  const findemail = () => {
+    if (email.value === '') {
+      emailInput.current.focus();
+      return;
+    }
+
+    if (email.value !== '') {
+      axios
+        .get('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
+          headers: { 'Content-Type': 'application/json' },
+          email: email,
+        })
+        .then((res) => {
+          console.log(res);
+          window.alert('이메일을 발송했습니다. 메일함을 확인해주세요.');
+        })
+        .catch((err) => {
+          window.alert('비번찾기 실패~!');
+          console.log(err);
+        });
+    }
+  };
 
   const register = () => {
     if (email.value === '') {
@@ -133,7 +156,9 @@ const SignUp = () => {
           <Logins.HiddenMessage hidden={email.hidden}>{email.text}</Logins.HiddenMessage>
 
           <Signups.Certified>
-            <Signups.CertifiedButton>인증번호 받기</Signups.CertifiedButton>
+            <Signups.CertifiedButton onClick={() => findemail()}>
+              인증번호 받기
+            </Signups.CertifiedButton>
           </Signups.Certified>
         </Logins.IdBox>
 
@@ -198,4 +223,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

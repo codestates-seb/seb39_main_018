@@ -28,8 +28,8 @@ const Login = (props) => {
       axios
         .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
           headers: { 'Content-Type': 'application/json' },
-          id: id,
-          password: password,
+          id: userid,
+          password: userPassword,
         })
         .then((res) => {
           resolve(res);
@@ -88,7 +88,8 @@ const Login = (props) => {
     <Logins.Container>
       <Logins.Box>
         <Logins.TopHeader>
-          <Logins.Title>SORT</Logins.Title>
+          <Logins.Title>ㅅㅇ</Logins.Title>
+          <Logins.Title style={{ marginTop: -40 }}> ㄹㅌ</Logins.Title>
           <Logins.SubTitle>SELL OWN YOUR TICKET</Logins.SubTitle>
         </Logins.TopHeader>
 
@@ -124,7 +125,7 @@ const Login = (props) => {
         <Logins.LinkBox>
           <input type="checkbox" onChange={(e) => handleCheckdBox(e)} />
           <Logins.AutoLogin>로그인 유지하기</Logins.AutoLogin>
-          <Logins.IdOrPwFind onClick={() => FindClick()}>PW 찾기</Logins.IdOrPwFind>
+          <Logins.IdOrPwFind onClick={() => FindClick()}>비밀번호 찾기</Logins.IdOrPwFind>
         </Logins.LinkBox>
 
         <Logins.Button

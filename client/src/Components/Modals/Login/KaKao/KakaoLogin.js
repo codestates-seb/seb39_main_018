@@ -8,13 +8,21 @@ import { useNavigate } from 'react-router-dom';
 // const REDIRECT_URL = 'http://localhost:3003/oauth/callback/kakao';
 // const requestUri = `${KAKA0_HOST}?client_id=${KAKAO_ID}&redirect_uri=${REDIRECT_URL}&response_type=code`;
 
+window.Kakao.init('7f72f6bd7dc714fa93bd9794498a7a2b');
+window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY'))); //sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+
+function kakaoLogout() {
+  if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    return;
+  }
+  Kakao.Auth.logout(function (response) {
+    alert(response + ' logout');
+    window.location.href = '/';
+  });
+}
+
 const KakaoLogin = () => {
-  const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   console.log(KAKAO_ID);
-  // }, []);
-
   const kakaoClick = () => {
     window.Kakao.Auth.login({
       success: function (response) {
@@ -36,11 +44,13 @@ const KakaoLogin = () => {
   };
 
   return (
-    <a onClick={() => kakaoClick()}>
+    <a>
       <KakaoLoginButton>
         <RiKakaoTalkFill />
-        <span>카카오 로그인</span>
+        <span onClick={() => kakaoClick()}>카카오 로그인</span>
       </KakaoLoginButton>
+
+      <span onClick={() => kakaoLogout()}>카카오 로그아웃 임시</span>
     </a>
   );
 };

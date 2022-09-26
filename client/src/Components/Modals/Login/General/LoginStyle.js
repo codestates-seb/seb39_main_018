@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Container = styled.div`
   margin: 0 auto;
   width: 400px;
-
   font-family: -apple-system, BlinkMacSystemFont, Roboto, AppleSDGothicNeo-Regular, NanumBarunGothic,
     NanumGothic, 나눔고딕, Segoe UI, Helveica, Arial, Malgun Gothic, Dotum, sans-serif;
 `;
@@ -23,14 +22,14 @@ const Title = styled.h3`
   padding: 30px 0 0 0;
   font-size: 25px;
   font-weight: 900;
-  font-style: italic;
+  font-style: normal;
   color: #111;
 `;
 
 const SubTitle = styled.h3`
   font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.07em;
+  font-weight: 400;
+  letter-spacing: 0em;
 `;
 
 const IdBox = styled.div`
@@ -90,7 +89,7 @@ const AutoLogin = styled.a`
 `;
 
 const IdOrPwFind = styled.a`
-  transform: translateX(260px);
+  transform: translateX(240px);
   cursor: pointer;
 `;
 
