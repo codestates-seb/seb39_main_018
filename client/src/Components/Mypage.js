@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Modal from './Modals/Modal';
 import Login from './Login';
+import Signup from './Signup';
+import Find from './Find';
 
 const Mypage = () => {
   // 모달창 노출 여부 state
   const [signUpModalOn, setSignUpModalOn] = useState(false);
   const [signInModalOn, setSignInModalOn] = useState(false);
+  const [findModalOn, setFindModalOn] = useState(false);
 
+  // 회원가입
   const openSignUpModal = () => {
     setSignUpModalOn(true);
   };
@@ -14,6 +18,7 @@ const Mypage = () => {
     setSignUpModalOn(false);
   };
 
+  // 로그인
   const openSignInModal = () => {
     setSignInModalOn(true);
   };
@@ -21,15 +26,41 @@ const Mypage = () => {
     setSignInModalOn(false);
   };
 
+  // id/pw찾기
+  const openFindModal = () => {
+    setFindModalOn(true);
+  };
+  const closeFindModal = () => {
+    setFindModalOn(false);
+  };
+
+  // 로그인창 안에서 회원가입 누를때
+  const loginCloseSignupOpen = () => {
+    setSignInModalOn(false);
+    setSignUpModalOn(true);
+  };
+
+  // 로그인창 안에서 id/pw찾기 누를때
+  const loginCloseFindOpen = () => {
+    setSignInModalOn(false);
+    setFindModalOn(true);
+  };
+
   return (
     <React.Fragment>
       <button onClick={openSignUpModal}>모달회원가입</button>
       <Modal open={signUpModalOn} close={closeSignUpModal}>
-        흑흑
+        <Signup />
       </Modal>
+
       <button onClick={openSignInModal}>모달로그인</button>
       <Modal open={signInModalOn} close={closeSignInModal}>
-        <Login />
+        <Login signupClickInLogin={loginCloseSignupOpen} />
+      </Modal>
+
+      <button onClick={openFindModal}>id/pw찾기</button>
+      <Modal open={findModalOn} close={closeFindModal}>
+        <Find findClickInLogin={loginCloseFindOpen} />
       </Modal>
     </React.Fragment>
   );
