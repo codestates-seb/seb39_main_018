@@ -69,6 +69,7 @@ const HiddenMessage = styled.span`
   letter-spacing: -0.4px;
   font-size: 11px;
   color: rgba(900, 20, 0, 0.7);
+  font-weight: 300;
 `;
 
 const PasswordBox = styled.div`

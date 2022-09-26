@@ -28,21 +28,21 @@ const Signup = () => {
   );
 
   const register = () => {
-    if (email === '') {
+    if (email.value === '') {
       emailInput.current.focus();
       return;
-    } else if (id === '') {
+    } else if (id.value === '') {
       idInput.current.focus();
       return;
-    } else if (password === '') {
+    } else if (password.value === '') {
       passwordInput.current.focus();
       return;
-    } else if (passwordCheck === '') {
+    } else if (passwordCheck.value === '') {
       passwordCheckInput.current.focus();
       return;
     }
 
-    if (email !== '' && id !== '' && !mismatchError) {
+    if (email.value !== '' && id.value !== '' && !mismatchError) {
       axios
         .post('', {
           headers: {},
