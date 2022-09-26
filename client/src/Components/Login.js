@@ -88,7 +88,8 @@ const Login = (props) => {
     <Logins.Container>
       <Logins.Box>
         <Logins.TopHeader>
-          <Logins.Title>SORT</Logins.Title>
+          <Logins.Title>ㅅㅇ</Logins.Title>
+          <Logins.Title style={{ marginTop: -40 }}> ㄹㅌ</Logins.Title>
           <Logins.SubTitle>SELL OWN YOUR TICKET</Logins.SubTitle>
         </Logins.TopHeader>
 
