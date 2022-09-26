@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import GlobalStyle from '../globalStyle.jsx';
 
 //-- 버튼 페이지 화면 정리 컴포넌트
-const MainContaier = styled.div`
+const BtnContaier = styled.div`
   width: 100%;
   height: 700px;
   border: 1px solid black;
@@ -10,7 +9,7 @@ const MainContaier = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
 `;
-const Basic = styled(MainContaier)`
+const Basic = styled(BtnContaier)`
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -136,7 +135,7 @@ const Button2 = styled(PostAllSets)`
 /// -------------------------------------- ///
 
 export default {
-  MainContaier,
+  BtnContaier,
   Test,
   Basic,
   Post,

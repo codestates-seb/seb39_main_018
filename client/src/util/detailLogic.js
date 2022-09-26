@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Detail from '../Components/PostDetail';
+
 
 const saves = () => {
   const [data, setdata] = useState('');

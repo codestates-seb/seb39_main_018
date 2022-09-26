@@ -1,7 +1,7 @@
 // PW 찾기 페이지
 import React from 'react';
-import Logins from '../style/LoginStyle';
-import Signups from '../style/SignupStyle';
+import Logins from '../Login/General/LoginStyle';
+import Signups from '../SignUp/SignupStyle';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

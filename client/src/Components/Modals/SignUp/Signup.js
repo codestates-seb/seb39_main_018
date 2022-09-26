@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useCallback } from 'react';
 import { useRef } from 'react';
-import Logins from '../style/LoginStyle';
-import Signups from '../style/SignupStyle';
+import Logins from '../Login/General/LoginStyle';
+import Signups from './SignupStyle';
 
-const Signup = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [id, setId] = useState({ value: '', text: '', hidden: true });
   const [password, setPassword] = useState({ value: '', text: '', hidden: true });
@@ -198,4 +198,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

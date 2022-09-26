@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import Footer from '../common/Footer';
-import Header from '../common/Header';
-import BtnComponent from '../common/ui/Button';
-import Chat from './Chat';
-import Detail from './PostDetail';
-import Tag from '../common/ui/Tag';
-import InputComponent from '../common/ui/Input';
-import { BasicBtn } from '../common/ui/Button';
-
+import Footer from '../Components/Common/Footer/Footer';
+import Header from '../Components/Common/Header/Header';
+import { BasicBtn } from '../Components/Common/Button/Buttons';
+import { UpIcon, DownIcon } from '../Components/Common/Icons/Icons';
+import ItemList from '../Components/ItemList/Item';
+import InputUI from '../Components/Common/Input/Input';
 import {
   ItemSection,
   MainContainer,
@@ -23,22 +20,21 @@ import {
   FilterBottomBox,
   ViewMoreSection,
   ViewMoreBtn,
-} from '../style/MainStyle';
-import { InputUI } from '../common/ui/Input';
-import { UpIcon, DownIcon } from './icons/Icons';
-import ItemList from './Item';
+} from '../Components/ItemList/MainStyle';
 
-const Main = () => {
+
+
+const MainPage = () => {
   return (
     <>
       <Header />
-      <MainPage />
+      <ItemsContainer />
       <Footer />
     </>
   );
 };
 
-const MainPage = () => {
+const ItemsContainer = () => {
   return (
     <MainContainer>
       <MainContent>
@@ -89,4 +85,4 @@ const ViewMore = () => {
   );
 };
 
-export default Main;
+export default MainPage;

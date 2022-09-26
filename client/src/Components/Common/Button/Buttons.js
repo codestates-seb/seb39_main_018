@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import Btn from '../../style/ButtonStyle';
-import { HiOutlineTicket } from 'react-icons/hi';
+import { TicketIcon } from '../Icons/Icons';
+import Btn from './ButtonStyle';
+;
+
 
 const BtnComponent = () => {
   return (
-    <Btn.MainContaier>
+    <Btn.BtnContaier>
       <Btn.Test>
         <TestBtn />
       </Btn.Test>
@@ -45,7 +47,7 @@ const BtnComponent = () => {
           <DropOutBtn />
         </Btn.FrameTest>
       </Btn.Basic>
-    </Btn.MainContaier>
+    </Btn.BtnContaier>
   );
 };
 export default BtnComponent;
@@ -55,7 +57,7 @@ const SellBtn = () => {
     <Btn.AllSets>
       <Btn.Sell>
         <div className="icon">
-          <HiOutlineTicket />
+          <TicketIcon/>
         </div>
         <div className="text">판매하기</div>
       </Btn.Sell>

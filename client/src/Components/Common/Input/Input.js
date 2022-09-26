@@ -4,7 +4,7 @@ const InputComponent = () => {
   return (
     <>
       <Input.Container>
-        <InputUI />
+        
       </Input.Container>
       <Input.Container>
         <Input.Posting 

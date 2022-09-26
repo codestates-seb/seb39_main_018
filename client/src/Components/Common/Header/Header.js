@@ -16,7 +16,7 @@ import {
   HeaderRightLow,
   Sell,
   SellButton,
-} from '../style/CommonStyle/HeaderStyle';
+} from './HeaderStyle';
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
