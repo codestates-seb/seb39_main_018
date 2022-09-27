@@ -14,6 +14,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'docs'),
     filename: '[name].bundle.js',
+    publicPath: "/",
   },
   stats: 'errors-only',
   devServer: {
@@ -24,7 +25,6 @@ module.exports = {
     compress: true,
     port: 3003,
     historyApiFallback: true,
-    overlay: true,  // 오류 표시 설정
   },
   module: {
     rules: [
