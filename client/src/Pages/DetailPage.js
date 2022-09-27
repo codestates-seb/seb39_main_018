@@ -4,11 +4,12 @@ import TagUI from '../Components/Common/Tag/Tag';
 import { LikeBtn, MessageBtn, ReadBtn } from '../Components/Common/Button/Buttons';
 import { LeftIcon, RightIcon, CheckIcon } from '../Components/Common/Icons/Icons';
 import axios from 'axios';
-import saves from '../util/detailLogic';
+import {saves} from '../util/detailLogic';
+import { useParams } from 'react-router-dom';
 
 
 const DetailPage = () => {
-
+  console.log(useParams());
   let data = saves()
   console.log(data);
 
