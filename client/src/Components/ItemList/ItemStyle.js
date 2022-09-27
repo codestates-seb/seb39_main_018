@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const ItemContainer = styled.div`
   width: 100%;
+ 
 `;
 
 const ItemListBox = styled.div`
@@ -18,6 +19,7 @@ const ItemBox = styled.div`
   background: #ffffff;
   border: 1px solid;
   border-radius: var(--b-xsmall);
+  cursor: pointer;
 `;
 
 const ItemInfoOption = styled.div`
