@@ -6,7 +6,7 @@ import { useRef } from 'react';
 import Logins from '../Login/General/LoginStyle';
 import Signups from './SignupStyle';
 
-const SignUp = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const [id, setId] = useState({ value: '', text: '', hidden: true });
   const [password, setPassword] = useState({ value: '', text: '', hidden: true });
@@ -223,4 +223,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;

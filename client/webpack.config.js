@@ -6,7 +6,6 @@ const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const refreshPlugin = ['react-refresh/babel'];
 
-
 module.exports = {
   mode: 'development',
   entry: './src/index.jsx',
