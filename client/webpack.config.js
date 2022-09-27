@@ -24,6 +24,7 @@ module.exports = {
     compress: true,
     port: 3003,
     historyApiFallback: true,
+    overlay: true,  // 오류 표시 설정
   },
   module: {
     rules: [
