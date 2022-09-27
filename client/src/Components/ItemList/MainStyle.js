@@ -21,19 +21,13 @@ const AllOption = styled.div`
   width: 100%;
   background: var(--lightgray);
 `;
-//--- 정렬 컴포넌트
-// const FilterContainer = styled(AllOption)`
-//   width: 1200px;
-
-//   align-items: flex-start;
-// `;
 
 const FilterSection = styled.div`
   width: 1200px;
 `;
 const FilterBox = styled(AllOption)`
   width: 1180px;
-  height: 120px;
+  height: 150px;
   flex-wrap: wrap;
 `;
 
@@ -57,7 +51,7 @@ const FilterRight = styled(FilterOption)`
 const SellType = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 105%;
   padding: 0 10px;
   border-bottom: 3px solid ${(prop) => prop.color || 'none'};
 
@@ -82,7 +76,9 @@ const SortByOption = styled.div`
     margin-top: 5px;
   }
 `;
-const TagFilter = styled.div``;
+const TagFilter = styled.div`
+  display: flex;
+`;
 
 //--------------------------------------
 
