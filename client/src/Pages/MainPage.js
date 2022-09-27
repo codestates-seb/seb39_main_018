@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import Footer from '../Components/Common/Footer/Footer';
 import Header from '../Components/Common/Header/Header';
 import { BasicBtn } from '../Components/Common/Button/Buttons';
-import { UpIcon, DownIcon } from '../Components/Common/Icons/Icons';
+import { UpIcon, DownIcon, CancelIcon } from '../Components/Common/Icons/Icons';
 import ItemList from '../Components/ItemList/Item';
-import InputUI from '../Components/Common/Input/Input';
 import {
   MainContainer,
   MainContent,
@@ -21,6 +20,8 @@ import {
   ViewMoreSection,
   ViewMoreBtn,
 } from '../Components/ItemList/MainStyle';
+import { TagInput } from '../Components/Common/Input/InputStyle';
+import { TagComponent } from '../Components/Common/Tag/TagStyle';
 
 const MainPage = () => {
   return (
@@ -48,8 +49,21 @@ const Filter = () => {
   const [selectOP, setSelectOP] = useState('인기순');
   const [tabFocus, setTabFocus] = useState(1);
   const sellTypeTab = ['전체', '판매중', '판매완료'];
+  const [tagData, setTagData] = useState([]);
+  const [inputdata, setInputdata] = useState('');
   const tabHandler = (i) => {
     setTabFocus(i);
+  };
+  const tagInputHandler = (e) => {
+    setInputdata(e.target.value);
+    e.key === 'Enter' && !tagData.includes(inputdata) && inputdata
+      ? (setTagData([...tagData, e.target.value]), setInputdata(''))
+      : null;
+  };
+
+  const tagCancel = (taglist) => {
+    const cancel = tagData.filter((tagdatas) => tagdatas !== taglist);
+    setTagData(cancel);
   };
 
   return (
@@ -60,16 +74,14 @@ const Filter = () => {
             {sellTypeTab.map((tab, i) => {
               return (
                 <SellType color={i == tabFocus ? 'black' : ''}>
-                  <p onClick={() => tabHandler(i)}>
-                    {tab}
-                  </p>
+                  <p onClick={() => tabHandler(i)}>{tab}</p>
                 </SellType>
               );
             })}
           </FilterLeft>
           <FilterRight>
             <SearchFilter>
-              <InputUI />
+              <TagInput onChange={tagInputHandler} onKeyUp={tagInputHandler} value={inputdata} />
             </SearchFilter>
             <SortByOption>
               <p className="select_text">{selectOP}</p>
@@ -80,7 +92,19 @@ const Filter = () => {
           </FilterRight>
         </FilterTopBox>
         <FilterBottomBox>
-          <TagFilter>s</TagFilter>
+          <TagFilter>
+            {tagData &&
+              tagData.map((taglist, index) => {
+                return (
+                  <TagComponent key={taglist} display={taglist ? 'flex' : ''}>
+                    <p className="tag_text">{taglist}</p>
+                    <p className="cancel_icon" onClick={() => tagCancel(tagData[index])}>
+                      <CancelIcon />
+                    </p>
+                  </TagComponent>
+                );
+              })}
+          </TagFilter>
         </FilterBottomBox>
       </FilterBox>
     </FilterSection>
