@@ -6,10 +6,10 @@ import { UpIcon, DownIcon } from '../Components/Common/Icons/Icons';
 import ItemList from '../Components/ItemList/Item';
 import InputUI from '../Components/Common/Input/Input';
 import {
-  ItemSection,
   MainContainer,
   MainContent,
   FilterSection,
+  FilterBox,
   FilterLeft,
   FilterRight,
   SellType,
@@ -21,8 +21,6 @@ import {
   ViewMoreSection,
   ViewMoreBtn,
 } from '../Components/ItemList/MainStyle';
-
-
 
 const MainPage = () => {
   return (
@@ -37,8 +35,8 @@ const MainPage = () => {
 const ItemsContainer = () => {
   return (
     <MainContainer>
+      <Filter />
       <MainContent>
-        <Filter />
         <ItemList />
         <ViewMore />
       </MainContent>
@@ -48,29 +46,43 @@ const ItemsContainer = () => {
 
 const Filter = () => {
   const [selectOP, setSelectOP] = useState('인기순');
+  const [tabFocus, setTabFocus] = useState(1);
+  const sellTypeTab = ['전체', '판매중', '판매완료'];
+  const tabHandler = (i) => {
+    setTabFocus(i);
+  };
+
   return (
     <FilterSection>
-      <FilterTopBox>
-        <FilterLeft>
-          <SellType>전체</SellType>
-          <SellType>판매중</SellType>
-          <SellType>판매완료</SellType>
-        </FilterLeft>
-        <FilterRight>
-          <SearchFilter>
-            <InputUI />
-          </SearchFilter>
-          <SortByOption>
-            <p className="select_text">{selectOP}</p>
-            <p className="select_icon">
-              <DownIcon />
-            </p>
-          </SortByOption>
-        </FilterRight>
-      </FilterTopBox>
-      <FilterBottomBox>
-        <TagFilter>s</TagFilter>
-      </FilterBottomBox>
+      <FilterBox>
+        <FilterTopBox>
+          <FilterLeft>
+            {sellTypeTab.map((tab, i) => {
+              return (
+                <SellType color={i == tabFocus ? 'black' : ''}>
+                  <p onClick={() => tabHandler(i)}>
+                    {tab}
+                  </p>
+                </SellType>
+              );
+            })}
+          </FilterLeft>
+          <FilterRight>
+            <SearchFilter>
+              <InputUI />
+            </SearchFilter>
+            <SortByOption>
+              <p className="select_text">{selectOP}</p>
+              <p className="select_icon">
+                <DownIcon />
+              </p>
+            </SortByOption>
+          </FilterRight>
+        </FilterTopBox>
+        <FilterBottomBox>
+          <TagFilter>s</TagFilter>
+        </FilterBottomBox>
+      </FilterBox>
     </FilterSection>
   );
 };
