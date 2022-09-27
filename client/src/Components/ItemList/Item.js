@@ -9,34 +9,32 @@ import {
   ItemPrice,
   SellInfo,
 } from './ItemStyle';
-import { itemGet } from '../../util/detailLogic';
-import { useParams } from 'react-router-dom';
+import { itemGet, dateCompute } from '../../util/detailLogic';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ItemList = () => {
-  // const Itemdata = itemGet();
-  // Itemdata.map((itemListdata, key) => {
-  //   itemListdata.id;
-  //   itemListdata.img;
-  //   itemListdata.title;
-  //   itemListdata.price;
-  //   itemListdata.region;
-  //   itemListdata.createDate;
-  // });
-
+  const itemsdata = itemGet();
+  console.log(itemsdata);
   return (
     <ItemContainer>
       <ItemsCount />
       <ItemListBox>
-        <ItemComponent />
-        <ItemComponent />
-        <ItemComponent />
-        <ItemComponent />
-      </ItemListBox>
-      <ItemListBox>
-        <ItemComponent />
-        <ItemComponent />
-        <ItemComponent />
-        <ItemComponent />
+        {itemsdata &&
+          itemsdata.map((dataList) => {
+            let dateResult = dateCompute(dataList.created_date);
+            return (
+              <ItemComponent
+                key={dataList.id}
+                id={dataList.id}
+                title={dataList.title}
+                price={dataList.price}
+                region={dataList.region}
+                createdDate={dateResult}
+              />
+              
+            );
+          })}
+          
       </ItemListBox>
     </ItemContainer>
   );
@@ -44,18 +42,19 @@ const ItemList = () => {
 
 export default ItemList;
 
-const ItemComponent = () => {
+const ItemComponent = ({ title, price, region, createdDate, id }) => {
+  const navigate = useNavigate();
   return (
-    <ItemBox onClick={() => useParams()}>
+    <ItemBox onClick={() => navigate(`/detail/${id}`)}>
       <ItemImg></ItemImg>
-      <ItemTitle>용산에서 부산행 KTX 표 팝니다.</ItemTitle>
+      <ItemTitle>{title}</ItemTitle>
       <ItemPrice>
-        <p className="price_data">25,000</p>
+        <p className="price_data">{price}</p>
         <p>원</p>
       </ItemPrice>
       <SellInfo>
-        <p className="sell_area">서울시 강남구 논현동</p>
-        <p className="posted_date">1일전</p>
+        <p className="sell_area">{region}</p>
+        <p className="posted_date">{createdDate}</p>
       </SellInfo>
     </ItemBox>
   );
