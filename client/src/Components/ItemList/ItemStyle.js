@@ -32,6 +32,10 @@ const ItemImg = styled(ItemInfoOption)`
 
 const ItemTitle = styled(ItemInfoOption)`
   font-size: var(--f-medium);
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 const ItemPrice = styled(ItemInfoOption)`
   font-size: var(--f-small);
