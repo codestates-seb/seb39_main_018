@@ -10,7 +10,7 @@ const Modal = (props) => {
   const [visible, setVisible] = useState(open);
 
   useEffect(() => {
-    // open 값이 true -> false 가 되는 것을 감지 (즉, 모달창을 닫을 때)
+    // open true -> false 가 되는 것을 감지 (즉, 모달창을 닫을 때)
     if (visible && !open) {
       setAnimate(true);
       setTimeout(() => setAnimate(false), 250);
@@ -19,18 +19,20 @@ const Modal = (props) => {
   }, [visible, open]);
 
   if (!animate && !visible) return null;
+  if (!open) close();
 
   return (
-    // 모달의 open close클래스로 css animation을 구현
-    <div className={open ? 'modal open' : 'modal close'}>
-      <section>
-        <header>
-          <button className="close" onClick={close}>
-            &times;
-          </button>
-        </header>
-        <main>{props.children}</main>
-      </section>
+    <div className="modal-overlay" onClick={close}>
+      <div className={open ? 'modal open' : 'modal close'} onClick={(e) => e.stopPropagation()}>
+        <section>
+          <header>
+            <button className="close" onClick={close}>
+              &times;
+            </button>
+          </header>
+          <main>{props.children}</main>
+        </section>
+      </div>
     </div>
   );
 };
