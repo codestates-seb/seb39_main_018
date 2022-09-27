@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Post from '../Components/ItemDetail/DetailStyle';
-import TagUI from '../Components/Common/Tag/Tag';
+import { TagUI } from '../Components/Common/Tag/Tag';
 import { LikeBtn, MessageBtn, ReadBtn } from '../Components/Common/Button/Buttons';
 import { LeftIcon, RightIcon, CheckIcon } from '../Components/Common/Icons/Icons';
 import axios from 'axios';
-import { saves,dateCompute } from '../util/detailLogic';
+import { saves, dateCompute } from '../util/detailLogic';
 import { useParams } from 'react-router-dom';
 
 const DetailPage = () => {
@@ -18,7 +18,6 @@ const DetailPage = () => {
   // description , area , views ,
   // userimg , username , pricecount, reviewcount, area ? true false
   // reviews , userimg , username , postedDate, description
-
 
   return (
     <Post.Container>
@@ -123,7 +122,7 @@ const PictureList = () => {
 };
 
 // 상세페이지 상품설명 컴포넌트
-const PostBoard = ({ description,region }) => {
+const PostBoard = ({ description, region }) => {
   return (
     <Post.Description>
       <div className="item_title">상품설명</div>
