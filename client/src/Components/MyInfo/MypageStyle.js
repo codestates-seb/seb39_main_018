@@ -1,6 +1,4 @@
-import styled from "styled-components";
-
-
+import styled from 'styled-components';
 
 const Modal = styled.div`
   position: relative;

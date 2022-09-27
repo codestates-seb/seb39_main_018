@@ -11,6 +11,7 @@ import Login from '../Components/Modals/Login/General/Login';
 import Find from '../Components/Modals/IDPWFind/Find';
 import Header from '../Components/Common/Header/Header';
 import Footer from '../Components/Common/Footer/Footer';
+import WithdrawPage from '../Pages/WithdrawPage';
 import React, { useEffect } from 'react';
 
 const Routers = () => {
@@ -30,6 +31,7 @@ const Pages = () => {
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/detail" element={<DetailPage />} />
+      <Route path="/withdraw" element={<WithdrawPage />} />
     </Routes>
   );
 };
