@@ -38,7 +38,7 @@ const Picture = styled(AllSetting)`
 `;
 
 //-- 판매 정보 컴포넌트
-const Info = styled(AllSetting)`
+const ItemInfo = styled(AllSetting)`
   width: 39%;
 `;
 const InfoTop = styled.div`
@@ -59,10 +59,10 @@ const InfoSet = styled.div`
   display: flex;
   align-items: center;
   margin: 10px 0;
-  .title {
+  .info_title {
     font-size: var(--f-medium);
   }
-  .data {
+  .infor_data {
     font-size: var(--f-small);
   }
 `;
@@ -77,16 +77,14 @@ const Btn = styled(InfoSet)`
   justify-content: space-between;
   flex-wrap: wrap;
   height: 50px;
-  .top {
+  .top_btn {
+    height: 100%;
+    width: 49%;
+  }
+  .bottom_btn {
     margin: 20px 0;
     width: 100%;
     height: 100%;
-    border: 1px solid blue;
-  }
-  .bottom1,
-  .bottom2 {
-    height: 100%;
-    width: 49%;
   }
 `;
 
@@ -194,6 +192,10 @@ const SellerInfo = styled(SellerSetting)`
     display: flex;
   }
 `;
+const InfoBox = styled.div`
+
+`;
+
 ///--------------------------------------
 
 //-- 판매자 거래후기
@@ -251,9 +253,10 @@ export default {
   Container,
   Content,
   Picture,
-  Info,
+  ItemInfo,
   InfoTop,
   InfoBottom,
+  InfoBox,
   PicList,
   NextPicture,
   Description,

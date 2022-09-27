@@ -4,12 +4,12 @@ const MainContainer = styled.div`
   width: 100%;
   min-height: 500px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 
 const MainContent = styled(MainContainer)`
   width: 1200px;
-  border: 1px solid black;
   margin-bottom: 30px;
   flex-wrap: wrap;
 `;
@@ -22,21 +22,30 @@ const AllOption = styled.div`
   background: var(--lightgray);
 `;
 //--- 정렬 컴포넌트
-const FilterSection = styled(AllOption)`
-  height: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+// const FilterContainer = styled(AllOption)`
+//   width: 1200px;
+
+//   align-items: flex-start;
+// `;
+
+const FilterSection = styled.div`
+  width: 1200px;
+`;
+const FilterBox = styled(AllOption)`
+  width: 1180px;
+  height: 120px;
+  flex-wrap: wrap;
 `;
 
 const FilterOption = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 50px;
-  border: 1px solid;
+  height: 60px;
 `;
-const FilterTopBox = styled(FilterOption)``;
+const FilterTopBox = styled(FilterOption)`
+  border-bottom: 3px solid var(--gray);
+`;
 const FilterBottomBox = styled(FilterOption)``;
 const FilterLeft = styled(FilterOption)`
   width: 60%;
@@ -50,7 +59,12 @@ const SellType = styled.div`
   align-items: center;
   height: 100%;
   padding: 0 10px;
-  border: 1px solid;
+  border-bottom: 3px solid ${(prop) => prop.color || 'none'};
+
+  p {
+    cursor: pointer;
+    color: ${(prop) => prop.color || 'gray'};
+  }
 `;
 const SearchFilter = styled.div`
   width: 150px;
@@ -89,6 +103,7 @@ export {
   MainContainer,
   MainContent,
   FilterSection,
+  FilterBox,
   FilterTopBox,
   FilterBottomBox,
   FilterLeft,

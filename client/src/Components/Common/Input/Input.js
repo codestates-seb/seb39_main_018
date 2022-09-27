@@ -7,9 +7,7 @@ const InputComponent = () => {
         
       </Input.Container>
       <Input.Container>
-        <Input.Posting 
-            placeholder="검색어를 입력하세요"
-        />
+        <Input.Posting placeholder="검색어를 입력하세요" />
       </Input.Container>
     </>
   );
