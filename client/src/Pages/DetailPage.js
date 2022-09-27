@@ -4,31 +4,37 @@ import TagUI from '../Components/Common/Tag/Tag';
 import { LikeBtn, MessageBtn, ReadBtn } from '../Components/Common/Button/Buttons';
 import { LeftIcon, RightIcon, CheckIcon } from '../Components/Common/Icons/Icons';
 import axios from 'axios';
-import {saves} from '../util/detailLogic';
+import { saves,dateCompute } from '../util/detailLogic';
 import { useParams } from 'react-router-dom';
 
-
 const DetailPage = () => {
-  console.log(useParams());
-  let data = saves()
-  console.log(data);
+  const { id } = useParams();
+  const { title, img, text, price, end_date, seat_number, createdDate, region } = saves(id);
+  const detailPageDate = dateCompute(createdDate);
+  console.log();
 
   // img , price , postedDate , endData, seat , area , tag,
   // img
-  // description , area , views , 
+  // description , area , views ,
   // userimg , username , pricecount, reviewcount, area ? true false
   // reviews , userimg , username , postedDate, description
 
-  
 
   return (
     <Post.Container>
       <Post.Content>
         <PostCategory />
-        <PostPicture />
-        <PostInfo />
-        <PictureList />
-        <PostBoard />
+        <PostPicture img={img} />
+        <PostInfo
+          title={title}
+          price={price}
+          createdDate={detailPageDate}
+          endDate={end_date}
+          seat={seat_number}
+          region={region}
+        />
+        <PictureList img={img} />
+        <PostBoard description={text} region={region} />
         <PostSeller />
         <SellerReviews />
       </Post.Content>
@@ -50,17 +56,18 @@ const PostCategory = () => {
 };
 
 // 상세페이지 사진 컴포넌트
-const PostPicture = () => {
+const PostPicture = ({ img }) => {
   return <Post.Picture></Post.Picture>;
 };
 
 // 상세페이지 판매정보 컴포넌트
-const PostInfo = () => {
+const PostInfo = ({ title, price, createdDate, endDate, seat, region }) => {
   return (
     <Post.ItemInfo>
       <Post.InfoTop>
-        <h1>부산 가는 KTX 표 팝니다.</h1>
-        <p>150,000 원</p>
+        <h1>{title}</h1>
+        <p>{price}</p>
+        <p>원</p>
       </Post.InfoTop>
       <Post.InfoBottom>
         <Post.StartDate>
@@ -69,15 +76,15 @@ const PostInfo = () => {
         </Post.StartDate>
         <Post.EndDate>
           <p className="info_title">기간 :</p>
-          <p className="infor_data">2022/10/22</p>
+          <p className="infor_data">{endDate}</p>
         </Post.EndDate>
         <Post.Seat>
           <p className="info_title">좌석 : </p>
-          <p className="infor_data">J열 32번 , F열 12번</p>
+          <p className="infor_data">{seat}</p>
         </Post.Seat>
         <Post.Seat>
           <p className="info_title">거래지역 : </p>
-          <p className="infor_data">J열 32번 , F열 12번</p>
+          <p className="infor_data">{region}</p>
         </Post.Seat>
         <Post.Tags>
           <TagUI />
@@ -116,18 +123,15 @@ const PictureList = () => {
 };
 
 // 상세페이지 상품설명 컴포넌트
-const PostBoard = () => {
+const PostBoard = ({ description,region }) => {
   return (
     <Post.Description>
       <div className="item_title">상품설명</div>
-      <div className="body">
-        25일 출발인데 사정이 생겨 가지 못하게 되었네요 ..ㅠ 충분히 저렴하게 올려서 에눌 문의는
-        차단합니다. 반품 X 교환 X 신중하게 구매하실분만 톡 ㄱㄱ
-      </div>
+      <div className="body">{description}</div>
       <Post.SubInfo>
         <Post.SellArea>
           <p className="subinfo_title">거래지역</p>
-          <p className="subinfo_body">서울시 강남구 신사동</p>
+          <p className="subinfo_body">{region}</p>
         </Post.SellArea>
         <Post.Views>
           <p className="subinfo_title">조회수</p>
