@@ -13,12 +13,7 @@ import Header from '../Components/Common/Header/Header';
 import Footer from '../Components/Common/Footer/Footer';
 import React, { useEffect } from 'react';
 
-
 const Routers = () => {
-  useEffect(() => {
-    window.Kakao.init('7f72f6bd7dc714fa93bd9794498a7a2b');
-  }, []);
-
   return (
     <>
       <Pages />
@@ -34,7 +29,7 @@ const Pages = () => {
       <Route path="/" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/mypage" element={<MyPage />} />
-      <Route path="/detail" element={<DetailPage />} />
+      <Route path="/detail/12" element={<DetailPage />} />
     </Routes>
   );
 };
