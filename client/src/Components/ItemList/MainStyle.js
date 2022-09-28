@@ -45,8 +45,17 @@ const FilterLeft = styled(FilterOption)`
   width: 60%;
 `;
 const FilterRight = styled(FilterOption)`
+  position: relative;
   width: 40%;
   justify-content: space-between;
+  .drop_bar {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    border: 1px solid;
+    right: 0;
+    top: 50px;
+  }
 `;
 const SellType = styled.div`
   display: flex;
@@ -65,17 +74,57 @@ const SearchFilter = styled.div`
   margin: 0 10px;
 `;
 const SortByOption = styled.div`
-  width: 80px;
+  width: 100px;
   height: 30px;
   border: 1px solid;
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-radius: var(--b-xsmall);
+  font-size: var(--f-small);
   .select_icon {
+    display: flex;
+    align-items: center;
+    transition: all ease 0.5s;
+    cursor: pointer;
+  }
+
+  .select_icon.open {
+    transform: rotate(180deg);
+    transition: all ease 0.5s;
+  }
+
+  .select_upicon {
+    display: ${(props) => (props.display ? 'none' : 'block')};
     margin-top: 5px;
+    cursor: pointer;
   }
 `;
+
+const SortOpDropbar = styled(SortByOption)`
+  display: ${(props) => (props.display ? 'flex' : 'none')};
+  position: absolute;
+  width: 100px;
+  height: 150px;
+  border: 1px solid;
+  align-items: center;
+  flex-wrap: wrap;
+  right: 0;
+  top: 50px;
+  background: white;
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+  }
+  p:hover {
+    background: gray;
+    cursor: pointer;
+  }
+`;
+
 const TagFilter = styled.div`
   display: flex;
 `;
@@ -106,6 +155,7 @@ export {
   FilterRight,
   SellType,
   SearchFilter,
+  SortOpDropbar,
   SortByOption,
   TagFilter,
   ViewMoreSection,

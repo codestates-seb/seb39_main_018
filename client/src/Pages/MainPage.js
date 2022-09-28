@@ -19,6 +19,7 @@ import {
   FilterBottomBox,
   ViewMoreSection,
   ViewMoreBtn,
+  SortOpDropbar,
 } from '../Components/ItemList/MainStyle';
 import { TagInput } from '../Components/Common/Input/InputStyle';
 import { TagComponent } from '../Components/Common/Tag/TagStyle';
@@ -46,7 +47,9 @@ const ItemsContainer = () => {
 };
 
 const Filter = () => {
-  const [selectOP, setSelectOP] = useState('인기순');
+  const [selectOP, setSelectOP] = useState(['인기순', '최신순', '정확도순', '오래된순']);
+  const [selectindex, setSelectindex] = useState(1);
+  const [isSelect, setIsSelect] = useState(false);
   const [tabFocus, setTabFocus] = useState(1);
   const sellTypeTab = ['전체', '판매중', '판매완료'];
   const [tagData, setTagData] = useState([]);
@@ -84,11 +87,23 @@ const Filter = () => {
               <TagInput onChange={tagInputHandler} onKeyUp={tagInputHandler} value={inputdata} />
             </SearchFilter>
             <SortByOption>
-              <p className="select_text">{selectOP}</p>
-              <p className="select_icon">
+              <p className="select_text">{selectOP[selectindex]}</p>
+              <p
+                className={isSelect ? "select_icon open" : "select_icon"}
+                onClick={() => setIsSelect(!isSelect)}
+              >
                 <DownIcon />
               </p>
             </SortByOption>
+            <SortOpDropbar display={isSelect}>
+              {selectOP.map((option, i) => {
+                return (
+                  <p key={option} onClick={() => (setSelectindex(i), setIsSelect(!isSelect))}>
+                    {option}
+                  </p>
+                );
+              })}
+            </SortOpDropbar>
           </FilterRight>
         </FilterTopBox>
         <FilterBottomBox>
