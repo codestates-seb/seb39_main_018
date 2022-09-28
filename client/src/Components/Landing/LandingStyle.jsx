@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const AllOption = styled.div`
+  display: flex;
   width: 100%;
 `;
 
 const LandingContainer = styled(AllOption)`
-  display: flex;
   flex-wrap: wrap;
   justify-content: center;
 `;
@@ -17,7 +17,7 @@ const MainBanner_Container = styled(AllOption)`
 
 const ItemsView_Container = styled(AllOption)`
   border: 1px solid;
-  width: 75%;
+  width: 65%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,31 +31,34 @@ const ItemsView_Container = styled(AllOption)`
   }
 `;
 
-const PreviewList = styled.div`
-  display: flex;
-  width: 100%;
+const PreviewList = styled(AllOption)`
   justify-content: space-around;
 `;
 
 const ItemPreview = styled.div`
-  width: 240px;
-  height: 250px;
+  width: 200px;
+  height: 240px;
   border: 1px solid;
+  ${ItemPreview}:hover {
+    transform: scale(1.4);
+    transition: all 0.5s;
+  }
 `;
 const PreviewImg = styled.div`
   width: 100%;
-  height: 180px;
+  height: 160px;
   margin-bottom: 15px;
   background: lightgray;
 `;
 const PreviewInfo = styled.div`
   .title {
-    font-size: var(--f-medium);
+    font-size: 18px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
   p {
+    font-size: 15px;
     margin-top: 10px;
   }
 `;
@@ -74,9 +77,31 @@ const SubBanner_Container = styled(AllOption)`
 `;
 
 const EndBanner_Container = styled(AllOption)`
-  height: 250px;
+  height: 350px;
   border: 1px solid;
+  justify-content: center;
+  align-items: center;
 `;
+
+const Featuree = styled.div`
+  box-shadow: 2px 3px 5px;
+  border-radius: 10px;
+  margin: 0 80px;
+  width: 350px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    width: 70px;
+    height: 70px;
+  }
+
+  p {
+    margin: 50px;
+  }
+`;
+
 export {
   LandingContainer,
   MainBanner_Container,
@@ -89,4 +114,5 @@ export {
   AllviewBtn,
   SubBanner_Container,
   EndBanner_Container,
+  Featuree,
 };
