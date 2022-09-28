@@ -12,6 +12,7 @@ import Find from '../Components/Modals/IDPWFind/Find';
 import Header from '../Components/Common/Header/Header';
 import Footer from '../Components/Common/Footer/Footer';
 import WithdrawPage from '../Pages/WithdrawPage';
+import MapState from '../Components/Modals/Map/MapState';
 import React, { useEffect } from 'react';
 
 const Routers = () => {
@@ -54,6 +55,7 @@ const Modals = () => {
       <Route path="/find" element={<Find />} />
       <Route path="/test" element={<TEST2 />} />
       <Route path="/okakao" element={<TESTS />} />
+      <Route path="/mapstate" element={<MapState />} />
     </Routes>
   );
 };
