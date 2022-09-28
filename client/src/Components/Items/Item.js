@@ -40,8 +40,6 @@ const ItemList = () => {
   );
 };
 
-export default ItemList;
-
 const ItemComponent = ({ title, price, region, createdDate, id }) => {
   const navigate = useNavigate();
   return (
@@ -67,3 +65,6 @@ const ItemsCount = () => {
     </ViewsBox>
   );
 };
+
+
+export default ItemList;

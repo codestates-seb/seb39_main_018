@@ -69,7 +69,7 @@ const SellType = styled.div`
     color: ${(prop) => prop.color || 'gray'};
   }
 `;
-const SearchFilter = styled.div`
+const SearchSection = styled.div`
   width: 150px;
   margin: 0 10px;
 `;
@@ -125,7 +125,7 @@ const SortOpDropbar = styled(SortByOption)`
   }
 `;
 
-const TagFilter = styled.div`
+const TagSection = styled.div`
   display: flex;
 `;
 
@@ -154,10 +154,10 @@ export {
   FilterLeft,
   FilterRight,
   SellType,
-  SearchFilter,
+  SearchSection,
   SortOpDropbar,
   SortByOption,
-  TagFilter,
+  TagSection,
   ViewMoreSection,
   ViewMoreBtn,
 };
