@@ -13,6 +13,7 @@ import Header from '../Components/Common/Header/Header';
 import Footer from '../Components/Common/Footer/Footer';
 import WithdrawPage from '../Pages/WithdrawPage';
 import React, { useEffect } from 'react';
+import LandingPage from '../Pages/LandingPage';
 
 const Routers = () => {
   return (
@@ -27,7 +28,8 @@ const Routers = () => {
 const Pages = () => {
   return (
     <Routes>
-      <Route path="/" element={<MainPage />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/main" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/detail" element={<DetailPage />} />
