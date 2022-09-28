@@ -9,18 +9,24 @@ const TagInput = styled.input`
   width: 100%;
   height: 20px;
   padding: 10px;
-  border: 3px solid #d2daff;
-
-  box-shadow: inset 0 0 20px #d2daff;
+  border: 2px solid #d2daff;
+  outline: none;
+  background: #edeffc;
   border-radius: var(--b-small);
+  font-size: 18px;
   ::placeholder {
-    color: lightgray;
+    color: #a0a1a3;
+    font-size: 12px;
+  }
+  ${TagInput}:focus {
+    background: #f5f6fa;
   }
 `;
 const Posting = styled(TagInput)`
   border: 3px solid #d2daff;
   background: #e9f2fa;
   border-radius: var(--b-medium);
+  box-shadow: inset 0 0 20px #d2daff;
   outline: none;
   ${Posting}:focus {
     background: white;
