@@ -31,14 +31,14 @@ const ItemList = () => {
                 region={dataList.region}
                 createdDate={dateResult}
               />
-              
             );
           })}
-          
       </ItemListBox>
     </ItemContainer>
   );
 };
+
+export default ItemList;
 
 const ItemComponent = ({ title, price, region, createdDate, id }) => {
   const navigate = useNavigate();
@@ -66,5 +66,4 @@ const ItemsCount = () => {
   );
 };
 
-
-export default ItemList;
+export { ItemComponent };

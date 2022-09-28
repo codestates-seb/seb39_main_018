@@ -114,7 +114,7 @@ const SortOption = ({ selectOP, selectindex, isSelect, setSelectindex ,setIsSele
   );
 };
 
-const TagFilter = ({ tagData }) => {
+const TagFilter = ({ tagData,tagCancel }) => {
   return (
     <TagSection>
       {tagData &&
