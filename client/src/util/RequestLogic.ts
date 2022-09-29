@@ -1,8 +1,14 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const saves = (id) => {
-  const [data, setdata] = useState('');
+type retutnType = (string | object)[];
+interface serverRes {
+  data: object | [];
+  content?: (string | object)[];
+}
+
+const saves = (id: string): retutnType => {
+  const [data, setdata] = useState([]);
   const url = `http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board/${id}`;
   useEffect(() => {
     axios(url, {
@@ -17,20 +23,24 @@ const saves = (id) => {
   return data;
 };
 
-const itemGet = () => {
-  const [data, setdata] = useState('');
+//list?page=0132 viewMore
+
+const itemGet = (api?: string): retutnType => {
+  const [data, setdata] = useState<retutnType>([]);
   const id = '';
-  const url = `http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board`;
+  const url = `http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/${
+    !api ? 'board' : 'board/' + api
+  }`;
   useEffect(() => {
-    axios(url, {
-      method: 'get',
-    }).then((res) => setdata(res.data));
+    axios.get(url).then((res) => {
+      return !Array.isArray(data) ? setdata(res.data.content) : setdata(res.data);
+    });
   }, []);
 
   return data;
 };
 
-const dateCompute = (date) => {
+const dateCompute = (date: string): string => {
   const nowDate = new Date();
   const createdDate = new Date(date);
   const dateCount = nowDate.getTime() - createdDate.getTime();
