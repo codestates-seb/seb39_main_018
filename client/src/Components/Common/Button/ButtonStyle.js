@@ -116,7 +116,7 @@ const Message = styled(PostAllSets)``;
 const Button1 = styled(PostAllSets)`
   background: ${(prop) => prop.background};
   color: ${(prop) => prop.color || 'white'};
-  /* border: 1px solid var(--gray); */
+  width: ${(prop) => prop.width || ''};
   box-shadow: 1px 1px 3px 1px;
   ${Button1}:active {
     background: #ebebeb;

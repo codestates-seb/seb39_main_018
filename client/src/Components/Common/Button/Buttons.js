@@ -103,9 +103,9 @@ const MessageBtn = () => {
   return <Btn.Message>메세지보내기</Btn.Message>;
 };
 
-const BasicBtn = ({ name, icon, background, color }) => {
+const BasicBtn = ({ name, icon, background, color, width, margin }) => {
   return (
-    <Btn.Button1 background={background} color={color}>
+    <Btn.Button1 background={background} color={color} width={width} margin={margin}>
       <p>{name}</p>
       <p>{icon}</p>
     </Btn.Button1>
