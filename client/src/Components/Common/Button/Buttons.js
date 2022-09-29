@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { TicketIcon } from '../Icons/Icons';
 import Btn from './ButtonStyle';
-;
-
-
 const BtnComponent = () => {
   return (
     <Btn.BtnContaier>
@@ -27,7 +24,7 @@ const BtnComponent = () => {
           <MessageBtn />
         </Btn.FrameTest>
         <Btn.FrameTest>
-          <BasicBtn  />
+          <BasicBtn />
         </Btn.FrameTest>
       </Btn.Post>
       <Btn.Basic>
@@ -57,7 +54,7 @@ const SellBtn = () => {
     <Btn.AllSets>
       <Btn.Sell>
         <div className="icon">
-          <TicketIcon/>
+          <TicketIcon />
         </div>
         <div className="text">판매하기</div>
       </Btn.Sell>
@@ -106,8 +103,13 @@ const MessageBtn = () => {
   return <Btn.Message>메세지보내기</Btn.Message>;
 };
 
-const BasicBtn = ({ name,background,color }) => {
-  return <Btn.Button1 background={background} color={color} >{name}</Btn.Button1>;
+const BasicBtn = ({ name, icon, background, color }) => {
+  return (
+    <Btn.Button1 background={background} color={color}>
+      <p>{name}</p>
+      <p>{icon}</p>
+    </Btn.Button1>
+  );
 };
 
 export {

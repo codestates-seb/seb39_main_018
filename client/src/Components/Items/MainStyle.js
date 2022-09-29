@@ -19,7 +19,6 @@ const AllOption = styled.div`
   align-items: center;
   margin: 10px 0;
   width: 100%;
-  background: var(--lightgray);
 `;
 
 const FilterSection = styled.div`
@@ -70,8 +69,17 @@ const SellType = styled.div`
   }
 `;
 const SearchSection = styled.div`
-  width: 150px;
+  width: 160px;
   margin: 0 10px;
+  position: relative;
+
+  p {
+    position: absolute;
+    right: -10px;
+    top: 10px;
+    font-size: 25px;
+    color: gray;
+  }
 `;
 const SortByOption = styled.div`
   width: 100px;
@@ -134,7 +142,7 @@ const TagSection = styled.div`
 //-- 상품 컴포넌트
 
 const ViewMoreSection = styled(AllOption)`
-  height: 80px;
+  height: 50px;
   justify-content: center;
   margin: 20px;
 `;

@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'docs'),
     filename: '[name].bundle.js',
-    publicPath: "/",
+    publicPath: '/',
   },
   stats: 'errors-only',
   devServer: {
@@ -39,6 +39,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|s)$/,
+        use: ['file-loader'],
       },
     ],
   },

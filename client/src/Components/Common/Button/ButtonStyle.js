@@ -105,7 +105,6 @@ const PostAllSets = styled(AllSets)`
   height: 100%;
   border-radius: var(--b-small);
   background: var(--lightgray);
- 
 `;
 
 const Edit = styled(PostAllSets)``;
@@ -117,9 +116,12 @@ const Message = styled(PostAllSets)``;
 const Button1 = styled(PostAllSets)`
   background: ${(prop) => prop.background};
   color: ${(prop) => prop.color || 'white'};
+  /* border: 1px solid var(--gray); */
+  box-shadow: 1px 1px 3px 1px;
   ${Button1}:active {
-    box-shadow: inset 3px 3px 10px;
-    background: darkcyan;
+    background: #ebebeb;
+  }
+  p {
   }
 `;
 const Button2 = styled(PostAllSets)`

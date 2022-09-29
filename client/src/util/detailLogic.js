@@ -52,6 +52,17 @@ const dateCompute = (date) => {
     ? `${min} 분전`
     : '방금전';
 };
-export { saves , itemGet, dateCompute}
 
+const latestItem = () => {
+  const [data, setdata] = useState([]);
+  data.length = 5;
+  const url = `http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board`;
+  useEffect(() => {
+    axios(url, {
+      method: 'get',
+    }).then((res) => setdata(res.data));
+  }, []);
+  return data;
+};
 
+export { saves, itemGet, dateCompute, latestItem };
