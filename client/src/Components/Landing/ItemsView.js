@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ItemsView_Container,
   ItemPreview,
@@ -9,10 +9,15 @@ import {
   AllviewBtn,
 } from './LandingStyle.jsx';
 import { RightIcon } from '../Common/Icons/Icons.js';
-import { useNavigate } from 'react-router-dom';
 import { BasicBtn } from '../Common/Button/Button.js';
+import { useNavigate } from 'react-router-dom';
+
 const ItemsView = ({ latestDatas }) => {
   const navigate = useNavigate();
+  const pageMove = (url) => {
+    navigate(url);
+    window.scrollTo(0, 0);
+  };
 
   return (
     <ItemsView_Container>
@@ -33,7 +38,7 @@ const ItemsView = ({ latestDatas }) => {
           );
         })}
       </PreviewList>
-      <AllviewBtn onClick={() => navigate('/main')}>
+      <AllviewBtn onClick={() => pageMove('/main')}>
         <BasicBtn background="none" color="black">
           전체보기
           <RightIcon />

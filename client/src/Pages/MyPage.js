@@ -47,12 +47,11 @@ const MyPage = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <button onClick={openSignUpModal}>모달회원가입</button>
       <Modal open={signUpModalOn} close={closeSignUpModal}>
         <Signup />
       </Modal>
-
       <button onClick={openSignInModal}>모달로그인</button>
       <Modal open={signInModalOn} close={closeSignInModal}>
         <Login signupClickInLogin={loginCloseSignupOpen} findClickInLogin={loginCloseFindOpen} />
@@ -62,7 +61,7 @@ const MyPage = () => {
       <Modal open={findModalOn} close={closeFindModal}>
         <Find />
       </Modal>
-    </React.Fragment>
+    </>
   );
 };
 
