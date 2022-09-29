@@ -8,11 +8,9 @@ import {
   PreviewList,
   AllviewBtn,
 } from './LandingStyle.jsx';
-import { BasicBtn } from '../Common/Button/Buttons.js';
 import { RightIcon } from '../Common/Icons/Icons.js';
 import { useNavigate } from 'react-router-dom';
-
-
+import { BasicBtn } from '../Common/Button/Button.js';
 const ItemsView = ({ latestDatas }) => {
   const navigate = useNavigate();
 
@@ -35,8 +33,11 @@ const ItemsView = ({ latestDatas }) => {
           );
         })}
       </PreviewList>
-      <AllviewBtn onClick={() => navigate('/')}>
-        <BasicBtn name="전체보기" icon={<RightIcon />} background="none" color="black" />
+      <AllviewBtn onClick={() => navigate('/main')}>
+        <BasicBtn background="none" color="black">
+          전체보기
+          <RightIcon />
+        </BasicBtn>
       </AllviewBtn>
     </ItemsView_Container>
   );

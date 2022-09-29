@@ -44,7 +44,6 @@ const FilterLeft = styled(FilterOption)`
   width: 60%;
 `;
 const FilterRight = styled(FilterOption)`
-  position: relative;
   width: 40%;
   justify-content: space-between;
   .drop_bar {
@@ -71,12 +70,7 @@ const SellType = styled.div`
 const SearchSection = styled.div`
   width: 160px;
   margin: 0 10px;
-  position: relative;
-
   p {
-    position: absolute;
-    right: -12px;
-    top: 7px;
     font-size: 25px;
     color: gray;
     cursor: pointer;
