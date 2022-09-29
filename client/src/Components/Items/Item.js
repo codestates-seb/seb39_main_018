@@ -12,9 +12,8 @@ import {
 import { useNavigate, useParams } from 'react-router-dom';
 import { dateCompute } from '../../util/RequestLogic.ts';
 
-
-const ItemList = ({itemsData}) => {
-  console.log(itemsData)
+const ItemList = ({ itemsData, pageMove }) => {
+  console.log(itemsData);
   return (
     <ItemContainer>
       <ItemsCount />
@@ -24,6 +23,7 @@ const ItemList = ({itemsData}) => {
             let dateResult = dateCompute(dataList.created_date);
             return (
               <ItemComponent
+                pageMove={pageMove}
                 key={dataList.id}
                 id={dataList.id}
                 title={dataList.title}
@@ -40,10 +40,9 @@ const ItemList = ({itemsData}) => {
 
 export default ItemList;
 
-const ItemComponent = ({ title, price, region, createdDate, id }) => {
-  const navigate = useNavigate();
+const ItemComponent = ({ title, price, region, createdDate, id, pageMove }) => {
   return (
-    <ItemBox onClick={() => navigate(`/detail/${id}`)}>
+    <ItemBox onClick={() => pageMove(`/detail/${id}`)}>
       <ItemImg></ItemImg>
       <ItemTitle>{title}</ItemTitle>
       <ItemPrice>
