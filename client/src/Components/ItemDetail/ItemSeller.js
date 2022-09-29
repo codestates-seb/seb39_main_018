@@ -1,7 +1,8 @@
 import React from 'react';
 import { Detail_Seller, SellerTitle, SellerInfo, SellInfoBox, SellerBtn } from './DetailStyle.jsx';
 import { CheckIcon } from '../Common/Icons/Icons';
-import { BasicBtn, LikeBtn } from '../Common/Button/Buttons';
+import { BasicBtn } from '../Common/Button/Button.js';
+
 const ItemSeller = () => {
   return (
     <Detail_Seller>
@@ -28,8 +29,8 @@ const ItemSeller = () => {
         </SellInfoBox>
       </SellerInfo>
       <SellerBtn>
-        <BasicBtn name="판매자보기" width="49%" />
-        <BasicBtn name="신고하기" width="49%" />
+        <BasicBtn width="49%">판매자보기</BasicBtn>
+        <BasicBtn width="49%">신고하기</BasicBtn>
       </SellerBtn>
     </Detail_Seller>
   );

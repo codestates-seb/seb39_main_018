@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { DownIcon, CancelIcon, SearchIcon } from '../Common/Icons/Icons';
-import { TagInput } from '../Common/Input/InputStyle';
+import { TagInput } from '../Common/Input/Input';
 import { TagComponent } from '../Common/Tag/TagStyle';
-
+import { InputUI } from '../Common/Input/Input';
 import {
   FilterSection,
   FilterBox,
@@ -84,7 +84,7 @@ const SellTypeFilter = ({ tabFocus, sellTypeTab, tabHandler }) => {
 const SearchFilter = ({ inputdata, tagInputHandler }) => {
   return (
     <SearchSection>
-      <TagInput
+      <InputUI
         placeholder="검색어를 입력해주세요"
         onChange={tagInputHandler}
         onKeyUp={tagInputHandler}

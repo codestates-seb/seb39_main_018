@@ -6,63 +6,99 @@ const AllSetting = styled.div`
   align-items: center;
 `;
 
-
 const HeaderContainer = styled(AllSetting)`
+  position: relative;
   width: 100%;
-  height: 230px;
-  border: 2px solid var(--lightgray);
+  height: 180px;
   align-items: flex-start;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 100px;
 `;
-
-const Header_MainSection = styled(AllSetting)`
-  width: 70%;
-  height: 120px;
-  border: 2px solid;
+const NavbarSection = styled.div`
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: #ffffff;
+  justify-content: center;
 `;
 
-const Header_SubSection = styled(AllSetting)``;
+const NavbarTop = styled(AllSetting)`
+  align-items: flex-start;
+  width: 70%;
+  padding: 20px;
+  height: 50px;
+  // border: 1px solid;
+  margin-top: 10px;
+`;
+
+const NavbarBottom = styled(AllSetting)`
+  width: 100%;
+  padding: 40px;
+  justify-content: center;
+  border: 1px solid var(--lightgray);
+`;
 
 const LogoSection = styled(AllSetting)`
   width: 200px;
   height: 100%;
-
-  border: 1px solid;
+  justify-content: center;
+  p {
+    font-size: 50px;
+    font-weight: bold;
+  }
 `;
 const SearchSection = styled(AllSetting)`
-  width: 680px;
-  height:100%;
+  width: 750px;
+  height: 100%;
   align-items: center;
-  border: 1px solid;
+  justify-content: flex-end;
 `;
 const SearchMain = styled.div`
-  width: 350px;
-  height: 50px;
-  margin-left: 250px;
-  background: lightgreen;
+  width: 280px;
+  margin-right: 80px;
 `;
 const ButtonSection = styled(AllSetting)`
-  width: 400px;
-  height:100%;
-  border: 1px solid;
+  width: 300px;
+  height: 100%;
   align-items: center;
-  justify-content: space-between;
-  p {
-    width: 50px;
-    height: 50px;
+  justify-content: space-around;
+
+  img {
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
+    cursor: pointer;
+  }
+  .manIcon {
+    border-radius: 50%;
     background: lightblue;
   }
 `;
-const CategorySection = styled.div``;
+const CategorySection = styled(AllSetting)`
+  width: 70%;
+  // border: 1px solid;
+  justify-content: space-around;
+`;
+
+const CategoryMain = styled.div`
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: lightgray;
+  cursor: pointer;
+`;
 
 export {
   HeaderContainer,
-  Header_MainSection,
-  Header_SubSection,
+  NavbarSection,
+  NavbarTop,
+  NavbarBottom,
   LogoSection,
   SearchSection,
   SearchMain,
   ButtonSection,
   CategorySection,
+  CategoryMain,
 };

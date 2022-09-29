@@ -9,8 +9,9 @@ import {
   EndDate,
   Btn,
 } from './DetailStyle.jsx';
-import { LikeBtn, MessageBtn, ReadBtn } from '../Common/Button/Buttons';
+
 import { TagUI } from '../Common/Tag/Tag';
+import { BasicBtn } from '../Common/Button/Button.js';
 
 const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region }) => {
   return (
@@ -40,17 +41,17 @@ const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region }) =>
           <p className="infor_data">{region}</p>
         </Seat>
         <Tags>
-          <TagUI text={''}/>
+          <TagUI text={''} />
         </Tags>
         <Btn>
           <div className="top_btn">
-            <LikeBtn />
+            <BasicBtn></BasicBtn>
           </div>
           <div className="top_btn">
-            <ReadBtn />
+            <BasicBtn></BasicBtn>
           </div>
           <div className="bottom_btn">
-            <MessageBtn />
+            <BasicBtn></BasicBtn>
           </div>
         </Btn>
       </InfoBottom>
