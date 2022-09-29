@@ -157,7 +157,7 @@ const MapState = () => {
     } else {
       setState((prev) => ({
         ...prev,
-        errMsg: '위치확인을 할 수 없습니다.',
+        errMsg: '위치를 확인할 수 없습니다.',
         isLoading: false,
       }));
     }
