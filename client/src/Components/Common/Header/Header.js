@@ -63,10 +63,10 @@ const NavButton = () => {
   return (
     <ButtonSection>
       <p>
-        <img className="manIcon" src={manIcon} onClick={navigate('/login')} />
+        <img className="manIcon" src={manIcon} onClick={() => navigate('/mypage')} />
       </p>
       <p>
-        <img src={message} onClick={navigate('/login')} />
+        <img src={message} onClick={() => navigate('/login')} />
       </p>
       <p>
         <img className="burger" src={burger} onClick={'ds'} />
