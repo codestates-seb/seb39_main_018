@@ -1,18 +1,16 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+const Detail_Container = styled.div`
   width: 100%;
   min-height: 500px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
 `;
 
-const Content = styled(Container)`
+const Detail_Section = styled(Detail_Container)`
   width: 1200px;
-  border: 1px solid black;
-  flex-wrap: wrap;
 
+  flex-wrap: wrap;
 `;
 
 const AllSetting = styled.div`
@@ -22,7 +20,7 @@ const AllSetting = styled.div`
   height: 550px;
 `;
 
-const Category = styled(AllSetting)`
+const Detail_Category = styled(AllSetting)`
   width: 100%;
   height: 30px;
   margin: 10px 10px;
@@ -32,68 +30,78 @@ const Category = styled(AllSetting)`
     flex-direction: row;
   }
 `;
-const Picture = styled(AllSetting)`
+const Detail_Img = styled(AllSetting)`
   width: 59%;
   margin-right: 10px;
 `;
 
 //-- 판매 정보 컴포넌트
-const Info = styled(AllSetting)`
+const Detail_ItemInfo = styled(AllSetting)`
   width: 39%;
 `;
 const InfoTop = styled.div`
   width: 100%;
   height: 20%;
-  border-bottom: 1px solid black;
+
   p,
   h1 {
     padding: 10px;
+  }
+  p {
+    font-size: var(--f-medium);
+    padding-right: 0;
+  }
+
+  .item_price {
+    display: flex;
+    align-items: center;
   }
 `;
 const InfoBottom = styled(InfoTop)`
   border: none;
   height: 80%;
 `;
-const InfoSet = styled.div`
+const InfoSetting = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   margin: 10px 0;
-  .title {
+  .info_title {
     font-size: var(--f-medium);
   }
-  .data {
+  .infor_data {
     font-size: var(--f-small);
   }
 `;
 
-const StartDate = styled(InfoSet)``;
-const EndDate = styled(InfoSet)``;
-const Seat = styled(InfoSet)``;
-const Tags = styled(InfoSet)`
+const StartDate = styled(InfoSetting)``;
+const EndDate = styled(InfoSetting)``;
+const Seat = styled(InfoSetting)``;
+const Tags = styled(InfoSetting)`
   margin: 0 10px;
 `;
-const Btn = styled(InfoSet)`
+const Btn = styled(InfoSetting)`
   justify-content: space-between;
   flex-wrap: wrap;
   height: 50px;
-  .top {
-    margin: 20px 0;
-    width: 100%;
-    height: 100%;
-    border: 1px solid blue;
-  }
-  .bottom1,
-  .bottom2 {
+  
+  .top_btn {
     height: 100%;
     width: 49%;
+    border: 1px solid;
+  }
+  .bottom_btn {
+    margin: 10px 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
   }
 `;
 
 ///--------------------------------------
 
 //--- 게시한 사진 리스트
-const PicList = styled(AllSetting)`
+const Detail_ImgList = styled(AllSetting)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +116,7 @@ const PicList = styled(AllSetting)`
   }
 `;
 
-const NextPicture = styled.div`
+const Detail_NextImg = styled.div`
   width: 20%;
   height: 95%;
   background: #ffffff;
@@ -118,7 +126,7 @@ const NextPicture = styled.div`
 ///--------------------------------------
 
 // -- 상품 설명 보드
-const Description = styled(AllSetting)`
+const Detail_Description = styled(AllSetting)`
   width: 59%;
   height: 300px;
   display: flex;
@@ -156,7 +164,7 @@ const Views = styled.div`
 ///--------------------------------------
 
 //-- 판매자 정보 컴포넌트
-const Seller = styled(AllSetting)`
+const Detail_Seller = styled(AllSetting)`
   width: 39%;
   height: 300px;
   display: flex;
@@ -194,10 +202,12 @@ const SellerInfo = styled(SellerSetting)`
     display: flex;
   }
 `;
+const SellInfoBox = styled.div``;
+
 ///--------------------------------------
 
 //-- 판매자 거래후기
-const Review = styled(AllSetting)`
+const Detail_Review = styled(AllSetting)`
   width: 100%;
   height: 200px;
   .review {
@@ -247,28 +257,29 @@ const ReviewInfo = styled.div`
   justify-content: space-between;
 `;
 
-export default {
-  Container,
-  Content,
-  Picture,
-  Info,
+export {
+  Detail_Container,
+  Detail_Section,
+  Detail_Img,
+  Detail_ItemInfo,
   InfoTop,
   InfoBottom,
-  PicList,
-  NextPicture,
-  Description,
+  Detail_ImgList,
+  Detail_NextImg,
+  Detail_Description,
   SubInfo,
   SellArea,
   Views,
-  Seller,
+  Detail_Seller,
   SellerTitle,
   SellerInfo,
-  Category,
+  SellInfoBox,
+  Detail_Category,
   StartDate,
   EndDate,
   Seat,
   Tags,
   Btn,
-  Review,
+  Detail_Review,
   ReviewInfo,
 };

@@ -5,7 +5,7 @@ const Container = styled.div`
   width: 300px;
 `;
 
-const Header = styled.input`
+const TagInput = styled.input`
   width: 100%;
   height: 20px;
   padding: 10px;
@@ -17,7 +17,7 @@ const Header = styled.input`
     color: lightgray;
   }
 `;
-const Posting = styled(Header)`
+const Posting = styled(TagInput)`
   border: 3px solid #d2daff;
   background: #e9f2fa;
   border-radius: var(--b-medium);
@@ -28,4 +28,6 @@ const Posting = styled(Header)`
   }
 `;
 
-export default { Container, Header, Posting };
+export default { Container, TagInput, Posting };
+
+export { TagInput };

@@ -63,3 +63,22 @@ const Circle4 = styled(CircleSet)`
 /// -------------------------------
 
 export default { Container, Circle1, Circle2, Circle3, Circle4 };
+
+const TagComponent = styled.div`
+  display: ${(props) => props.display || 'none'};
+  align-items: center;
+  padding: 5px 8px;
+  margin-right: 10px;
+  font-size: var(--f-small);
+  border-radius: var(--b-small);
+  background: var(--gray);
+
+  .cancel_icon {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+`;
+
+export { TagComponent };

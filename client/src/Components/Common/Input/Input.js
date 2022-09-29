@@ -7,9 +7,7 @@ const InputComponent = () => {
         
       </Input.Container>
       <Input.Container>
-        <Input.Posting 
-            placeholder="검색어를 입력하세요"
-        />
+        <Input.Posting placeholder="검색어를 입력하세요" />
       </Input.Container>
     </>
   );
@@ -19,10 +17,10 @@ export default InputComponent;
 const InputUI = () => {
   return (
     <>
-      <Input.Header placeholder="검색어를 입력하세요" />
+      <Input.TagInput placeholder="검색어를 입력하세요" />
     </>
   );
 };
 
-export { InputUI };
+export { InputUI  };
 
