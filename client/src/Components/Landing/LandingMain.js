@@ -4,7 +4,7 @@ import MainBanner from './MainBanner';
 import ItemsView from './ItemsView';
 import SubBanner from './SubBanner';
 import { LandingContainer } from './LandingStyle.jsx';
-import { latestItem } from '../../util/detailLogic';
+import { latestItem } from '../../util/RequestLogic.ts';
 
 const LandingMain = () => {
   const latestDatas = latestItem();

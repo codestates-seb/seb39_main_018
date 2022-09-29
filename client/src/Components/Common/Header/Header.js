@@ -1,64 +1,55 @@
 import React from 'react';
-import { FaApple, FaRegCommentAlt } from 'react-icons/fa';
-import { BiSearchAlt2 } from 'react-icons/bi';
-import { BsPerson } from 'react-icons/bs';
-import { IoSettingsOutline } from 'react-icons/io5';
-import { HiMenu, HiOutlineTicket } from 'react-icons/hi';
 import {
-  HeaderStyle,
-  HeaderLeft,
-  SORT,
-  HeaderLeftLow,
-  SellOwnRealTicket,
-  HeaderMid,
-  HeaderSearch,
-  HeaderRight,
-  HeaderRightLow,
-  Sell,
-  SellButton,
+  HeaderContainer,
+  Header_MainSection,
+  Header_SubSection,
+  LogoSection,
+  SearchSection,
+  SearchMain,
+  ButtonSection,
+  CategorySection,
 } from './HeaderStyle';
-import { useNavigate } from 'react-router-dom';
-
 const Header = () => {
-  return <Headers />;
-};
-const Headers = () => {
-  const navigate = useNavigate();
   return (
-    <HeaderStyle>
-      <HeaderLeft>
-        <SORT>
-          SORT
-          <FaApple onClick={() => navigate('/footer')} />
-        </SORT>
-
-        <HeaderLeftLow>
-          <HiMenu />
-          <SellOwnRealTicket>Sell Own Real Ticket 🎫 </SellOwnRealTicket>
-        </HeaderLeftLow>
-      </HeaderLeft>
-
-      <HeaderMid>
-        <HeaderSearch>
-          <input type="text" placeholder="원하는 티켓을 검색해보세요." />
-          <BiSearchAlt2 />
-        </HeaderSearch>
-      </HeaderMid>
-
-      <HeaderRight>
-        <BsPerson onClick={() => navigate('/mypage')} />
-        <FaRegCommentAlt />
-        <IoSettingsOutline />
-      </HeaderRight>
-
-      <HeaderRightLow>
-        <SellButton>
-          <Sell>
-            판매하기 <HiOutlineTicket />
-          </Sell>
-        </SellButton>
-      </HeaderRightLow>
-    </HeaderStyle>
+    <HeaderContainer>
+      <Header_MainSection>
+        <HeaderLogo />
+        <HeaderSearch />
+        <HeaderButton />
+      </Header_MainSection>
+      <Header_SubSection>
+        <HeaderCategory />
+      </Header_SubSection>
+    </HeaderContainer>
   );
 };
+
+const HeaderLogo = () => {
+  return (
+    <LogoSection>
+      <p>SORT</p>
+    </LogoSection>
+  );
+};
+const HeaderSearch = () => {
+  return (
+    <SearchSection>
+      <SearchMain></SearchMain>
+    </SearchSection>
+  );
+};
+
+const HeaderButton = () => {
+  return (
+    <ButtonSection>
+      <p>버튼1</p>
+      <p>버튼2</p>
+      <p>버튼3</p>
+    </ButtonSection>
+  );
+};
+const HeaderCategory = () => {
+  return <CategorySection></CategorySection>;
+};
+
 export default Header;

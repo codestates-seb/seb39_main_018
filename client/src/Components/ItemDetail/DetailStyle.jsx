@@ -9,15 +9,12 @@ const Detail_Container = styled.div`
 
 const Detail_Section = styled(Detail_Container)`
   width: 1200px;
-
   flex-wrap: wrap;
 `;
 
 const AllSetting = styled.div`
-  background: var(--lightgray);
-  margin-bottom: 30px;
+  margin-bottom: 100px;
   min-width: 350px;
-  height: 550px;
 `;
 
 const Detail_Category = styled(AllSetting)`
@@ -31,8 +28,10 @@ const Detail_Category = styled(AllSetting)`
   }
 `;
 const Detail_Img = styled(AllSetting)`
-  width: 59%;
-  margin-right: 10px;
+  width: 55%;
+  margin-right: 50px;
+  height: 530px;
+  background: var(--lightgray);
 `;
 
 //-- 판매 정보 컴포넌트
@@ -84,17 +83,16 @@ const Btn = styled(InfoSetting)`
   justify-content: space-between;
   flex-wrap: wrap;
   height: 50px;
-  
+  width: ${(props) => props.width || ''};
+
   .top_btn {
     height: 100%;
     width: 49%;
-    border: 1px solid;
   }
   .bottom_btn {
     margin: 10px 0;
     width: 100%;
     height: 100%;
-    border: 1px solid;
   }
 `;
 
@@ -106,8 +104,9 @@ const Detail_ImgList = styled(AllSetting)`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 200px;
-
+  height: 250px;
+  padding-bottom: 100px;
+  border-bottom: 1px solid var(--lightgray);
   .list_icon {
     display: flex;
     justify-content: center;
@@ -118,8 +117,8 @@ const Detail_ImgList = styled(AllSetting)`
 
 const Detail_NextImg = styled.div`
   width: 20%;
-  height: 95%;
-  background: #ffffff;
+  height: 200px;
+  background: var(--lightgray);
   margin: 0 10px;
 `;
 
@@ -127,37 +126,52 @@ const Detail_NextImg = styled.div`
 
 // -- 상품 설명 보드
 const Detail_Description = styled(AllSetting)`
-  width: 59%;
-  height: 300px;
+  width: 580px;
   display: flex;
-  justify-content: start;
-  flex-direction: column;
-  margin-right: 10px;
+  min-height: 100px;
+  flex-wrap: wrap;
+  margin: 0px 20px 0 0;
+
   .item_title {
-    width: 98%;
-    border: 1px solid black;
+    width: 500px;
+    height: 40px;
+    border-bottom: 1px solid var(--lightgray);
     font-size: var(--f-medium);
   }
-  .body {
-    margin: 20px 0;
-    width: 98%;
-    height: 300px;
-
-    border: 1px solid black;
+  .item_body {
+    padding: 30px 0;
+    width: 100%;
+    border-bottom: 1px solid var(--lightgray);
   }
 `;
 
-const SubInfo = styled.div`
+const SubInfo = styled(AllSetting)`
   display: flex;
-  border: 1px solid black;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 50px;
+  margin: 100px 0;
+  border-bottom: 1px solid var(--lightgray);
+  .subinfo_title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+  .subinfo_body {
+    width: 100%;
+    font-size: 14px;
+  }
+  .border_line {
+    width: 20px;
+    height: 90%;
+    border-left: 2px solid var(--lightgray);
+  }
 `;
 
 const SellArea = styled.div`
-  width: 200px;
-  border-right: 1px solid black;
+  width: 180px;
 `;
 const Views = styled.div`
-  width: 100px;
+  width: 50px;
   text-align: center;
 `;
 
@@ -165,21 +179,22 @@ const Views = styled.div`
 
 //-- 판매자 정보 컴포넌트
 const Detail_Seller = styled(AllSetting)`
-  width: 39%;
-  height: 300px;
+  width: 49%;
   display: flex;
-  justify-content: start;
+  align-items: center;
   flex-direction: column;
+  margin-bottom: 0;
+  border-left: 1px solid var(--lightgray);
 `;
 
 const SellerSetting = styled.div`
-  width: 99%;
-  border: 1px solid black;
+  width: 70%;
   display: flex;
 `;
 
 const SellerTitle = styled(SellerSetting)`
   font-size: var(--f-medium);
+  margin-bottom: 30px;
 `;
 const SellerInfo = styled(SellerSetting)`
   margin: 20px 0;
@@ -204,57 +219,54 @@ const SellerInfo = styled(SellerSetting)`
 `;
 const SellInfoBox = styled.div``;
 
+const SellerBtn = styled(SellerSetting)`
+  height: 50px;
+  justify-content: space-between;
+`;
+
 ///--------------------------------------
 
 //-- 판매자 거래후기
 const Detail_Review = styled(AllSetting)`
   width: 100%;
-  height: 200px;
-  .review {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid;
-  }
-  .item_title {
-    width: 100%;
-    display: flex;
-    border: 1px solid black;
-  }
-  .profile {
-    display: flex;
-    align-items: center;
-    width: 200px;
-    margin: 10px 0;
-    .img {
-      width: 50px;
-      height: 50px;
-      background: #ffffff;
-      border-radius: 50%;
-    }
-    .user_name {
-      margin-left: 10px;
-    }
-  }
-
-  .rating {
-    width: 200px;
-    display: flex;
-    margin: 10px 0;
-    .review_date {
-      margin-left: 10px;
-    }
-  }
-
-  .rebiew_body {
-    width: 250px;
-    font-size: var(--f-small);
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .border_line {
+    margin-top:20px;
+    height: 120px;
+    border-left: 1px solid var(--lightgray);
   }
 `;
-
-const ReviewInfo = styled.div`
-  width: 100%;
+const ReviewSetting = styled.div`
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  p {
+    margin-right: 10px;
+  }
+`;
+const ReviewTitle = styled(ReviewSetting)`
+  width: 100%;
+  font-size: 20px;
+`;
+const ReviewInfo = styled.div`
+  width: 330px;
+
+`;
+const ReviewProfile = styled(ReviewSetting)`
+  .img {
+    width: 50px;
+    height: 50px;
+    background: var(--lightgray);
+    border-radius: 50%;
+  }
+`;
+const ReviewRating = styled(ReviewSetting)``;
+const ReviewBody = styled(ReviewSetting)`
+  font-size: var(--f-small);
 `;
 
 export {
@@ -280,6 +292,11 @@ export {
   Seat,
   Tags,
   Btn,
+  SellerBtn,
+  ReviewTitle,
+  ReviewProfile,
+  ReviewRating,
+  ReviewBody,
   Detail_Review,
   ReviewInfo,
 };

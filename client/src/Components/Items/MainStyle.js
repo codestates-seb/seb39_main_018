@@ -34,10 +34,10 @@ const FilterOption = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 60px;
+  height: 80px;
 `;
 const FilterTopBox = styled(FilterOption)`
-  border-bottom: 3px solid var(--gray);
+  border-bottom: 2px solid var(--lightgray);
 `;
 const FilterBottomBox = styled(FilterOption)``;
 const FilterLeft = styled(FilterOption)`
@@ -59,10 +59,10 @@ const FilterRight = styled(FilterOption)`
 const SellType = styled.div`
   display: flex;
   align-items: center;
-  height: 105%;
+  height: 100%;
   padding: 0 10px;
-  border-bottom: 3px solid ${(prop) => prop.color || 'none'};
-
+  border-bottom: 5px solid ${(prop) => prop.color || 'none'};
+  font-size: 20px;
   p {
     cursor: pointer;
     color: ${(prop) => prop.color || 'gray'};
@@ -75,10 +75,11 @@ const SearchSection = styled.div`
 
   p {
     position: absolute;
-    right: -10px;
-    top: 10px;
+    right: -12px;
+    top: 7px;
     font-size: 25px;
     color: gray;
+    cursor: pointer;
   }
 `;
 const SortByOption = styled.div`

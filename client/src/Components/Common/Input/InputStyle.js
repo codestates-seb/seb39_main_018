@@ -7,7 +7,7 @@ const Container = styled.div`
 
 const TagInput = styled.input`
   width: 100%;
-  height: 20px;
+  height: 15px;
   padding: 10px;
   border: 2px solid #d2daff;
   outline: none;

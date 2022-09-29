@@ -41,7 +41,7 @@ const CircleSet = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--lightgray);
+  background: white;
   content: '';
 `;
 const Circle1 = styled(CircleSet)`

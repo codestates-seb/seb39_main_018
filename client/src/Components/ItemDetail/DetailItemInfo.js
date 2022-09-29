@@ -40,7 +40,7 @@ const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region }) =>
           <p className="infor_data">{region}</p>
         </Seat>
         <Tags>
-          <TagUI />
+          <TagUI text={''}/>
         </Tags>
         <Btn>
           <div className="top_btn">
