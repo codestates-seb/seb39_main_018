@@ -9,6 +9,9 @@ import {
   NavbarBottom,
   NavbarSection,
   NavbarTop,
+  NavbarMiddle,
+  LoginSection,
+  LoginBox,
   LogoSection,
   SearchSection,
   SearchMain,
@@ -22,15 +25,29 @@ const Header = () => {
     <HeaderContainer>
       <NavbarSection>
         <NavbarTop>
+          <NavLog />
+        </NavbarTop>
+        <NavbarMiddle>
           <NavLogo />
           <NavSearch />
           <NavButton />
-        </NavbarTop>
+        </NavbarMiddle>
         <NavbarBottom>
           <NavCategory />
         </NavbarBottom>
       </NavbarSection>
     </HeaderContainer>
+  );
+};
+
+const NavLog = () => {
+  return (
+    <LoginSection>
+      <LoginBox>
+        <p className="log_left">회원가입</p>
+        <p className="log_right">로그인</p>
+      </LoginBox>
+    </LoginSection>
   );
 };
 
@@ -63,13 +80,13 @@ const NavButton = () => {
   return (
     <ButtonSection>
       <p>
-        <img className="manIcon" src={manIcon} onClick={() => navigate('/mypage')} />
+        <img className="manIcon" src={manIcon} />
       </p>
       <p>
-        <img src={message} onClick={() => navigate('/login')} />
+        <img src={message} />
       </p>
       <p>
-        <img className="burger" src={burger} onClick={'ds'} />
+        <img className="burger" src={burger} />
       </p>
     </ButtonSection>
   );

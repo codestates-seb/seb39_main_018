@@ -8,7 +8,7 @@ const MyPage = () => {
   return (
     <>
       <Header />
-      <MypageSideBar />
+      {/* <MypageSideBar /> */}
       <MypageMain />
       <Footer />
     </>

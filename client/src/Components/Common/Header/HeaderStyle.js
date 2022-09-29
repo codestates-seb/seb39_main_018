@@ -23,21 +23,48 @@ const NavbarSection = styled.div`
   background: #ffffff;
   justify-content: center;
 `;
-
 const NavbarTop = styled(AllSetting)`
+  width: 100%;
+  height: 20px;
+  border-bottom: 1px solid var(--lightgray);
+  padding: 3px;
+  justify-content: center;
+`;
+
+const NavbarMiddle = styled(AllSetting)`
   align-items: flex-start;
   width: 70%;
   padding: 20px;
   height: 50px;
-  // border: 1px solid;
-  margin-top: 10px;
 `;
 
 const NavbarBottom = styled(AllSetting)`
   width: 100%;
-  padding: 40px;
+  padding: 20px;
   justify-content: center;
   border: 1px solid var(--lightgray);
+`;
+
+const LoginSection = styled(AllSetting)`
+  width: 65%;
+  justify-content: end;
+  font-size: 13px;
+  color: #696969;
+  p {
+    cursor: pointer;
+  }
+  .log_left {
+    padding-right: 30px;
+    border-right: 1px solid var(--lightgray);
+  }
+  p:hover {
+    color: #bfbdbd;
+  }
+`;
+const LoginBox = styled.div`
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const LogoSection = styled(AllSetting)`
@@ -94,7 +121,10 @@ export {
   HeaderContainer,
   NavbarSection,
   NavbarTop,
+  NavbarMiddle,
   NavbarBottom,
+  LoginSection,
+  LoginBox,
   LogoSection,
   SearchSection,
   SearchMain,
