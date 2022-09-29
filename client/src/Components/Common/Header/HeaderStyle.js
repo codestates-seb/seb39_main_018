@@ -1,44 +1,68 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const HeaderStyle = styled.div`
-  border: 1px solid black;
-  width: 100%;
-  height: 100px;
+const AllSetting = styled.div`
   display: flex;
-  margin-bottom: 50px;
-  justify-content: space-around;
-`;
-const HeaderLeft = styled.div``;
-
-const SORT = styled.div`
-  font-size: 30px;
-  font-weight: bold;
-  color: blue;
+  align-items: center;
 `;
 
-const HeaderLeftLow = styled.div``;
 
-const SellOwnRealTicket = styled.div``;
+const HeaderContainer = styled(AllSetting)`
+  width: 100%;
+  height: 230px;
+  border: 2px solid var(--lightgray);
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 100px;
+`;
 
-const HeaderMid = styled.div``;
+const Header_MainSection = styled(AllSetting)`
+  width: 70%;
+  height: 120px;
+  border: 2px solid;
+`;
 
-const HeaderSearch = styled.div``;
-const HeaderRight = styled.div``;
-const HeaderRightLow = styled.div``;
-const Sell = styled.div``;
-const SellButton = styled.div``;
+const Header_SubSection = styled(AllSetting)``;
+
+const LogoSection = styled(AllSetting)`
+  width: 200px;
+  height: 100%;
+
+  border: 1px solid;
+`;
+const SearchSection = styled(AllSetting)`
+  width: 680px;
+  height:100%;
+  align-items: center;
+  border: 1px solid;
+`;
+const SearchMain = styled.div`
+  width: 350px;
+  height: 50px;
+  margin-left: 250px;
+  background: lightgreen;
+`;
+const ButtonSection = styled(AllSetting)`
+  width: 400px;
+  height:100%;
+  border: 1px solid;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    width: 50px;
+    height: 50px;
+    background: lightblue;
+  }
+`;
+const CategorySection = styled.div``;
 
 export {
-  HeaderStyle,
-  HeaderLeft,
-  SORT,
-  HeaderLeftLow,
-  SellOwnRealTicket,
-  HeaderMid,
-  HeaderSearch,
-  HeaderRight,
-  HeaderRightLow,
-  Sell,
-  SellButton,
+  HeaderContainer,
+  Header_MainSection,
+  Header_SubSection,
+  LogoSection,
+  SearchSection,
+  SearchMain,
+  ButtonSection,
+  CategorySection,
 };

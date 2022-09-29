@@ -7,11 +7,11 @@ const TagComponent = () => {
   return;
 };
 
-const TagUI = () => {
+const TagUI = ({ text }) => {
   return (
     <>
       <Tag.Container>
-        <p className="tag_text">센프란시스코</p>
+        <p className="tag_text">{text}</p>
         <p className="tag_cancel">
           <CancelIcon />
         </p>

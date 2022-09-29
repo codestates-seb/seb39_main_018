@@ -1,52 +1,54 @@
 import React from 'react';
-import { Detail_Review, ReviewInfo } from './DetailStyle.jsx';
+import {
+  Detail_Review,
+  ReviewInfo,
+  ReviewTitle,
+  ReviewProfile,
+  ReviewRating,
+  ReviewBody,
+} from './DetailStyle.jsx';
 
 const SellerReview = () => {
   return (
     <Detail_Review>
-      <div className="item_title">
+      <ReviewTitle>
         <p className="title_text">거래후기</p>
         <p className="title_reviews">(7++)</p>
-      </div>
+      </ReviewTitle>
       <ReviewInfo>
-        <div className="review">
-          <div className="profile">
-            <div className="img"></div>
-            <p className="user_name">라떼한잔</p>
-          </div>
-          <div className="rating">
-            <p className="starIcon">★★★★★</p>
-            <p className="review_date">2022-09-18</p>
-          </div>
-          <div className="rebiew_body">
-            덕분에 남자친구랑 전시회 저렴하게 다녀 올 수 있었습니다ㅎㅎ
-          </div>
-        </div>
-        <div className="review">
-          <div className="profile">
-            <div className="img"></div>
-            <p className="user_name">김계란</p>
-          </div>
-          <div className="rating">
-            <p className="starIcon">★★★★★</p>
-            <p className="review_date">2022-09-18</p>
-          </div>
-          <div className="rebiew_body">
-            신세계 상품권 구매했는데 거의 반값에 구매해서 덕분에 닭가슴살 3배로 구매 했내요
-            감사합니당
-          </div>
-        </div>
-        <div className="review">
-          <div className="profile">
-            <div className="img"></div>
-            <p className="user_name">니네집난장판</p>
-          </div>
-          <div className="rating">
-            <p className="starIcon">★★★★★</p>
-            <p className="review_date">2022-09-18</p>
-          </div>
-          <div className="rebiew_body">AOMG 공연 잘봄 ㄱㅅ</div>
-        </div>
+        <ReviewProfile>
+          <p className="img"></p>
+          <p className="user_name">라떼한잔</p>
+        </ReviewProfile>
+        <ReviewRating>
+          <p className="starIcon">★★★★★</p>
+          <p className="review_date">2022-09-18</p>
+        </ReviewRating>
+        <ReviewBody>덕분에 남자친구랑 전시회 저렴하게 다녀 올 수 있었습니다ㅎㅎ</ReviewBody>
+      </ReviewInfo>
+      <p className="border_line" />
+      <ReviewInfo>
+        <ReviewProfile>
+          <p className="img"></p>
+          <p className="user_name">김계란</p>
+        </ReviewProfile>
+        <ReviewRating>
+          <p className="starIcon">★★★★★</p>
+          <p className="review_date">2022-09-18</p>
+        </ReviewRating>
+        <ReviewBody>덕분에 남자친구랑 전시회 저렴하게 다녀 올 수 있었습니다ㅎㅎ</ReviewBody>
+      </ReviewInfo>
+      <p className="border_line" />
+      <ReviewInfo>
+        <ReviewProfile>
+          <p className="img"></p>
+          <p className="user_name">맘모스</p>
+        </ReviewProfile>
+        <ReviewRating>
+          <p className="starIcon">★★★★★</p>
+          <p className="review_date">2022-09-18</p>
+        </ReviewRating>
+        <ReviewBody>OMG 공연 잘봄 ㄱㅅ</ReviewBody>
       </ReviewInfo>
     </Detail_Review>
   );

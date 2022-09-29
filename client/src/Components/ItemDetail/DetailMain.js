@@ -1,15 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { saves, dateCompute } from '../../util/detailLogic';
+import { saves, dateCompute } from '../../util/RequestLogic.ts';
 import { Detail_Container, Detail_Section } from './DetailStyle.jsx';
 import ItemCategory from './ItemCategory';
 import DetailImg from './DetailImg';
-import DetailItemInfo from './DetailItemInfo'
+import DetailItemInfo from './DetailItemInfo';
 import ImgList from './ImgList';
-import Description from './ItemDescription' ;
+import { Description, ItemSubInfo } from './ItemDescription';
 import ItemSeller from './ItemSeller';
 import SellerReview from './SellerReviw';
-
 
 const DetailMain = () => {
   const { id } = useParams();
@@ -29,8 +28,9 @@ const DetailMain = () => {
           region={region}
         />
         <ImgList />
-        <Description description={text} region={region} />
+        <Description description={text}  />
         <ItemSeller />
+        <ItemSubInfo region={region} />
         <SellerReview />
       </Detail_Section>
     </Detail_Container>

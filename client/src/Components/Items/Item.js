@@ -9,18 +9,18 @@ import {
   ItemPrice,
   SellInfo,
 } from './ItemStyle';
-import { itemGet, dateCompute } from '../../util/detailLogic';
 import { useNavigate, useParams } from 'react-router-dom';
+import { dateCompute } from '../../util/RequestLogic.ts';
 
-const ItemList = () => {
-  const itemsdata = itemGet();
-  console.log(itemsdata);
+
+const ItemList = ({itemsData}) => {
+  console.log(itemsData)
   return (
     <ItemContainer>
       <ItemsCount />
       <ItemListBox>
-        {itemsdata &&
-          itemsdata.map((dataList) => {
+        {itemsData &&
+          itemsData.map((dataList) => {
             let dateResult = dateCompute(dataList.created_date);
             return (
               <ItemComponent
