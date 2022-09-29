@@ -4,7 +4,7 @@ import TEST2 from '../Components/Modals/Login/KaKao/eKaKaoRestApi';
 import MainPage from '../Pages/MainPage.js';
 import ChatPage from '../Pages/ChatPage.js';
 import DetailPage from '../Pages/DetailPage.js';
-import MyPage from '../Pages/Mypage.js';
+import MyPage from '../Pages/MyPage';
 import SignUp from '../Components/Modals/SignUp/Signup.js';
 import Logout from '../Components/Modals/Login/General/Logout';
 import Login from '../Components/Modals/Login/General/Login';
