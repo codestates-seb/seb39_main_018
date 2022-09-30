@@ -46,6 +46,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	//지홍님 의존성 추가
+	implementation 'commons-io:commons-io:2.6'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	//p6spy 는 SQL 실행 파라미터를 로그로 남기기 때문에 입력한 값이 ? ? 가 아닌 실제 값으로 표현 -> 선택( 운영 단계에서는 성능 테스트 해보고 적용 )
 //	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
