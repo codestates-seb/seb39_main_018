@@ -20,9 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.RequiredArgsConstructor;
 import project.sort.config.auth.PrincipalDetails;
-import project.sort.dto.LoginRequestDto;
-
-import java.io.IOException;
+import project.sort.dto.user.LoginRequestDto;
 
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
