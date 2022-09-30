@@ -36,8 +36,6 @@ const Pages = () => {
     </Routes>
   );
 };
-
-
 const Modals = () => {
   return (
     <Routes>
