@@ -23,6 +23,8 @@ function kakaoLogout() {
 }
 
 const KakaoLogin = () => {
+  const navigate = useNavigate();
+
   const kakaoClick = () => {
     window.Kakao.Auth.login({
       success: function (response) {

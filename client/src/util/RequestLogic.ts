@@ -1,18 +1,26 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
-
 type retutnType = (string | object)[];
 interface serverRes {
   data: object | [];
   content?: (string | object)[];
 }
 
+interface ItemType {
+  created_date: string;
+  id: number;
+  title: string;
+  body: string;
+  price: string;
+  end_date: string;
+  seat_number: string;
+  region: string;
+}
+
 const saves = (id: string): retutnType => {
   const [data, setdata] = useState([]);
-  const url = `http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board/${id}`;
+  const url = `http://3.34.181.86:8080/board/${id}`;
   useEffect(() => {
     axios(url, {
       method: 'get',
@@ -26,14 +34,10 @@ const saves = (id: string): retutnType => {
   return data;
 };
 
-//list?page=0132 viewMore
-
 const itemGet = (api?: string): retutnType => {
   const [data, setdata] = useState<retutnType>([]);
   const id = '';
-  const url = `http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/${
-    !api ? 'board' : 'board/' + api
-  }`;
+  const url = `http://3.34.181.86:8080/${!api ? 'board' : 'board/' + api}`;
   useEffect(() => {
     axios.get(url).then((res) => {
       return !Array.isArray(data) ? setdata(res.data.content) : setdata(res.data);
@@ -69,7 +73,7 @@ const dateCompute = (date: string): string => {
 const latestItem = () => {
   const [data, setdata] = useState([]);
   data.length = 5;
-  const url = `http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board`;
+  const url = `http://3.34.181.86:8080/board`;
   useEffect(() => {
     axios(url, {
       method: 'get',

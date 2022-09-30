@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import TESTS from '../Components/Modals/Login/KaKao/eKakaoLoginbtn';
 import TEST2 from '../Components/Modals/Login/KaKao/eKaKaoRestApi';
@@ -9,17 +10,14 @@ import SignUp from '../Components/Modals/SignUp/Signup.js';
 import Logout from '../Components/Modals/Login/General/Logout';
 import Login from '../Components/Modals/Login/General/Login';
 import Find from '../Components/Modals/IDPWFind/Find';
-import Header from '../Components/Common/Header/Header';
-import Footer from '../Components/Common/Footer/Footer';
 import WithdrawPage from '../Pages/WithdrawPage';
-import React, { useEffect } from 'react';
+import MapState from '../Components/Modals/Map/MapState';
 import LandingPage from '../Pages/LandingPage';
 
 const Routers = () => {
   return (
     <>
       <Pages />
-      <Components />
       <Modals />
     </>
   );
@@ -38,16 +36,6 @@ const Pages = () => {
     </Routes>
   );
 };
-
-const Components = () => {
-  return (
-    <Routes>
-      <Route path="/footer" element={<Footer />} />
-      <Route path="/header" element={<Header />} />
-    </Routes>
-  );
-};
-
 const Modals = () => {
   return (
     <Routes>
@@ -57,6 +45,7 @@ const Modals = () => {
       <Route path="/find" element={<Find />} />
       <Route path="/test" element={<TEST2 />} />
       <Route path="/okakao" element={<TESTS />} />
+      <Route path="/mapstate" element={<MapState />} />
     </Routes>
   );
 };

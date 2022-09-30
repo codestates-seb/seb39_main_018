@@ -1,5 +1,5 @@
 import React from 'react';
-import Draws from './WithdrawPageStyle.jsx';
+import Draws from './WithdrawPageStyle.js';
 import { useState } from 'react';
 import { useRef } from 'react';
 import axios from 'axios';
