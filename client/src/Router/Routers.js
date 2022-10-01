@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import TESTS from '../Components/Modals/Login/KaKao/eKakaoLoginbtn';
 import TEST2 from '../Components/Modals/Login/KaKao/eKaKaoRestApi';
 import MainPage from '../Pages/MainPage.js';
@@ -17,6 +17,7 @@ import LandingPage from '../Pages/LandingPage';
 const Routers = () => {
   return (
     <>
+      <ScrollInit />
       <Pages />
       <Modals />
     </>
@@ -48,6 +49,15 @@ const Modals = () => {
       <Route path="/mapstate" element={<MapState />} />
     </Routes>
   );
+};
+
+const ScrollInit = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [pathname]);
+
+  return;
 };
 
 export default Routers;
