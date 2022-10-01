@@ -15,6 +15,9 @@ module.exports = {
     filename: '[name].bundle.js',
     publicPath: '/',
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  },
   stats: 'errors-only',
   devServer: {
     static: {
