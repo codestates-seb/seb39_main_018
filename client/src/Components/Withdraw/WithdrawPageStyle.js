@@ -1,12 +1,16 @@
 import styled, { css } from 'styled-components';
+
 const Container = styled.div`
   margin: 0 auto;
   padding: 40px 40px 160px;
   max-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
 `;
+
 const CustomerContent = styled.div`
   overflow: hidden;
-  min-height: 400px;
+  min-height: 600px;
 `;
 
 const CustomerWithdraw = styled.div`
@@ -177,8 +181,9 @@ const WhiteButtonBox = styled.div`
   cursor: pointer;
   margin-left: 10px;
   width: 100px;
-  font-weight: 500;
+  font-weight: 700;
   color: #fff;
+  opacity: 0.9;
   background-color: #222;
   padding: 0 15px;
   height: 40px;
@@ -186,6 +191,11 @@ const WhiteButtonBox = styled.div`
   border-radius: 6px;
   font-size: 14px;
   letter-spacing: -0.18px;
+
+  &:hover {
+    opacity: 2;
+    transition-duration: 0.25s;
+  }
 `;
 
 export default {

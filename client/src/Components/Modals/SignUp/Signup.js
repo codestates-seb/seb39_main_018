@@ -35,7 +35,7 @@ const Signup = () => {
 
     if (email.value !== '') {
       axios
-        .get('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
+        .get('http://3.34.181.86:8081/mailCheck', {
           headers: { 'Content-Type': 'application/json' },
           email: email,
         })
@@ -44,7 +44,7 @@ const Signup = () => {
           window.alert('이메일을 발송했습니다. 메일함을 확인해주세요.');
         })
         .catch((err) => {
-          window.alert('비번찾기 실패~!');
+          window.alert('이메일을 전송하지 못했습니다. 주소를 확인해주세요.');
           console.log(err);
         });
     }
@@ -67,17 +67,20 @@ const Signup = () => {
 
     if (email.value !== '' && id.value !== '' && !mismatchError) {
       axios
-        .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
+        .post('http://3.34.181.86:8081/api/v1/join', {
           headers: { 'Content-Type': 'application/json' },
-          id: id,
-          password: password,
-          email: email,
+          data: {
+            email: email,
+            password: password,
+            username: id,
+          },
         })
         .then((res) => {
+          window.alert('반갑습니다. 로그인 해주세요.');
           navigate('/');
         })
         .catch((err) => {
-          window.alert('회원가입 실패!');
+          window.alert('회원가입에 실패하였습니다.');
           console.log(err);
         });
     }

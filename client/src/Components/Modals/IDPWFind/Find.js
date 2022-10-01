@@ -21,16 +21,16 @@ const Find = (props) => {
 
     if (email.value !== '') {
       axios
-        .get('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
+        .get('http://3.34.181.86:8081/user/login', {
           headers: { 'Content-Type': 'application/json' },
-          email: email,
+          data: { email: email },
         })
         .then((res) => {
           console.log(res);
           window.alert('이메일을 발송했습니다. 메일함을 확인해주세요.');
         })
         .catch((err) => {
-          window.alert('비번찾기 실패~!');
+          window.alert('이메일 발송에 실패했습니다. 이메일 주소를 다시 확인해주세요.');
           console.log(err);
         });
     }

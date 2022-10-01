@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import MypageSideBar from '../MyInfo/MypageSideBar.js';
 
 const WithdrawMain = () => {
   // 탈퇴사유 적어야 탈퇴신청 가능
@@ -18,7 +19,7 @@ const WithdrawMain = () => {
     }
     if (window.confirm('확인을 누르면 탈퇴신청이 접수됩니다.')) {
       axios
-        .delete(`http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/member`, {
+        .delete('http://3.34.181.86:8081/member/delete', {
           headers: {
             Authorization: localStorage.getItem('ACCESS_TOKEN'),
           },
@@ -28,7 +29,7 @@ const WithdrawMain = () => {
           alert('그동안 이용해주셔서 감사합니다.');
           navigate('/');
         })
-        .catch((err) => alert(err.response.data.message));
+        .catch((err) => alert(err));
     } else {
       return;
     }
@@ -79,6 +80,7 @@ const WithdrawMain = () => {
 
   return (
     <Draws.Container>
+      <MypageSideBar />
       <Draws.CustomerContent>
         <Draws.CustomerWithdraw>
           <Draws.ContentTitle>
@@ -154,7 +156,7 @@ const WithdrawMain = () => {
 
             <Draws.RealAgree>
               <Draws.BlackButtonBox onClick={() => withdrawCheck()}>탈퇴하기</Draws.BlackButtonBox>
-              <Draws.WhiteButtonBox onClick={() => navigate('/mypage')}>
+              <Draws.WhiteButtonBox onClick={() => navigate('/my/profile')}>
                 취소하기
               </Draws.WhiteButtonBox>
             </Draws.RealAgree>

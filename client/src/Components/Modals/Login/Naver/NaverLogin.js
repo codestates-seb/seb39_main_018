@@ -67,6 +67,7 @@ const NaverLoginBtn = styled.button`
   background-color: #03c75a;
   margin-bottom: 10px;
   &:hover {
+    transition-duration: 0.25s;
     opacity: 0.8;
   }
 `;

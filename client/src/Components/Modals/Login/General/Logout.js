@@ -4,14 +4,14 @@ import axios from 'axios';
 function Logout() {
   const userLogoutHandler = () => {
     axios
-      .delete('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board')
+      .delete('http://3.34.181.86:8081/user/logout')
       .then((res) => {
         //console.log(res.data)
-        alert('로그아웃 성공');
+        alert('로그아웃 되었습니다.');
         navigate('/');
       })
       .catch((err) => {
-        window.alert('땡');
+        window.alert('로그아웃 실패했습니다.');
         console.log(err);
       });
   };

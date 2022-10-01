@@ -13,8 +13,10 @@ const HeaderContainer = styled(AllSetting)`
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+  z-index: 100;
 `;
+
 const NavbarSection = styled.div`
   position: fixed;
   width: 100%;
@@ -23,6 +25,7 @@ const NavbarSection = styled.div`
   background: #ffffff;
   justify-content: center;
 `;
+
 const NavbarTop = styled(AllSetting)`
   width: 100%;
   height: 20px;
@@ -61,6 +64,7 @@ const LoginSection = styled(AllSetting)`
     color: #bfbdbd;
   }
 `;
+
 const LoginBox = styled.div`
   width: 150px;
   display: flex;
@@ -76,16 +80,19 @@ const LogoSection = styled(AllSetting)`
     font-weight: bold;
   }
 `;
+
 const SearchSection = styled(AllSetting)`
   width: 750px;
   height: 100%;
   align-items: center;
   justify-content: flex-end;
 `;
+
 const SearchMain = styled.div`
   width: 280px;
   margin-right: 80px;
 `;
+
 const ButtonSection = styled(AllSetting)`
   width: 300px;
   height: 100%;
@@ -103,6 +110,7 @@ const ButtonSection = styled(AllSetting)`
     background: lightblue;
   }
 `;
+
 const CategorySection = styled(AllSetting)`
   width: 70%;
   // border: 1px solid;
