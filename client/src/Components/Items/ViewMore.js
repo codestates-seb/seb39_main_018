@@ -3,8 +3,7 @@ import { ViewMoreSection, ViewMoreBtn } from './MainStyle';
 import { BasicBtn } from '../Common/Button/Button';
 import { viewsCount } from '../../redux/itemslice';
 
-
-const ViewMore = ({dispatch }) => {
+const ViewMore = ({ dispatch }) => {
   return (
     <ViewMoreSection>
       <ViewMoreBtn onClick={() => dispatch(viewsCount(8))}>
