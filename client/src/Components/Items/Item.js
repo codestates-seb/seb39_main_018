@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ItemContainer,
   ItemBox,
@@ -10,17 +10,17 @@ import {
   SellInfo,
 } from './ItemStyle';
 import { useNavigate, useParams } from 'react-router-dom';
-import { dateCompute } from '../../util/RequestLogic.ts';
+import { calculateDate } from '../../util/calculateDate';
+import { LodingMotion } from '../Common/Loding/LodingMotion';
 
-const ItemList = ({ itemsData, pageMove }) => {
-  console.log(itemsData);
+const ItemList = ({ itemsData, pageMove, isLoading }) => {
   return (
     <ItemContainer>
       <ItemsCount />
       <ItemListBox>
         {itemsData &&
           itemsData.map((dataList) => {
-            let dateResult = dateCompute(dataList.created_date);
+            const dateResult = calculateDate(dataList.created_date);
             return (
               <ItemComponent
                 pageMove={pageMove}
@@ -34,6 +34,7 @@ const ItemList = ({ itemsData, pageMove }) => {
             );
           })}
       </ItemListBox>
+      {isLoading ? <LodingMotion /> : null}
     </ItemContainer>
   );
 };

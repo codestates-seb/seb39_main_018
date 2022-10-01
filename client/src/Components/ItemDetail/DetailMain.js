@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { saves, dateCompute } from '../../util/RequestLogic.ts';
+import { getItems } from '../../util/requestItem.ts';
 import { Detail_Container, Detail_Section } from './DetailStyle.jsx';
 import ItemCategory from './ItemCategory';
 import DetailImg from './DetailImg';
@@ -9,11 +9,13 @@ import ImgList from './ImgList';
 import { Description, ItemSubInfo } from './ItemDescription';
 import ItemSeller from './ItemSeller';
 import SellerReview from './SellerReviw';
+import { calculateDate } from '../../util/calculateDate';
 
 const DetailMain = () => {
   const { id } = useParams();
-  const { title, text, price, end_date, seat_number, createdDate, region } = saves(id);
-  const detailPageDate = dateCompute(createdDate);
+  const { title, body, price, end_date, seat_number, createdDate, region } = getItems(id);
+  const detailPageDate =  calculateDate(createdDate);
+ 
   return (
     <Detail_Container>
       <Detail_Section>
@@ -28,7 +30,7 @@ const DetailMain = () => {
           region={region}
         />
         <ImgList />
-        <Description description={text}  />
+        <Description description={body}  />
         <ItemSeller />
         <ItemSubInfo region={region} />
         <SellerReview />
