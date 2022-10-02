@@ -21,8 +21,8 @@ const XXBtn2 = styled(XXBtn)`
 `;
 
 const BasicBtn = styled.div`
-  width: ${(props) => props.width || '100%'};
-  height: ${(props) => props.height || '100%'};
+  width: ${(prop) => prop.width || '100%'};
+  height: ${(prop) => prop.height || '100%'};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,12 +30,14 @@ const BasicBtn = styled.div`
   border-radius: var(--b-small);
   background: ${(prop) => prop.background};
   color: ${(prop) => prop.color || 'white'};
+  font-size: ${(props) => props.size || ''};
   box-shadow: none;
-  margin-left: ${props => props.left || ''};
+  margin-left: ${(prop) => prop.left || ''};
   ${BasicBtn}:active {
     background: #ebebeb;
   }
   p {
+    margin-left: 10px;
   }
 `;
 const Button2 = styled(BasicBtn)`

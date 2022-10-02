@@ -7,7 +7,7 @@ const AllSetting = styled.div`
 `;
 
 const HeaderContainer = styled(AllSetting)`
-  position: relative;
+  position: sticky;
   width: 100%;
   height: 180px;
   align-items: flex-start;
@@ -15,6 +15,9 @@ const HeaderContainer = styled(AllSetting)`
   justify-content: center;
   margin-bottom: 50px;
   z-index: 100;
+  padding-bottom: 100px;
+  background: #ffffff;
+  z-index: 1;
 `;
 
 const NavbarSection = styled.div`
@@ -35,17 +38,24 @@ const NavbarTop = styled(AllSetting)`
 `;
 
 const NavbarMiddle = styled(AllSetting)`
-  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--lightgray);
+`;
+
+const NavbarMain = styled.div`
   width: 70%;
-  padding: 20px;
-  height: 50px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const NavbarBottom = styled(AllSetting)`
   width: 100%;
-  padding: 20px;
+  transition: all 1s;
   justify-content: center;
-  border: 1px solid var(--lightgray);
 `;
 
 const LoginSection = styled(AllSetting)`
@@ -89,8 +99,8 @@ const SearchSection = styled(AllSetting)`
 `;
 
 const SearchMain = styled.div`
-  width: 280px;
-  margin-right: 80px;
+  width: 300px;
+  margin-right: 60px;
 `;
 
 const ButtonSection = styled(AllSetting)`
@@ -100,29 +110,66 @@ const ButtonSection = styled(AllSetting)`
   justify-content: space-around;
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     padding-top: 5px;
     cursor: pointer;
-  }
-  .manIcon {
-    border-radius: 50%;
-    background: lightblue;
   }
 `;
 
 const CategorySection = styled(AllSetting)`
-  width: 70%;
+  width: 60%;
+  transition: all 1s;
+
   // border: 1px solid;
+  /* overflow:hidden; */
+
   justify-content: space-around;
 `;
 
+const BottomUnderLine = styled.div`
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid var(--lightgray);
+`;
+
 const CategoryMain = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: lightgray;
+  height: 58px;
+  font-size: 12px;
+  padding: 10px 0;
+  color: #b8ccb8;
   cursor: pointer;
+
+  .category_text {
+    width: 100%;
+    text-align: center;
+    font-family: 'Y_Spotlight';
+    padding: 5px 0;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  ${CategoryMain}:hover {
+    .category_text {
+      transition: all 0.5s;
+      color: black;
+      font-weight: 900;
+      font-size: 14px;
+    }
+    img {
+      transition: all 0.4s;
+      width: 35px;
+      height: 35px;
+    }
+  }
 `;
 
 export {
@@ -130,7 +177,9 @@ export {
   NavbarSection,
   NavbarTop,
   NavbarMiddle,
+  NavbarMain,
   NavbarBottom,
+  BottomUnderLine,
   LoginSection,
   LoginBox,
   LogoSection,
