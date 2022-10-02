@@ -6,6 +6,8 @@ const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: #ffffff;
+  font-family: 'GmarketSansMedium';
 `;
 
 const MainContent = styled(MainContainer)`
@@ -68,23 +70,34 @@ const SellType = styled.div`
   }
 `;
 const SearchSection = styled.div`
+  position: relative;
   width: 160px;
   margin: 0 10px;
   p {
+    position: absolute;
+    top: 3px;
+    right: -10px;
     font-size: 25px;
     color: gray;
     cursor: pointer;
   }
 `;
+
+const SortSection = styled.div`
+  width: 200px;
+  position: relative;
+`;
+
 const SortByOption = styled.div`
   width: 100px;
   height: 30px;
-  border: 1px solid;
+  border: 2px solid #434445;
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-radius: var(--b-xsmall);
-  font-size: var(--f-small);
+  font-size: 15px;
+
   .select_icon {
     display: flex;
     align-items: center;
@@ -107,14 +120,17 @@ const SortByOption = styled.div`
 const SortOpDropbar = styled(SortByOption)`
   display: ${(props) => (props.display ? 'flex' : 'none')};
   position: absolute;
+  transition: all ease 0.5s;
+  left: 0;
   width: 100px;
   height: 150px;
-  border: 1px solid;
+  border: 2px solid #434445;
   align-items: center;
   flex-wrap: wrap;
   right: 0;
-  top: 50px;
+  top: 35px;
   background: white;
+  color: #7a7d7c;
   p {
     display: flex;
     justify-content: center;
@@ -123,7 +139,10 @@ const SortOpDropbar = styled(SortByOption)`
     height: 30px;
   }
   p:hover {
-    background: gray;
+    width: 90%;
+    border-radius: 10px;
+    background: black;
+    color: #ffffff;
     cursor: pointer;
   }
 `;
@@ -143,8 +162,11 @@ const ViewMoreSection = styled(AllOption)`
 `;
 
 const ViewMoreBtn = styled.div`
-  width: 150px;
+  width: 250px;
   height: 100%;
+  box-shadow: 1px 1px 3px;
+  border: 1px solid var(--lightgray);
+  border-radius: 10px;
 `;
 
 export {
@@ -158,6 +180,7 @@ export {
   FilterRight,
   SellType,
   SearchSection,
+  SortSection,
   SortOpDropbar,
   SortByOption,
   TagSection,

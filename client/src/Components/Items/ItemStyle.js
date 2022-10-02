@@ -18,6 +18,9 @@ const ItemBox = styled.div`
   margin-bottom: 20px;
   margin-right: 20px;
   cursor: pointer;
+  p {
+    font-family: 'Pretendard-Regular';
+  }
 `;
 
 const ItemInfoOption = styled.div`
@@ -36,6 +39,7 @@ const ItemTitle = styled(ItemInfoOption)`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  font-family: 'GmarketSansMedium';
 `;
 const ItemPrice = styled(ItemInfoOption)`
   font-size: var(--f-small);
