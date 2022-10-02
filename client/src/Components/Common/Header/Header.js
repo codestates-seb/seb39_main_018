@@ -4,22 +4,29 @@ import manIcon from '../../Imgs/man.png';
 import message from '../../Imgs/paper-airplane.png';
 import message2 from '../../Imgs/menu.png';
 import burger from '../../Imgs/menu.png';
+import NavIcon from '../../Imgs/navbarimg';
 import {
   HeaderContainer,
   NavbarBottom,
   NavbarSection,
   NavbarTop,
   NavbarMiddle,
+  NavbarMain,
   LoginSection,
   LoginBox,
   LogoSection,
   SearchSection,
   SearchMain,
   ButtonSection,
+  BottomUnderLine,
   CategorySection,
   CategoryMain,
 } from './HeaderStyle';
 import { useNavigate } from 'react-router-dom';
+import { closeCategory } from '../../../redux/itemslice';
+import { useDispatch, useSelector } from 'react-redux';
+import category from '../../Imgs/headerImgs/imgExport';
+
 const Header = () => {
   return (
     <HeaderContainer>
@@ -28,9 +35,11 @@ const Header = () => {
           <NavLog />
         </NavbarTop>
         <NavbarMiddle>
-          <NavLogo />
-          <NavSearch />
-          <NavButton />
+          <NavbarMain>
+            <NavLogo />
+            <NavSearch />
+            <NavButton />
+          </NavbarMain>
         </NavbarMiddle>
         <NavbarBottom>
           <NavCategory />
@@ -76,53 +85,81 @@ const NavSearch = () => {
 };
 
 const NavButton = () => {
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.counter.isLoad);
+  console.log(selector);
   const navigate = useNavigate();
   return (
     <ButtonSection>
       <p>
-        <img className="manIcon" src={manIcon} />
+        <img className="manIcon" src={NavIcon.user} />
       </p>
       <p>
-        <img src={message} />
+        <img src={NavIcon.message3} />
       </p>
       <p>
-        <img className="burger" src={burger} />
+        <img
+          className="burger"
+          src={NavIcon.menu}
+          onClick={() => dispatch(closeCategory(!selector))}
+        />
       </p>
     </ButtonSection>
   );
 };
 const NavCategory = () => {
+  const selector = useSelector((state) => state.counter.isLoad);
   return (
-    <CategorySection>
-      <CategoryMain>
-        <p className="category_icon"></p>
-        <p className="category_text"></p>
-      </CategoryMain>
-      <CategoryMain>
-        <p className="category_icon"></p>
-        <p className="category_text"></p>
-      </CategoryMain>
-      <CategoryMain>
-        <p className="category_icon"></p>
-        <p className="category_text"></p>
-      </CategoryMain>
-      <CategoryMain>
-        <p className="category_icon"></p>
-        <p className="category_text"></p>
-      </CategoryMain>
-      <CategoryMain>
-        <p className="category_icon"></p>
-        <p className="category_text"></p>
-      </CategoryMain>
-      <CategoryMain>
-        <p className="category_icon"></p>
-        <p className="category_text"></p>
-      </CategoryMain>
-      <CategoryMain>
-        <p className="category_icon"></p>
-        <p className="category_text"></p>
-      </CategoryMain>
-    </CategorySection>
+    <>
+      {!selector ? null : (
+        <BottomUnderLine>
+          <CategorySection>
+            <CategoryMain>
+              <p className="category_icon">
+                <img src={category.allImg} />
+              </p>
+              <p className="category_text">전체</p>
+            </CategoryMain>
+            <CategoryMain>
+              <p className="category_icon">
+                <img src={category.movieImg} />
+              </p>
+              <p className="category_text">연극/영화</p>
+            </CategoryMain>
+            <CategoryMain>
+              <p className="category_icon">
+                <img src={category.houseImg} />
+              </p>
+              <p className="category_text">숙박</p>
+            </CategoryMain>
+            <CategoryMain>
+              <p className="category_icon">
+                <img src={category.pictureImg} />
+              </p>
+              <p className="category_text">전시</p>
+            </CategoryMain>
+            <CategoryMain>
+              <p className="category_icon">
+                <img src={category.beachImg} />
+              </p>
+              <p className="category_text">여행</p>
+            </CategoryMain>
+            <CategoryMain>
+              <p className="category_icon">
+                <img src={category.stadium} />
+              </p>
+              <p className="category_text">스포츠</p>
+            </CategoryMain>
+            <CategoryMain>
+              <p className="category_icon">
+                <img src={category.micImg} />
+              </p>
+              <p className="category_text">공연</p>
+            </CategoryMain>
+          </CategorySection>
+        </BottomUnderLine>
+      )}
+    </>
   );
 };
 
