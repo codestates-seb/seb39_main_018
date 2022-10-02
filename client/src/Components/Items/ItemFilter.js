@@ -10,6 +10,7 @@ import {
   FilterRight,
   SellType,
   SearchSection,
+  SortSection,
   SortByOption,
   TagSection,
   FilterTopBox,
@@ -99,7 +100,7 @@ const SearchFilter = ({ inputdata, tagInputHandler }) => {
 
 const SortOption = ({ selectOP, selectindex, isSelect, setSelectindex, setIsSelect }) => {
   return (
-    <>
+    <SortSection>
       <SortByOption>
         <p className="select_text">{selectOP[selectindex]}</p>
         <p
@@ -112,13 +113,13 @@ const SortOption = ({ selectOP, selectindex, isSelect, setSelectindex, setIsSele
       <SortOpDropbar display={isSelect}>
         {selectOP.map((option, i) => {
           return (
-            <p key={option} onClick={() => (setSelectindex(i), setIsSelect(!isSelect))}>
+            <p className='opitons' key={option} onClick={() => (setSelectindex(i), setIsSelect(!isSelect))}>
               {option}
             </p>
           );
         })}
       </SortOpDropbar>
-    </>
+    </SortSection>
   );
 };
 
