@@ -6,6 +6,8 @@ import SubBanner from './SubBanner';
 import { LandingContainer } from './LandingStyle.jsx';
 import { getItems } from '../../util/requestItem.ts';
 
+
+
 const LandingMain = () => {
   const latestDatas = getItems('landing');
   return (
