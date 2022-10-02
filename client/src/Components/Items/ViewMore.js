@@ -7,7 +7,7 @@ const ViewMore = ({ dispatch }) => {
   return (
     <ViewMoreSection>
       <ViewMoreBtn onClick={() => dispatch(viewsCount(8))}>
-        <BasicBtn background="white" color="balck" size="25px">
+        <BasicBtn background="white" color="balck" size="20px">
           <p>더보기</p>
           <p>
             <DownIcon />
