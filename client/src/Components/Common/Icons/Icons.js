@@ -10,8 +10,8 @@ import { HiOutlineTicket } from 'react-icons/hi';
 import { MdCancel } from 'react-icons/md';
 import { HiSearch } from 'react-icons/hi';
 import { RiInstagramFill } from 'react-icons/ri';
-import { FaYoutube,FaGithub } from 'react-icons/fa';
-import { FiGithub } from 'react-icons/fi'
+import { FaYoutube, FaGithub, FaHotel } from 'react-icons/fa';
+import { FiChevronDown } from 'react-icons/fi';
 import { MdEmail } from 'react-icons/md';
 
 // 화살표 아이콘  AiOutlineRight, AiOutlineLeft,A iOutlineDown, AiOutlineUp
@@ -19,7 +19,9 @@ import { MdEmail } from 'react-icons/md';
 // 티켓 아이콘 HiOutlineTicket
 // 찾기 아이콘 HiSearch
 // 인스타 아이콘 AiFillInstagram
-// 깃허브 아이콘 FiGithub 
+// 깃허브 아이콘 FiGithub
+// 다운 아이콘 FiChevronDown
+
 
 export {
   MdEmail as EmailIcon,
@@ -29,9 +31,10 @@ export {
   AiOutlineRight as RightIcon,
   AiOutlineLeft as LeftIcon,
   BsFillPatchCheckFill as CheckIcon,
-  AiOutlineDown as DownIcon,
   AiOutlineUp as UpIcon,
   HiOutlineTicket as TicketIcon,
   MdCancel as CancelIcon,
   HiSearch as SearchIcon,
+  FiChevronDown as DownIcon,
+
 };
