@@ -4,21 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 type InitialState = {
   value: number;
+  isLoad: boolean;
 };
 
 const initialState: InitialState = {
   value: 8,
+  isLoad: false,
 };
-
-// const resueRouter: object = createSlice({
-//   name: 'counter',
-//   initialState,
-//   reducers: {
-//     navigates: (state, action) => {
-//       state.value = state.value + action.payload;
-//     },
-//   },
-// });
 
 const itemSlice = createSlice({
   name: 'item',
@@ -31,11 +23,13 @@ const itemSlice = createSlice({
       const naviagte = useNavigate();
       naviagte(action.payload);
     },
+    closeCategory: (state, action) => {
+      state.isLoad = action.payload;
+    },
   },
 });
 
 console.log(itemSlice);
 
 export default itemSlice;
-export const { viewsCount } = itemSlice.actions;
-export const { resueRouter } = itemSlice.actions;
+export const { viewsCount, resueRouter, closeCategory } = itemSlice.actions;
