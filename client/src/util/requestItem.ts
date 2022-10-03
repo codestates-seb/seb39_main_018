@@ -13,15 +13,18 @@ const getItems = (api?: string) => {
   const [error, setError] = useState<Error>();
   const apiUrl = !api || api === 'landing' ? 'board' : `board/${api}`;
   const caseByResult = !api ? [data, loading, error] : api === 'landing' ? data.slice(0, 5) : data;
+  console.log(api);
   useEffect(() => {
     setLoading(true);
     const itemdata = async () => {
       try {
         const response = await itemsApi.get(apiUrl);
-        setData(response.data);
+        response.data.content ? setData(response.data.content) : setData(response.data);
+        console.log(response.data);
         setLoading(false);
       } catch (err) {
         setError(err);
+
         setLoading(false);
       }
     };
