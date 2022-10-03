@@ -5,11 +5,13 @@ import { useNavigate } from 'react-router-dom';
 type InitialState = {
   value: number;
   isLoad: boolean;
+  searchData: string;
 };
 
 const initialState: InitialState = {
   value: 8,
   isLoad: false,
+  searchData: '',
 };
 
 const itemSlice = createSlice({
@@ -26,10 +28,11 @@ const itemSlice = createSlice({
     closeCategory: (state, action) => {
       state.isLoad = action.payload;
     },
+    searchitem: (state, action) => {
+      state.searchData = action.payload
+    },
   },
 });
 
-console.log(itemSlice);
-
 export default itemSlice;
-export const { viewsCount, resueRouter, closeCategory } = itemSlice.actions;
+export const { viewsCount, resueRouter, closeCategory,searchitem } = itemSlice.actions;
