@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { DownIcon, CancelIcon, SearchIcon } from '../Common/Icons/Icons';
-import { TagInput } from '../Common/Input/Input';
 import { TagComponent } from '../Common/Tag/TagStyle';
 import { InputUI } from '../Common/Input/Input';
 import {
@@ -10,12 +9,15 @@ import {
   FilterRight,
   SellType,
   SearchSection,
+  SortSection,
   SortByOption,
   TagSection,
   FilterTopBox,
   FilterBottomBox,
   SortOpDropbar,
 } from './MainStyle';
+import { useDispatch, useSelector } from 'react-redux';
+import { createTag, deleteTag } from '../../redux/itemslice';
 
 const Filter = () => {
   const [selectOP, setSelectOP] = useState(['인기순', '최신순', '정확도순', '오래된순']);
@@ -23,20 +25,17 @@ const Filter = () => {
   const [isSelect, setIsSelect] = useState(false);
   const [tabFocus, setTabFocus] = useState(1);
   const sellTypeTab = ['전체', '판매중', '판매완료'];
-  const [tagData, setTagData] = useState([]);
-  const [inputdata, setInputdata] = useState('');
-
+  const categorydata = useSelector((state) => state.items.category);
+  const tagList = useSelector((state) => state.items['tags']);
+  const dispatch = useDispatch();
   const tagInputHandler = (e) => {
-    setInputdata(e.target.value);
-    e.key === 'Enter' && !tagData.includes(inputdata) && inputdata
-      ? (setTagData([...tagData, e.target.value]), setInputdata(''))
+    const inputs = e.target.value;
+    console.log(inputs);
+    e.key === 'Enter' && !tagList.includes(inputs) && inputs
+      ? (dispatch(createTag(inputs)), (e.target.value = ''))
       : null;
   };
 
-  const tagCancel = (taglist) => {
-    const cancel = tagData.filter((tagdatas) => tagdatas !== taglist);
-    setTagData(cancel);
-  };
   const tabHandler = (i) => {
     setTabFocus(i);
   };
@@ -49,7 +48,7 @@ const Filter = () => {
             <SellTypeFilter tabFocus={tabFocus} sellTypeTab={sellTypeTab} tabHandler={tabHandler} />
           </FilterLeft>
           <FilterRight>
-            <SearchFilter inputdata={inputdata} tagInputHandler={tagInputHandler} />
+            <SearchFilter tagInputHandler={tagInputHandler} />
             <SortOption
               selectOP={selectOP}
               selectindex={selectindex}
@@ -60,7 +59,7 @@ const Filter = () => {
           </FilterRight>
         </FilterTopBox>
         <FilterBottomBox>
-          <TagFilter tagData={tagData} tagCancel={tagCancel} />
+          <TagFilter tagList={tagList} />
         </FilterBottomBox>
       </FilterBox>
     </FilterSection>
@@ -88,7 +87,6 @@ const SearchFilter = ({ inputdata, tagInputHandler }) => {
         placeholder="검색어를 입력해주세요"
         onChange={tagInputHandler}
         onKeyUp={tagInputHandler}
-        value={inputdata}
       />
       <p>
         <SearchIcon />
@@ -99,7 +97,7 @@ const SearchFilter = ({ inputdata, tagInputHandler }) => {
 
 const SortOption = ({ selectOP, selectindex, isSelect, setSelectindex, setIsSelect }) => {
   return (
-    <>
+    <SortSection>
       <SortByOption>
         <p className="select_text">{selectOP[selectindex]}</p>
         <p
@@ -112,25 +110,30 @@ const SortOption = ({ selectOP, selectindex, isSelect, setSelectindex, setIsSele
       <SortOpDropbar display={isSelect}>
         {selectOP.map((option, i) => {
           return (
-            <p key={option} onClick={() => (setSelectindex(i), setIsSelect(!isSelect))}>
+            <p
+              className="opitons"
+              key={option}
+              onClick={() => (setSelectindex(i), setIsSelect(!isSelect))}
+            >
               {option}
             </p>
           );
         })}
       </SortOpDropbar>
-    </>
+    </SortSection>
   );
 };
 
-const TagFilter = ({ tagData, tagCancel }) => {
+const TagFilter = ({ tagList }) => {
+  const dispatch = useDispatch();
   return (
     <TagSection>
-      {tagData &&
-        tagData.map((taglist, index) => {
+      {tagList &&
+        tagList.map((tags, index) => {
           return (
-            <TagComponent key={taglist} display={taglist ? 'flex' : ''}>
-              <p className="tag_text">{taglist}</p>
-              <p className="cancel_icon" onClick={() => tagCancel(tagData[index])}>
+            <TagComponent key={index} display={tags ? 'flex' : ''}>
+              <p className="tag_text">{tags}</p>
+              <p className="cancel_icon" onClick={() => dispatch(deleteTag(tags))}>
                 <CancelIcon />
               </p>
             </TagComponent>

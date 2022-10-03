@@ -1,192 +1,143 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { InputUI } from '../Input/Input';
-import manIcon from '../../Imgs/man.png';
-import message from '../../Imgs/paper-airplane.png';
-import message2 from '../../Imgs/menu.png';
-import burger from '../../Imgs/menu.png';
+import NavIcon from '../../Imgs/navbarimg';
 import {
   HeaderContainer,
   NavbarBottom,
   NavbarSection,
   NavbarTop,
   NavbarMiddle,
+  NavbarMain,
   LoginSection,
   LoginBox,
   LogoSection,
   SearchSection,
   SearchMain,
   ButtonSection,
+  BottomUnderLine,
   CategorySection,
   CategoryMain,
 } from './HeaderStyle';
 import { useNavigate } from 'react-router-dom';
-import Modal from '../../Modals/Modal';
-import Login from '../../Modals/Login/General/Login';
-import Signup from '../../Modals/SignUp/Signup';
-import Find from '../../Modals/IDPWFind/Find';
+import { closeCategory, selectCategory, createTag } from '../../../redux/itemslice';
+import { useDispatch, useSelector } from 'react-redux';
+import { imgname } from '../../Imgs/headerImgs/imgExport';
 
-// import Modal from '../../Modals/LoginFindSignup';
-
-function Header() {
-  const [signUpModalOn, setSignUpModalOn] = useState({ open: false });
-  const [signInModalOn, setSignInModalOn] = useState({ open: false });
-  const [fwModalOn, setFwModalOn] = useState({ open: false });
-
-  const closeSignInModal = (value) => {
-    if (value === 'login') {
-      setSignInModalOn({ open: false });
-    } else if (value === 'signup') {
-      setSignUpModalOn({ open: false });
-    } else {
-      setFwModalOn({ open: false });
-    }
-  };
-
-  const openSignInModal = (value) => {
-    if (value === 'login') {
-      setSignInModalOn({ open: true });
-    } else if (value === 'signup') {
-      setSignUpModalOn({ open: true });
-    } else {
-      setFwModalOn({ open: true });
-    }
-  };
-
-  // const loginCloseSignupOpen = () => {
-  //   setSignInModalOn(false);
-  //   setSignUpModalOn(true);
-  // };
-
-  // // 로그인창 안에서 pw찾기 누를때
-  // const loginCloseFindOpen = () => {
-  //   setSignInModalOn(false);
-  //   setFindModalOn(true);
-  // };
-
-  const NavLog = () => {
-    return (
-      <LoginSection>
-        <LoginBox>
-          <p className="log_left" onClick={() => openSignInModal('signup')}>
-            회원가입
-          </p>
-          <p className="log_right" onClick={() => openSignInModal('login')}>
-            로그인
-          </p>
-        </LoginBox>
-      </LoginSection>
-    );
-  };
-
-  const NavLogo = () => {
-    return (
-      <LogoSection>
-        <p>SORT</p>
-      </LogoSection>
-    );
-  };
-  const NavSearch = () => {
-    return (
-      <SearchSection>
-        <SearchMain>
-          <InputUI
-            placeholder="원하는 상품을 입력해주세요"
-            radius="20px"
-            border="2px solid gray"
-            padding="15px"
-            size="15px"
-            color="gray"
-          />
-        </SearchMain>
-      </SearchSection>
-    );
-  };
-
-  const NavButton = () => {
-    const navigate = useNavigate();
-    return (
-      <ButtonSection>
-        <p>
-          <img className="manIcon" src={manIcon} />
-        </p>
-        <p>
-          <img src={message} />
-        </p>
-        <p>
-          <img className="burger" src={burger} />
-        </p>
-      </ButtonSection>
-    );
-  };
-
-  const NavCategory = () => {
-    return (
-      <CategorySection>
-        <CategoryMain>
-          <p className="category_icon"></p>
-          <p className="category_text"></p>
-        </CategoryMain>
-        <CategoryMain>
-          <p className="category_icon"></p>
-          <p className="category_text"></p>
-        </CategoryMain>
-        <CategoryMain>
-          <p className="category_icon"></p>
-          <p className="category_text"></p>
-        </CategoryMain>
-        <CategoryMain>
-          <p className="category_icon"></p>
-          <p className="category_text"></p>
-        </CategoryMain>
-        <CategoryMain>
-          <p className="category_icon"></p>
-          <p className="category_text"></p>
-        </CategoryMain>
-        <CategoryMain>
-          <p className="category_icon"></p>
-          <p className="category_text"></p>
-        </CategoryMain>
-        <CategoryMain>
-          <p className="category_icon"></p>
-          <p className="category_text"></p>
-        </CategoryMain>
-      </CategorySection>
-    );
-  };
-
+const Header = () => {
   return (
-    <>
-      <Modal open={signUpModalOn.open} close={() => closeSignInModal('signup')}>
-        <Signup />
-      </Modal>
-      {/* <button onClick={openSignInModal}>모달로그인</button> */}
-      <Modal open={signInModalOn.open} close={() => closeSignInModal('login')}>
-        <Login />
-        {/* signupClickInLogin={loginCloseSignupOpen} findClickInLogin={loginCloseFindOpen}  */}
-      </Modal>
-      {/* <button onClick={openFindModal}>pw찾기</button> */}
-      <Modal open={fwModalOn.open} close={() => closeSignInModal('find')}>
-        <Find />
-        {/* loginClickInFind={findCloseLoginOpen}  */}
-      </Modal>
-
-      <HeaderContainer>
-        <NavbarSection>
-          <NavbarTop>
-            <NavLog />
-          </NavbarTop>
-          <NavbarMiddle>
+    <HeaderContainer>
+      <NavbarSection>
+        <NavbarTop>
+          <NavLog />
+        </NavbarTop>
+        <NavbarMiddle>
+          <NavbarMain>
             <NavLogo />
             <NavSearch />
             <NavButton />
-          </NavbarMiddle>
-          <NavbarBottom>
-            <NavCategory />
-          </NavbarBottom>
-        </NavbarSection>
-      </HeaderContainer>
+          </NavbarMain>
+        </NavbarMiddle>
+        <NavbarBottom>
+          <NavCategory />
+        </NavbarBottom>
+      </NavbarSection>
+    </HeaderContainer>
+  );
+};
+
+const NavLog = () => {
+  return (
+    <LoginSection>
+      <LoginBox>
+        <p className="log_left">회원가입</p>
+        <p className="log_right">로그인</p>
+      </LoginBox>
+    </LoginSection>
+  );
+};
+
+const NavLogo = () => {
+  return (
+    <LogoSection>
+      <p>SORT</p>
+    </LogoSection>
+  );
+};
+const NavSearch = () => {
+  const dispatch = useDispatch();
+  const handletest = (e) => {
+    const data = e.target.value;
+    e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
+    console.log(data);
+  };
+
+  return (
+    <SearchSection>
+      <SearchMain>
+        <InputUI
+          onChange={handletest}
+          onKeyUp={handletest}
+          placeholder="원하는 상품을 입력해주세요"
+          radius="20px"
+          border="2px solid gray"
+          padding="15px"
+          size="15px"
+          color="gray"
+        />
+      </SearchMain>
+    </SearchSection>
+  );
+};
+
+const NavButton = () => {
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.items.isLoad);
+  const navigate = useNavigate();
+  return (
+    <ButtonSection>
+      <p>
+        <img className="manIcon" src={NavIcon.user} />
+      </p>
+      <p>
+        <img src={NavIcon.message3} />
+      </p>
+      <p>
+        <img
+          className="burger"
+          src={NavIcon.menu}
+          onClick={() => dispatch(closeCategory(!selector))}
+        />
+      </p>
+    </ButtonSection>
+  );
+};
+const NavCategory = () => {
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.items.isLoad);
+  const categorylist = useSelector((state) => state.items.categorys);
+  const abcd = useSelector((state) => state.items.tags);
+  const focusCategory = useSelector((state) => state.items.category);
+
+  return (
+    <>
+      {!selector ? null : (
+        <BottomUnderLine>
+          <CategorySection>
+            {categorylist.map((li, i) => {
+              return (
+                <CategoryMain key={i} onClick={() => dispatch(selectCategory(li))}>
+                  <p className="category_icon">
+                    <img className={focusCategory === li ? 'select_img' : ''} src={imgname[i]} />
+                  </p>
+                  <p className={focusCategory === li ? 'select_text' : 'category_text'}>{li}</p>
+                </CategoryMain>
+              );
+            })}
+          </CategorySection>
+        </BottomUnderLine>
+      )}
     </>
   );
-}
+};
 
 export default Header;

@@ -11,12 +11,17 @@ const LandingContainer = styled(AllOption)`
 `;
 
 const MainBanner_Container = styled(AllOption)`
-  background: gray;
-  height: 350px;
+  /* background: #c6d8d9; */
+  background: #e0eaf0;
+  //background: #E1F3ED;
+  //background: #8eada0;
+
+  img {
+    width: 100%;
+  }
 `;
 
 const ItemsView_Container = styled(AllOption)`
-  border: 1px solid;
   width: 65%;
   display: flex;
   flex-wrap: wrap;
@@ -38,7 +43,8 @@ const PreviewList = styled(AllOption)`
 const ItemPreview = styled.div`
   width: 200px;
   height: 240px;
-  border: 1px solid;
+  border:1px solid gray;
+  border-radius: 5px;
   ${ItemPreview}:hover {
     transform: scale(1.4);
     transition: all 0.5s;
