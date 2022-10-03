@@ -34,13 +34,15 @@ const CertifiedButton = styled.button`
   background-color: #000000;
   line-height: 100%;
   border-radius: 2.5px;
-
   display: inline;
   font-size: 14px;
   font-weight: 300;
+  opacity: 0.9;
+  cursor: pointer;
 
   &:hover {
-    opacity: 0.8;
+    opacity: 1;
+    transition-duration: 0.25s;
   }
 `;
 

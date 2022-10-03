@@ -13,6 +13,7 @@ const KakaoLoginButton = styled.button`
   margin-bottom: 10px;
 
   &:hover {
+    transition-duration: 0.25s;
     cursor: pointer;
     opacity: 0.8;
   }

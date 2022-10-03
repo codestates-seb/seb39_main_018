@@ -1,16 +1,16 @@
 import React from 'react';
 import Footer from '../Components/Common/Footer/Footer';
 import Header from '../Components/Common/Header/Header';
-import MypageMain from '../Components/MyInfo/MypageMain';
+import MypageSellMain from '../Components/MyInfo/MypageSellMain';
 
-const MyPage = () => {
+const MyPageSell = () => {
   return (
     <>
       <Header />
-      <MypageMain />
+      <MypageSellMain />
       <Footer />
     </>
   );
 };
 
-export default MyPage;
+export default MyPageSell;

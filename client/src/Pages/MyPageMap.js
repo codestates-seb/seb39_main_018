@@ -1,16 +1,16 @@
 import React from 'react';
 import Footer from '../Components/Common/Footer/Footer';
 import Header from '../Components/Common/Header/Header';
-import MypageMain from '../Components/MyInfo/MypageMain';
+import MapStateModalX from '../Components/Modals/Map/MapStateModalX';
 
-const MyPage = () => {
+const MyPageMap = () => {
   return (
     <>
       <Header />
-      <MypageMain />
+      <MapStateModalX />
       <Footer />
     </>
   );
 };
 
-export default MyPage;
+export default MyPageMap;

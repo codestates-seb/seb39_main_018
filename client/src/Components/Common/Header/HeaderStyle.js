@@ -13,10 +13,13 @@ const HeaderContainer = styled(AllSetting)`
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 50px;
+  z-index: 100;
   padding-bottom: 100px;
   background: #ffffff;
   z-index: 1;
 `;
+
 const NavbarSection = styled.div`
   position: fixed;
   width: 100%;
@@ -25,6 +28,7 @@ const NavbarSection = styled.div`
   background: #ffffff;
   justify-content: center;
 `;
+
 const NavbarTop = styled(AllSetting)`
   width: 100%;
   height: 20px;
@@ -93,10 +97,12 @@ const SearchSection = styled(AllSetting)`
   align-items: center;
   justify-content: flex-end;
 `;
+
 const SearchMain = styled.div`
   width: 300px;
   margin-right: 60px;
 `;
+
 const ButtonSection = styled(AllSetting)`
   width: 300px;
   height: 100%;
@@ -110,6 +116,7 @@ const ButtonSection = styled(AllSetting)`
     cursor: pointer;
   }
 `;
+
 const CategorySection = styled(AllSetting)`
   width: 60%;
   transition: all 1s;

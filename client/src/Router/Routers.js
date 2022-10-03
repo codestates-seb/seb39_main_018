@@ -13,6 +13,13 @@ import Find from '../Components/Modals/IDPWFind/Find';
 import WithdrawPage from '../Pages/WithdrawPage';
 import MapState from '../Components/Modals/Map/MapState';
 import LandingPage from '../Pages/LandingPage';
+import MyPageMap from '../Pages/MyPageMap';
+import MyPageReview from '../Pages/MyPageReview';
+import MyPageProfile from '../Pages/MyPageProfile';
+import MyPageWish from '../Pages/MypageWish';
+import LoginFindSignup from '../Components/Modals/LoginFindSignup';
+import MyPageSell from '../Pages/MyPageSell';
+import MyPageBuy from '../Pages/MyPageBuy';
 
 const Routers = () => {
   return (
@@ -30,7 +37,17 @@ const Pages = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/main" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
+
       <Route path="/mypage" element={<MyPage />} />
+      <Route path="/my/map" element={<MyPageMap />} />
+      <Route path="/my/review" element={<MyPageReview />} />
+      <Route path="/my/profile" element={<MyPageProfile />} />
+      <Route path="/my/wish" element={<MyPageWish />} />
+      <Route path="/my/sell" element={<MyPageSell />} />
+      <Route path="/my/buy" element={<MyPageBuy />} />
+
+      <Route path="/loginfindsign" element={<LoginFindSignup />} />
+
       <Route path="/detail" element={<DetailPage />} />
       <Route path="/withdraw" element={<WithdrawPage />} />
       <Route path="/detail/:id" element={<DetailPage />} />

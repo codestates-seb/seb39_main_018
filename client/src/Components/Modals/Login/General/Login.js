@@ -26,10 +26,12 @@ const Login = (props) => {
 
     if (userid.value !== '' && userPassword.value !== '') {
       axios
-        .post('http://ec2-3-34-181-86.ap-northeast-2.compute.amazonaws.com:8080/board', {
+        .get('http://3.34.181.86:8081/users', {
           headers: { 'Content-Type': 'application/json' },
-          id: userid,
-          password: userPassword,
+          data: {
+            id: userid,
+            password: userPassword,
+          },
         })
         .then((res) => {
           resolve(res);
