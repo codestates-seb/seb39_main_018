@@ -6,14 +6,15 @@ type InitialState = {
   value: number;
   isLoad: boolean;
   searchData: string;
+  categorys: string[];
 };
 
 const initialState: InitialState = {
   value: 8,
   isLoad: false,
   searchData: '',
+  categorys: ['전체','연극/영화','숙박','전시','여행','스포츠','공연'],
 };
-
 const itemSlice = createSlice({
   name: 'item',
   initialState,
