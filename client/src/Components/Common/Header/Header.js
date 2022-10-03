@@ -86,8 +86,7 @@ const NavSearch = () => {
 
 const NavButton = () => {
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.counter.isLoad);
-  console.log(selector);
+  const selector = useSelector((state) => state.items.isLoad);
   const navigate = useNavigate();
   return (
     <ButtonSection>
@@ -108,7 +107,7 @@ const NavButton = () => {
   );
 };
 const NavCategory = () => {
-  const selector = useSelector((state) => state.counter.isLoad);
+  const selector = useSelector((state) => state.items.isLoad);
   return (
     <>
       {!selector ? null : (
