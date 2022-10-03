@@ -19,13 +19,13 @@ const Signup = () => {
   const passwordInput = useRef();
   const passwordCheckInput = useRef();
 
-  const onChangePasswordCheck = useCallback(
-    (e) => {
-      setPasswordCheck(e.target.value);
-      setMismatchError(e.target.value !== password.value);
-    },
-    [password],
-  );
+  const onChangePasswordCheck = (e) => {
+    setPasswordCheck({
+      value: e.target.value,
+      text: '',
+      hidden: e.target.value === password.value,
+    });
+  };
 
   const findemail = () => {
     if (email.value === '') {
@@ -65,7 +65,7 @@ const Signup = () => {
       return;
     }
 
-    if (email.value !== '' && id.value !== '' && !mismatchError) {
+    if (email.value !== '' && id.value !== '' && passwordCheck.hidden) {
       axios
         .post('http://3.34.181.86:8081/api/v1/join', {
           headers: { 'Content-Type': 'application/json' },
@@ -209,7 +209,7 @@ const Signup = () => {
               {passwordCheck.text}
             </Logins.HiddenMessage>
           </Logins.NameBox>
-          {mismatchError && (
+          {!passwordCheck.hidden && (
             <Logins.HiddenMessage>비밀번호가 일치하지 않습니다.</Logins.HiddenMessage>
           )}
         </Logins.PasswordBox>

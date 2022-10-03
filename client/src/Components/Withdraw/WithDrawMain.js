@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Draws from './WithdrawPageStyle.js';
-import { useState } from 'react';
-import { useRef } from 'react';
+// import { useState } from 'react';
+// import { useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MypageSideBar from '../MyInfo/MypageSideBar.js';
@@ -17,11 +17,25 @@ const WithdrawMain = () => {
       writeInput.current.focus();
       return;
     }
+
+    let param = {};
+    param = {
+      //reason :reasonOut.checkList,
+      check1: isChecked,
+      check2: isChecked2,
+      check3: isChecked3,
+      check4: isChecked4,
+      check5: isChecked5,
+      reasonText: write,
+    };
+
     if (window.confirm('확인을 누르면 탈퇴신청이 접수됩니다.')) {
       axios
+
         .delete('http://3.34.181.86:8081/member/delete', {
           headers: {
             Authorization: localStorage.getItem('ACCESS_TOKEN'),
+            param: param,
           },
         })
         .then(() => {
@@ -42,6 +56,27 @@ const WithdrawMain = () => {
     }
     setWrite(true);
   };
+
+  // const [reasonOut, setReasonOut] = useState({ checkList: [] });
+
+  // const checkReason = (value) => {
+  //   let resultArray = [];
+  //   resultArray.push(value);
+  //   setReasonOut({ checkList: resultArray });
+  // };
+
+  // const isCheckeReason = (value) => {
+  //   let resultArray = reasonOut.checkList;
+  //   for (let i; i < resultArray.length; i++) {
+  //     if (resultArray[i] === value) {
+  //       return true;
+  //     } else {
+  //       return false;
+  //     }
+  //   }
+  // };
+
+  // useEffect(() => {}, [reasonOut]);
 
   // 1번 체크박스 체크
   const [isChecked, setIsChecked] = useState(false);
@@ -73,7 +108,7 @@ const WithdrawMain = () => {
 
   // 5번 체크박스 체크
   const [isChecked5, setIsChecked5] = useState(false);
-  const onClickCheck5 = () => {
+  const onClickCheck5 = (value) => {
     setIsChecked5(!isChecked5);
     console.log('5번');
   };

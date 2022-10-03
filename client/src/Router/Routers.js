@@ -20,6 +20,7 @@ import MyPageWish from '../Pages/MypageWish';
 import LoginFindSignup from '../Components/Modals/LoginFindSignup';
 import MyPageSell from '../Pages/MyPageSell';
 import MyPageBuy from '../Pages/MyPageBuy';
+import WritePage from '../Pages/WritePage';
 
 const Routers = () => {
   return (
@@ -37,6 +38,7 @@ const Pages = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/main" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
+      <Route path="/write" element={<WritePage />} />
 
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/my/map" element={<MyPageMap />} />
@@ -71,7 +73,7 @@ const Modals = () => {
 const ScrollInit = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return;
