@@ -19,7 +19,7 @@ import {
   CategoryMain,
 } from './HeaderStyle';
 import { useNavigate } from 'react-router-dom';
-import { closeCategory } from '../../../redux/itemslice';
+import { closeCategory, selectCategory, createTag } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { imgname } from '../../Imgs/headerImgs/imgExport';
 
@@ -64,10 +64,19 @@ const NavLogo = () => {
   );
 };
 const NavSearch = () => {
+  const dispatch = useDispatch();
+  const handletest = (e) => {
+    const data = e.target.value;
+    e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
+    console.log(data);
+  };
+
   return (
     <SearchSection>
       <SearchMain>
         <InputUI
+          onChange={handletest}
+          onKeyUp={handletest}
           placeholder="원하는 상품을 입력해주세요"
           radius="20px"
           border="2px solid gray"
@@ -103,21 +112,24 @@ const NavButton = () => {
   );
 };
 const NavCategory = () => {
+  const dispatch = useDispatch();
   const selector = useSelector((state) => state.items.isLoad);
   const categorylist = useSelector((state) => state.items.categorys);
+  const abcd = useSelector((state) => state.items.tags);
+  const focusCategory = useSelector((state) => state.items.category);
 
   return (
     <>
       {!selector ? null : (
         <BottomUnderLine>
           <CategorySection>
-            {categorylist.map((li,i) => {
+            {categorylist.map((li, i) => {
               return (
-                <CategoryMain key={li}>
+                <CategoryMain key={i} onClick={() => dispatch(selectCategory(li))}>
                   <p className="category_icon">
-                   <img src={imgname[i]}/>
+                    <img className={focusCategory === li ? 'select_img' : ''} src={imgname[i]} />
                   </p>
-                  <p className="category_text">{li}</p>
+                  <p className={focusCategory === li ? 'select_text' : 'category_text'}>{li}</p>
                 </CategoryMain>
               );
             })}

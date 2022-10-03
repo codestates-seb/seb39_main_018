@@ -157,6 +157,18 @@ const CategoryMain = styled.div`
     width: 30px;
     height: 30px;
   }
+  .select_text {
+    font-weight: 900;
+    font-family: 'Y_Spotlight';
+    font-size: 14px;
+    margin-top: 5px;
+    color: black;
+  }
+  .select_img {
+    width: 35px;
+    height: 35px;
+  }
+
   ${CategoryMain}:hover {
     .category_text {
       transition: all 0.5s;
