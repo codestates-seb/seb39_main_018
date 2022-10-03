@@ -6,7 +6,7 @@ import 솔트 from '../Imgs/솔트.svg';
 import body1 from '../Imgs/body1.svg';
 import body2 from '../Imgs/body2.svg';
 import paper from '../Imgs/paper-airplane.png';
-import mainbanner from '../Imgs/Group 380.svg';
+import mainbanner from '../Imgs/Group 381.svg';
 
 
 const MainBanner = () => {

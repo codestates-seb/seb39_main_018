@@ -1,9 +1,5 @@
 import React from 'react';
 import { InputUI } from '../Input/Input';
-import manIcon from '../../Imgs/man.png';
-import message from '../../Imgs/paper-airplane.png';
-import message2 from '../../Imgs/menu.png';
-import burger from '../../Imgs/menu.png';
 import NavIcon from '../../Imgs/navbarimg';
 import {
   HeaderContainer,
@@ -23,9 +19,9 @@ import {
   CategoryMain,
 } from './HeaderStyle';
 import { useNavigate } from 'react-router-dom';
-import { closeCategory } from '../../../redux/itemslice';
+import { closeCategory, selectCategory, createTag } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
-import category from '../../Imgs/headerImgs/imgExport';
+import { imgname } from '../../Imgs/headerImgs/imgExport';
 
 const Header = () => {
   return (
@@ -68,10 +64,19 @@ const NavLogo = () => {
   );
 };
 const NavSearch = () => {
+  const dispatch = useDispatch();
+  const handletest = (e) => {
+    const data = e.target.value;
+    e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
+    console.log(data);
+  };
+
   return (
     <SearchSection>
       <SearchMain>
         <InputUI
+          onChange={handletest}
+          onKeyUp={handletest}
           placeholder="원하는 상품을 입력해주세요"
           radius="20px"
           border="2px solid gray"
@@ -86,8 +91,7 @@ const NavSearch = () => {
 
 const NavButton = () => {
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.counter.isLoad);
-  console.log(selector);
+  const selector = useSelector((state) => state.items.isLoad);
   const navigate = useNavigate();
   return (
     <ButtonSection>
@@ -108,54 +112,27 @@ const NavButton = () => {
   );
 };
 const NavCategory = () => {
-  const selector = useSelector((state) => state.counter.isLoad);
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.items.isLoad);
+  const categorylist = useSelector((state) => state.items.categorys);
+  const abcd = useSelector((state) => state.items.tags);
+  const focusCategory = useSelector((state) => state.items.category);
+
   return (
     <>
       {!selector ? null : (
         <BottomUnderLine>
           <CategorySection>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.allImg} />
-              </p>
-              <p className="category_text">전체</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.movieImg} />
-              </p>
-              <p className="category_text">연극/영화</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.houseImg} />
-              </p>
-              <p className="category_text">숙박</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.pictureImg} />
-              </p>
-              <p className="category_text">전시</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.beachImg} />
-              </p>
-              <p className="category_text">여행</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.stadium} />
-              </p>
-              <p className="category_text">스포츠</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.micImg} />
-              </p>
-              <p className="category_text">공연</p>
-            </CategoryMain>
+            {categorylist.map((li, i) => {
+              return (
+                <CategoryMain key={i} onClick={() => dispatch(selectCategory(li))}>
+                  <p className="category_icon">
+                    <img className={focusCategory === li ? 'select_img' : ''} src={imgname[i]} />
+                  </p>
+                  <p className={focusCategory === li ? 'select_text' : 'category_text'}>{li}</p>
+                </CategoryMain>
+              );
+            })}
           </CategorySection>
         </BottomUnderLine>
       )}

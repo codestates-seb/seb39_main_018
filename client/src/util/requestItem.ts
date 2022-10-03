@@ -33,11 +33,21 @@ const getItems = (api?: string) => {
 
 // POST
 const postItem = (data: ItemType) => {
+  const [success, setSuccess] = useState<string>('');
+  const [failed, setfailed] = useState<string>('');
+  const caseByResult = !success ? failed : success;
   useEffect(() => {
     const postData = async () => {
-      const respone = await itemsApi.post('board');
+      try {
+        const respone = await itemsApi.post('board');
+        setSuccess(respone.data);
+      } catch (err) {
+        setfailed(err);
+      }
     };
+    postData();
   }, [data]);
+  return caseByResult;
 };
 
 // PATCH
@@ -48,4 +58,4 @@ const editItem = (data: ItemType) => {};
 
 const deleteItem = (data: ItemType) => {};
 
-export { getItems };
+export { getItems, postItem };
