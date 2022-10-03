@@ -6,7 +6,7 @@ import ViewMore from './ViewMore';
 import { itemGet } from '../../util/RequestLogic.ts';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { viewsCount } from '../../redux/itemslice';
+
 
 const ItemsMain = () => {
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ const ItemsMain = () => {
   const dispatch = useDispatch();
   const viewCount = useSelector((state) => state.items.value);
   const itemsload = itemGet().slice(0, viewCount);
-  const [itemsData, setItemsdata] = useState(itemsload);
 
   return (
     <MainContainer>
