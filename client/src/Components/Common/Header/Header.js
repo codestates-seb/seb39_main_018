@@ -1,9 +1,5 @@
 import React from 'react';
 import { InputUI } from '../Input/Input';
-import manIcon from '../../Imgs/man.png';
-import message from '../../Imgs/paper-airplane.png';
-import message2 from '../../Imgs/menu.png';
-import burger from '../../Imgs/menu.png';
 import NavIcon from '../../Imgs/navbarimg';
 import {
   HeaderContainer,
@@ -25,7 +21,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { closeCategory } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
-import category, { imgname } from '../../Imgs/headerImgs/imgExport';
+import { imgname } from '../../Imgs/headerImgs/imgExport';
 
 const Header = () => {
   return (
