@@ -19,8 +19,6 @@ const ItemsMain = () => {
   const itemsload = itemGet().slice(0, viewCount);
   const [itemsData, setItemsdata] = useState(itemsload);
 
-  console.log(itemsData);
-
   return (
     <MainContainer>
       <Filter />
