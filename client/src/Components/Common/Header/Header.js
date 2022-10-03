@@ -22,6 +22,7 @@ import { useNavigate } from 'react-router-dom';
 import { closeCategory, selectCategory, createTag } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { imgname } from '../../Imgs/headerImgs/imgExport';
+import { itemGet } from '../../../util/RequestLogic';
 
 const Header = () => {
   return (
@@ -67,10 +68,12 @@ const NavSearch = () => {
   const dispatch = useDispatch();
   const handletest = (e) => {
     const data = e.target.value;
+    const url = `full?title=${data}&body=${data}`;
     e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
     console.log(data);
   };
-
+  itemGet()
+  
   return (
     <SearchSection>
       <SearchMain>
