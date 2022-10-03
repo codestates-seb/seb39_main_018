@@ -25,7 +25,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { closeCategory } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
-import category from '../../Imgs/headerImgs/imgExport';
+import category, { imgname } from '../../Imgs/headerImgs/imgExport';
 
 const Header = () => {
   return (
@@ -108,53 +108,23 @@ const NavButton = () => {
 };
 const NavCategory = () => {
   const selector = useSelector((state) => state.items.isLoad);
+  const categorylist = useSelector((state) => state.items.categorys);
+
   return (
     <>
       {!selector ? null : (
         <BottomUnderLine>
           <CategorySection>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.allImg} />
-              </p>
-              <p className="category_text">전체</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.movieImg} />
-              </p>
-              <p className="category_text">연극/영화</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.houseImg} />
-              </p>
-              <p className="category_text">숙박</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.pictureImg} />
-              </p>
-              <p className="category_text">전시</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.beachImg} />
-              </p>
-              <p className="category_text">여행</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.stadium} />
-              </p>
-              <p className="category_text">스포츠</p>
-            </CategoryMain>
-            <CategoryMain>
-              <p className="category_icon">
-                <img src={category.micImg} />
-              </p>
-              <p className="category_text">공연</p>
-            </CategoryMain>
+            {categorylist.map((li,i) => {
+              return (
+                <CategoryMain key={li}>
+                  <p className="category_icon">
+                   <img src={imgname[i]}/>
+                  </p>
+                  <p className="category_text">{li}</p>
+                </CategoryMain>
+              );
+            })}
           </CategorySection>
         </BottomUnderLine>
       )}
