@@ -1,12 +1,15 @@
 import React from 'react';
-import { SubBanner_Container } from './LandingStyle.jsx';
+import { SubBanner_Container, SubComponent } from './LandingStyle.jsx';
+import { subBannerImgs } from '../Imgs/randingImgs/imgExport.js';
 
 const SubBanner = () => {
-  return(
+  return (
     <SubBanner_Container>
-        sdsd
+      <SubComponent>
+        <img src={subBannerImgs} />
+      </SubComponent>
     </SubBanner_Container>
-  )
+  );
 };
 
 export default SubBanner;

@@ -47,9 +47,7 @@ const Pages = () => {
       <Route path="/my/wish" element={<MyPageWish />} />
       <Route path="/my/sell" element={<MyPageSell />} />
       <Route path="/my/buy" element={<MyPageBuy />} />
-
       <Route path="/loginfindsign" element={<LoginFindSignup />} />
-
       <Route path="/detail" element={<DetailPage />} />
       <Route path="/withdraw" element={<WithdrawPage />} />
       <Route path="/detail/:id" element={<DetailPage />} />
@@ -60,7 +58,7 @@ const Modals = () => {
   return (
     <Routes>
       <Route path="/logout" element={<Logout />} />
-      <Route path="/logout" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/find" element={<Find />} />
       <Route path="/test" element={<TEST2 />} />

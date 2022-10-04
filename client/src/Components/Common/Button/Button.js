@@ -33,8 +33,8 @@ const BasicBtn = styled.div`
   font-size: ${(props) => props.size || ''};
   box-shadow: none;
   margin-left: ${(prop) => prop.left || ''};
-  ${BasicBtn}:active {
-    background: #ebebeb;
+  ${BasicBtn}:hover {
+    background: gray;
   }
   p {
     margin-left: 10px;
@@ -49,7 +49,25 @@ const Button2 = styled(BasicBtn)`
     background: var(--lightgray);
   }
 `;
+const SellbtnComponent = styled.div`
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  right: 50px;
+  bottom: 10px;
+  margin-bottom: 300px;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  p {
+    position : absolute;
+    top: 38px;
+    right: 20px;
+  }
+`;
 
 /// -------------------------------------- ///
 
-export { XXBtn, XXBtn2, BasicBtn };
+export { XXBtn, XXBtn2, BasicBtn, SellbtnComponent };

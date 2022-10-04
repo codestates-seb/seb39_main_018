@@ -21,7 +21,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { closeCategory, selectCategory, createTag } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
-import { imgname } from '../../Imgs/headerImgs/imgExport';
+import { imgname, sortlogo } from '../../Imgs/headerImgs/imgExport';
 import { itemGet } from '../../../util/RequestLogic';
 
 const Header = () => {
@@ -60,7 +60,9 @@ const NavLog = () => {
 const NavLogo = () => {
   return (
     <LogoSection>
-      <p>SORT</p>
+      <p>
+        <img src={sortlogo} />
+      </p>
     </LogoSection>
   );
 };
@@ -72,8 +74,6 @@ const NavSearch = () => {
     e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
     console.log(data);
   };
-  itemGet()
-  
   return (
     <SearchSection>
       <SearchMain>
