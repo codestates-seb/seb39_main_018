@@ -89,10 +89,11 @@ const PreviewPrice = styled.div`
 const AllviewBtn = styled.div`
   width: 150px;
   height: 50px;
+  border-radius: 10px;
 `;
 
 const SubBanner_Container = styled(AllOption)`
-  height: 550px;
+  height: 500px;
   margin: 200px 0;
   position: relative;
   background: #f0f2f1;
@@ -108,8 +109,8 @@ const SubSetting = styled.div`
   }
 `;
 const SubComponent = styled(SubSetting)`
-  top: -80px;
-  left: 450px;
+  top: -100px;
+  left: 400px;
   .pin {
     position: absolute;
     left: 180px;
@@ -119,8 +120,8 @@ const SubComponent = styled(SubSetting)`
   }
 `;
 const SubComponent2 = styled(SubSetting)`
-  bottom: -80px;
-  right: 450px;
+  bottom: -100px;
+  right: 400px;
 `;
 
 const EndBanner_Container = styled(AllOption)`

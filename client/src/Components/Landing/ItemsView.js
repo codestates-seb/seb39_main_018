@@ -39,7 +39,7 @@ const ItemsView = ({ latestDatas }) => {
         })}
       </PreviewList>
       <AllviewBtn onClick={() => pageMove('/main')}>
-        <BasicBtn background="none" color="black">
+        <BasicBtn color="white" background="#363636">
           전체보기
           <RightIcon />
         </BasicBtn>
