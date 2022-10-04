@@ -16,7 +16,7 @@ import { LodingMotion } from '../Common/Loding/LodingMotion';
 const ItemList = ({ itemsData, pageMove, isLoading }) => {
   return (
     <ItemContainer>
-      <ItemsCount />
+      <ItemsCount itemsData={itemsData} />
       <ItemListBox>
         {itemsData &&
           itemsData.map((dataList) => {
@@ -58,10 +58,10 @@ const ItemComponent = ({ title, price, region, createdDate, id, pageMove }) => {
   );
 };
 
-const ItemsCount = () => {
+const ItemsCount = ({ itemsData }) => {
   return (
     <ViewsBox>
-      <div>12 views</div>
+      <div>{itemsData.length} views</div>
     </ViewsBox>
   );
 };
