@@ -1,0 +1,30 @@
+logging:
+  level:
+    root: info
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db-sort-project.cs304ggjvk2f.ap-northeast-2.rds.amazonaws.com:13306/sort?serverTimezone=Asia/Seoul
+    username: hyeding
+    password: buttersis13!
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+  jpa:
+    hibernate:
+      ddl-auto: update #create , create-drop , update , validate, none
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true //추가
+        show_sql: true
+        format_sql: true
+    database: mysql
+    open-in-view: false
+    url:
+      base: http://localhost:8081
+    config:
+      activate:
+        on-profile: local

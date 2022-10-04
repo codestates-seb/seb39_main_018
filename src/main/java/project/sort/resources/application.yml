@@ -1,0 +1,52 @@
+spring:
+  profiles:
+    include: dev, local, oauth
+#
+#  freemarker:
+#    template-loader-path: classpath:/templates
+#    suffix: .ftl
+
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+
+  freemarker:
+    checkTemplateLocation: false
+
+#  port: 8081
+#spring:
+#  profiles:
+#    include: oauth
+#  freemarker:
+#    checkTemplateLocation: false
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://db-sort-project.cs304ggjvk2f.ap-northeast-2.rds.amazonaws.com:13306/sort?serverTimezone=Asia/Seoul
+#    username: hyeding
+#    password: buttersis13!
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#      naming:
+#        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#      use-new-id-generator-mappings: false
+#    database: mysql
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+#    properties:
+#      hibernate:
+#        show_sql: false
+#        format_sql: true
+#    open-in-view: false
+
+#jasypt:
+#  encryptor:
+#    bean: encryptorBean
+
+# org.hibernate.type: trace
