@@ -9,12 +9,11 @@ const AllSetting = styled.div`
 const HeaderContainer = styled(AllSetting)`
   position: sticky;
   width: 100%;
-  height: 100px;
+  height: 200px;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: center;
   z-index: 100;
-  padding-bottom: 100px;
   background: #ffffff;
   z-index: 3;
 `;
@@ -84,7 +83,7 @@ const LogoSection = styled(AllSetting)`
   width: 300px;
   height: 80px;
   justify-content: center;
-  
+
   img {
     width: 100%;
     height: 100%;
