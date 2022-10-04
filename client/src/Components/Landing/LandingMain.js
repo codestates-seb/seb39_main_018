@@ -13,9 +13,9 @@ const LandingMain = () => {
   return (
     <LandingContainer>
       <MainBanner />
-      <ItemsView latestDatas={latestDatas} />
-      <SubBanner />
       <EndBanner />
+      <SubBanner />
+      <ItemsView latestDatas={latestDatas} />
     </LandingContainer>
   );
 };
