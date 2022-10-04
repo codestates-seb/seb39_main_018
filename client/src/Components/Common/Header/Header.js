@@ -58,8 +58,9 @@ const NavLog = () => {
 };
 
 const NavLogo = () => {
+  const navigate = useNavigate();
   return (
-    <LogoSection>
+    <LogoSection onClick={() => navigate('/')}>
       <p>
         <img src={sortlogo} />
       </p>
