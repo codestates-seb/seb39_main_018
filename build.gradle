@@ -23,39 +23,59 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.projectlombok:lombok:1.18.22'
+	implementation 'org.springframework.boot:spring-boot-starter-freemarker:2.7.3'
 	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// 스프링테스트
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 
-	// JUnit5
-	testImplementation("org.junit.platform:junit-platform-launcher:1.5.2")
-	testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
+//	// JUnit5
+//	testImplementation("org.junit.platform:junit-platform-launcher:1.5.2")
+//	testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
+
+	// junit4 Test 의존성
+	implementation 'junit:junit:4.13.2'
+
+	//JUnit4 추가
+	testImplementation("org.junit.vintage:junit-vintage-engine") {
+		exclude group: "org.hamcrest", module: "hamcrest-core"
+	}
+
+	// Json을 결과로 매핑하기 위한 의존성
+	implementation 'com.google.code.gson:gson:2.9.0'
 
 	// jwt
-	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'
-	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
-	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
-	implementation 'com.auth0:java-jwt:4.0.0'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 
-	// Swagger
+	//yml 다국화
+	implementation 'net.rakugakibox.util:yaml-resource-bundle:1.1'
+
+	// API 문서 자동화 swagger 2
 	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger2:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 
 	// validation
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+	//oauth2
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	//base64
+	implementation group: 'commons-codec', name: 'commons-codec', version: '1.8'
 
 	//지홍님 의존성 추가
-	implementation 'commons-io:commons-io:2.6'
+	implementation 'commons-io:commons-io:2.11.0'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
 	//p6spy 는 SQL 실행 파라미터를 로그로 남기기 때문에 입력한 값이 ? ? 가 아닌 실제 값으로 표현 -> 선택( 운영 단계에서는 성능 테스트 해보고 적용 )
 //	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6'
-}
 
+}
 
 tasks.named('test') {
 	useJUnitPlatform()
