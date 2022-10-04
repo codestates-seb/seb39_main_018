@@ -67,7 +67,7 @@ public class PostsService {
                 .end_date(posts.getEnd_date())
                 .seat_number((posts.getSeat_number()))
                 .region((posts.getRegion()))
-                .created_date(posts.getCreated_date())
+                .created_date(posts.getModifiedDate())
                 .build();
 
     }

@@ -1,112 +1,162 @@
-//package project.sort.advice;
-//
-//import lombok.extern.slf4j.Slf4j;
-//import org.springframework.http.HttpStatus;
-//import org.springframework.validation.BindException;
-//import org.springframework.web.bind.MethodArgumentNotValidException;
-//import org.springframework.web.bind.annotation.ExceptionHandler;
-//import org.springframework.web.bind.annotation.ResponseStatus;
-//import org.springframework.web.bind.annotation.RestControllerAdvice;
-//import project.sort.exception.*;
-//import project.sort.response.Response;
-//
-//
-//import javax.management.relation.RoleNotFoundException;
-//
-//@RestControllerAdvice
-//@Slf4j
-//public class ExceptionAdvice {
-//    // 500 에러
-//    @ExceptionHandler(IllegalArgumentException.class) // 지정한 예외가 발생하면 해당 메소드 실행
-//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 각 예외마다 상태 코드 지정
-//    public Response illegalArgumentExceptionAdvice(IllegalArgumentException e) {
-//        log.info("e = {}", e.getMessage());
-//        return Response.failure(500, e.getMessage().toString());
-//    }
-//
-//    // 500 에러
-//    // 컨버트 실패
-//    @ExceptionHandler(CannotConvertHelperException.class)
-//    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-//    public Response cannotConvertNestedStructureException(CannotConvertHelperException e) {
-//        log.error("e = {}", e.getMessage());
-//        return Response.failure(500, e.getMessage().toString());
-//    }
-//
-//    // 400 에러
-//    // 요청 객체의 validation을 수행할 때, MethodArgumentNotValidException이 발생
-//    // 각 검증 어노테이션 별로 지정해놨던 메시지를 응답
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public Response methodArgumentNotValidException(MethodArgumentNotValidException e) { // 2
-//        return Response.failure(400, e.getBindingResult().getFieldError().getDefaultMessage());
-//    }
-//
-//    // 400
-//    // 토큰 만료
-//    @ExceptionHandler(TokenExpiredException.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public Response tokenExpiredException() {
-//        return Response.failure(400, "토큰이 만료되었습니다.");
-//    }
-//
-//    // 400 에러
-//    // Valid 제약조건 위배 캐치
-//    @ExceptionHandler(BindException.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public Response bindException(BindException e) {
-//        return Response.failure(400, e.getBindingResult().getFieldError().getDefaultMessage());
-//    }
-//
-//
-//    // 401 응답
-//    // 아이디 혹은 비밀번호 오류시
-//    @ExceptionHandler(LoginFailureException.class)
-//    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-//    public Response loginFailureException() {
-//        return Response.failure(401, "로그인에 실패하였습니다.");
-//    }
-//
-//    // 401 응답
-//    // 유저 정보가 일치하지 않음
-//    @ExceptionHandler(MemberNotEqualsException.class)
-//    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-//    public Response memberNotEqualsException() {
-//        return Response.failure(401, "유저 정보가 일치하지 않습니다.");
-//    }
-//
-//
-//    // 404 응답
-//    // 요청한 User를 찾을 수 없음
-//    @ExceptionHandler(MemberNotFoundException.class)
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    public Response memberNotFoundException() {
-//        return Response.failure(404, "요청한 회원을 찾을 수 없습니다.");
-//    }
-//
-//
-//    // 404 응답
-//    // 요청한 자원을 찾을 수 없음
-//    @ExceptionHandler(RoleNotFoundException.class)
-//    @ResponseStatus(HttpStatus.NOT_FOUND)
-//    public Response roleNotFoundException() {
-//        return Response.failure(404, "요청한 권한 등급을 찾을 수 없습니다.");
-//    }
-//
-//
-//    // 409 응답
-//    // username 중복
-//    @ExceptionHandler(MemberUsernameAlreadyExistsException.class)
-//    @ResponseStatus(HttpStatus.CONFLICT)
-//    public Response memberEmailAlreadyExistsException(MemberUsernameAlreadyExistsException e) {
-//        return Response.failure(409, e.getMessage() + "은 중복된 아이디 입니다.");
-//    }
-//
-//    // 409 응답
-//    // email 중복
-//    @ExceptionHandler(MemberEmailAlreadyExistsException.class)
-//    @ResponseStatus(HttpStatus.CONFLICT)
-//    public Response memberNicknameAlreadyExistsException(MemberEmailAlreadyExistsException e) {
-//        return Response.failure(409, e.getMessage() + "은 중복된 이메일 입니다.");
-//    }
-//}
+package project.sort.advice;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+import project.sort.advice.exception.*;
+import project.sort.response.CommonResult;
+import project.sort.service.user.ResponseService;
+import javax.servlet.http.HttpServletRequest;
+@Slf4j
+@RequiredArgsConstructor
+@RestControllerAdvice
+public class ExceptionAdvice {
+
+    private final ResponseService responseService;
+    private final MessageSource messageSource;
+
+    /***
+     * -9999
+     * default Exception
+     */
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    protected CommonResult defaultException(HttpServletRequest request, Exception e) {
+        log.info(String.valueOf(e));
+        return responseService.getFailResult
+                (Integer.parseInt(getMessage("unKnown.code")), getMessage("unKnown.msg"));
+    }
+
+    /***
+     * -1000
+     * 유저를 찾지 못했을 때 발생시키는 예외
+     */
+    @ExceptionHandler(CUserNotFoundException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    protected CommonResult userNotFoundException(HttpServletRequest request, CUserNotFoundException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("userNotFound.code")), getMessage("userNotFound.msg")
+        );
+    }
+
+    /***
+     * -1001
+     * 유저 이메일 로그인 실패 시 발생시키는 예외
+     */
+    @ExceptionHandler(CEmailLoginFailedException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    protected CommonResult emailLoginFailedException(HttpServletRequest request, CEmailLoginFailedException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("emailLoginFailed.code")), getMessage("emailLoginFailed.msg")
+        );
+    }
+
+    /***
+     * -1002
+     * 회원 가입 시 이미 로그인 된 이메일인 경우 발생 시키는 예외
+     */
+    @ExceptionHandler(CEmailSignupFailedException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    protected CommonResult emailSignupFailedException(HttpServletRequest request, CEmailSignupFailedException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("emailSignupFailed.code")), getMessage("emailSignupFailed.msg")
+        );
+    }
+
+    /**
+     * -1003
+     * 전달한 Jwt 이 정상적이지 않은 경우 발생 시키는 예외
+     */
+    @ExceptionHandler(CAuthenticationEntryPointException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected CommonResult authenticationEntrypointException(HttpServletRequest request, CAuthenticationEntryPointException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("authenticationEntrypoint.code")), getMessage("authenticationEntrypoint.msg")
+        );
+    }
+
+    /**
+     * -1004
+     * 권한이 없는 리소스를 요청한 경우 발생 시키는 예외
+     */
+    @ExceptionHandler(CAccessDeniedException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected CommonResult accessDeniedException(HttpServletRequest request, CAccessDeniedException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("accessDenied.code")), getMessage("accessDenied.msg")
+        );
+    }
+
+    /**
+     * -1005
+     * refresh token 에러시 발생 시키는 에러
+     */
+    @ExceptionHandler(CRefreshTokenException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected CommonResult refreshTokenException(HttpServletRequest request, CRefreshTokenException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("refreshTokenInValid.code")), getMessage("refreshTokenInValid.msg")
+        );
+    }
+
+    /**
+     * -1006
+     * 액세스 토큰 만료시 발생하는 에러
+     */
+    @ExceptionHandler(CExpiredAccessTokenException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    protected CommonResult expiredAccessTokenException(HttpServletRequest request, CExpiredAccessTokenException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("expiredAccessToken.code")), getMessage("expiredAccessToken.msg")
+        );
+    }
+
+    /***
+     * -1007
+     * Social 인증 과정에서 문제 발생하는 에러
+     */
+    @ExceptionHandler(CCommunicationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    protected CommonResult communicationException(HttpServletRequest request, CCommunicationException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("communicationException.code")), getMessage("communicationException.msg")
+        );
+    }
+
+    /***
+     * -1008
+     * 기 가입자 에러
+     */
+    @ExceptionHandler(CUserExistException.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    protected CommonResult existUserException(HttpServletRequest request, CUserExistException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("userExistException.code")), getMessage("userExistException.msg")
+        );
+    }
+
+    /***
+     * -1009
+     * 소셜 로그인 시 필수 동의항목 미동의시 에러
+     */
+    @ExceptionHandler(CSocialAgreementException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    protected CommonResult socialAgreementException(HttpServletRequest request, CSocialAgreementException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("agreementException.code")), getMessage("agreementException.msg")
+        );
+    }
+
+    private String getMessage(String code) {
+        return getMessage(code, null);
+    }
+
+    private String getMessage(String code, Object[] args) {
+        return messageSource.getMessage(code, args, LocaleContextHolder.getLocale());
+    }
+}

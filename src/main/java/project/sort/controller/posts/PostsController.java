@@ -1,5 +1,6 @@
 package project.sort.controller.posts;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 public class PostsController {
+    @ApiOperation(value = "/", notes = "헬로월드!")
     @GetMapping("/")
     public @ResponseBody String index() {
         return "hello World!";
@@ -31,6 +33,7 @@ public class PostsController {
     /**
      * 게시글 생성
      */
+    @ApiOperation(value = "게시글 생성", notes = "게시글을 작성할 수 있다.")
     @PostMapping("/board")
     @CrossOrigin(origins = "*")
     public ResponseEntity posts(@RequestBody @Valid PostDto postDto) {
@@ -42,6 +45,7 @@ public class PostsController {
     /**
      * 게시글 전체 조회
      */
+    @ApiOperation(value = "게시글 전체 조회", notes = "전체 게시물을 조회한다.")
     @GetMapping("/board")
     @CrossOrigin(origins = "localhost:3003")
     public ResponseEntity listPosts(){
@@ -56,7 +60,7 @@ public class PostsController {
     //return "findPosts2";
     //}
 
-
+    @ApiOperation(value = "게시물 리스트", notes = "8개씩 게시물을 모아서 볼 수 있다.")
     @GetMapping("/board/list")
     @CrossOrigin(origins = "localhost:3003")
     Page<Posts> findPosts2(@PageableDefault(page = 0, size = 8 , sort = "id", direction = Sort.Direction.DESC)
@@ -74,6 +78,7 @@ public class PostsController {
     /**
      * 한개 게시물 조회
      */
+    @ApiOperation(value = "개별 게시물 조회", notes = "한 개의 게시물을 조회한다.")
     @GetMapping("/board/{id}")
     @CrossOrigin(origins = "*")
     public ResponseEntity onePosts(@PathVariable Long id) {
@@ -84,6 +89,7 @@ public class PostsController {
     /**
      * 게시글 삭제
      */
+    @ApiOperation(value = "게시물 삭제", notes = "개별 게시물을 삭제한다.")
     @DeleteMapping("/board/{id}")
     @CrossOrigin(origins = "*")
     public String deletePosts(@PathVariable Long id) {
@@ -94,6 +100,7 @@ public class PostsController {
     /**
      * 게시글 수정
      */
+    @ApiOperation(value = "게시물 수정", notes = "개별 게시물을 수정한다.")
     @PatchMapping("/board/{id}")
     @CrossOrigin(origins = "*")
     public ResponseEntity editPosts(@PathVariable Long id, @RequestBody PostPatchDto postPatchDto) {
