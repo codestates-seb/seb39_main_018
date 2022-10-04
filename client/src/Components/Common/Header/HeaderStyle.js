@@ -9,15 +9,14 @@ const AllSetting = styled.div`
 const HeaderContainer = styled(AllSetting)`
   position: sticky;
   width: 100%;
-  height: 180px;
+  height: 100px;
   align-items: flex-start;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 50px;
   z-index: 100;
   padding-bottom: 100px;
   background: #ffffff;
-  z-index: 1;
+  z-index: 3;
 `;
 
 const NavbarSection = styled.div`
@@ -82,13 +81,15 @@ const LoginBox = styled.div`
 `;
 
 const LogoSection = styled(AllSetting)`
-  width: 200px;
-  height: 100%;
+  width: 300px;
+  height: 80px;
   justify-content: center;
-  p {
-    font-size: 50px;
-    font-weight: bold;
+
+  img {
+    width: 100%;
+    height: 100%;
   }
+
 `;
 
 const SearchSection = styled(AllSetting)`
