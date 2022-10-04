@@ -20,6 +20,7 @@ import MyPageWish from '../Pages/MypageWish';
 import LoginFindSignup from '../Components/Modals/LoginFindSignup';
 import MyPageSell from '../Pages/MyPageSell';
 import MyPageBuy from '../Pages/MyPageBuy';
+import WritePage from '../Pages/WritePage';
 
 const Routers = () => {
   return (
@@ -37,6 +38,7 @@ const Pages = () => {
       <Route path="/" element={<LandingPage />} />
       <Route path="/main" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
+      <Route path="/write" element={<WritePage />} />
 
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/my/map" element={<MyPageMap />} />
@@ -45,9 +47,7 @@ const Pages = () => {
       <Route path="/my/wish" element={<MyPageWish />} />
       <Route path="/my/sell" element={<MyPageSell />} />
       <Route path="/my/buy" element={<MyPageBuy />} />
-
       <Route path="/loginfindsign" element={<LoginFindSignup />} />
-
       <Route path="/detail" element={<DetailPage />} />
       <Route path="/withdraw" element={<WithdrawPage />} />
       <Route path="/detail/:id" element={<DetailPage />} />
@@ -58,7 +58,7 @@ const Modals = () => {
   return (
     <Routes>
       <Route path="/logout" element={<Logout />} />
-      <Route path="/logout" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/find" element={<Find />} />
       <Route path="/test" element={<TEST2 />} />
@@ -71,7 +71,7 @@ const Modals = () => {
 const ScrollInit = () => {
   const { pathname } = useLocation();
   useEffect(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return;

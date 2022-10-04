@@ -12,13 +12,23 @@ const LandingContainer = styled(AllOption)`
 
 const MainBanner_Container = styled(AllOption)`
   /* background: #c6d8d9; */
-  background: #e0eaf0;
+  background: #eaf0ee;
+  width: 100%;
+  height: 500px;
+  position: relative;
   //background: #E1F3ED;
   //background: #8eada0;
 
   img {
-    width: 100%;
+    margin-top: 20px;
+    width: 70%;
+    height: 90%;
   }
+`;
+const BtnSection = styled.div`
+  position: absolute;
+  bottom: 90px;
+  left: 350px;
 `;
 
 const ItemsView_Container = styled(AllOption)`
@@ -26,7 +36,9 @@ const ItemsView_Container = styled(AllOption)`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 450px;
+  height: 500px;
+  margin: 50px 0;
+  align-items: center;
   .Previe_title {
     width: 100%;
     display: flex;
@@ -43,7 +55,7 @@ const PreviewList = styled(AllOption)`
 const ItemPreview = styled.div`
   width: 200px;
   height: 240px;
-  border:1px solid gray;
+  border: 1px solid gray;
   border-radius: 5px;
   ${ItemPreview}:hover {
     transform: scale(1.4);
@@ -78,31 +90,40 @@ const AllviewBtn = styled.div`
 `;
 
 const SubBanner_Container = styled(AllOption)`
-  height: 350px;
-  background: pink;
+  height: 250px;
+  margin: 150px 0;
+  position: relative;
+  background: #f0f2f1;
+`;
+const SubComponent = styled.div`
+  position: absolute;
+  top: -100px;
+  left: 200px;
+  box-shadow: 1px 1px 5px 1px;
+  img {
+    width: 400px;
+    height: 400px;
+  }
 `;
 
 const EndBanner_Container = styled(AllOption)`
-  height: 350px;
-  border: 1px solid;
+  height: 400px;
   justify-content: center;
   align-items: center;
 `;
 
 const Featuree = styled.div`
-  box-shadow: 2px 3px 5px;
   border-radius: 10px;
-  margin: 0 80px;
   width: 350px;
   height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 12px;
   img {
-    width: 70px;
-    height: 70px;
+    width: 120px;
+    height: 80px;
   }
-
   p {
     margin: 50px;
   }
@@ -111,6 +132,7 @@ const Featuree = styled.div`
 export {
   LandingContainer,
   MainBanner_Container,
+  BtnSection,
   ItemsView_Container,
   PreviewList,
   ItemPreview,
@@ -119,6 +141,7 @@ export {
   PreviewPrice,
   AllviewBtn,
   SubBanner_Container,
+  SubComponent,
   EndBanner_Container,
   Featuree,
 };

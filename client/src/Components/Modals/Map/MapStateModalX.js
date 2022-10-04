@@ -22,16 +22,12 @@ const MapStateModalX = () => {
 
   // 현재위치 전송
   const mapLocationCheck = () => {
-    const str = address.split(' ');
-    const addressStr = str.splice(0, 2);
-    const addressStrJoin = addressStr.join(' ');
-
     axios({
       method: '',
       url: '',
       headers: { '': '' },
       data: {
-        address: addressStrJoin,
+        address: address,
       },
     })
       .then((res) => {
@@ -103,7 +99,9 @@ const MapStateModalX = () => {
           for (var i = 0; i < result.length; i++) {
             // 행정동의 region_type 값은 'H' 이므로
             if (result[i].region_type === 'H') {
-              infoDiv.innerHTML = result[i].address_name;
+              if (infoDiv !== null && infoDiv.innerHTML !== null) {
+                infoDiv.innerHTML = result[i].address_name;
+              }
               console.log(result[i].address_name);
               setAddress(result[i].address_name);
               break;

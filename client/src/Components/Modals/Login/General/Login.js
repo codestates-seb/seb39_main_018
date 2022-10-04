@@ -16,6 +16,15 @@ const Login = (props) => {
     console.log(userid.value);
     console.log(userPassword.value);
 
+    // if (checkedBox) {
+    //   console.log('h');
+
+    //   localStorage.setItem('login', 'localStorage'); // 서버 토큰값
+    // } else {
+    //   console.log('o');
+
+    //   sessionStorage.setItem('login', 'sessionStorage');
+    // }
     if (userid.value === '') {
       idInput.current.focus();
       return;
@@ -80,10 +89,8 @@ const Login = (props) => {
   // 자동로그인 체크박스
   const [checkedBox, setCheckedBox] = useState(false);
   // 체크 O
-  const handleCheckdBox = (id, isChecked) => {
-    if (isChecked) {
-      setCheckedBox(checkedBox);
-    }
+  const handleCheckdBox = (e) => {
+    setCheckedBox(e.target.checked);
   };
 
   return (

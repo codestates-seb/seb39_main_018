@@ -10,6 +10,7 @@ const Modal = (props) => {
   const [visible, setVisible] = useState(open);
 
   useEffect(() => {
+    console.log('SADAS');
     // open true -> false 가 되는 것을 감지 (즉, 모달창을 닫을 때)
     if (visible && !open) {
       setAnimate(true);
