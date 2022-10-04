@@ -12,8 +12,8 @@ import project.sort.dto.jwt.TokenDto;
 import project.sort.dto.jwt.TokenRequestDto;
 import project.sort.dto.sign.UserLoginRequestDto;
 import project.sort.dto.sign.UserSignupRequestDto;
-import project.sort.entity.user.RefreshToken;
-import project.sort.entity.user.RefreshTokenJpaRepo;
+import project.sort.entity.security.RefreshToken;
+import project.sort.entity.security.RefreshTokenJpaRepo;
 import project.sort.entity.user.Users;
 import project.sort.entity.user.UsersJpaRepo;
 
@@ -44,6 +44,7 @@ public class SignService {
         RefreshToken refreshToken = RefreshToken.builder()
                 .keyNum(users.getUserId())
                 .tokenNum(tokenDto.getRefreshToken())
+                .users(users)
                 .build();
         tokenJpaRepo.save(refreshToken);
         return tokenDto;

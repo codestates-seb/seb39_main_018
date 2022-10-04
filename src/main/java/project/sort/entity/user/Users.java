@@ -8,9 +8,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import project.sort.entity.posts.BaseTimeEntity;
 import project.sort.entity.posts.Posts;
+import project.sort.entity.security.RefreshToken;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -19,13 +19,13 @@ import java.util.stream.Collectors;
 @Builder
 @Entity
 @Getter
-@DynamicInsert
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users")
 public class Users extends BaseTimeEntity implements UserDetails {
 
     @Id
+    @Column(name = "userId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
@@ -45,11 +45,10 @@ public class Users extends BaseTimeEntity implements UserDetails {
     @Column(length = 100)
     private String provider;
 
-    @OneToOne(mappedBy = "users", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //리프레쉬토큰과 유저 일대일 매핑
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "refreshToken_id")
     private RefreshToken refreshToken;
-
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private List<Posts> posts = new ArrayList<>();
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default

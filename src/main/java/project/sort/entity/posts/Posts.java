@@ -37,10 +37,6 @@ public class Posts extends BaseTimeEntity{
     @Column(nullable = false)
     private String region;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usersId", nullable = false)
-    private Users users;
-
     public void changePosts(String title, String body, String price,
                             String end_date, String seat_number, String region) {
         if(title != null) this.title = title;

@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-//@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 @RequiredArgsConstructor
 @Configuration
 public class SecurityConfiguration {
@@ -41,13 +41,13 @@ public class SecurityConfiguration {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
-                .and()
-                .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/v1/signup", "/v1/login",
-                        "/v1/reissue", "/v1/social/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/oauth/kakao/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/exception/**").permitAll()
-                .anyRequest().hasRole("USER")
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers(HttpMethod.POST, "/v1/signup", "/v1/login",
+//                        "/v1/reissue", "/v1/social/**").permitAll()
+//                .antMatchers(HttpMethod.GET, "/oauth/kakao/**").permitAll()
+//                .antMatchers(HttpMethod.GET, "/exception/**").permitAll()
+//                .anyRequest().hasRole("USER")
 
                 .and()
                 .exceptionHandling()
