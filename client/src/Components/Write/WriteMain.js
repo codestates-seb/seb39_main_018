@@ -1,42 +1,26 @@
 import React, { useEffect } from 'react';
-import Logins from '../Modals/Login/General/LoginStyle';
 import Writes from './WriteMainStyle';
 import { useState } from 'react';
 import axios from 'axios';
 import { BsCameraFill } from 'react-icons/bs';
+import Draws from '../Withdraw/WithdrawPageStyle';
+import { VscClose } from 'react-icons/vsc';
 
 const WriteMain = () => {
-  //-- 사진파일 -> 서버로 전송 --//
-  const handleImgClick = (e) => {
-    const formdata = new FormData();
-    formdata.append('uploadImage', files[0]); // 새 값 추가
-
-    const config = {
-      Headers: {
-        'content-type': 'multipart/form-data',
-      },
-    };
-    axios.post(`api`, formdata, config);
-  };
-
   //-- 사진 미리보기 --//
   const [showImages, setShowImages] = useState([]);
 
   // 이미지 상대경로 저장
+  let imageUrlLists = [...showImages];
   const handleAddImages = (event) => {
     const imageLists = event.target.files;
-
-    let imageUrlLists = [...showImages];
-
     for (let i = 0; i < imageLists.length; i++) {
       const currentImageUrl = URL.createObjectURL(imageLists[i]);
       imageUrlLists.push(currentImageUrl);
     }
-
     if (imageUrlLists.length > 4) {
       imageUrlLists = imageUrlLists.slice(0, 4);
     }
-
     setShowImages(imageUrlLists);
   };
 
@@ -44,14 +28,87 @@ const WriteMain = () => {
   const handleDeleteImage = (id) => {
     setShowImages(showImages.filter((_, index) => index !== id));
   };
-  //----//
 
-  //-- 제목 input box value 가져오기 --//
-  const [inputvalue, setInputvalue] = useState('');
-  const handleInputvalue = (e) => {
-    setInputvalue(e.target.value);
+  //-- input 관리 --//
+  const [inputs, setInputs] = useState({
+    title: '',
+    price: '',
+    seat: '',
+
+    explanation: '',
+  });
+
+  const { title, price, seat, explanation } = inputs;
+
+  const onChange = (e) => {
+    const { value, name } = e.target;
+    setInputs({
+      ...inputs,
+      [name]: value,
+    });
   };
-  //-----//
+
+  //-- 카테고리 선택 --//
+  const ticketList = [
+    { id: null, value: '카테고리를 선택해주세요.' },
+    { id: '콘서트', value: '콘서트' },
+    { id: '뮤지컬', value: '뮤지컬' },
+    { id: '스포츠', value: '스포츠' },
+    { id: '영화', value: '연극/영화' },
+    { id: '전시', value: '전시' },
+    { id: '여행', value: '여행' },
+  ];
+
+  const [choiceTicket, setChoiceTicket] = useState('카테고리를 선택해주세요.');
+  const onClickDropbar = (e) => {
+    const { value } = e.target;
+    setChoiceTicket(ticketList.filter((el) => el.value === value)[0].id);
+  };
+
+  //-- 가격 ; 숫자만 입력 가능 --//
+  const [num, setNum] = useState('');
+  const priceInput = (num) => {
+    const priceComma = (num) => {
+      num = String(num);
+      return num.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    };
+    const unpriceComma = (num) => {
+      num = String(num);
+      return num.replace(/[^\d]+/g, '');
+    };
+    return priceComma(unpriceComma(num));
+  };
+
+  //-- 태그 --//
+  const [writeTag, setWriteTag] = useState('');
+  const [tags, setTags] = useState([]);
+
+  const onKeyPress = (e) => {
+    if (e.target.value.length !== 0 && e.key === 'Enter') {
+      enterTag();
+    }
+  };
+
+  const enterTag = () => {
+    let upTags = [...tags];
+    upTags.push(writeTag);
+    setTags(upTags);
+    setWriteTag('');
+  };
+
+  const removeTag = (e) => {
+    const removeTag = e.target.parentElement.firstChild.innerText;
+    const filteredtags = tags.filter((writeTag) => writeTag !== removeTag);
+    setTags(filteredtags);
+  };
+
+  useEffect(() => {
+    if (tags.length > 4) {
+      setTags(tags.slice(0, 4));
+    }
+  }, [writeTag]);
+
+  //-- 티켓 사용일 --//
 
   return (
     <Writes.MainContainer>
@@ -65,7 +122,8 @@ const WriteMain = () => {
         <Writes.Writeframe>
           <Writes.MiniTitle>
             티켓 이미지<Writes.RedSpan>*</Writes.RedSpan>
-            <small>(0/4)</small>
+            <br />
+            <small>{imageUrlLists.length}/4</small>
           </Writes.MiniTitle>
 
           <Writes.ImgWrap>
@@ -98,10 +156,10 @@ const WriteMain = () => {
 
           <Writes.ImgWrap>
             <Writes.GreyInput
-              type="text"
+              name="title"
+              value={title}
               placeholder="제목을 입력해주세요."
-              value={inputvalue}
-              onChange={handleInputvalue}
+              onChange={onChange}
             ></Writes.GreyInput>
           </Writes.ImgWrap>
         </Writes.Writeframe>
@@ -111,13 +169,115 @@ const WriteMain = () => {
             카테고리<Writes.RedSpan>*</Writes.RedSpan>
           </Writes.MiniTitle>
 
-          {/* <Writes.CateTitle>
-            <Writes.CateList></Writes.CateList>
-          </Writes.CateTitle> */}
+          <Writes.ImgWrap>
+            <Writes.TicketCategory>
+              <Writes.CategoryBox>
+                <Writes.TicketBar onChange={onClickDropbar}>
+                  {ticketList.map((el) => {
+                    return <option key={el.id}>{el.value}</option>;
+                  })}
+                </Writes.TicketBar>
+              </Writes.CategoryBox>
+              <Writes.ChoiceBox>
+                <Writes.Choice>선택한 카테고리</Writes.Choice>
+                <Writes.ChoicePick>{choiceTicket}</Writes.ChoicePick>
+              </Writes.ChoiceBox>
+            </Writes.TicketCategory>
+          </Writes.ImgWrap>
         </Writes.Writeframe>
 
-        <button>저장하기</button>
+        <Writes.Writeframe>
+          <Writes.MiniTitle>
+            가격<Writes.RedSpan>*</Writes.RedSpan>
+          </Writes.MiniTitle>
+
+          <Writes.ImgWrap>
+            <Writes.GreyInput
+              style={{ width: '28%' }}
+              name="price"
+              type="text"
+              value={num}
+              placeholder="가격을 입력해주세요."
+              onChange={(e) => setNum(priceInput(e.target.value))}
+            ></Writes.GreyInput>
+            원
+          </Writes.ImgWrap>
+        </Writes.Writeframe>
+
+        <Writes.Writeframe>
+          <Writes.MiniTitle>좌석</Writes.MiniTitle>
+
+          <Writes.ImgWrap>
+            <Writes.GreyInput
+              style={{ width: '28%' }}
+              name="seat"
+              value={seat}
+              placeholder="좌석을 입력해주세요."
+              onChange={onChange}
+            ></Writes.GreyInput>
+          </Writes.ImgWrap>
+        </Writes.Writeframe>
+
+        <Writes.Writeframe>
+          <Writes.MiniTitle>
+            사용일<Writes.RedSpan>*</Writes.RedSpan>
+          </Writes.MiniTitle>
+
+          <Writes.ImgWrap>
+            <Writes.GreyInput style={{ width: '28%' }} type="datetime-local" />
+          </Writes.ImgWrap>
+        </Writes.Writeframe>
+
+        <Writes.Writeframe>
+          <Writes.MiniTitle>
+            티켓설명<Writes.RedSpan>*</Writes.RedSpan>
+          </Writes.MiniTitle>
+
+          <Writes.ImgWrap>
+            <Draws.WriteInput
+              style={{}}
+              name="explanation"
+              value={explanation}
+              placeholder="구매자에게 필요한 티켓 정보를 포함하여 작성하면 구매 문의를 줄일 수 있습니다 :)"
+              onChange={onChange}
+            ></Draws.WriteInput>
+          </Writes.ImgWrap>
+        </Writes.Writeframe>
+
+        <Writes.Writeframe>
+          <Writes.MiniTitle>
+            태그
+            <br />
+            <small>{tags.length}/4</small>
+          </Writes.MiniTitle>
+
+          <Writes.ImgWrap>
+            <Writes.TagContainer>
+              {tags.map((writeTag, index) => {
+                return (
+                  <Writes.RealTag key={index}>
+                    <span>{writeTag}</span>
+                    <VscClose style={{ cursor: 'pointer' }} onClick={removeTag} />
+                  </Writes.RealTag>
+                );
+              })}
+              <Writes.GreyInput
+                type="text"
+                tabIndex={2}
+                onChange={(e) => setWriteTag(e.target.value)}
+                value={writeTag}
+                onKeyPress={onKeyPress}
+                placeholder="태그를 입력해주세요."
+              ></Writes.GreyInput>
+            </Writes.TagContainer>
+          </Writes.ImgWrap>
+        </Writes.Writeframe>
       </Writes.WriteBox>
+
+      <Draws.RealAgree style={{ marginTop: '-30px', marginBottom: '40px' }}>
+        <Draws.BlackButtonBox>취소하기</Draws.BlackButtonBox>
+        <Draws.WhiteButtonBox>티켓등록</Draws.WhiteButtonBox>
+      </Draws.RealAgree>
     </Writes.MainContainer>
   );
 };

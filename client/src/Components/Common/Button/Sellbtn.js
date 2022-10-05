@@ -7,7 +7,7 @@ const Sellbtn = () => {
   const navigate = useNavigate();
   return (
     <SellbtnComponent>
-      <img src={sellButton}  onClick={ () => navigate('/write')}/>
+      <img src={sellButton} onClick={() => navigate('/write')} />
       <p>상품판매</p>
     </SellbtnComponent>
   );
