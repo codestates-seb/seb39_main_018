@@ -7,6 +7,8 @@ interface ItemType {
   end_date: string;
   seat_number: string;
   region: string;
+  photo: string;
+  status: string;
 }
 
 interface ApiType {
