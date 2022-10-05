@@ -86,7 +86,7 @@ const KakaoLogin = () => {
         <span onClick={() => KakaoLogin()}>카카오 로그인</span>
       </KakaoLoginButton>
 
-      <span onClick={() => kakaoLogout()}>카카오 로그아웃 임시</span>
+      {/* <span onClick={() => kakaoLogout()}>카카오 로그아웃 임시</span> */}
     </a>
   );
 };

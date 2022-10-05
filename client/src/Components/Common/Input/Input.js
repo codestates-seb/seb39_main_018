@@ -35,7 +35,7 @@ const InputUI = styled.input`
   border: ${(props) => props.border || '1px solid'};
   border-radius: ${(props) => props.radius || '5px'};
   box-shadow: ${(props) => props.shadow || ''};
-  background: ${(props) => props.background || ''};
+  background: rgba(0, 0, 0, 0.06);
   color: ${(props) => props.color || ''};
   padding: ${(props) => props.padding || '8px'};
   font-size: ${(props) => props.size || '5px'};
@@ -44,8 +44,8 @@ const InputUI = styled.input`
     color: #a0a1a3;
     font-size: 12px;
   }
-  ${InputUI}:focus{
-    background:#e9f2fa;
+  ${InputUI}:focus {
+    background: rgba(0, 0, 0, 0.1);
   }
 `;
 
