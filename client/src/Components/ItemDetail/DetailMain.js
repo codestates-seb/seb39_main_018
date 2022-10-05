@@ -1,6 +1,5 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { getItems } from '../../util/requestItem.ts';
 import { Detail_Container, Detail_Section } from './DetailStyle.jsx';
 import ItemCategory from './ItemCategory';
 import DetailImg from './DetailImg';
@@ -10,10 +9,12 @@ import { Description, ItemSubInfo } from './ItemDescription';
 import ItemSeller from './ItemSeller';
 import SellerReview from './SellerReviw';
 import { calculateDate } from '../../util/calculateDate';
+import { getDetail } from '../../util/requestItem';
 
 const DetailMain = () => {
+
   const { id } = useParams();
-  const { title, body, price, end_date, seat_number, createdDate, region } = getItems(id);
+  const { title, body, price, end_date, seat_number, createdDate, region } = getDetail(id);
   const detailPageDate =  calculateDate(createdDate);
  
   return (
