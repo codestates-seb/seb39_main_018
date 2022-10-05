@@ -17,7 +17,7 @@ import {
   SortOpDropbar,
 } from './MainStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { createTag, deleteTag } from '../../redux/itemslice';
+import { createTag, deleteTag, selectSort, openDropbar, selectFilter } from '../../redux/itemslice';
 
 const Filter = () => {
   const [selectOP, setSelectOP] = useState(['인기순', '최신순', '정확도순', '오래된순']);
@@ -27,6 +27,7 @@ const Filter = () => {
   const sellTypeTab = ['전체', '판매중', '판매완료'];
   const categorydata = useSelector((state) => state.items.category);
   const tagList = useSelector((state) => state.items['tags']);
+
   const dispatch = useDispatch();
   const tagInputHandler = (e) => {
     const inputs = e.target.value;
@@ -67,12 +68,16 @@ const Filter = () => {
 };
 
 const SellTypeFilter = ({ tabFocus, sellTypeTab, tabHandler }) => {
+  const dispatch = useDispatch();
+  const sellTypes = useSelector((state) => state.items.filterTypes);
+  const focusType = useSelector((state) => state.items.choicedFilter);
+  selectFilter;
   return (
     <>
-      {sellTypeTab.map((tab, i) => {
+      {sellTypes.map((tab) => {
         return (
-          <SellType color={i == tabFocus ? 'black' : ''}>
-            <p onClick={() => tabHandler(i)}>{tab}</p>
+          <SellType color={tab.name == focusType ? 'black' : ''}>
+            <p key={tab.id} onClick={() => dispatch(selectFilter(tab.name))}>{tab.name}</p>
           </SellType>
         );
       })}
@@ -95,25 +100,30 @@ const SearchFilter = ({ inputdata, tagInputHandler }) => {
   );
 };
 
-const SortOption = ({ selectOP, selectindex, isSelect, setSelectindex, setIsSelect }) => {
+const SortOption = () => {
+  const sortList = useSelector((state) => state.items.sortTypes);
+  const choiced = useSelector((state) => state.items.choicedSort);
+  const isSelect = useSelector((state) => state.items.onChoice);
+  const dispatch = useDispatch();
+  console.log(isSelect);
   return (
     <SortSection>
       <SortByOption>
-        <p className="select_text">{selectOP[selectindex]}</p>
+        <p className="select_text">{choiced}</p>
         <p
           className={isSelect ? 'select_icon open' : 'select_icon'}
-          onClick={() => setIsSelect(!isSelect)}
+          onClick={() => dispatch(openDropbar(!isSelect))}
         >
           <DownIcon />
         </p>
       </SortByOption>
-      <SortOpDropbar display={isSelect}>
-        {selectOP.map((option, i) => {
+      <SortOpDropbar display={isSelect? 'flex' : 'none' }>
+        {sortList.map((option, i) => {
           return (
             <p
               className="opitons"
               key={option}
-              onClick={() => (setSelectindex(i), setIsSelect(!isSelect))}
+              onClick={() => dispatch(selectSort([option, !isSelect]))}
             >
               {option}
             </p>
