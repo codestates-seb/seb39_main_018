@@ -4,6 +4,11 @@ const MainContainer = styled.div`
   display: block;
   width: 1000px;
   margin: auto;
+
+  @media only screen and (max-width: 960px) {
+    width: 680px;
+    padding: 40px;
+  }
 `;
 
 const ContainerTop = styled.div`
@@ -19,6 +24,11 @@ const TopTitle = styled.h2`
   border-bottom: 1.4px solid rgb(0, 0, 0, 0.8);
   font-weight: 500;
   line-height: 30px;
+
+  @media only screen and (max-width: 960px) {
+    height: 40px;
+    font-size: 18px;
+  }
 `;
 const RedSpan = styled.span`
   color: red;
@@ -26,6 +36,10 @@ const RedSpan = styled.span`
   font-size: 14px;
   line-height: 100%;
   margin-left: 3px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 10px;
+  }
 `;
 
 const WriteBox = styled.div`
@@ -52,6 +66,10 @@ const MiniTitle = styled.div`
     margin-left: 3px;
     font-size: 70%;
   }
+
+  @media only screen and (max-width: 960px) {
+    font-size: 13px;
+  }
 `;
 
 // 이미지 사진 등록
@@ -66,6 +84,10 @@ const Wrap = styled.ul`
   display: flex;
   flex-wrap: wrap;
   width: 900px;
+
+  @media only screen and (max-width: 960px) {
+    width: 680px;
+  }
 `;
 
 const InputBox = styled.div`
@@ -94,6 +116,17 @@ const InputBox = styled.div`
     cursor: pointer;
     font-size: 0px;
     padding: 0px;
+  }
+
+  @media only screen and (max-width: 960px) {
+    width: 120px;
+    height: 120px;
+    font-size: 10px;
+    margin-right: 2px;
+
+    input {
+      margin-left: 30px;
+    }
   }
 `;
 
@@ -128,6 +161,17 @@ const UpImg = styled.div`
     cursor: pointer;
     outline: none;
   }
+
+  @media only screen and (max-width: 960px) {
+    width: 120px;
+    height: 120px;
+    margin-left: 0.5rem;
+
+    img {
+      width: 80%;
+      height: 80%;
+    }
+  }
 `;
 
 const GreyInput = styled.input`
@@ -145,6 +189,10 @@ const GreyInput = styled.input`
   &:focus {
     border-bottom: 1px solid #111;
   }
+
+  @media only screen and (max-width: 960px) {
+    font-size: 12px;
+  }
 `;
 
 // 카테고리
@@ -160,6 +208,10 @@ const CategoryBox = styled.div`
   align-items: center;
   width: 300px;
   height: 100%;
+
+  @media only screen and (max-width: 960px) {
+    width: 200px;
+  }
 `;
 
 const TicketBar = styled.select`
@@ -183,7 +235,6 @@ const ChoiceBox = styled.div`
 const Choice = styled.div`
   display: flex;
   height: 100%;
-
   padding-left: 15px;
   align-items: center;
   font-size: 14px;
@@ -192,6 +243,12 @@ const Choice = styled.div`
   line-height: 100%;
   color: rgba(0, 0, 0, 0.7);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+  @media only screen and (max-width: 960px) {
+    width: 100px;
+    padding-left: 6px;
+    font-size: 12px;
+  }
 `;
 
 const ChoicePick = styled.div`
@@ -199,6 +256,10 @@ const ChoicePick = styled.div`
   align-items: center;
   margin-left: 40px;
   font-size: 14px;
+  @media only screen and (max-width: 960px) {
+    margin-left: 18px;
+    font-size: 12px;
+  }
 `;
 
 const TagContainer = styled.div`
@@ -217,6 +278,15 @@ const RealTag = styled.div`
   span {
     font-size: 13px;
     font-weight: 400;
+  }
+
+  @media only screen and (max-width: 960px) {
+    margin-left: 6px;
+    padding: 7px;
+    margin-right: 5px;
+    span {
+      font-size: 10px;
+    }
   }
 `;
 

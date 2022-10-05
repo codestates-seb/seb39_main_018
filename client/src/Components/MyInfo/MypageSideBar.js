@@ -22,7 +22,7 @@ const MypageSideBar = () => {
         <Sides.MiniTitle>내 정보</Sides.MiniTitle>
         <Sides.LiLinks>
           <Sides.LiLink onClick={() => navigate('/my/profile')}>내 프로필</Sides.LiLink>
-          <Sides.LiLink onClick={() => navigate('/my/review')}>상점 후기</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/my/review')}>거래 후기</Sides.LiLink>
           <Sides.LiLink onClick={() => navigate('/my/map')}>지역 인증</Sides.LiLink>
           <Sides.LiLink onClick={() => navigate('/withdraw')}>회원 탈퇴</Sides.LiLink>
         </Sides.LiLinks>

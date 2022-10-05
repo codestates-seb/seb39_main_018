@@ -47,6 +47,12 @@ const RealItem = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media only screen and (max-width: 960px) {
+    img {
+      height: 80%;
+    }
+  }
 `;
 
 const ItemNamePrice = styled.div``;
@@ -59,6 +65,11 @@ const ItemName = styled.a`
   font-size: 12px;
   letter-spacing: -0.3px;
   line-height: 22px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 8px;
+    line-height: 14px;
+  }
 `;
 
 const ItemPrice = styled.span`
@@ -66,6 +77,10 @@ const ItemPrice = styled.span`
   font-weight: 500;
   font-size: 13px;
   letter-spacing: -0.1px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 4px;
+  }
 `;
 
 export default {

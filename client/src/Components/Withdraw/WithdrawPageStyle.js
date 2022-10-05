@@ -30,11 +30,18 @@ const Title = styled.div`
   color: #111111;
   font-weight: bold;
   letter-spacing: 0.03em;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 18px;
+  }
 `;
 
 const Content = styled.div`
   padding-top: 20px;
   margin: 0;
+  @media only screen and (max-width: 960px) {
+    padding-top: 10px;
+  }
 `;
 
 const ReasonTitle = styled.div`
@@ -42,6 +49,10 @@ const ReasonTitle = styled.div`
   margin-bottom: 18px;
   font-size: 15px;
   letter-spacing: -0.5px;
+  @media only screen and (max-width: 960px) {
+    margin-bottom: 15px;
+    font-size: 12px;
+  }
 `;
 
 const Reasons = styled.div``;
@@ -60,6 +71,10 @@ const Checkbox = styled.div`
 const CheckboxInput = styled.input`
   visibility: hidden;
   margin-bottom: 10px;
+
+  @media only screen and (max-width: 960px) {
+    margin-bottom: 7px;
+  }
 
   ${({ isChecked }) =>
     isChecked
@@ -82,6 +97,10 @@ const CheckboxV = styled.label`
   width: 18px;
   height: 18px;
   left: 0;
+  @media only screen and (max-width: 960px) {
+    width: 15px;
+    height: 15px;
+  }
   ${({ isChecked }) =>
     isChecked
       ? css`
@@ -112,6 +131,10 @@ const ReasonSpan = styled.span`
   vertical-align: middle;
   font-size: 13px;
   margin-left: 20px;
+  @media only screen and (max-width: 960px) {
+    font-size: 11px;
+    margin-left: 13px;
+  }
 `;
 
 const WriteBox = styled.div`
@@ -133,6 +156,10 @@ const WriteInput = styled.textarea`
   color: black;
   line-height: 1.8em;
   min-height: 130px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 10px;
+  }
 `;
 
 const AgreeBox = styled.div`
@@ -146,6 +173,10 @@ const H3 = styled.h3`
   font-size: 15px;
   color: #606060;
   font-weight: normal;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 12px;
+  }
 `;
 
 const Li = styled.li`
@@ -155,6 +186,10 @@ const Li = styled.li`
   padding-left: 14px;
   font-size: 13px;
   padding-bottom: 3px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 10px;
+  }
 `;
 
 const RealAgree = styled.div`

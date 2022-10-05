@@ -24,13 +24,21 @@ const Item = styled.div`
     height: 100px;
     border-radius: 4px;
   }
+
+  @media only screen and (max-width: 960px) {
+    width: 80%;
+  }
 `;
 
 const ItemDetail = styled.div`
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   text-align: left;
   margin-left: 30px;
+
+  @media only screen and (max-width: 960px) {
+    margin-left: 15px;
+  }
 `;
 
 const ItemName = styled.a`
@@ -40,13 +48,22 @@ const ItemName = styled.a`
   font-weight: 500;
   text-decoration: none;
   letter-spacing: -0.3px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 10px;
+  }
 `;
 
 const ItemSeller = styled.p`
   font-size: 12px;
-  line-height: 18px;
+  line-height: 20px;
   letter-spacing: -0.1px;
+  margin-top: 5px;
   color: #aaa;
+  @media only screen and (max-width: 960px) {
+    font-size: 7px;
+    line-height: 14px;
+  }
 `;
 
 const ItemPrice = styled.span`
@@ -54,6 +71,9 @@ const ItemPrice = styled.span`
   font-weight: 600;
   line-height: 20px;
   font-size: 14px;
+  @media only screen and (max-width: 960px) {
+    font-size: 8px;
+  }
 `;
 
 export default { Content, ItemList, Item, ItemDetail, ItemName, ItemSeller, ItemPrice };
