@@ -26,23 +26,25 @@ import { itemGet } from '../../../util/RequestLogic';
 
 const Header = () => {
   return (
-    <HeaderContainer>
-      <NavbarSection>
-        <NavbarTop>
-          <NavLog />
-        </NavbarTop>
-        <NavbarMiddle>
-          <NavbarMain>
-            <NavLogo />
-            <NavSearch />
-            <NavButton />
-          </NavbarMain>
-        </NavbarMiddle>
-        <NavbarBottom>
-          <NavCategory />
-        </NavbarBottom>
-      </NavbarSection>
-    </HeaderContainer>
+    <>
+      <HeaderContainer>
+        <NavbarSection>
+          <NavbarTop>
+            <NavLog />
+          </NavbarTop>
+          <NavbarMiddle>
+            <NavbarMain>
+              <NavLogo />
+              <NavSearch />
+              <NavButton />
+            </NavbarMain>
+          </NavbarMiddle>
+      <NavbarBottom>
+        <NavCategory />
+      </NavbarBottom>
+        </NavbarSection>
+      </HeaderContainer>
+    </>
   );
 };
 
@@ -58,8 +60,9 @@ const NavLog = () => {
 };
 
 const NavLogo = () => {
+  const navigate = useNavigate();
   return (
-    <LogoSection>
+    <LogoSection onClick={() => navigate('/')}>
       <p>
         <img src={sortlogo} />
       </p>

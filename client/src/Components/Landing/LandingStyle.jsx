@@ -55,8 +55,9 @@ const PreviewList = styled(AllOption)`
 const ItemPreview = styled.div`
   width: 200px;
   height: 240px;
-  border: 1px solid gray;
+  border: 2px solid #b8b4b4;
   border-radius: 5px;
+  background: #ffffff;
   ${ItemPreview}:hover {
     transform: scale(1.4);
     transition: all 0.5s;
@@ -69,6 +70,7 @@ const PreviewImg = styled.div`
   background: lightgray;
 `;
 const PreviewInfo = styled.div`
+  margin-left: 5px;
   .title {
     font-size: 18px;
     text-overflow: ellipsis;
@@ -87,23 +89,39 @@ const PreviewPrice = styled.div`
 const AllviewBtn = styled.div`
   width: 150px;
   height: 50px;
+  border-radius: 10px;
 `;
 
 const SubBanner_Container = styled(AllOption)`
-  height: 250px;
-  margin: 150px 0;
+  height: 500px;
+  margin: 200px 0;
   position: relative;
   background: #f0f2f1;
 `;
-const SubComponent = styled.div`
+
+const SubSetting = styled.div`
   position: absolute;
-  top: -100px;
-  left: 200px;
   box-shadow: 1px 1px 5px 1px;
+  background: #ffffff;
   img {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
   }
+`;
+const SubComponent = styled(SubSetting)`
+  top: -100px;
+  left: 400px;
+  .pin {
+    position: absolute;
+    left: 180px;
+    top: 180px;
+    width: 20px;
+    height: 20px;
+  }
+`;
+const SubComponent2 = styled(SubSetting)`
+  bottom: -100px;
+  right: 400px;
 `;
 
 const EndBanner_Container = styled(AllOption)`
@@ -142,6 +160,7 @@ export {
   AllviewBtn,
   SubBanner_Container,
   SubComponent,
+  SubComponent2,
   EndBanner_Container,
   Featuree,
 };
