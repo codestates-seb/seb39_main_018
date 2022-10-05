@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { InputUI } from '../Input/Input';
 import NavIcon from '../../Imgs/navbarimg';
 import {
@@ -19,7 +19,7 @@ import {
   CategoryMain,
 } from './HeaderStyle';
 import { useNavigate } from 'react-router-dom';
-import { closeCategory, selectCategory, createTag } from '../../../redux/itemslice';
+import { closeCategory, selectCategory, createTag, searchitem } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { imgname, sortlogo } from '../../Imgs/headerImgs/imgExport';
 import { itemGet } from '../../../util/RequestLogic';
@@ -39,9 +39,9 @@ const Header = () => {
               <NavButton />
             </NavbarMain>
           </NavbarMiddle>
-      <NavbarBottom>
-        <NavCategory />
-      </NavbarBottom>
+          <NavbarBottom>
+            <NavCategory />
+          </NavbarBottom>
         </NavbarSection>
       </HeaderContainer>
     </>
@@ -73,16 +73,15 @@ const NavSearch = () => {
   const dispatch = useDispatch();
   const handletest = (e) => {
     const data = e.target.value;
-    const url = `full?title=${data}&body=${data}`;
-    e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
-    console.log(data);
+    e.key === 'Enter' ?  (dispatch(createTag(data)),e.target.value = '') :  null 
   };
+
   return (
     <SearchSection>
       <SearchMain>
         <InputUI
           onChange={handletest}
-          onKeyUp={handletest}
+          onKeyPress={handletest}
           placeholder="원하는 상품을 입력해주세요"
           radius="20px"
           border="2px solid gray"
@@ -131,7 +130,7 @@ const NavCategory = () => {
           <CategorySection>
             {categorylist.map((li, i) => {
               return (
-                <CategoryMain key={i} onClick={() => dispatch(selectCategory(li))}>
+                <CategoryMain key={li} onClick={() => dispatch(selectCategory(li))}>
                   <p className="category_icon">
                     <img className={focusCategory === li ? 'select_img' : ''} src={imgname[i]} />
                   </p>
