@@ -118,7 +118,7 @@ const SortByOption = styled.div`
 `;
 
 const SortOpDropbar = styled(SortByOption)`
-  display: ${(props) => (props.display ? 'flex' : 'none')};
+  display: ${(props) => (props.display || 'none')};
   position: absolute;
   transition: all ease 0.5s;
   left: 0;

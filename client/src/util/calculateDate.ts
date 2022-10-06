@@ -21,5 +21,5 @@ export const calculateDate = (date: string): string => {
       : '방금전';
   };
 
-  
+
 
