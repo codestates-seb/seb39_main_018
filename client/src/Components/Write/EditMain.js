@@ -7,12 +7,32 @@ import Draws from '../Withdraw/WithdrawPageStyle';
 import { VscClose } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
 import { writePost } from '../../redux/itemslice';
-import { getItems, useEdit } from '../../util/requestItem';
+import { getDetail, getItems, useEdit } from '../../util/requestItem';
+
+const EditReq = () => {
+  return <EditMain title2={title} price2={price} seat_numbe2={seat_number} body2={body} />;
+};
 
 const EditMain = () => {
   //-- 사진 미리보기 --//
+  const { title: title2, price: price2, seat_number: seat_number2, body: body2 } = getDetail(17);
   const [showImages, setShowImages] = useState([]);
- 
+  console.log(title2, price2, seat_number2, body2);
+  const lemegon = getDetail(16);
+
+  const [inputs2, setInputs2] = useState({
+    title2: lemegon['title'],
+    price2,
+    seat_number: 'f열',
+    body2: '',
+    end_date: '',
+    status: '판매중',
+    photo: '0',
+    region: '서울시 강남구 논현동',
+    status: '판매중',
+  });
+
+  console.log(inputs2);
 
   // 이미지 상대경로 저장
   let imageUrlLists = [...showImages];
@@ -35,8 +55,8 @@ const EditMain = () => {
 
   //-- input 관리 --//
   const [inputs, setInputs] = useState({
-    title: '',
-    price: '',
+    title: title2,
+    price: price2,
     seat_number: 'f열',
     body: '',
     end_date: '',
@@ -120,7 +140,7 @@ const EditMain = () => {
   }, [writeTag]);
   // const tests = postItem();
   const { postData, caseByResult } = useEdit();
-  caseByResult 
+  caseByResult;
   console.log(caseByResult);
   //-- 티켓 사용일 --//
 
@@ -171,7 +191,7 @@ const EditMain = () => {
           <Writes.ImgWrap>
             <Writes.GreyInput
               name="title"
-              value={title}
+              value={inputs.region}
               placeholder="제목을 입력해주세요."
               onChange={onChange}
             ></Writes.GreyInput>
