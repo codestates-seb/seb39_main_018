@@ -25,6 +25,8 @@ type InitialState = {
   filterApi: string;
   keywordApi: string;
   writeInfo: ItemType;
+  itemsId: number[];
+  isCheck: boolean[];
 };
 
 const initialState: InitialState = {
@@ -57,6 +59,8 @@ const initialState: InitialState = {
     photo: '',
     status: '',
   },
+  itemsId: [],
+  isCheck: [false, false, false],
 };
 
 const itemSlice = createSlice({
@@ -109,8 +113,17 @@ const itemSlice = createSlice({
     },
     writePost: (state, action) => {
       const result = action.payload;
-      state.writeInfo = {...state.writeInfo,...result}
+      state.writeInfo = { ...state.writeInfo, ...result };
     },
+    checkItems: (state, action) => {
+      const cheked = action.payload[0];
+      const result = action.payload[1];
+      state.itemsId = cheked
+        ? [...state.itemsId, result]
+        : state.itemsId.filter((list) => list !== result);
+    },
+    orderDelete: (state, action) => {},
+    soldDelete: (state, action) => {},
   },
 });
 
@@ -126,4 +139,7 @@ export const {
   openDropbar,
   selectFilter,
   writePost,
+  checkItems,
+  orderDelete,
+  soldDelete,
 } = itemSlice.actions;

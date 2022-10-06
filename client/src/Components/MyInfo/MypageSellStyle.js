@@ -10,8 +10,12 @@ const Content = styled.div`
 const ItemList = styled.div`
   display: flex;
   align-items: center;
+  width: 550px;
   padding: 30px 0 30px;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
+  #checkbox {
+    margin-right: 30px;
+  }
 `;
 
 const Item = styled.div`
@@ -35,7 +39,12 @@ const ItemDetail = styled.div`
   flex-direction: column;
   text-align: left;
   margin-left: 30px;
-
+  p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 300px;
+  }
   @media only screen and (max-width: 960px) {
     margin-left: 15px;
   }
@@ -75,5 +84,27 @@ const ItemPrice = styled.span`
     font-size: 8px;
   }
 `;
+const BtnSection = styled.div`
+  margin-top: 50px;
+  width: 500px;
+  display: flex;
+`;
 
-export default { Content, ItemList, Item, ItemDetail, ItemName, ItemSeller, ItemPrice };
+const AcitonBtn = styled.div`
+  display: ${(prop) => prop.display || 'block'};
+  width: 150px;
+  height: 50px;
+  margin: 0 30px;
+`;
+
+export default {
+  Content,
+  ItemList,
+  Item,
+  ItemDetail,
+  ItemName,
+  ItemSeller,
+  ItemPrice,
+  BtnSection,
+  AcitonBtn,
+};

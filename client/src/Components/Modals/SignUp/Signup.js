@@ -35,14 +35,7 @@ const Signup = (props) => {
 
   const sendSignup = (info) => {
     axios
-      .post(`${process.env.LOGIN_API_URL}signup`, info, {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          Authorization: 'Bearer *',
-        },
-      })
+      .post(`/v1/signup`, info)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     // postSignup(signup);

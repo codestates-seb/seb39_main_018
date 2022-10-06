@@ -34,7 +34,7 @@ const BasicBtn = styled.div`
   box-shadow: none;
   margin-left: ${(prop) => prop.left || ''};
   ${BasicBtn}:hover {
-    background: gray;
+    background: var(--lightgray);
   }
   p {
     margin-left: 10px;
@@ -62,7 +62,7 @@ const SellbtnComponent = styled.div`
     height: 100%;
   }
   p {
-    position : absolute;
+    position: absolute;
     top: 38px;
     right: 20px;
   }
