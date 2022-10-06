@@ -40,7 +40,7 @@ const Pages = () => {
       <Route path="/main" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/write" element={<WritePage />} />
-      <Route path="/edit" element={<EditMain />} />
+      <Route path="/my/sell/edit/id" element={<EditMain />} />
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/my/map" element={<MyPageMap />} />
       <Route path="/my/review" element={<MyPageReview />} />
@@ -55,6 +55,18 @@ const Pages = () => {
     </Routes>
   );
 };
+
+const Member = () => {
+  return(
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/main" element={<MainPage />} />
+      <Route path="/main/detail/:id" element={<DetailPage />} />
+      <Route path="/find" element={<Find />} />
+    </Routes>
+  )
+}
+
 const Modals = () => {
   return (
     <Routes>
@@ -62,7 +74,6 @@ const Modals = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/find" element={<Find />} />
-      <Route path="/test" element={<TEST2 />} />
       <Route path="/oauth/callback/kakao" element={<KakaoRediect />} />
       <Route path="/mapstate" element={<MapState />} />
     </Routes>
