@@ -25,8 +25,7 @@ import Modal from '../../Modals/Modal';
 import Login from '../../Modals/Login/General/Login';
 import Signup from '../../Modals/SignUp/Signup';
 import Find from '../../Modals/IDPWFind/Find';
-import { imgname, sortlogo} from '../../Imgs/headerImgs/imgExport';
-
+import { imgname, sortlogo } from '../../Imgs/headerImgs/imgExport';
 
 const Header = () => {
   const [signUpModalOn, setSignUpModalOn] = useState({ open: false });
@@ -196,7 +195,7 @@ const Header = () => {
       <HeaderContainer>
         <NavbarSection>
           <NavbarTop>
-            <NavLog />
+            <NavFailedLog />
           </NavbarTop>
           <NavbarMiddle>
             <NavbarMain>
@@ -214,7 +213,17 @@ const Header = () => {
   );
 };
 
-const NavLog = () => {
+const NavFailedLog = () => {
+  return (
+    <LoginSection>
+      <LoginBox>
+        <p className="log_left">회원가입</p>
+        <p className="log_right">로그인</p>
+      </LoginBox>
+    </LoginSection>
+  );
+};
+const NavSuccessLog = () => {
   return (
     <LoginSection>
       <LoginBox>
@@ -239,7 +248,7 @@ const NavSearch = () => {
   const dispatch = useDispatch();
   const handletest = (e) => {
     const data = e.target.value;
-    e.key === 'Enter' ?  (dispatch(createTag(data)),e.target.value = '') :  null 
+    e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
   };
 
   return (
