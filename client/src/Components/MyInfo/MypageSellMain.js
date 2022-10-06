@@ -2,18 +2,33 @@ import React, { useState } from 'react';
 import MypageSideBar from './MypageSideBar';
 import Draws from '../Withdraw/WithdrawPageStyle';
 import Sells from './MypageSellStyle';
-import { getItems } from '../../util/requestItem';
+import { deleteItem, getItems } from '../../util/requestItem';
 import { BasicBtn } from '../Common/Button/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkItems } from '../../redux/itemslice';
+import { useNavigate } from 'react-router-dom';
 // 판매상품이 있을 때
 function MypageSellMain() {
+  const navigate = useNavigate();
+  const [count, setcount] = useState([]);
   const itemList = getItems('/')[0].slice(12, 15);
   const sellItems = [...itemList];
   const [isCheck, setIsCheck] = useState();
   const editItem = (value) => {
-    setIsCheck(value[0]);
-    console.log(value);
+    setIsCheck(value[2]);
+    dispatch(checkItems(value));
   };
 
+  const { deleteData } = deleteItem();
+  const deleteitems = () => {
+    alert('삭제되었습니다.');
+    sellItems.pop(2);
+    location.reload();
+  };
+  const dispatch = useDispatch();
+  const check = useSelector((state) => state.items.itemsId);
+  console.log(check);
+  checkItems;
   return (
     <Draws.Container>
       <MypageSideBar />
@@ -25,11 +40,11 @@ function MypageSellMain() {
           <Sells.Content>
             {sellItems.map((items, i) => {
               return (
-                <Sells.ItemList>
+                <Sells.ItemList key={items.id}>
                   <input
                     name="items"
                     value={i}
-                    onClick={() => editItem([i, items.id])}
+                    onChange={(e) => editItem([e.target.checked, items.id, i])}
                     type="checkbox"
                     id="checkbox"
                     checked={isCheck === i}
@@ -46,10 +61,10 @@ function MypageSellMain() {
               );
             })}
             <Sells.BtnSection>
-              <Sells.AcitonBtn>
+              <Sells.AcitonBtn onClick={() => navigate('/edit')}>
                 <BasicBtn background="black">상품 수정</BasicBtn>
               </Sells.AcitonBtn>
-              <Sells.AcitonBtn>
+              <Sells.AcitonBtn onClick={() => deleteData(check)}>
                 <BasicBtn background="black">상품 삭제</BasicBtn>
               </Sells.AcitonBtn>
             </Sells.BtnSection>
