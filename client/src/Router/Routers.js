@@ -21,6 +21,7 @@ import LoginFindSignup from '../Components/Modals/LoginFindSignup';
 import MyPageSell from '../Pages/MyPageSell';
 import MyPageBuy from '../Pages/MyPageBuy';
 import WritePage from '../Pages/WritePage';
+import ErrorPage from '../Pages/ErrorPage';
 
 const Routers = () => {
   return (
@@ -51,6 +52,8 @@ const Pages = () => {
       <Route path="/detail" element={<DetailPage />} />
       <Route path="/withdraw" element={<WithdrawPage />} />
       <Route path="/detail/:id" element={<DetailPage />} />
+
+      <Route path="/error" element={<ErrorPage />} />
     </Routes>
   );
 };
