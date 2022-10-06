@@ -118,9 +118,8 @@ const itemSlice = createSlice({
     checkItems: (state, action) => {
       const cheked = action.payload[0];
       const result = action.payload[1];
-      state.itemsId = cheked
-        ? [...state.itemsId, result]
-        : state.itemsId.filter((list) => list !== result);
+      console.log(action.payload);
+      state.itemsId = cheked ? result : null;
     },
     orderDelete: (state, action) => {},
     soldDelete: (state, action) => {},
