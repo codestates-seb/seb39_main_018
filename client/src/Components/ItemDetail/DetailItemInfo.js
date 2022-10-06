@@ -13,7 +13,7 @@ import {
 import { TagUI } from '../Common/Tag/Tag';
 import { BasicBtn } from '../Common/Button/Button.js';
 
-const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region }) => {
+const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region,photo }) => {
   return (
     <Detail_ItemInfo>
       <InfoTop>
@@ -26,7 +26,7 @@ const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region }) =>
       <InfoBottom>
         <StartDate>
           <p className="info_title">등록 :</p>
-          <p className="infor_data">7시간전</p>
+          <p className="infor_data">{createdDate}</p>
         </StartDate>
         <EndDate>
           <p className="info_title">기간 :</p>

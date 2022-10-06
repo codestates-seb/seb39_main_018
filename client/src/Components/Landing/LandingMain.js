@@ -1,4 +1,5 @@
 // import React from 'react';
+
 import EndBanner from './EndBanner';
 // import MainBanner from './MainBanner';
 import ItemsView from './ItemsView';
@@ -19,7 +20,6 @@ import { getItems } from '../../util/requestItem.ts';
 // };
 
 // export default LandingMain;
-
 import React from 'react';
 import Lands from './LandingMainStyle';
 import mokup from '../Imgs/mokup.png';
@@ -36,7 +36,6 @@ import Logins from '../Modals/Login/General/LoginStyle';
 const LandingMain = () => {
   const latestDatas = getItems('landing');
   const navigate = useNavigate();
-
   const pageMove = (url) => {
     navigate(url);
     window.scrollTo(0, 0);
@@ -103,11 +102,8 @@ const LandingMain = () => {
           </Lands.MainText>
         </Lands.MainContent>
       </Lands.MainContainer>
-
       <EndBanner />
-
       <ItemsView latestDatas={latestDatas} />
-
       <Lands.Subscribe>
         <Lands.SubForm>
           <Lands.SubFormContainer>
@@ -122,3 +118,6 @@ const LandingMain = () => {
 };
 
 export default LandingMain;
+{
+  /* <img className="sortmokup" src={mokup} /> */
+}

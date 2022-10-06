@@ -32,6 +32,10 @@ const Detail_Img = styled(AllSetting)`
   margin-right: 50px;
   height: 530px;
   background: var(--lightgray);
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 //-- 판매 정보 컴포넌트
@@ -234,7 +238,7 @@ const Detail_Review = styled(AllSetting)`
   flex-wrap: wrap;
   justify-content: space-between;
   .border_line {
-    margin-top:20px;
+    margin-top: 20px;
     height: 120px;
     border-left: 1px solid var(--lightgray);
   }
@@ -254,7 +258,6 @@ const ReviewTitle = styled(ReviewSetting)`
 `;
 const ReviewInfo = styled.div`
   width: 330px;
-
 `;
 const ReviewProfile = styled(ReviewSetting)`
   .img {
