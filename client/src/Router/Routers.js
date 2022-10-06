@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import TESTS from '../Components/Modals/Login/KaKao/eKakaoLoginbtn';
 import TEST2 from '../Components/Modals/Login/KaKao/eKaKaoRestApi';
 import MainPage from '../Pages/MainPage.js';
 import ChatPage from '../Pages/ChatPage.js';
@@ -21,6 +20,8 @@ import LoginFindSignup from '../Components/Modals/LoginFindSignup';
 import MyPageSell from '../Pages/MyPageSell';
 import MyPageBuy from '../Pages/MyPageBuy';
 import WritePage from '../Pages/WritePage';
+import KakaoRediect from '../Components/Modals/Login/KaKao/eKakaoLoginbtn';
+import EditMain from '../Components/Write/EditMain';
 
 const Routers = () => {
   return (
@@ -39,7 +40,7 @@ const Pages = () => {
       <Route path="/main" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/write" element={<WritePage />} />
-
+      <Route path="/edit" element={<EditMain />} />
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/my/map" element={<MyPageMap />} />
       <Route path="/my/review" element={<MyPageReview />} />
@@ -50,7 +51,7 @@ const Pages = () => {
       <Route path="/loginfindsign" element={<LoginFindSignup />} />
       <Route path="/detail" element={<DetailPage />} />
       <Route path="/withdraw" element={<WithdrawPage />} />
-      <Route path="/detail/:id" element={<DetailPage />} />
+      <Route path="/main/detail/:id" element={<DetailPage />} />
     </Routes>
   );
 };
@@ -62,7 +63,7 @@ const Modals = () => {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/find" element={<Find />} />
       <Route path="/test" element={<TEST2 />} />
-      <Route path="/okakao" element={<TESTS />} />
+      <Route path="/oauth/callback/kakao" element={<KakaoRediect />} />
       <Route path="/mapstate" element={<MapState />} />
     </Routes>
   );

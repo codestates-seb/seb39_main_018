@@ -58,6 +58,8 @@ const MiniTitle = styled.div`
 const ImgWrap = styled.div`
   flex: 1 1 0%;
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 const Wrap = styled.ul`
@@ -79,7 +81,7 @@ const InputBox = styled.div`
   justify-content: center;
   color: rgba(0, 0, 0, 0.5);
   font-size: 14px;
-  margin-right: 20px;
+  margin-right: 10px;
   margin-bottom: 15px;
 
   input {
@@ -99,7 +101,7 @@ const UpImg = styled.div`
   width: 162px;
   height: 162px;
   border: 1px solid rgb(230, 229, 239);
-  margin-right: 1rem;
+  margin-left: 1rem;
   margin-bottom: 1rem;
   list-style-type: none;
   position: relative;
@@ -128,7 +130,6 @@ const UpImg = styled.div`
   }
 `;
 
-//
 const GreyInput = styled.input`
   color: #333d4b;
   padding-left: 10px;
@@ -147,6 +148,77 @@ const GreyInput = styled.input`
 `;
 
 // 카테고리
+const TicketCategory = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`;
+
+const CategoryBox = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
+  height: 100%;
+`;
+
+const TicketBar = styled.select`
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgba(0, 0, 0, 0.7);
+`;
+
+const ChoiceBox = styled.div`
+  /* display: flex; */
+  display: contents;
+  width: 30%;
+  height: 100%;
+`;
+
+const Choice = styled.div`
+  display: flex;
+  height: 100%;
+
+  padding-left: 15px;
+  align-items: center;
+  font-size: 14px;
+  margin-left: 20px;
+  width: 200px;
+  line-height: 100%;
+  color: rgba(0, 0, 0, 0.7);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+const ChoicePick = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  font-size: 14px;
+`;
+
+const TagContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: auto;
+`;
+
+const RealTag = styled.div`
+  display: flex;
+  padding: 9px;
+  border-radius: 8px;
+  margin-right: 8px;
+  border: 1.2px solid rgba(0, 0, 0, 0.07);
+  span {
+    font-size: 13px;
+    font-weight: 400;
+  }
+`;
 
 export default {
   MainContainer,
@@ -161,4 +233,14 @@ export default {
   InputBox,
   UpImg,
   GreyInput,
+
+  TicketCategory,
+  CategoryBox,
+  TicketBar,
+  ChoiceBox,
+  Choice,
+  ChoicePick,
+
+  TagContainer,
+  RealTag,
 };

@@ -5,6 +5,10 @@ import { useState, useCallback } from 'react';
 import { useRef } from 'react';
 import Logins from '../Login/General/LoginStyle';
 import Signups from './SignupStyle';
+import { useDispatch, useSelector } from 'react-redux';
+import { createUser } from '../../../redux/loginslice';
+import { postSignup, usePost, postLogin } from '../../../util/requestLogin';
+import { Button } from 'react-bootstrap';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -25,6 +29,72 @@ const Signup = () => {
       text: '',
       hidden: e.target.value === password.value,
     });
+  };
+
+  const dispatch = useDispatch();
+
+  const sendSignup = (info) => {
+    axios
+      .post(`${process.env.LOGIN_API_URL}signup`, info, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          Authorization: 'Bearer *',
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+    // postSignup(signup);
+  };
+
+  axios.defaults.withCredentials = true;
+  const [accessToken, setAccess] = useState('');
+  const [refreshToken, setRefresh] = useState('');
+  const extension_tokken = 24 * 3600 * 1000;
+  const sendLogin = (info) => {
+    axios
+      .post(`/v1/login`, info)
+      .then((res) => {
+        const { accessToken } = res.data.data;
+        setAccess(res.data.data.accessToken);
+        setRefresh(res.data.data.refreshToken);
+        console.log(res.data);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        setTimeout(s, extension_tokken - 60000);
+      })
+      .catch((err) => {
+        console.log(err);
+        return '아이디와 비밀번호를 확인하세요!';
+      });
+  };
+  console.log(accessToken);
+  // const test = postSignup(signup);
+  // console.log(test);
+
+  const signup = useSelector((state) => state.account.signupInfo);
+  const login = {
+    email: 'abc123@gmail.com',
+    password: '123456789',
+  };
+
+  // const test = {
+  //   "email": "dmstn153@gmail.com",
+  //   "password": "123456789",
+  //   "username": "은수형님3"
+  //   }
+  //   const test2 = {
+  //     "email": "dmstn12553@gmail.com",
+  //     "password": "123456789"
+  //     }
+
+  // const ww = postLogin(test2)
+  // console.log(ww);
+
+  const signupHandler = (type, info) => {
+    dispatch(createUser({ [type]: info }));
+
+    console.log(signup);
   };
 
   const findemail = () => {
@@ -154,7 +224,10 @@ const Signup = () => {
             type="email"
             placeholder="예) sort@sort.co.kr"
             defaultValue={email.value}
-            onChange={(e) => checkEmail(e.target.value)}
+            onChange={(e) => {
+              checkEmail(e.target.value);
+              signupHandler('email', e.target.value);
+            }}
           />
           <Logins.HiddenMessage hidden={email.hidden}>{email.text}</Logins.HiddenMessage>
 
@@ -174,7 +247,10 @@ const Signup = () => {
               id="id"
               type="text"
               defaultValue={id.value}
-              onChange={(e) => checkId(e.target.value)}
+              onChange={(e) => {
+                checkId(e.target.value);
+                signupHandler('username', e.target.value);
+              }}
             />
             <Logins.HiddenMessage hidden={id.hidden}>{id.text}</Logins.HiddenMessage>
           </Logins.NameBox>
@@ -189,7 +265,10 @@ const Signup = () => {
               id="password"
               type="password"
               defaultValue={password.value}
-              onChange={(e) => checkPassword(e.target.value)}
+              onChange={(e) => {
+                checkPassword(e.target.value);
+                signupHandler('password', e.target.value);
+              }}
             />
             <Logins.HiddenMessage hidden={password.hidden}>{password.text}</Logins.HiddenMessage>
           </Logins.NameBox>
@@ -216,11 +295,12 @@ const Signup = () => {
 
         <Logins.Button
           onClick={() => {
-            register();
+            sendSignup(signup);
           }}
         >
           가입하기
         </Logins.Button>
+        <Button onClick={() => sendLogin(login)}>버튼</Button>
       </Logins.Box>
     </Logins.Container>
   );

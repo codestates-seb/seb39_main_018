@@ -7,11 +7,12 @@ import Draws from '../Withdraw/WithdrawPageStyle';
 import { VscClose } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
 import { writePost } from '../../redux/itemslice';
-import { postItem, usePost } from '../../util/requestItem';
+import { getItems, useEdit } from '../../util/requestItem';
 
-const WriteMain = () => {
+const EditMain = () => {
   //-- 사진 미리보기 --//
   const [showImages, setShowImages] = useState([]);
+ 
 
   // 이미지 상대경로 저장
   let imageUrlLists = [...showImages];
@@ -118,7 +119,7 @@ const WriteMain = () => {
     }
   }, [writeTag]);
   // const tests = postItem();
-  const { postData, caseByResult } = usePost();
+  const { postData, caseByResult } = useEdit();
   caseByResult 
   console.log(caseByResult);
   //-- 티켓 사용일 --//
@@ -127,7 +128,7 @@ const WriteMain = () => {
     <Writes.MainContainer>
       <Writes.ContainerTop>
         <Writes.TopTitle>
-          티켓등록<Writes.RedSpan style={{ marginLeft: '20px' }}>*필수항목</Writes.RedSpan>
+          상품수정<Writes.RedSpan style={{ marginLeft: '20px' }}>*필수항목</Writes.RedSpan>
         </Writes.TopTitle>
       </Writes.ContainerTop>
 
@@ -302,11 +303,11 @@ const WriteMain = () => {
             }, 1000);
           }}
         >
-          티켓등록
+          수정하기
         </Draws.WhiteButtonBox>
       </Draws.RealAgree>
     </Writes.MainContainer>
   );
 };
 
-export default WriteMain;
+export default EditMain;

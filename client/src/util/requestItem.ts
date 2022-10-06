@@ -2,14 +2,14 @@ import axios, { AxiosResponse } from 'axios';
 import { useEffect, useState } from 'react';
 import { ItemType } from './itemType';
 import { useSelector } from 'react-redux';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const itemsApi = axios.create({
-  baseURL: process.env.API_URL,
+  baseURL: process.env.ITEM_API_URL,
 });
 
 // GET
 const getItems = (api: string) => {
-  const test = useSelector<any>((state) => state.items.apiInfo);
   const [data, setData] = useState<ItemType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error>();
@@ -21,6 +21,7 @@ const getItems = (api: string) => {
       try {
         const response = await itemsApi.get(apiUrl);
         setData(response.data);
+        response.data.content ? setData(response.data.content) : setData(response.data);
         setLoading(false);
       } catch (err) {
         setError(err);
@@ -35,7 +36,7 @@ const getItems = (api: string) => {
 const getDetail = (api?: number) => {
   const [data, setData] = useState<ItemType[]>([]);
   const [error, setError] = useState<Error>();
-  const apiUrl = `board/${api}`
+  const apiUrl = `board/${api}`;
   useEffect(() => {
     const itemdata = async () => {
       try {
@@ -51,6 +52,27 @@ const getDetail = (api?: number) => {
 };
 
 // POST
+
+const usePost = (data: ItemType) => {
+  const navigate = useNavigate();
+  const [success, setSuccess] = useState<void | string>('');
+  const [failed, setfailed] = useState<void | string>('');
+  const caseByResult = !success ? failed : success;
+  const postData = async (data: any) => {
+    await itemsApi
+      .post('board', data)
+      .then((res) => {
+        setSuccess(alert('상품이 등록 되었습니다!'));
+        navigate('/');
+      })
+      .catch((err) => {
+        setfailed(alert('상품 등록을 실패했습니다! '));
+      });
+  };
+
+  return { postData, caseByResult };
+};
+
 const postItem = (data: ItemType) => {
   const [success, setSuccess] = useState<string>('');
   const [failed, setfailed] = useState<string>('');
@@ -69,12 +91,49 @@ const postItem = (data: ItemType) => {
   return caseByResult;
 };
 
+// const postItem = (data: ItemType) => {
+//   const [success, setSuccess] = useState<string>('');
+//   const [failed, setfailed] = useState<string>('');
+//   const caseByResult = !success ? failed : success;
+//   useEffect(() => {
+//     const postData = async () => {
+//       try {
+//         const respone = await itemsApi.post('board');
+//         setSuccess(respone.data);
+//       } catch (err) {
+//         setfailed(err);
+//       }
+//     };
+//     postData();
+//   }, [data]);
+//   return caseByResult;
+// };
+
 // PATCH
 
-const editItem = (data: ItemType) => {};
+const useEdit = (data: ItemType) => {
+  const navigate = useNavigate();
+  const [success, setSuccess] = useState<void | string>('');
+  const [failed, setfailed] = useState<void | string>('');
+  const caseByResult = !success ? failed : success;
+  const postData = async (data: any) => {
+    await itemsApi
+      .post('board', data)
+      .then((res) => {
+        setSuccess(alert('상품이 수정 되었습니다!'));
+        navigate('/detail:id');
+      })
+      .catch((err) => {
+        setfailed(alert('상품 수정을 실패했습니다! '));
+      });
+  };
+
+  return { postData, caseByResult };
+};
 
 // DELETE
 
 const deleteItem = (data: ItemType) => {};
 
-export { getItems, getDetail, postItem };
+
+export { getItems, getDetail, postItem, usePost ,useEdit };

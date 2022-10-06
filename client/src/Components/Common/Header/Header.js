@@ -21,8 +21,8 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { closeCategory, selectCategory, createTag, searchitem } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
-import { imgname, sortlogo } from '../../Imgs/headerImgs/imgExport';
-import { itemGet } from '../../../util/RequestLogic';
+import { imgname, sortlogo} from '../../Imgs/headerImgs/imgExport';
+
 
 const Header = () => {
   return (
