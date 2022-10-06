@@ -5,6 +5,9 @@ import axios from 'axios';
 import { BsCameraFill } from 'react-icons/bs';
 import Draws from '../Withdraw/WithdrawPageStyle';
 import { VscClose } from 'react-icons/vsc';
+import { useDispatch, useSelector } from 'react-redux';
+import { writePost } from '../../redux/itemslice';
+import { postItem, usePost } from '../../util/requestItem';
 
 const WriteMain = () => {
   //-- 사진 미리보기 --//
@@ -33,19 +36,25 @@ const WriteMain = () => {
   const [inputs, setInputs] = useState({
     title: '',
     price: '',
-    seat: '',
-
-    explanation: '',
+    seat_number: 'f열',
+    body: '',
+    end_date: '',
+    status: '판매중',
+    photo: '0',
+    region: '서울시 강남구 논현동',
+    status: '판매중',
   });
+  const dispatch = useDispatch();
+  const postSend = () => {
+    dispatch(writePost(inputs));
+  };
 
-  const { title, price, seat, explanation } = inputs;
-
+  const writeinfo = useSelector((state) => state.items.writeInfo);
+  const { title, price, seat_number, body } = inputs;
+  console.log(writeinfo);
   const onChange = (e) => {
     const { value, name } = e.target;
-    setInputs({
-      ...inputs,
-      [name]: value,
-    });
+    setInputs({ ...inputs, [name]: value });
   };
 
   //-- 카테고리 선택 --//
@@ -60,6 +69,7 @@ const WriteMain = () => {
   ];
 
   const [choiceTicket, setChoiceTicket] = useState('카테고리를 선택해주세요.');
+
   const onClickDropbar = (e) => {
     const { value } = e.target;
     setChoiceTicket(ticketList.filter((el) => el.value === value)[0].id);
@@ -107,7 +117,10 @@ const WriteMain = () => {
       setTags(tags.slice(0, 4));
     }
   }, [writeTag]);
-
+  // const tests = postItem();
+  const { postData, caseByResult } = usePost();
+  caseByResult 
+  console.log(caseByResult);
   //-- 티켓 사용일 --//
 
   return (
@@ -198,7 +211,10 @@ const WriteMain = () => {
               type="text"
               value={num}
               placeholder="가격을 입력해주세요."
-              onChange={(e) => setNum(priceInput(e.target.value))}
+              onChange={(e) => {
+                setNum(priceInput(e.target.value));
+                setInputs({ ...inputs, ['price']: e.target.value });
+              }}
             ></Writes.GreyInput>
             원
           </Writes.ImgWrap>
@@ -211,7 +227,6 @@ const WriteMain = () => {
             <Writes.GreyInput
               style={{ width: '28%' }}
               name="seat"
-              value={seat}
               placeholder="좌석을 입력해주세요."
               onChange={onChange}
             ></Writes.GreyInput>
@@ -222,9 +237,12 @@ const WriteMain = () => {
           <Writes.MiniTitle>
             사용일<Writes.RedSpan>*</Writes.RedSpan>
           </Writes.MiniTitle>
-
           <Writes.ImgWrap>
-            <Writes.GreyInput style={{ width: '28%' }} type="datetime-local" />
+            <Writes.GreyInput
+              onChange={(e) => setInputs({ ...inputs, end_date: e.target.value })}
+              style={{ width: '28%' }}
+              type="datetime-local"
+            />
           </Writes.ImgWrap>
         </Writes.Writeframe>
 
@@ -236,8 +254,8 @@ const WriteMain = () => {
           <Writes.ImgWrap>
             <Draws.WriteInput
               style={{}}
-              name="explanation"
-              value={explanation}
+              name="body"
+              value={body}
               placeholder="구매자에게 필요한 티켓 정보를 포함하여 작성하면 구매 문의를 줄일 수 있습니다 :)"
               onChange={onChange}
             ></Draws.WriteInput>
@@ -276,7 +294,16 @@ const WriteMain = () => {
 
       <Draws.RealAgree style={{ marginTop: '-30px', marginBottom: '40px' }}>
         <Draws.BlackButtonBox>취소하기</Draws.BlackButtonBox>
-        <Draws.WhiteButtonBox>티켓등록</Draws.WhiteButtonBox>
+        <Draws.WhiteButtonBox
+          onClick={() => {
+            dispatch(writePost(inputs));
+            setTimeout(() => {
+              postData(writeinfo);
+            }, 1000);
+          }}
+        >
+          티켓등록
+        </Draws.WhiteButtonBox>
       </Draws.RealAgree>
     </Writes.MainContainer>
   );
