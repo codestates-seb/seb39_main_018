@@ -57,6 +57,8 @@ const MainContainer = styled.div`
   width: 80%;
   /* height: 100%; */
   height: 800px;
+
+  margin-bottom: 100px;
 `;
 
 const MainContent = styled.div`
@@ -79,7 +81,7 @@ const BoldText = styled.h3`
   line-height: 90px;
   letter-spacing: 1.5px;
   width: 258px;
-  /* position: absolute; */
+  position: absolute;
 
   animation: slide 2s ease-out;
 
@@ -95,7 +97,9 @@ const BoldText = styled.h3`
   }
 `;
 
-const SubText = styled.div``;
+const SubText = styled.div`
+  padding-top: 400px;
+`;
 
 const PP = styled.p`
   font-size: 28px;
@@ -133,7 +137,8 @@ const Subscribe = styled.div`
   padding-top: 80px;
   font-size: 1em;
   line-height: 1.5;
-  padding-bottom: 40px;
+  padding-bottom: 150px;
+  background-color: rgba(0, 0, 0, 0.015);
 `;
 
 const SubForm = styled.form`

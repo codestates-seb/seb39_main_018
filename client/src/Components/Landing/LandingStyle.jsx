@@ -32,15 +32,23 @@ const BtnSection = styled.div`
 `;
 
 const ItemsView_Container = styled(AllOption)`
+  margin-left: 0;
+  padding-left: 0;
+  margin-right: 0;
+  padding-right: 0;
+
+  padding-top: 800px;
+  padding-bottom: 300px;
+
   width: 65%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   height: 500px;
-  margin: 50px 0;
+  /* margin: 50px 0; */
   align-items: center;
   .Previe_title {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
     align-items: center;
     margin: 10px 15px;
@@ -125,9 +133,24 @@ const SubComponent2 = styled(SubSetting)`
 `;
 
 const EndBanner_Container = styled(AllOption)`
+  padding-top: 200px;
+
   height: 400px;
   justify-content: center;
   align-items: center;
+
+  animation: slides 3s ease-out;
+  position: absolute;
+  @keyframes slides {
+    from {
+      right: 100px;
+      opacity: 0;
+    }
+    to {
+      right: 0px;
+      opacity: 1;
+    }
+  }
 `;
 
 const Featuree = styled.div`
