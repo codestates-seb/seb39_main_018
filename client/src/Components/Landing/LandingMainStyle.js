@@ -57,7 +57,6 @@ const MainContainer = styled.div`
   width: 80%;
   /* height: 100%; */
   height: 800px;
-
   margin-bottom: 100px;
 `;
 
@@ -72,6 +71,9 @@ const MainText = styled.div`
   font-size: 12px;
   font-weight: 500;
   margin-top: 30px;
+  @media only screen and (max-width: 960px) {
+    margin-left: 50px;
+  }
 `;
 
 const BoldText = styled.h3`
@@ -82,7 +84,6 @@ const BoldText = styled.h3`
   letter-spacing: 1.5px;
   width: 258px;
   position: absolute;
-
   animation: slide 2s ease-out;
 
   @keyframes slide {
@@ -93,6 +94,23 @@ const BoldText = styled.h3`
     to {
       left: 0px;
       opacity: 1;
+    }
+  }
+
+  @media only screen and (max-width: 960px) {
+    font-size: 5em;
+    line-height: 90px;
+    font-weight: 900;
+
+    @keyframes slide {
+      from {
+        left: -400px;
+        opacity: 0;
+      }
+      to {
+        left: 50px;
+        opacity: 1;
+      }
     }
   }
 `;
@@ -114,6 +132,19 @@ const PP = styled.p`
     top: 0;
     bottom: 0;
     z-index: -213;
+  }
+
+  @media only screen and (max-width: 960px) {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+
+    img {
+      width: 400px;
+      height: 700px;
+
+      margin-left: -100px;
+    }
   }
 `;
 
@@ -160,6 +191,10 @@ const SubTitle = styled.div`
   line-height: 1.4;
   font-size: 2.5rem;
   letter-spacing: 1px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 2rem;
+  }
 `;
 
 const SubMini = styled.p`

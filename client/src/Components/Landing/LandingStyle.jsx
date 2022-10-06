@@ -54,6 +54,10 @@ const ItemsView_Container = styled(AllOption)`
     margin: 10px 15px;
     font-size: 20px;
   }
+  @media only screen and (max-width: 960px) {
+    padding-top: 500px;
+    padding-bottom: 150px;
+  }
 `;
 
 const PreviewList = styled(AllOption)`
@@ -68,7 +72,12 @@ const ItemPreview = styled.div`
   background: #ffffff;
   ${ItemPreview}:hover {
     transform: scale(1.4);
-    transition: all 0.5s;
+    transition: all 0.25s;
+  }
+
+  @media only screen and (max-width: 960px) {
+    width: 140px;
+    height: 180px;
   }
 `;
 const PreviewImg = styled.div`
@@ -76,6 +85,12 @@ const PreviewImg = styled.div`
   height: 160px;
   margin-bottom: 15px;
   background: lightgray;
+
+  @media only screen and (max-width: 960px) {
+    width: 85%;
+    height: 120px;
+    margin-bottom: 9px;
+  }
 `;
 const PreviewInfo = styled.div`
   margin-left: 5px;
@@ -89,6 +104,16 @@ const PreviewInfo = styled.div`
     font-size: 15px;
     margin-top: 10px;
   }
+
+  @media only screen and (max-width: 960px) {
+    .title {
+      font-size: 13px;
+    }
+    p {
+      font-size: 9px;
+      margin-top: 7px;
+    }
+  }
 `;
 const PreviewPrice = styled.div`
   display: flex;
@@ -98,6 +123,11 @@ const AllviewBtn = styled.div`
   width: 150px;
   height: 50px;
   border-radius: 10px;
+
+  @media only screen and (max-width: 960px) {
+    width: 120px;
+    height: 40px;
+  }
 `;
 
 const SubBanner_Container = styled(AllOption)`
@@ -151,6 +181,11 @@ const EndBanner_Container = styled(AllOption)`
       opacity: 1;
     }
   }
+
+  @media only screen and (max-width: 960px) {
+    padding-top: 100px;
+    height: 200px;
+  }
 `;
 
 const Featuree = styled.div`
@@ -167,6 +202,20 @@ const Featuree = styled.div`
   }
   p {
     margin: 50px;
+  }
+
+  @media only screen and (max-width: 960px) {
+    width: 200px;
+    height: 100px;
+
+    img {
+      width: 110px;
+      height: 80px;
+    }
+    p {
+      margin: 22px;
+      font-size: 11px;
+    }
   }
 `;
 
