@@ -19,7 +19,7 @@ import {
   CategoryMain,
 } from './HeaderStyle';
 import { useNavigate } from 'react-router-dom';
-import { closeCategory, selectCategory, createTag } from '../../../redux/itemslice';
+import { closeCategory, selectCategory, createTag, searchitem } from '../../../redux/itemslice';
 import { useDispatch, useSelector } from 'react-redux';
 import { imgname, sortlogo } from '../../Imgs/headerImgs/imgExport';
 
