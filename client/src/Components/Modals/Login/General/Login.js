@@ -5,12 +5,37 @@ import KakaoLogin from '../KaKao/KakaoLogin';
 import Logins from './LoginStyle';
 import NaverLogin from '../Naver/NaverLogin';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = (props) => {
   const idInput = useRef();
   const passwordInput = useRef();
   const [userid, setUserId] = useState({ value: '', text: '', hidden: true });
   const [userPassword, setUserPassword] = useState({ value: '', text: '', hidden: true });
+  const navigate = useNavigate();
+  // const userInfo = {userid, userPassword}
+  console.log(userid);
+
+  const [accessToken, setAccess] = useState('');
+  const [refreshToken, setRefresh] = useState('');
+  const extension_tokken = 24 * 3600 * 1000;
+
+  const sendLogin = (info) => {
+    axios
+      .post(`/v1/login`, info)
+      .then((res) => {
+        const { accessToken } = res.data.data;
+        setAccess(res.data.data.accessToken);
+        setRefresh(res.data.data.refreshToken);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        return navigate('/main');
+      })
+      .catch((err) => {
+        console.log(err);
+        return alert('아이디와 비밀번호를 확인하세요!');
+      });
+  };
+  console.log(accessToken);
 
   const userlogin = () => {
     console.log(userid.value);
@@ -35,8 +60,7 @@ const Login = (props) => {
 
     if (userid.value !== '' && userPassword.value !== '') {
       axios
-        .get('http://3.34.181.86:8081/users', {
-          headers: { 'Content-Type': 'application/json' },
+        .get('/v1/login', {
           data: {
             id: userid,
             password: userPassword,
@@ -139,7 +163,7 @@ const Login = (props) => {
 
         <Logins.Button
           onClick={() => {
-            userlogin();
+            sendLogin();
           }}
         >
           로그인
