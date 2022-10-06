@@ -1,6 +1,4 @@
 interface ItemType {
-  created_date: string;
-  id: number;
   title: string;
   body: string;
   price: string;
