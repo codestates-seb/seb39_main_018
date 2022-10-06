@@ -21,15 +21,15 @@ const Title = styled.h3`
   display: block;
   padding: 30px 0 0 0;
   font-size: 25px;
-  font-weight: 900;
-  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: #111;
 `;
 
 const SubTitle = styled.h3`
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: 0em;
+  letter-spacing: -0.02em;
 `;
 
 const IdBox = styled.div`

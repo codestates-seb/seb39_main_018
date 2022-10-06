@@ -23,14 +23,10 @@ const KakaoLogin = () => {
   };
 
   return (
-    <a>
-      <KakaoLoginButton>
-        <RiKakaoTalkFill onClick={() => window.location.href = site}/>
-        <span>카카오 ㄴ로그인</span>
-      </KakaoLoginButton>
-
-      <span onClick={() => console.log('버튼')}>카카오 로그아웃 임시</span>
-    </a>
+    <KakaoLoginButton>
+      <RiKakaoTalkFill onClick={() => (window.location.href = site)} />
+      <span>카카오 로그인</span>
+    </KakaoLoginButton>
   );
 };
 

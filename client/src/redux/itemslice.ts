@@ -25,6 +25,8 @@ type InitialState = {
   filterApi: string;
   keywordApi: string;
   writeInfo: ItemType;
+  itemsId: number[];
+  isCheck: boolean[];
 };
 
 const initialState: InitialState = {
@@ -57,6 +59,8 @@ const initialState: InitialState = {
     photo: '',
     status: '',
   },
+  itemsId: [],
+  isCheck: [false, false, false],
 };
 
 // {id : 0 ,type : '정확순'},{id : 1 ,type : '인기순'},{id : 2 ,type : '최신순'},{id : 3 ,type : '오래된순'}
@@ -112,6 +116,14 @@ const itemSlice = createSlice({
       const result = action.payload;
       state.writeInfo = { ...state.writeInfo, ...result };
     },
+    checkItems: (state, action) => {
+      const cheked = action.payload[0];
+      const result = action.payload[1];
+      console.log(action.payload);
+      state.itemsId = cheked ? result : null;
+    },
+    orderDelete: (state, action) => {},
+    soldDelete: (state, action) => {},
   },
 });
 
@@ -127,4 +139,7 @@ export const {
   openDropbar,
   selectFilter,
   writePost,
+  checkItems,
+  orderDelete,
+  soldDelete,
 } = itemSlice.actions;

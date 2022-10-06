@@ -1,18 +1,50 @@
 import React, { useEffect } from 'react';
-import Writes from './WriteMainStyle';
+import Writes from './EditStyle';
 import { useState } from 'react';
 import axios from 'axios';
 import { BsCameraFill } from 'react-icons/bs';
-import Draws from '../Withdraw/WithdrawPageStyle';
+import Draws from './EditPageStyle';
 import { VscClose } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
 import { writePost } from '../../redux/itemslice';
-import { getItems, useEdit } from '../../util/requestItem';
+import { getDetail, getItems, useEdit } from '../../util/requestItem';
+import { useParams } from 'react-router-dom';
+
 
 const EditMain = () => {
+  const {  title, price, seat_number, end_date, body } = getDetail(17);
+  const {id} = useParams();
+
+  // const [inputs, setInputs] = useState({
+  //   title: title2,
+  //   price: price2,
+  //   seat_number: 'f열z',
+  //   body: '',
+  //   end_date: '',
+  //   status: '판매중',
+  //   photo: '0',
+  //   region: '서울시 강남구 논현동',
+  //   status: '판매중',
+  // });
+
+  const editPost = {
+    title,
+    price,
+    seat_number,
+    body,
+    end_date,
+  };
+
+  console.log(editPost);
+
   //-- 사진 미리보기 --//
+
+  useParams;
+  const { EditData } = useEdit();
+  console.log(EditData);
+
   const [showImages, setShowImages] = useState([]);
- 
+  const lemegon = getDetail(16);
 
   // 이미지 상대경로 저장
   let imageUrlLists = [...showImages];
@@ -34,24 +66,11 @@ const EditMain = () => {
   };
 
   //-- input 관리 --//
-  const [inputs, setInputs] = useState({
-    title: '',
-    price: '',
-    seat_number: 'f열',
-    body: '',
-    end_date: '',
-    status: '판매중',
-    photo: '0',
-    region: '서울시 강남구 논현동',
-    status: '판매중',
-  });
+
   const dispatch = useDispatch();
-  const postSend = () => {
-    dispatch(writePost(inputs));
-  };
 
   const writeinfo = useSelector((state) => state.items.writeInfo);
-  const { title, price, seat_number, body } = inputs;
+
   console.log(writeinfo);
   const onChange = (e) => {
     const { value, name } = e.target;
@@ -120,9 +139,10 @@ const EditMain = () => {
   }, [writeTag]);
   // const tests = postItem();
   const { postData, caseByResult } = useEdit();
-  caseByResult 
+  caseByResult;
   console.log(caseByResult);
   //-- 티켓 사용일 --//
+  console.log(id);
 
   return (
     <Writes.MainContainer>
@@ -171,9 +191,12 @@ const EditMain = () => {
           <Writes.ImgWrap>
             <Writes.GreyInput
               name="title"
-              value={title}
+              defaultValue={title}
               placeholder="제목을 입력해주세요."
-              onChange={onChange}
+              onChange={(e) => {
+                editPost['title'] = e.target.value;
+                console.log(lego);
+              }}
             ></Writes.GreyInput>
           </Writes.ImgWrap>
         </Writes.Writeframe>
@@ -186,7 +209,7 @@ const EditMain = () => {
           <Writes.ImgWrap>
             <Writes.TicketCategory>
               <Writes.CategoryBox>
-                <Writes.TicketBar onChange={onClickDropbar}>
+                <Writes.TicketBar onChange={(e) => (editPost['category'] = e.target.value)}>
                   {ticketList.map((el) => {
                     return <option key={el.id}>{el.value}</option>;
                   })}
@@ -210,12 +233,9 @@ const EditMain = () => {
               style={{ width: '28%' }}
               name="price"
               type="text"
-              value={num}
+              defaultValue={price}
               placeholder="가격을 입력해주세요."
-              onChange={(e) => {
-                setNum(priceInput(e.target.value));
-                setInputs({ ...inputs, ['price']: e.target.value });
-              }}
+              onChange={(e) => (editPost['price'] = e.target.value)}
             ></Writes.GreyInput>
             원
           </Writes.ImgWrap>
@@ -228,8 +248,9 @@ const EditMain = () => {
             <Writes.GreyInput
               style={{ width: '28%' }}
               name="seat"
+              defaultValue={seat_number}
               placeholder="좌석을 입력해주세요."
-              onChange={onChange}
+              onChange={(e) => editPost['seat_number'] = e.target.value}
             ></Writes.GreyInput>
           </Writes.ImgWrap>
         </Writes.Writeframe>
@@ -240,7 +261,8 @@ const EditMain = () => {
           </Writes.MiniTitle>
           <Writes.ImgWrap>
             <Writes.GreyInput
-              onChange={(e) => setInputs({ ...inputs, end_date: e.target.value })}
+              onChange={(e) => editPost['end_date'] = e.target.value}
+              defaultValue={end_date}
               style={{ width: '28%' }}
               type="datetime-local"
             />
@@ -256,9 +278,9 @@ const EditMain = () => {
             <Draws.WriteInput
               style={{}}
               name="body"
-              value={body}
+              defaultValue={body}
               placeholder="구매자에게 필요한 티켓 정보를 포함하여 작성하면 구매 문의를 줄일 수 있습니다 :)"
-              onChange={onChange}
+              onChange={(e) => editPost['body'] = e.target.value}
             ></Draws.WriteInput>
           </Writes.ImgWrap>
         </Writes.Writeframe>
@@ -284,7 +306,7 @@ const EditMain = () => {
                 type="text"
                 tabIndex={2}
                 onChange={(e) => setWriteTag(e.target.value)}
-                value={writeTag}
+                defaultValue={writeTag}
                 onKeyPress={onKeyPress}
                 placeholder="태그를 입력해주세요."
               ></Writes.GreyInput>
@@ -295,16 +317,7 @@ const EditMain = () => {
 
       <Draws.RealAgree style={{ marginTop: '-30px', marginBottom: '40px' }}>
         <Draws.BlackButtonBox>취소하기</Draws.BlackButtonBox>
-        <Draws.WhiteButtonBox
-          onClick={() => {
-            dispatch(writePost(inputs));
-            setTimeout(() => {
-              postData(writeinfo);
-            }, 1000);
-          }}
-        >
-          수정하기
-        </Draws.WhiteButtonBox>
+        <Draws.WhiteButtonBox onClick={() => EditData(17, editPost)}>수정하기</Draws.WhiteButtonBox>
       </Draws.RealAgree>
     </Writes.MainContainer>
   );

@@ -10,14 +10,14 @@ import { createUser } from '../../../redux/loginslice';
 import { postSignup, usePost, postLogin } from '../../../util/requestLogin';
 import { Button } from 'react-bootstrap';
 
-const Signup = () => {
+
+const Signup = (props) => {
   const navigate = useNavigate();
   const [id, setId] = useState({ value: '', text: '', hidden: true });
   const [password, setPassword] = useState({ value: '', text: '', hidden: true });
   const [passwordCheck, setPasswordCheck] = useState({ value: '', text: '', hidden: true });
   const [mismatchError, setMismatchError] = useState(false);
   const [email, setEmail] = useState({ value: '', text: '', hidden: true });
-
   const emailInput = useRef();
   const idInput = useRef();
   const passwordInput = useRef();
@@ -33,22 +33,24 @@ const Signup = () => {
 
   const dispatch = useDispatch();
 
-  const sendSignup = (info) => {
+  const reqSignup = (data) => {
     axios
-      .post(`${process.env.LOGIN_API_URL}signup`, info, {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          Authorization: 'Bearer *',
-        },
-      })
-      .then((res) => console.log(res))
+      .post(`/v1/siginup`, data)
+      .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
-    // postSignup(signup);
   };
 
   axios.defaults.withCredentials = true;
+
+  // const test = postSignup(signup);
+  // console.log(test);
+
+  const signup = useSelector((state) => state.account.signupInfo);
+  const login = {
+    email: 'abc123@gmail.com',
+    password: '123456789',
+  };
+
   const [accessToken, setAccess] = useState('');
   const [refreshToken, setRefresh] = useState('');
   const extension_tokken = 24 * 3600 * 1000;
@@ -68,15 +70,28 @@ const Signup = () => {
         return '아이디와 비밀번호를 확인하세요!';
       });
   };
-  console.log(accessToken);
-  // const test = postSignup(signup);
-  // console.log(test);
-
-  const signup = useSelector((state) => state.account.signupInfo);
-  const login = {
-    email: 'abc123@gmail.com',
-    password: '123456789',
+  const tokkendata = { accessToken, refreshToken };
+  const recycle = () => {
+    axios
+      .post('/v1/reissue', tokkendata)
+      .then((res) => {
+        setAccess(res.data.data.accessToken);
+        setRefresh(res.data.data.refreshToken);
+      })
+      .catch((err) => {
+        alert('로그아웃 되었습니다!');
+      });
   };
+
+axios.interceptors.request.use(() => {
+  const date = new Date();
+  const alarm = jwt_decode(accessToken);
+  alarm.exp * 1000 < date.getTime() ? (recycle() , config.headers['authorization'] = `Bearer ${data.accessToken}`)
+  : null
+  return config
+})
+
+  console.log(tokkendata);
 
   // const test = {
   //   "email": "dmstn153@gmail.com",
@@ -103,21 +118,21 @@ const Signup = () => {
       return;
     }
 
-    if (email.value !== '') {
-      axios
-        .get('http://3.34.181.86:8081/mailCheck', {
-          headers: { 'Content-Type': 'application/json' },
-          email: email,
-        })
-        .then((res) => {
-          console.log(res);
-          window.alert('이메일을 발송했습니다. 메일함을 확인해주세요.');
-        })
-        .catch((err) => {
-          window.alert('이메일을 전송하지 못했습니다. 주소를 확인해주세요.');
-          console.log(err);
-        });
-    }
+    // if (email.value !== '') {
+    //   axios
+    //     .get('http://3.34.181.86:8081/mailCheck', {
+    //       headers: { 'Content-Type': 'application/json' },
+    //       email: email,
+    //     })
+    //     .then((res) => {
+    //       console.log(res);
+    //       window.alert('이메일을 발송했습니다. 메일함을 확인해주세요.');
+    //     })
+    //     .catch((err) => {
+    //       window.alert('이메일을 전송하지 못했습니다. 주소를 확인해주세요.');
+    //       console.log(err);
+    //     });
+    // }
   };
 
   const register = () => {
@@ -135,25 +150,25 @@ const Signup = () => {
       return;
     }
 
-    if (email.value !== '' && id.value !== '' && passwordCheck.hidden) {
-      axios
-        .post('http://3.34.181.86:8081/api/v1/join', {
-          headers: { 'Content-Type': 'application/json' },
-          data: {
-            email: email,
-            password: password,
-            username: id,
-          },
-        })
-        .then((res) => {
-          window.alert('반갑습니다. 로그인 해주세요.');
-          navigate('/');
-        })
-        .catch((err) => {
-          window.alert('회원가입에 실패하였습니다.');
-          console.log(err);
-        });
-    }
+    // if (email.value !== '' && id.value !== '' && passwordCheck.hidden) {
+    //   axios
+    //     .post('http://3.34.181.86:8081/api/v1/join', {
+    //       headers: { 'Content-Type': 'application/json' },
+    //       data: {
+    //         email: email,
+    //         password: password,
+    //         username: id,
+    //       },
+    //     })
+    //     .then((res) => {
+    //       window.alert('반갑습니다. 로그인 해주세요.');
+    //       navigate('/');
+    //     })
+    //     .catch((err) => {
+    //       window.alert('회원가입에 실패하였습니다.');
+    //       console.log(err);
+    //     });
+    // }
   };
 
   const checkId = (value) => {
@@ -295,12 +310,13 @@ const Signup = () => {
 
         <Logins.Button
           onClick={() => {
-            sendSignup(signup);
+            reqSignup(signup);
           }}
         >
           가입하기
         </Logins.Button>
         <Button onClick={() => sendLogin(login)}>버튼</Button>
+        <Button onClick={() => reqSignup(login)}>버튼2</Button>
       </Logins.Box>
     </Logins.Container>
   );

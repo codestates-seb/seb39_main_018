@@ -6,6 +6,10 @@ const Container = styled.div`
   max-width: 1280px;
   width: 100%;
   box-sizing: border-box;
+
+  @media only screen and (max-width: 960px) {
+    padding: 40px 0px 80px;
+  }
 `;
 
 const UserContainter = styled.div`
@@ -16,6 +20,11 @@ const UserContainter = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.05);
   margin-bottom: 30px;
   margin-top: 10px;
+
+  @media only screen and (max-width: 960px) {
+    padding: 10px 0 10px 10px;
+    margin-bottom: 15px;
+  }
 `;
 
 const UserUSer = styled.div`
@@ -24,6 +33,15 @@ const UserUSer = styled.div`
     height: 80px;
     margin-right: 30px;
     border-radius: 100%;
+  }
+
+  @media only screen and (max-width: 960px) {
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+      border-radius: 100%;
+    }
   }
 `;
 
@@ -36,6 +54,11 @@ const UserID = styled.p`
   font-size: 22px;
   letter-spacing: -0.3px;
   font-weight: 400;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 17px;
+    line-height: 23px;
+  }
 `;
 
 const UserEmail = styled.p`
@@ -43,11 +66,20 @@ const UserEmail = styled.p`
   font-size: 14px;
   letter-spacing: -0.21px;
   color: rgba(0, 0, 0, 0.5);
+
+  @media only screen and (max-width: 960px) {
+    font-size: 10px;
+    line-height: 20px;
+  }
 `;
 
 const UserRight = styled.div`
   margin-left: auto;
   margin-right: 30px;
+
+  @media only screen and (max-width: 960px) {
+    margin-right: 10px;
+  }
 `;
 
 const ProfileButton = styled.button`
@@ -66,6 +98,12 @@ const ProfileButton = styled.button`
     color: black;
     font-weight: 400;
   }
+
+  @media only screen and (max-width: 960px) {
+    padding: 0 10px;
+    font-size: 8px;
+    height: 40px;
+  }
 `;
 
 const Just = styled.div`
@@ -82,6 +120,10 @@ const Title = styled.h3`
   font-weight: bold;
   font-size: 16px;
   letter-spacing: -0.3px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 12px;
+  }
 `;
 
 const More = styled.a`
@@ -91,6 +133,9 @@ const More = styled.a`
   font-size: 13px;
   letter-spacing: -0.07px;
   color: rgba(34, 34, 34, 0.5);
+  @media only screen and (max-width: 960px) {
+    font-size: 10px;
+  }
 `;
 
 export default {

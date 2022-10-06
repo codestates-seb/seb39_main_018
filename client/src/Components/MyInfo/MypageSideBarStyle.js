@@ -6,6 +6,10 @@ const SideBar = styled.div`
   width: 200px;
   margin-right: 40px;
   padding-bottom: 30px;
+  @media only screen and (max-width: 960px) {
+    height: 23%;
+    width: 23%;
+  }
 `;
 
 const MypageTitle = styled.h2`
@@ -18,6 +22,9 @@ const MypageTitle = styled.h2`
   letter-spacing: -0.58px;
   font-weight: 600;
   cursor: pointer;
+  @media only screen and (max-width: 960px) {
+    font-size: 16px;
+  }
 `;
 
 const Line = styled.div`
@@ -27,6 +34,11 @@ const Line = styled.div`
   font-size: 14px;
   color: #000000;
   border-top: 1px solid #e1e1e1;
+
+  @media only screen and (max-width: 960px) {
+    margin-top: 1px;
+    padding: 2px 0;
+  }
 `;
 
 const ShoppingInfo = styled.div`
@@ -43,6 +55,11 @@ const MiniTitle = styled.h2`
   vertical-align: top;
   letter-spacing: -0.3px;
   color: #000;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
 `;
 
 const LiLinks = styled.ul`
@@ -67,6 +84,11 @@ const LiLink = styled.a`
     transition-duration: 0.25s;
     font-weight: bold;
   }
+
+  @media only screen and (max-width: 960px) {
+    font-size: 10px;
+    padding: 4px 0 0 0;
+  }
 `;
 
 const JustSpan = styled.span`
@@ -75,6 +97,10 @@ const JustSpan = styled.span`
   color: rgba(34, 34, 34, 0.7);
   font-weight: normal;
   line-height: 24px;
+
+  @media only screen and (max-width: 960px) {
+    font-size: 8px;
+  }
 `;
 
 export default {

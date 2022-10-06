@@ -11,7 +11,7 @@ const MypageReviewMain = () => {
       <Draws.CustomerContent>
         <Draws.CustomerWithdraw>
           <Draws.ContentTitle>
-            <Draws.Title style={{ paddingBottom: '8px' }}>상점후기</Draws.Title>
+            <Draws.Title style={{ paddingBottom: '8px' }}>거래후기</Draws.Title>
           </Draws.ContentTitle>
 
           <Reviews.Content>
