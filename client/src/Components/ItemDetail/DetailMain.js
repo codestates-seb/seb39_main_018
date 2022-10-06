@@ -12,16 +12,15 @@ import { calculateDate } from '../../util/calculateDate';
 import { getDetail } from '../../util/requestItem';
 
 const DetailMain = () => {
-
   const { id } = useParams();
-  const { title, body, price, end_date, seat_number, createdDate, region } = getDetail(id);
-  const detailPageDate =  calculateDate(createdDate);
- 
+  const { title, body, price, end_date, seat_number, createdDate, region, photo } = getDetail(id);
+  const detailPageDate = calculateDate(createdDate);
+
   return (
     <Detail_Container>
       <Detail_Section>
         <ItemCategory />
-        <DetailImg />
+        <DetailImg photo={photo} />
         <DetailItemInfo
           title={title}
           price={price}
@@ -31,7 +30,7 @@ const DetailMain = () => {
           region={region}
         />
         <ImgList />
-        <Description description={body}  />
+        <Description description={body} />
         <ItemSeller />
         <ItemSubInfo region={region} />
         <SellerReview />
