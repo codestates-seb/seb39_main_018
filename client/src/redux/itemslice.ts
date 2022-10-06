@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { ApiType } from '../util/itemType';
+import { ItemType, ApiType } from '../util/itemType';
 
 interface ObjState {
-  id : number;
-  name : string;
+  id: number;
+  name: string;
 }
 
 type InitialState = {
@@ -24,6 +24,7 @@ type InitialState = {
   sortApi: string;
   filterApi: string;
   keywordApi: string;
+  writeInfo: ItemType;
 };
 
 const initialState: InitialState = {
@@ -35,16 +36,28 @@ const initialState: InitialState = {
   sortTypes: ['정확순', '인기순', '최신순', '오래된순'],
   choicedSort: '정확순',
   onChoice: false,
-  filterTypes: [{id : 0 ,name:'전체'}, {id :1 , name : '판매중'},{id:2 ,name: '판매완료'}],
+  filterTypes: [
+    { id: 0, name: '전체' },
+    { id: 1, name: '판매중' },
+    { id: 2, name: '판매완료' },
+  ],
   choicedFilter: '판매중',
   tabFocus: 1,
   apiInfo: { sort: '?', status: 'status=판매중&', keyword: '', type: '' },
   sortApi: '?',
   filterApi: 'status=판매중&',
   keywordApi: '',
+  writeInfo: {
+    title: '',
+    body: '',
+    price: '',
+    end_date: '',
+    seat_number: '',
+    region: '서울시 강남구 논현동',
+    photo: '',
+    status: '',
+  },
 };
-
-// {id : 0 ,type : '정확순'},{id : 1 ,type : '인기순'},{id : 2 ,type : '최신순'},{id : 3 ,type : '오래된순'}
 
 const itemSlice = createSlice({
   name: 'item',
@@ -65,7 +78,7 @@ const itemSlice = createSlice({
     },
     createTag: (state, action) => {
       const result = action.payload;
-      console.log(result)
+      console.log(result);
       state.tags = [...state.tags, result];
       state.apiInfo.keyword = `title=${result}&body=${result}`;
     },
@@ -94,6 +107,10 @@ const itemSlice = createSlice({
       state.apiInfo.status =
         result === '판매중' ? 'status=판매중&' : result === '판매완료' ? 'status=판매완료&' : '';
     },
+    writePost: (state, action) => {
+      const result = action.payload;
+      state.writeInfo = {...state.writeInfo,...result}
+    },
   },
 });
 
@@ -108,4 +125,5 @@ export const {
   selectSort,
   openDropbar,
   selectFilter,
+  writePost,
 } = itemSlice.actions;
