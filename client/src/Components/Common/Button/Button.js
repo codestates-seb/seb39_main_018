@@ -28,13 +28,14 @@ const BasicBtn = styled.div`
   justify-content: center;
   cursor: pointer;
   border-radius: var(--b-small);
-  background: ${(prop) => prop.background};
+  background: rgba(0, 0, 0, 0.8);
   color: ${(prop) => prop.color || 'white'};
   font-size: ${(props) => props.size || ''};
   box-shadow: none;
   margin-left: ${(prop) => prop.left || ''};
   ${BasicBtn}:hover {
-    background: gray;
+    background: black;
+    transition-duration: 0.3s;
   }
   p {
     margin-left: 10px;
@@ -62,7 +63,7 @@ const SellbtnComponent = styled.div`
     height: 100%;
   }
   p {
-    position : absolute;
+    position: absolute;
     top: 38px;
     right: 20px;
   }
