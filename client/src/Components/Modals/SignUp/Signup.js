@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../../../redux/loginslice';
 import { postSignup, usePost, postLogin } from '../../../util/requestLogin';
 import { Button } from 'react-bootstrap';
+// import jwt_decode from 'jwt-decode';
 
 
 const Signup = (props) => {
@@ -40,20 +41,28 @@ const Signup = (props) => {
       .catch((err) => console.log(err));
   };
 
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
 
   // const test = postSignup(signup);
   // console.log(test);
 
   const signup = useSelector((state) => state.account.signupInfo);
   const login = {
-    email: 'abc123@gmail.com',
+    email: 'dmstn1255@gmail.com',
     password: '123456789',
   };
 
   const [accessToken, setAccess] = useState('');
   const [refreshToken, setRefresh] = useState('');
   const extension_tokken = 24 * 3600 * 1000;
+
+  // const sendLogin = (data) => {
+  //   axios
+  //     .post('/v1/login', data)
+  //     .then((res) => console.log(res))
+  //     .catch((err) => console.log(err));
+  // };
+
   const sendLogin = (info) => {
     axios
       .post(`/v1/login`, info)
@@ -67,7 +76,7 @@ const Signup = (props) => {
       })
       .catch((err) => {
         console.log(err);
-        return '아이디와 비밀번호를 확인하세요!';
+        return err;
       });
   };
   const tokkendata = { accessToken, refreshToken };
@@ -75,23 +84,24 @@ const Signup = (props) => {
     axios
       .post('/v1/reissue', tokkendata)
       .then((res) => {
-        setAccess(res.data.data.accessToken);
-        setRefresh(res.data.data.refreshToken);
+        setAccess(res.data.accessToken);
+        setRefresh(res.data.refreshToken);
       })
       .catch((err) => {
         alert('로그아웃 되었습니다!');
       });
   };
 
-axios.interceptors.request.use(() => {
-  const date = new Date();
-  const alarm = jwt_decode(accessToken);
-  alarm.exp * 1000 < date.getTime() ? (recycle() , config.headers['authorization'] = `Bearer ${data.accessToken}`)
-  : null
-  return config
-})
+  // axios.interceptors.request.use(() => {
+  //   const date = new Date();
+  //   const alarm = jwt_decode(accessToken);
+  //   alarm.exp * 1000 < date.getTime()
+  //     ? (recycle(), (config.headers['authorization'] = `Bearer ${data.accessToken}`))
+  //     : null;
+  //   return config;
+  // });
 
-  console.log(tokkendata);
+  // console.log(tokkendata);
 
   // const test = {
   //   "email": "dmstn153@gmail.com",

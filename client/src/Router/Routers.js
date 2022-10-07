@@ -24,7 +24,6 @@ import ErrorPage from '../Pages/ErrorPage';
 import KakaoRediect from '../Components/Modals/Login/KaKao/eKakaoLoginbtn';
 import EditMain from '../Components/Write/EditMain';
 
-
 const Routers = () => {
   return (
     <>
@@ -42,7 +41,7 @@ const Pages = () => {
       <Route path="/main" element={<MainPage />} />
       <Route path="/chat" element={<ChatPage />} />
       <Route path="/write" element={<WritePage />} />
-      <Route path="/my/sell/edit/id" element={<EditMain />} />
+      <Route path="/my/sell/edit/:id" element={<EditMain />} />
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/my/map" element={<MyPageMap />} />
       <Route path="/my/review" element={<MyPageReview />} />
@@ -60,15 +59,15 @@ const Pages = () => {
 };
 
 const Member = () => {
-  return(
+  return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/main" element={<MainPage />} />
       <Route path="/main/detail/:id" element={<DetailPage />} />
       <Route path="/find" element={<Find />} />
     </Routes>
-  )
-}
+  );
+};
 
 const Modals = () => {
   return (
