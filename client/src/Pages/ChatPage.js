@@ -99,9 +99,18 @@ import Header from '../Components/Common/Header/Header';
 import Footer from '../Components/Common/Footer/Footer';
 import { ChatContainer, Scrollbar, ChatContent } from '../Components/Chat/ChatStyle';
 import { BsEmojiSmile } from 'react-icons/bs';
+<<<<<<< HEAD
 
 import styled from 'styled-components';
 
+=======
+
+<<<<<<< HEAD
+=======
+import styled from 'styled-components';
+
+>>>>>>> b5a4d490 (feat : chat 구현)
+>>>>>>> test
 const endpoint = 'https://jjjserver.herokuapp.com/'; // heroku로 socket 배포한 서버
 let socket = io(endpoint, {
   cors: {
@@ -135,6 +144,7 @@ const ChatUI = () => {
   }, [receive]);
 
   const send = (e) => {
+<<<<<<< HEAD
     e.key === 'Enter' ? (socket.emit('message', chatText), setChatText('')) : null;
   };
 
@@ -155,6 +165,58 @@ const ChatUI = () => {
   };
 
   return (
+=======
+<<<<<<< HEAD
+    e.key === 'Enter' ? (socket.emit('message', chatText) , setChatText('') ) : null;
+  };
+
+  console.log(receive);
+
+  return (
+    <>
+      <ChatContainer>
+        {receive.map((li, i) => {
+          return <div key={i}>{li}</div>;
+        })}
+
+        <Scrollbar></Scrollbar>
+      </ChatContainer>
+      <ChatContainer>
+        <ChatContent>
+          <div className="iss">
+            <label>아이디입력</label>
+            <button onClick={() => send(0)}>전송</button>
+          </div>
+          <div className="iss">
+            <label>채팅입력</label>
+            <input onChange={chatHandler} value={chatText} onKeyPress={send} />
+
+          </div>
+        </ChatContent>
+      </ChatContainer>
+    </>
+=======
+    e.key === 'Enter' ? (socket.emit('message', chatText), setChatText('')) : null;
+  };
+
+  console.log(receive);
+
+  //-- 채팅방 클릭했을때 --//
+  const chatJoin = (chatId) => {
+    const [chatSell, setChatSell] = useState(true);
+    const handleChatJoin = useCallback((e) => {
+      setChatSell(false);
+    }, []);
+
+    useEffect(() => {
+      // 서버로 보내는 함수 작성
+    }, [chatId]);
+
+    return { chatSell, handleChatJoin };
+  };
+
+  return (
+>>>>>>> test
     <Draws.Container>
       <Draws.CustomerContent>
         <Draws.CustomerWithdraw>
@@ -257,6 +319,10 @@ const ChatUI = () => {
         </Draws.CustomerWithdraw>
       </Draws.CustomerContent>
     </Draws.Container>
+<<<<<<< HEAD
+=======
+>>>>>>> b5a4d490 (feat : chat 구현)
+>>>>>>> test
   );
 };
 

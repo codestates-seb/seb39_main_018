@@ -21,12 +21,10 @@ const Header = styled.div`
   text-align: right;
   padding: 0 25px 0 30px;
   transition-property: background-color;
-
   img {
     width: 150px;
     opacity: 0.6;
     cursor: pointer;
-
     &:hover {
       opacity: 1;
       transition-duration: 0.3s;
@@ -38,13 +36,11 @@ const HeaderRight = styled.div`
   display: inline-block;
   padding: 20px 20px;
   font-size: 25px;
-
   a {
     color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
     text-decoration: none;
     margin-right: 20px;
-
     &:hover {
       color: black;
       transition-duration: 0.3s;
@@ -58,6 +54,7 @@ const MainContainer = styled.div`
   /* height: 100%; */
   height: 800px;
   margin-bottom: 100px;
+
 `;
 
 const MainContent = styled.div`
@@ -74,6 +71,7 @@ const MainText = styled.div`
   @media only screen and (max-width: 960px) {
     margin-left: 50px;
   }
+
 `;
 
 const BoldText = styled.h3`
@@ -85,7 +83,6 @@ const BoldText = styled.h3`
   width: 258px;
   position: absolute;
   animation: slide 2s ease-out;
-
   @keyframes slide {
     from {
       left: 200px;
@@ -96,6 +93,7 @@ const BoldText = styled.h3`
       opacity: 1;
     }
   }
+
 
   @media only screen and (max-width: 960px) {
     font-size: 5em;
@@ -119,6 +117,8 @@ const SubText = styled.div`
   padding-top: 400px;
 `;
 
+
+
 const PP = styled.p`
   font-size: 28px;
   font-weight: 300;
@@ -133,7 +133,6 @@ const PP = styled.p`
     bottom: 0;
     z-index: -213;
   }
-
   @media only screen and (max-width: 960px) {
     font-size: 22px;
     font-weight: 300;
@@ -146,6 +145,7 @@ const PP = styled.p`
       margin-left: -100px;
     }
   }
+
 `;
 
 const SortMean = styled.span`
@@ -170,6 +170,7 @@ const Subscribe = styled.div`
   line-height: 1.5;
   padding-bottom: 150px;
   background-color: rgba(0, 0, 0, 0.015);
+
 `;
 
 const SubForm = styled.form`
@@ -191,10 +192,10 @@ const SubTitle = styled.div`
   line-height: 1.4;
   font-size: 2.5rem;
   letter-spacing: 1px;
-
   @media only screen and (max-width: 960px) {
     font-size: 2rem;
   }
+
 `;
 
 const SubMini = styled.p`

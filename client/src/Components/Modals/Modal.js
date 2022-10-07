@@ -29,7 +29,6 @@ const Modal = (props) => {
   // }, [])
 
   const modalClose = () => {
-    console.log('ASDAS?');
     props.close();
   };
 
