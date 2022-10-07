@@ -195,7 +195,7 @@ const EditMain = () => {
               placeholder="제목을 입력해주세요."
               onChange={(e) => {
                 editPost['title'] = e.target.value;
-                console.log(lego);
+                // console.log(lego);
               }}
             ></Writes.GreyInput>
           </Writes.ImgWrap>

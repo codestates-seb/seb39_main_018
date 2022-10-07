@@ -43,7 +43,7 @@ export default ItemList;
 
 const ItemComponent = ({ title, price, region, createdDate, id, pageMove }) => {
   return (
-    <ItemBox onClick={() => pageMove(`/detail/${id}`)}>
+    <ItemBox onClick={() => pageMove(`/main/detail/${id}`)}>
       <ItemImg></ItemImg>
       <ItemTitle>{title}</ItemTitle>
       <ItemPrice>
