@@ -10,11 +10,10 @@ import { writePost } from '../../redux/itemslice';
 import { getDetail, getItems, useEdit } from '../../util/requestItem';
 import { useParams } from 'react-router-dom';
 
-
 const EditMain = () => {
-  const {  title, price, seat_number, end_date, body } = getDetail(17);
-  const {id} = useParams();
-
+  const writeinfo = useSelector((state) => state.items.writeInfo);
+  const check = useSelector((state) => state.items.itemsId);
+  const { title, price, seat_number, end_date, body } = getDetail(check);
   // const [inputs, setInputs] = useState({
   //   title: title2,
   //   price: price2,
@@ -68,8 +67,6 @@ const EditMain = () => {
   //-- input 관리 --//
 
   const dispatch = useDispatch();
-
-  const writeinfo = useSelector((state) => state.items.writeInfo);
 
   console.log(writeinfo);
   const onChange = (e) => {
@@ -142,7 +139,6 @@ const EditMain = () => {
   caseByResult;
   console.log(caseByResult);
   //-- 티켓 사용일 --//
-  console.log(id);
 
   return (
     <Writes.MainContainer>
@@ -250,7 +246,7 @@ const EditMain = () => {
               name="seat"
               defaultValue={seat_number}
               placeholder="좌석을 입력해주세요."
-              onChange={(e) => editPost['seat_number'] = e.target.value}
+              onChange={(e) => (editPost['seat_number'] = e.target.value)}
             ></Writes.GreyInput>
           </Writes.ImgWrap>
         </Writes.Writeframe>
@@ -261,7 +257,7 @@ const EditMain = () => {
           </Writes.MiniTitle>
           <Writes.ImgWrap>
             <Writes.GreyInput
-              onChange={(e) => editPost['end_date'] = e.target.value}
+              onChange={(e) => (editPost['end_date'] = e.target.value)}
               defaultValue={end_date}
               style={{ width: '28%' }}
               type="datetime-local"
@@ -280,7 +276,7 @@ const EditMain = () => {
               name="body"
               defaultValue={body}
               placeholder="구매자에게 필요한 티켓 정보를 포함하여 작성하면 구매 문의를 줄일 수 있습니다 :)"
-              onChange={(e) => editPost['body'] = e.target.value}
+              onChange={(e) => (editPost['body'] = e.target.value)}
             ></Draws.WriteInput>
           </Writes.ImgWrap>
         </Writes.Writeframe>
@@ -317,7 +313,9 @@ const EditMain = () => {
 
       <Draws.RealAgree style={{ marginTop: '-30px', marginBottom: '40px' }}>
         <Draws.BlackButtonBox>취소하기</Draws.BlackButtonBox>
-        <Draws.WhiteButtonBox onClick={() => EditData(17, editPost)}>수정하기</Draws.WhiteButtonBox>
+        <Draws.WhiteButtonBox onClick={() => EditData(check, editPost)}>
+          수정하기
+        </Draws.WhiteButtonBox>
       </Draws.RealAgree>
     </Writes.MainContainer>
   );

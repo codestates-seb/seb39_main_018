@@ -49,7 +49,7 @@ const Filter = () => {
             <SellTypeFilter tabFocus={tabFocus} sellTypeTab={sellTypeTab} tabHandler={tabHandler} />
           </FilterLeft>
           <FilterRight>
-            <SearchFilter tagInputHandler={tagInputHandler} />
+            {/* <SearchFilter tagInputHandler={tagInputHandler} /> */}
             <SortOption
               selectOP={selectOP}
               selectindex={selectindex}
@@ -77,7 +77,9 @@ const SellTypeFilter = ({ tabFocus, sellTypeTab, tabHandler }) => {
       {sellTypes.map((tab) => {
         return (
           <SellType color={tab.name == focusType ? 'black' : ''}>
-            <p key={tab.id} onClick={() => dispatch(selectFilter(tab.name))}>{tab.name}</p>
+            <p key={tab.id} onClick={() => dispatch(selectFilter(tab.name))}>
+              {tab.name}
+            </p>
           </SellType>
         );
       })}
@@ -93,9 +95,7 @@ const SearchFilter = ({ inputdata, tagInputHandler }) => {
         onChange={tagInputHandler}
         onKeyUp={tagInputHandler}
       />
-      <p>
-        <SearchIcon />
-      </p>
+      <p></p>
     </SearchSection>
   );
 };
@@ -109,7 +109,7 @@ const SortOption = () => {
   return (
     <SortSection>
       <SortByOption>
-        <p className="select_text">{choiced}</p>
+        <h4 className="select_text">{choiced}</h4>
         <p
           className={isSelect ? 'select_icon open' : 'select_icon'}
           onClick={() => dispatch(openDropbar(!isSelect))}
@@ -117,7 +117,7 @@ const SortOption = () => {
           <DownIcon />
         </p>
       </SortByOption>
-      <SortOpDropbar display={isSelect? 'flex' : 'none' }>
+      <SortOpDropbar display={isSelect ? 'flex' : 'none'}>
         {sortList.map((option, i) => {
           return (
             <p

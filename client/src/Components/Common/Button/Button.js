@@ -24,17 +24,18 @@ const BasicBtn = styled.div`
   width: ${(prop) => prop.width || '100%'};
   height: ${(prop) => prop.height || '100%'};
   display: flex;
+
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: var(--b-small);
-  background: rgba(0, 0, 0, 0.8);
+  background: ${(prop) => prop.background || 'black'};
   color: ${(prop) => prop.color || 'white'};
   font-size: ${(props) => props.size || ''};
   box-shadow: none;
   margin-left: ${(prop) => prop.left || ''};
   ${BasicBtn}:hover {
-    background: black;
+    background: #727c8a;
     transition-duration: 0.3s;
   }
   p {
@@ -45,6 +46,7 @@ const Button2 = styled(BasicBtn)`
   box-shadow: -2px -2px 10px, 10px 3px 15px var(--gray);
   background: ${(prop) => prop.background};
   color: ${(prop) => prop.color || 'white'};
+
   ${Button2}:active {
     box-shadow: inset 3px 3px 10px;
     background: var(--lightgray);
@@ -52,12 +54,17 @@ const Button2 = styled(BasicBtn)`
 `;
 const SellbtnComponent = styled.div`
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
-  height: 100px;
-  right: 50px;
-  bottom: 10px;
-  margin-bottom: 300px;
+  height: 50px;
+  right: 10px;
+  bottom: 250px;
+  background: #c4cdcf;
   cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 2px 1px 1px 1px;
   img {
     width: 100%;
     height: 100%;

@@ -12,8 +12,10 @@ import {
 
 import { TagUI } from '../Common/Tag/Tag';
 import { BasicBtn } from '../Common/Button/Button.js';
+import { useNavigate } from 'react-router-dom';
 
-const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region,photo }) => {
+const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region, photo }) => {
+  const navigate = useNavigate();
   return (
     <Detail_ItemInfo>
       <InfoTop>
@@ -25,33 +27,36 @@ const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region,photo
       </InfoTop>
       <InfoBottom>
         <StartDate>
-          <p className="info_title">등록 :</p>
+          <p className="info_title">등록</p>
+
           <p className="infor_data">{createdDate}</p>
         </StartDate>
         <EndDate>
-          <p className="info_title">기간 :</p>
+          <p className="info_title">기간</p>
+
           <p className="infor_data">{endDate}</p>
         </EndDate>
         <Seat>
-          <p className="info_title">좌석 : </p>
+          <p className="info_title">좌석</p>
+
           <p className="infor_data">{seat}</p>
         </Seat>
         <Seat>
-          <p className="info_title">거래지역 : </p>
+          <p className="info_title">지역</p>
           <p className="infor_data">{region}</p>
         </Seat>
-        <Tags>
-          <TagUI text={''} />
-        </Tags>
+        <Tags></Tags>
         <Btn>
           <div className="top_btn">
-            <BasicBtn></BasicBtn>
+            <BasicBtn background="#385275">게시물 리스트</BasicBtn>
           </div>
           <div className="top_btn">
-            <BasicBtn></BasicBtn>
+            <BasicBtn background="#385275" onClick={() => navigate('/chat')}>
+              메세지 보내기
+            </BasicBtn>
           </div>
           <div className="bottom_btn">
-            <BasicBtn></BasicBtn>
+            <BasicBtn background="#fcbdbd">찜하기</BasicBtn>
           </div>
         </Btn>
       </InfoBottom>

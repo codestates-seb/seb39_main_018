@@ -16,6 +16,7 @@ const DetailMain = () => {
   const { id } = useParams();
   const { title, body, price, end_date, seat_number, createdDate, region, photo } = getDetail(id);
   const detailPageDate = calculateDate(createdDate);
+    console.log(title)
   return (
     <Detail_Container>
       <Detail_Section>
@@ -29,7 +30,7 @@ const DetailMain = () => {
           seat={seat_number}
           region={region}
         />
-        <ImgList />
+        <ImgList photo={photo} />
         <Description description={body} />
         <ItemSeller />
         <ItemSubInfo region={region} />

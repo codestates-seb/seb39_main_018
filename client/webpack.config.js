@@ -33,6 +33,10 @@ module.exports = {
         target: 'http://3.34.181.86:8081', // 클라이언트에서 api로 보내는 요청은 주소를 3095로 바꿔서 보내겠다 라는 뜻
         changeOrigin: true, // cross origin 허용 설정
       },
+      '/board/': {
+        target: 'http://3.34.181.86:8080',
+        changeOrigin: true,
+      },
     },
   },
   module: {
@@ -43,7 +47,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
-          plugins: refreshPlugin,
+          // plugins: refreshPlugin,
         },
       },
       {

@@ -31,6 +31,10 @@ const ItemImg = styled(ItemInfoOption)`
   width: 100%;
   height: 240px;
   background: var(--lightgray);
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const ItemTitle = styled(ItemInfoOption)`

@@ -20,10 +20,12 @@ const ItemList = ({ itemsData, pageMove, isLoading }) => {
       <ItemListBox>
         {itemsData &&
           itemsData.map((dataList) => {
-            const dateResult = calculateDate(dataList.created_date);
+            const dateResult = calculateDate(dataList.createdDate);
+            console.log(dataList);
             return (
               <ItemComponent
                 pageMove={pageMove}
+                photo={dataList.photo}
                 key={dataList.id}
                 id={dataList.id}
                 title={dataList.title}
@@ -41,10 +43,12 @@ const ItemList = ({ itemsData, pageMove, isLoading }) => {
 
 export default ItemList;
 
-const ItemComponent = ({ title, price, region, createdDate, id, pageMove }) => {
+const ItemComponent = ({ title, price, region, createdDate, id, pageMove, photo }) => {
   return (
     <ItemBox onClick={() => pageMove(`/main/detail/${id}`)}>
-      <ItemImg></ItemImg>
+      <ItemImg>
+        <img src={photo} />
+      </ItemImg>
       <ItemTitle>{title}</ItemTitle>
       <ItemPrice>
         <p className="price_data">{price}</p>

@@ -3,6 +3,7 @@ import { access } from 'fs';
 import { useEffect, useState } from 'react';
 import { LoginType, SignupType } from './loginType';
 
+axios.defaults.withCredentials = true;
 const loginAPi = axios.create({
   baseURL: process.env.LOGIN_API_URL,
 });
@@ -13,6 +14,33 @@ const loginAPi = axios.create({
 //   res.headers["refreshToken"] = refreshToken;
 //   return res;
 // })
+
+export const loginRecycle = (refreshToken: string) => {
+  const [accessToken, setAccess] = useState('');
+  axios
+    .post('${process.env.LOGIN_API_URL}reissue', refreshToken)
+    .then((res) => {
+      setAccess(res.data.accessToken);
+    })
+    .catch((err) => {
+      alert('로그아웃 되었습니다!');
+    });
+};
+
+// axios.interceptors.request.use(() => {
+//   const date = new Date();
+//   const alarm = jwt_decode(accessToken);
+//   alarm.exp * 1000 < date.getTime()
+//     ? (recycle(), (config.headers['authorization'] = `Bearer ${data.accessToken}`))
+//     : null;
+//   return config;
+// });
+
+export const checkAccessToken = (refreshtoken: string) => {
+  axios.defaults.headers.common['Authorization'] === undefined
+    ? loginRecycle(refreshtoken)
+    : axios.defaults.headers.common['Authorization'].split(' ')[1];
+};
 
 const usePost = (info: SignupType) => {
   return [postSignup(info)];

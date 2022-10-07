@@ -35,18 +35,39 @@ const SubTitle = styled.h3`
 const IdBox = styled.div`
   box-sizing: border-box;
   position: relative;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
+  .info_default {
+    width: 340px;
+    height: 30px;
+    margin-top: 10px;
+    padding-left: 5px;
+    border-bottom: 1px solid var(--lightgray);
+    font-size: 14px;
+    color: #a3a3a3;
+  }
 `;
 
 const NameBox = styled.div`
   font-size: 13px;
   font-weight: 640;
   line-height: 18px;
-  color: ${(props) => (props.color === 'red' ? 'rgba(900, 20, 0, 0.7)' : '##ebebeb')}; ;
+  position: relative;
+  color: ${(props) => (props.color === 'red' ? 'rgba(900, 20, 0, 0.7)' : '##ebebeb')};
+  .info_default {
+    width: 340px;
+    height: 30px;
+    margin-top: 10px;
+    padding-left: 5px;
+    border-bottom: 1px solid var(--lightgray);
+    font-size: 13px;
+    color: #a3a3a3;
+  }
+
 `;
 
 const InputBox = styled.input`
   padding-right: 30px;
+
   height: 38px;
   width: 92.5%;
   font-size: 13px;

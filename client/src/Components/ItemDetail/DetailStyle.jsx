@@ -8,8 +8,9 @@ const Detail_Container = styled.div`
 `;
 
 const Detail_Section = styled(Detail_Container)`
-  width: 1200px;
+  width: 1000px;
   flex-wrap: wrap;
+  justify-content: space-between;
 `;
 
 const AllSetting = styled.div`
@@ -28,9 +29,8 @@ const Detail_Category = styled(AllSetting)`
   }
 `;
 const Detail_Img = styled(AllSetting)`
-  width: 55%;
-  margin-right: 50px;
-  height: 530px;
+  width: 550px;
+  height: 480px;
   background: var(--lightgray);
   img {
     width: 100%;
@@ -48,7 +48,7 @@ const InfoTop = styled.div`
 
   p,
   h1 {
-    padding: 10px;
+    padding: 0 10px;
   }
   p {
     font-size: var(--f-medium);
@@ -56,21 +56,25 @@ const InfoTop = styled.div`
   }
 
   .item_price {
+    margin: 10px 0;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
   }
 `;
 const InfoBottom = styled(InfoTop)`
-  border: none;
-  height: 80%;
+  height: 370px;
+  margin-top: 25px;
 `;
 const InfoSetting = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  margin: 25px 0;
+
   .info_title {
-    font-size: var(--f-medium);
+    font-size: 18px;
+    color: gray;
   }
   .infor_data {
     font-size: var(--f-small);
@@ -110,6 +114,7 @@ const Detail_ImgList = styled(AllSetting)`
   width: 100%;
   height: 250px;
   padding-bottom: 100px;
+  position: relative;
   border-bottom: 1px solid var(--lightgray);
   .list_icon {
     display: flex;
@@ -124,18 +129,26 @@ const Detail_NextImg = styled.div`
   height: 200px;
   background: var(--lightgray);
   margin: 0 10px;
+  transition: 0.3s ease-in-out;
+  img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  &:hover {
+    opacity: 0.3;
+  }
 `;
 
 ///--------------------------------------
 
 // -- 상품 설명 보드
 const Detail_Description = styled(AllSetting)`
-  width: 580px;
+  width: 550px;
   display: flex;
-  min-height: 100px;
+  height: 300px;
   flex-wrap: wrap;
   margin: 0px 20px 0 0;
-
   .item_title {
     width: 500px;
     height: 40px;
@@ -143,9 +156,9 @@ const Detail_Description = styled(AllSetting)`
     font-size: var(--f-medium);
   }
   .item_body {
-    padding: 30px 0;
-    width: 100%;
-    border-bottom: 1px solid var(--lightgray);
+    padding: 20px;
+    height: 250px;
+    border: 1px solid var(--lightgray);
   }
 `;
 
@@ -156,6 +169,7 @@ const SubInfo = styled(AllSetting)`
   padding-bottom: 50px;
   margin: 100px 0;
   border-bottom: 1px solid var(--lightgray);
+  
   .subinfo_title {
     margin: 0 0 10px 0;
     font-size: 18px;
@@ -183,12 +197,11 @@ const Views = styled.div`
 
 //-- 판매자 정보 컴포넌트
 const Detail_Seller = styled(AllSetting)`
-  width: 49%;
+  width: 350px;
   display: flex;
   align-items: center;
-  flex-direction: column;
   margin-bottom: 0;
-  border-left: 1px solid var(--lightgray);
+  flex-wrap: wrap;
 `;
 
 const SellerSetting = styled.div`
@@ -202,26 +215,37 @@ const SellerTitle = styled(SellerSetting)`
 `;
 const SellerInfo = styled(SellerSetting)`
   margin: 20px 0;
+  flex-direction: column;
+  .img {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
   img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
   }
-  .img {
-    width: 100px;
+  .seller_name {
+    width: 130px;
+    font-size: 18px;
   }
 
   .rating_info {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
   p {
-    margin: 5px 10px;
   }
   .area_auth {
     display: flex;
   }
 `;
-const SellInfoBox = styled.div``;
+const SellInfoBox = styled.div`
+  width: 100%;
+`;
 
 const SellerBtn = styled(SellerSetting)`
   height: 50px;
@@ -237,16 +261,17 @@ const Detail_Review = styled(AllSetting)`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
   .border_line {
     margin-top: 20px;
     height: 120px;
-    border-left: 1px solid var(--lightgray);
+  
   }
 `;
 const ReviewSetting = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 250px;
   padding: 10px 0;
   p {
     margin-right: 10px;

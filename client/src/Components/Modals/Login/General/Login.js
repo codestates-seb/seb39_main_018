@@ -21,6 +21,13 @@ const Login = (props) => {
   const extension_tokken = 24 * 3600 * 1000;
 
   const sendLogin = (info) => {
+    if (userid.value === '') {
+      idInput.current.focus();
+      return;
+    } else if (userPassword.value === '') {
+      passwordInput.current.focus();
+      return;
+    }
     axios
       .post(`/v1/login`, info)
       .then((res) => {
@@ -35,6 +42,9 @@ const Login = (props) => {
         return alert('아이디와 비밀번호를 확인하세요!');
       });
   };
+
+
+
   console.log(accessToken);
 
   const userlogin = () => {
@@ -50,13 +60,6 @@ const Login = (props) => {
 
     //   sessionStorage.setItem('login', 'sessionStorage');
     // }
-    if (userid.value === '') {
-      idInput.current.focus();
-      return;
-    } else if (userPassword.value === '') {
-      passwordInput.current.focus();
-      return;
-    }
 
     if (userid.value !== '' && userPassword.value !== '') {
       axios

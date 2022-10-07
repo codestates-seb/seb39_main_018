@@ -46,13 +46,13 @@ const MypageProfileMain = (props) => {
 
           <Logins.IdBox style={{ paddingTop: '5px' }}>
             <Logins.NameBox>이메일</Logins.NameBox>
-            <Logins.InputBox id="userid" type="text" readonly="readonly" value="못건드리지롱" />
+           <div className='info_default'>sort123@gmail.com</div>
           </Logins.IdBox>
 
           <Logins.PasswordBox style={{ paddingTop: '10px' }}>
             <Logins.NameBox>
               비밀번호
-              <Logins.InputBox id="password" type="password" readonly="readonly" value="12345678" />
+              <div className='info_default'>●●●●●●●●</div>
             </Logins.NameBox>
           </Logins.PasswordBox>
 

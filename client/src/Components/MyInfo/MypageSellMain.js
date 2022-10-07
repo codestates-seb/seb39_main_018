@@ -61,7 +61,7 @@ function MypageSellMain() {
               );
             })}
             <Sells.BtnSection>
-              <Sells.AcitonBtn onClick={() => navigate('/edit')}>
+              <Sells.AcitonBtn onClick={() => navigate(`/my/sell/edit/${check}`)}>
                 <BasicBtn background="black">상품 수정</BasicBtn>
               </Sells.AcitonBtn>
               <Sells.AcitonBtn onClick={() => deleteData(check)}>

@@ -46,8 +46,8 @@ const FilterLeft = styled(FilterOption)`
   width: 60%;
 `;
 const FilterRight = styled(FilterOption)`
-  width: 40%;
-  justify-content: space-between;
+  width: 100%;
+  justify-content: flex-end;
   .drop_bar {
     position: absolute;
     width: 100px;
@@ -84,24 +84,26 @@ const SearchSection = styled.div`
 `;
 
 const SortSection = styled.div`
-  width: 200px;
   position: relative;
 `;
 
 const SortByOption = styled.div`
   width: 100px;
   height: 30px;
-  border: 2px solid #434445;
+  border: 2px solid gray;
+  box-shadow: 1px 1px 2px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: var(--b-xsmall);
-  font-size: 15px;
-
+  border-radius: 4px;
+  font-size: 12px;
+  color: black;
   .select_icon {
     display: flex;
     align-items: center;
     transition: all ease 0.5s;
+    color: black;
+    font-size: 15px;
     cursor: pointer;
   }
 
@@ -118,7 +120,7 @@ const SortByOption = styled.div`
 `;
 
 const SortOpDropbar = styled(SortByOption)`
-  display: ${(props) => (props.display || 'none')};
+  display: ${(props) => props.display || 'none'};
   position: absolute;
   transition: all ease 0.5s;
   left: 0;
@@ -141,7 +143,7 @@ const SortOpDropbar = styled(SortByOption)`
   p:hover {
     width: 90%;
     border-radius: 10px;
-    background: black;
+    background: #455285;
     color: #ffffff;
     cursor: pointer;
   }

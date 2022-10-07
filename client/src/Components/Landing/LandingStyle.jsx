@@ -85,7 +85,11 @@ const PreviewImg = styled.div`
   height: 160px;
   margin-bottom: 15px;
   background: lightgray;
-
+  border: 1px solid;
+  img {
+    width: 100%;
+    height: 100%;
+  }
   @media only screen and (max-width: 960px) {
     width: 85%;
     height: 120px;
@@ -94,6 +98,7 @@ const PreviewImg = styled.div`
 `;
 const PreviewInfo = styled.div`
   margin-left: 5px;
+
   .title {
     font-size: 18px;
     text-overflow: ellipsis;

@@ -11,7 +11,6 @@ import { postSignup, usePost, postLogin } from '../../../util/requestLogin';
 import { Button } from 'react-bootstrap';
 // import jwt_decode from 'jwt-decode';
 
-
 const Signup = (props) => {
   const navigate = useNavigate();
   const [id, setId] = useState({ value: '', text: '', hidden: true });
@@ -36,7 +35,7 @@ const Signup = (props) => {
 
   const reqSignup = (data) => {
     axios
-      .post(`/v1/siginup`, data)
+      .post(`${process.env.LOGIN_API_URL}siginup`, data)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
@@ -65,7 +64,7 @@ const Signup = (props) => {
 
   const sendLogin = (info) => {
     axios
-      .post(`/v1/login`, info)
+      .post(`${process.env.LOGIN_API_URL}login`, info)
       .then((res) => {
         const { accessToken } = res.data.data;
         setAccess(res.data.data.accessToken);
@@ -80,41 +79,10 @@ const Signup = (props) => {
       });
   };
   const tokkendata = { accessToken, refreshToken };
-  const recycle = () => {
-    axios
-      .post('/v1/reissue', tokkendata)
-      .then((res) => {
-        setAccess(res.data.accessToken);
-        setRefresh(res.data.refreshToken);
-      })
-      .catch((err) => {
-        alert('로그아웃 되었습니다!');
-      });
-  };
 
-  // axios.interceptors.request.use(() => {
-  //   const date = new Date();
-  //   const alarm = jwt_decode(accessToken);
-  //   alarm.exp * 1000 < date.getTime()
-  //     ? (recycle(), (config.headers['authorization'] = `Bearer ${data.accessToken}`))
-  //     : null;
-  //   return config;
-  // });
 
-  // console.log(tokkendata);
 
-  // const test = {
-  //   "email": "dmstn153@gmail.com",
-  //   "password": "123456789",
-  //   "username": "은수형님3"
-  //   }
-  //   const test2 = {
-  //     "email": "dmstn12553@gmail.com",
-  //     "password": "123456789"
-  //     }
 
-  // const ww = postLogin(test2)
-  // console.log(ww);
 
   const signupHandler = (type, info) => {
     dispatch(createUser({ [type]: info }));

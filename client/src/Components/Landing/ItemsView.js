@@ -13,6 +13,7 @@ import { BasicBtn } from '../Common/Button/Button.js';
 import { useNavigate } from 'react-router-dom';
 
 const ItemsView = ({ latestDatas }) => {
+  console.log(latestDatas);
   const navigate = useNavigate();
   const pageMove = (url) => {
     navigate(url);
@@ -26,7 +27,9 @@ const ItemsView = ({ latestDatas }) => {
         {latestDatas.map((items) => {
           return (
             <ItemPreview key={items.id}>
-              <PreviewImg></PreviewImg>
+              <PreviewImg>
+                <img src={items.photo} />
+              </PreviewImg>
               <PreviewInfo>
                 <p className="title">{items.title}</p>
                 <PreviewPrice>

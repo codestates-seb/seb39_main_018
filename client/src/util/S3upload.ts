@@ -28,7 +28,7 @@ const imgUpload = (file: any, imgurl: string): void => {
     setSelectFile(e.target.files[0]);
   };
 
-  const uploadFile = (files: object) => {
+  const uploadFile = (files: any) => {
     const params = {
       ACL: 'public-read',
       Body: files,
@@ -37,7 +37,7 @@ const imgUpload = (file: any, imgurl: string): void => {
     };
     const s3 = new AWS.S3();
     s3.putObject(params)
-      .on('httpUploadProgress', (evt) => {
+      .on('httpUploadProgress', (evt :any) => {
         console.log('성공함' + evt);
       })
       .send((err: Error) => {
