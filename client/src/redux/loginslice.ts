@@ -4,19 +4,19 @@ import { LoginType, SignupType } from '../util/loginType';
 type InitialState = {
   signupInfo: SignupType;
   loginInfo: LoginType;
-  email : string;
-  password : string;
-  userName : string;
-  kakaoToken : string;
+  email: string;
+  password: string;
+  userName: string;
+  kakaoToken: string;
 };
 
 const initialState: InitialState = {
-  signupInfo: { email: '', password: '', username: '' },
+  signupInfo: { email: '', password: '', name: '' },
   loginInfo: { email: '', password: '' },
-  email : '',
-  password : '',
-  userName : '',
-  kakaoToken : '',
+  email: '',
+  password: '',
+  userName: '',
+  kakaoToken: '',
 };
 
 const userSlice = createSlice({
@@ -31,12 +31,12 @@ const userSlice = createSlice({
       const result = action.payload;
       state.loginInfo = { ...state.loginInfo, ...result };
     },
-    kakaoSave :(state, action) => {
-        state.kakaoToken = action.payload;
-    }
+    kakaoSave: (state, action) => {
+      state.kakaoToken = action.payload;
+    },
   },
 });
 
 export default userSlice;
 
-export const { createUser, checkLogin,kakaoSave } = userSlice.actions;
+export const { createUser, checkLogin, kakaoSave } = userSlice.actions;
