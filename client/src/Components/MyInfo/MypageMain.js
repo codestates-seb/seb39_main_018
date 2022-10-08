@@ -4,10 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import MypageSideBar from './MypageSideBar';
 import Draws from '../Withdraw/WithdrawPageStyle';
 import Wishs from './MypageWishStyle';
+import { postUserInfo, betaPostUserInfo } from '../../util/userInfo';
+import { useSelector } from 'react-redux';
 
 const MypageMain = () => {
   const navigate = useNavigate();
-
+  const userEmail = useSelector((state) => state.account.userinfo);
+  const { email, name } = betaPostUserInfo();
   return (
     <Draws.Container>
       <MypageSideBar />
@@ -23,8 +26,8 @@ const MypageMain = () => {
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" />
               </Mains.UserUSer>
               <Mains.UserInfo>
-                <Mains.UserID>aaaa1111</Mains.UserID>
-                <Mains.UserEmail>aaaa1111@naver.com</Mains.UserEmail>
+                <Mains.UserID>{name}</Mains.UserID>
+                <Mains.UserEmail>{email}</Mains.UserEmail>
               </Mains.UserInfo>
               <Mains.UserRight>
                 <Mains.ProfileButton onClick={() => navigate('/my/profile')}>

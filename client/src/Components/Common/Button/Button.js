@@ -59,20 +59,26 @@ const SellbtnComponent = styled.div`
   align-items: center;
   width: 100px;
   height: 50px;
-  right: 10px;
-  bottom: 250px;
-  background: #c4cdcf;
+  right: 50px;
+  bottom: 90px;
+  background: #e6eed8;
   cursor: pointer;
   border-radius: 10px;
-  box-shadow: 2px 1px 1px 1px;
+  box-shadow: 2px 3px 1px 1px gray;
+  color: #2e2d2d;
+  &:hover {
+    background: #b0b0b0;
+    color: #ffffff;
+  }
   img {
     width: 100%;
     height: 100%;
   }
   p {
-    position: absolute;
-    top: 38px;
-    right: 20px;
+    font-style: 'Gosanja';
+    font-weight: 900;
+    font-size: 18px;
+    margin-right: 3px;
   }
 `;
 

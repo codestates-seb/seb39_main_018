@@ -55,6 +55,12 @@ const GlobalStyle = createGlobalStyle`
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Gosanja';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/Gosanja.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 `;
 
 export default GlobalStyle;

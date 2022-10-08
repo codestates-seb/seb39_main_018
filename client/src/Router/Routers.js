@@ -23,6 +23,7 @@ import WritePage from '../Pages/WritePage';
 import ErrorPage from '../Pages/ErrorPage';
 import KakaoRediect from '../Components/Modals/Login/KaKao/eKakaoLoginbtn';
 import EditMain from '../Components/Write/EditMain';
+import Modal from '../Components/Modals/Modal';
 
 const Routers = () => {
   return (
@@ -54,6 +55,7 @@ const Pages = () => {
       <Route path="/withdraw" element={<WithdrawPage />} />
       <Route path="/error" element={<ErrorPage />} />
       <Route path="/main/detail/:id" element={<DetailPage />} />
+      <Route path="/modal" element={<Modal />} />
     </Routes>
   );
 };

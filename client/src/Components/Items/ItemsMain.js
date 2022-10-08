@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getDetail, getItems } from '../../util/requestItem';
 import Sellbtn from '../Common/Button/Sellbtn';
 import { sellButton } from '../Imgs/mainImgs/imgExport';
+import axios from 'axios';
 const ItemsMain = () => {
   const navigate = useNavigate();
   // useEffect( ( ) => {
@@ -25,13 +26,10 @@ const ItemsMain = () => {
   const dataloads = getItems(sort + status + keyword);
   const itemsData = dataloads[0].slice(0, viewCount);
   const isLoading = dataloads[1];
-  console.log(api);
-
-
 
   return (
     <MainContainer>
-      <Sellbtn />
+     
       <Filter />
       <MainContent>
         <ItemList itemsData={itemsData} pageMove={pageMove} />

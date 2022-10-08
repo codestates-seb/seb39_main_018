@@ -27,12 +27,21 @@ import Modal from '../../Modals/Modal';
 import Login from '../../Modals/Login/General/Login';
 import Signup from '../../Modals/SignUp/Signup';
 import Find from '../../Modals/IDPWFind/Find';
+import {
+  checkLogin,
+  keepLogin,
+  postLogout,
+  chekckLocal,
+  localLogout,
+  keeplocalLogin,
+} from '../../../util/requestLogin';
+import axios from 'axios';
 
 const Header = () => {
   const [signUpModalOn, setSignUpModalOn] = useState({ open: false });
   const [signInModalOn, setSignInModalOn] = useState({ open: false });
   const [fwModalOn, setFwModalOn] = useState({ open: false });
-
+  keeplocalLogin();
   const closeSignInModal = (value) => {
     if (value === 'login') {
       setSignInModalOn({ open: false });
@@ -78,63 +87,13 @@ const Header = () => {
     setSignInModalOn({ open: true });
   };
 
-  const NavLog = () => {
-    return (
-      <LoginSection>
-        <LoginBox>
-          <p className="log_left" onClick={() => openSignInModal('signup')}>
-            마이페이지
-          </p>
-          <p className="log_right" onClick={() => openSignInModal('login')}>
-            로그아웃
-          </p>
-        </LoginBox>
-      </LoginSection>
-    );
-  };
-
-  const NavLogo = () => {
-    const navigate = useNavigate();
-    return (
-      <LogoSection onClick={() => navigate('/')}>
-        <p>
-          <img src={sortlogo} />
-        </p>
-      </LogoSection>
-    );
-  };
-  const NavSearch = () => {
-    const dispatch = useDispatch();
-    const handletest = (e) => {
-      const data = e.target.value;
-      const url = `full?title=${data}&body=${data}`;
-      e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
-      console.log(data);
-    };
-    return (
-      <SearchSection>
-        <SearchMain>
-          <InputUI
-            onChange={handletest}
-            onKeyUp={handletest}
-            placeholder="검색"
-            radius="20px"
-            border="none"
-            color="black"
-            padding="15px"
-            width="140px"
-          />
-        </SearchMain>
-      </SearchSection>
-    );
-  };
-
   const NavButton = () => {
     const dispatch = useDispatch();
     const selector = useSelector((state) => state.items.isLoad);
     const navigate = useNavigate();
     return (
       <ButtonSection>
+        {/* {signUpModalOn ? <Modal /> : null} */}
         <p>
           <img className="manIcon" src={NavIcon.user} onClick={() => navigate('/mypage')} />
         </p>
@@ -151,32 +110,18 @@ const Header = () => {
       </ButtonSection>
     );
   };
-  const NavCategory = () => {
-    const dispatch = useDispatch();
-    const selector = useSelector((state) => state.items.isLoad);
-    const categorylist = useSelector((state) => state.items.categorys);
-    const abcd = useSelector((state) => state.items.tags);
-    const focusCategory = useSelector((state) => state.items.category);
-
+  const NavNonUser = () => {
     return (
-      <>
-        {!selector ? null : (
-          <BottomUnderLine>
-            <CategorySection>
-              {categorylist.map((li, i) => {
-                return (
-                  <CategoryMain key={i} onClick={() => dispatch(selectCategory(li))}>
-                    <p className="category_icon">
-                      <img className={focusCategory === li ? 'select_img' : ''} src={imgname[i]} />
-                    </p>
-                    <p className={focusCategory === li ? 'select_text' : 'category_text'}>{li}</p>
-                  </CategoryMain>
-                );
-              })}
-            </CategorySection>
-          </BottomUnderLine>
-        )}
-      </>
+      <LoginSection>
+        <LoginBox>
+          <p className="log_left" onClick={() => openSignInModal('signup')}>
+            회원가입
+          </p>
+          <p className="log_right" onClick={() => openSignInModal('login')}>
+            로그인
+          </p>
+        </LoginBox>
+      </LoginSection>
     );
   };
 
@@ -192,12 +137,9 @@ const Header = () => {
       <Modal open={fwModalOn.open} close={() => closeSignInModal('find')}>
         <Find open={() => props.open()} />
       </Modal>
-
       <HeaderContainer>
         <NavbarSection>
-          <NavbarTop>
-            <NavLog />
-          </NavbarTop>
+          <NavbarTop>{chekckLocal ? <NavUser /> : <NavNonUser />}</NavbarTop>
           <NavbarMiddle>
             <NavbarMain>
               <NavLogo />
@@ -211,6 +153,85 @@ const Header = () => {
         </NavbarSection>
       </HeaderContainer>
     </>
+  );
+};
+const NavSearch = () => {
+  const dispatch = useDispatch();
+  const handletest = (e) => {
+    const data = e.target.value;
+    const url = `full?title=${data}&body=${data}`;
+    e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
+    console.log(data);
+  };
+  return (
+    <SearchSection>
+      <SearchMain>
+        <InputUI
+          onChange={handletest}
+          onKeyUp={handletest}
+          placeholder="검색"
+          radius="20px"
+          border="none"
+          color="black"
+          padding="15px"
+          width="140px"
+        />
+      </SearchMain>
+    </SearchSection>
+  );
+};
+
+const NavCategory = () => {
+  const dispatch = useDispatch();
+  const selector = useSelector((state) => state.items.isLoad);
+  const categorylist = useSelector((state) => state.items.categorys);
+  const abcd = useSelector((state) => state.items.tags);
+  const focusCategory = useSelector((state) => state.items.category);
+
+  return (
+    <>
+      {!selector ? null : (
+        <BottomUnderLine>
+          <CategorySection>
+            {categorylist.map((li, i) => {
+              return (
+                <CategoryMain key={i} onClick={() => dispatch(selectCategory(li))}>
+                  <p className="category_icon">
+                    <img className={focusCategory === li ? 'select_img' : ''} src={imgname[i]} />
+                  </p>
+                  <p className={focusCategory === li ? 'select_text' : 'category_text'}>{li}</p>
+                </CategoryMain>
+              );
+            })}
+          </CategorySection>
+        </BottomUnderLine>
+      )}
+    </>
+  );
+};
+const NavUser = () => {
+  return (
+    <LoginSection>
+      <LoginBox>
+        <p className="log_left" onClick={() => navigate('/mypage')}>
+          마이페이지
+        </p>
+        <p className="log_right" onClick={() => localLogout()}>
+          로그아웃
+        </p>
+      </LoginBox>
+    </LoginSection>
+  );
+};
+
+const NavLogo = () => {
+  const navigate = useNavigate();
+  return (
+    <LogoSection onClick={() => navigate('/')}>
+      <p>
+        <img src={sortlogo} />
+      </p>
+    </LogoSection>
   );
 };
 

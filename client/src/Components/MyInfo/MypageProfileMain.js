@@ -6,8 +6,14 @@ import Signups from '../Modals/SignUp/SignupStyle';
 import Sides from './MypageSideBarStyle';
 import styled from 'styled-components';
 import axios from 'axios';
+import { betaPostUserInfo } from '../../util/userInfo';
+import { useDispatch, useSelector } from 'react-redux';
 
-const MypageProfileMain = (props) => {
+const MypageProfileMain = ({ props }) => {
+  const { email, name } = betaPostUserInfo();
+  const editName = useDispatch();
+  console.log(email, name);
+
   const changeId = () => {
     axios
       .put('http://3.34.181.86:8081/member/update', {
@@ -23,6 +29,7 @@ const MypageProfileMain = (props) => {
         console.log(err);
       });
   };
+  console.log(email, name);
 
   return (
     <Draws.Container>
@@ -35,8 +42,7 @@ const MypageProfileMain = (props) => {
 
           <Logins.IdBox style={{ paddingTop: '5px' }}>
             <Logins.NameBox>아이디</Logins.NameBox>
-            <Logins.InputBox id="userid" type="text" />
-
+            <Logins.InputBox id="userid" type="text" defaultValue={name} />
             <Signups.Certified>
               <Signups.CertifiedButton style={{ marginLeft: '55px' }} onClick={() => changeId()}>
                 아이디 변경하기
@@ -46,13 +52,13 @@ const MypageProfileMain = (props) => {
 
           <Logins.IdBox style={{ paddingTop: '5px' }}>
             <Logins.NameBox>이메일</Logins.NameBox>
-           <div className='info_default'>sort123@gmail.com</div>
+            <div className="info_default">{email}ssss</div>
           </Logins.IdBox>
 
           <Logins.PasswordBox style={{ paddingTop: '10px' }}>
             <Logins.NameBox>
               비밀번호
-              <div className='info_default'>●●●●●●●●</div>
+              <div className="info_default">●●●●●●●●</div>
             </Logins.NameBox>
           </Logins.PasswordBox>
 

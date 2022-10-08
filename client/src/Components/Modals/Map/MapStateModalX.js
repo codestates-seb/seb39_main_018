@@ -192,7 +192,7 @@ const MapStateModalX = () => {
             <div id="map"></div>
             <Draws.H3>
               나의 현재 위치는 '
-              <span id="centerAddr" style={{ color: 'black', fontWeight: '500' }}></span>' 입니다.
+              <span id="centerAddr" style={{ color: 'black', fontWeight: '500' }} />' 입니다.
             </Draws.H3>
             <Draws.RealAgree>
               <Draws.WhiteButtonBox

@@ -5,7 +5,7 @@ interface LoginType {
 interface SignupType {
   email: string;
   password: string;
-  username: string;
+  name: string;
 }
 
 

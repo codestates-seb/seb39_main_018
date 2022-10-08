@@ -48,7 +48,9 @@ const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region, phot
         <Tags></Tags>
         <Btn>
           <div className="top_btn">
-            <BasicBtn background="#385275">게시물 리스트</BasicBtn>
+            <BasicBtn background="#385275" onClick={() => navigate('/main')}>
+              게시물 리스트
+            </BasicBtn>
           </div>
           <div className="top_btn">
             <BasicBtn background="#385275" onClick={() => navigate('/chat')}>

@@ -31,21 +31,24 @@ const Signup = (props) => {
     });
   };
 
+  {
+  }
+
   const dispatch = useDispatch();
 
+
+  const checkInfo = (key) => (e) => {
+    setNewUser({ ...newUser, [key]: e.target.value });
+  };
+
   const reqSignup = (data) => {
+    console.log(data);
     axios
-      .post(`${process.env.LOGIN_API_URL}siginup`, data)
+      .post(`${process.env.LOGIN_API_URL}signup`, data)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
 
-  // axios.defaults.withCredentials = true;
-
-  // const test = postSignup(signup);
-  // console.log(test);
-
-  const signup = useSelector((state) => state.account.signupInfo);
   const login = {
     email: 'dmstn1255@gmail.com',
     password: '123456789',
@@ -80,14 +83,8 @@ const Signup = (props) => {
   };
   const tokkendata = { accessToken, refreshToken };
 
-
-
-
-
   const signupHandler = (type, info) => {
     dispatch(createUser({ [type]: info }));
-
-    console.log(signup);
   };
 
   const findemail = () => {
@@ -128,6 +125,7 @@ const Signup = (props) => {
       return;
     }
 
+
     // if (email.value !== '' && id.value !== '' && passwordCheck.hidden) {
     //   axios
     //     .post('http://3.34.181.86:8081/api/v1/join', {
@@ -163,8 +161,8 @@ const Signup = (props) => {
       setId({ value: value, text: '아이디를 입력해주세요.', hidden: false });
       return;
     }
-    if (value.length < 8) {
-      setId({ value: value, text: '아이디를 8글자 이상 입력해주세요.', hidden: false });
+    if (value.length < 2) {
+      setId({ value: value, text: '아이디를 2글자 이상 입력해주세요.', hidden: false });
       return;
     }
 
@@ -199,7 +197,13 @@ const Signup = (props) => {
     }
     setEmail({ value: value, text: '', hidden: true });
   };
-
+  
+  //-------------------
+  const [newUser, setNewUser] = useState({ email: '', password: '', name: '' });
+  const Test = useSelector((state) => state.items.signupInfo);
+  const userData = useSelector((state) => state.account.signupInfo);
+  const { signup: sendSignup } = postSignup();
+console.log(userData);
   return (
     <Logins.Container>
       <Logins.Box>
@@ -218,6 +222,7 @@ const Signup = (props) => {
             placeholder="예) sort@sort.co.kr"
             defaultValue={email.value}
             onChange={(e) => {
+              dispatch(createUser({ email: e.target.value }));
               checkEmail(e.target.value);
               signupHandler('email', e.target.value);
             }}
@@ -241,8 +246,8 @@ const Signup = (props) => {
               type="text"
               defaultValue={id.value}
               onChange={(e) => {
+                dispatch(createUser({ name: e.target.value }));
                 checkId(e.target.value);
-                signupHandler('username', e.target.value);
               }}
             />
             <Logins.HiddenMessage hidden={id.hidden}>{id.text}</Logins.HiddenMessage>
@@ -259,6 +264,7 @@ const Signup = (props) => {
               type="password"
               defaultValue={password.value}
               onChange={(e) => {
+                dispatch(createUser({ password: e.target.value }));
                 checkPassword(e.target.value);
                 signupHandler('password', e.target.value);
               }}
@@ -275,7 +281,7 @@ const Signup = (props) => {
               id="password-check"
               type="password"
               defaultValue={passwordCheck.value}
-              onChange={onChangePasswordCheck}
+              onChange={(e) => checkInfo('passowrd')}
             />
             <Logins.HiddenMessage hidden={passwordCheck.hidden}>
               {passwordCheck.text}
@@ -288,13 +294,11 @@ const Signup = (props) => {
 
         <Logins.Button
           onClick={() => {
-            reqSignup(signup);
+            sendSignup(userData);
           }}
         >
           가입하기
         </Logins.Button>
-        <Button onClick={() => sendLogin(login)}>버튼</Button>
-        <Button onClick={() => reqSignup(login)}>버튼2</Button>
       </Logins.Box>
     </Logins.Container>
   );

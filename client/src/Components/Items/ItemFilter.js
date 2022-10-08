@@ -18,6 +18,7 @@ import {
 } from './MainStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { createTag, deleteTag, selectSort, openDropbar, selectFilter } from '../../redux/itemslice';
+import Sellbtn from '../Common/Button/Sellbtn';
 
 const Filter = () => {
   const [selectOP, setSelectOP] = useState(['인기순', '최신순', '정확도순', '오래된순']);
@@ -50,6 +51,7 @@ const Filter = () => {
           </FilterLeft>
           <FilterRight>
             {/* <SearchFilter tagInputHandler={tagInputHandler} /> */}
+            <Sellbtn />
             <SortOption
               selectOP={selectOP}
               selectindex={selectindex}

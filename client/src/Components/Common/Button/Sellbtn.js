@@ -8,8 +8,10 @@ const Sellbtn = () => {
   return (
     <SellbtnComponent onClick={() => navigate('/write')}>
       {/* <img src={sellButton} /> */}
-
-    상품등록
+      <p>상</p>
+      <p>품</p>
+      <p>등</p>
+      <p>록</p>
     </SellbtnComponent>
   );
 };

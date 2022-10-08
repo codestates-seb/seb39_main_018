@@ -19,7 +19,7 @@ const MapState = () => {
     setMapModalOn(true);
   };
   const closeMapModal = () => {
-    setMapModalOn(false);
+    setMapModalOn(false); 
   };
 
   // 인증하기 버튼 클릭

@@ -20,10 +20,11 @@ const KakaoRediect = () => {
       )
       .then((res) => {
         console.log(res);
-        const ACCESS_TOKEN = res.data.accessToken;
-        const REFRESH_TOKEN = res.data.refresh_token;
-        dispatch(kakaoSave(ACCESS_TOKEN));
-        localStorage.setItem('token', ACCESS_TOKEN); //예시로 로컬에 저장함
+        const { access_token } = res.data;
+        const { refresh_token } = res.data;
+        // dispatch(kakaoSave(access_token));
+        console.log(res.data);
+        localStorage.setItem('socialtoken', access_token); //예시로 로컬에 저장함
         navigate('/main'); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
       .catch((err) => {

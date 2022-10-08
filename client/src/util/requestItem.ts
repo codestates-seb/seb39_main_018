@@ -21,7 +21,6 @@ const getItems = (api: string) => {
       try {
         const response = await itemsApi.get(apiUrl);
         setData(response.data);
-
         response.data.content ? setData(response.data.content) : setData(response.data);
         setLoading(false);
       } catch (err) {
@@ -37,7 +36,7 @@ const getItems = (api: string) => {
 const getDetail = (api?: number) => {
   const [data, setData] = useState<ItemType[]>([]);
   const [error, setError] = useState<Error>();
-  const apiUrl = `board${api}`;
+  const apiUrl = `board/${api}`;
   useEffect(() => {
     const itemdata = async () => {
       try {
