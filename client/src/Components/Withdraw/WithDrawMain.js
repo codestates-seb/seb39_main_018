@@ -5,12 +5,29 @@ import Draws from './WithdrawPageStyle.js';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MypageSideBar from '../MyInfo/MypageSideBar.js';
+import { useSelector } from 'react-redux';
+import { loginAPi } from '../../util/requestLogin.ts';
 
 const WithdrawMain = () => {
   // 탈퇴사유 적어야 탈퇴신청 가능
+  const navigate = useNavigate();
+  const deleteInfo = (id) => {
+    loginAPi
+      .delete(`user/${id}`)
+      .then((res) => {
+        alert('탈퇴 되었습니다!');
+        localStorage.clear();
+        location.reload();
+        return navigate('/main');
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('탈퇴 실패 했습니다 관리자에게 문의하세요!');
+      });
+  };
+
   const writeInput = useRef();
   const [write, setWrite] = useState('');
-  const navigate = useNavigate();
 
   const withdrawCheck = (e) => {
     if (write === '') {
@@ -30,20 +47,7 @@ const WithdrawMain = () => {
     };
 
     if (window.confirm('확인을 누르면 탈퇴신청이 접수됩니다.')) {
-      axios
-
-        .delete('http://3.34.181.86:8081/member/delete', {
-          headers: {
-            Authorization: localStorage.getItem('ACCESS_TOKEN'),
-            param: param,
-          },
-        })
-        .then(() => {
-          localStorage.clear();
-          alert('그동안 이용해주셔서 감사합니다.');
-          navigate('/');
-        })
-        .catch((err) => alert(err));
+      deleteInfo(46);
     } else {
       return;
     }
