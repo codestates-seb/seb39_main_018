@@ -63,7 +63,8 @@ const usePost = (data: ItemType) => {
       .post('board', data)
       .then((res) => {
         setSuccess(alert('상품이 등록 되었습니다!'));
-        navigate('/');
+        location.reload();
+        navigate('/main');
       })
       .catch((err) => {
         setfailed(alert('상품 등록을 실패했습니다! '));
