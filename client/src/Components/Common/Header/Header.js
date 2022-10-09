@@ -160,15 +160,19 @@ const NavSearch = () => {
   const handletest = (e) => {
     const data = e.target.value;
     const url = `full?title=${data}&body=${data}`;
-    e.key === 'Enter' ? (dispatch(createTag(data)), (e.target.value = '')) : null;
-    console.log(data);
+    if (e.key === 'Enter') {
+      dispatch(createTag(data));
+      e.target.value = '';
+    }
+    // e.key === 'Enter' ? dispatch(createTag(data)), (e.target.value = '')) : null;
+    // console.log(data);
   };
   return (
     <SearchSection>
       <SearchMain>
         <InputUI
           onChange={handletest}
-          onKeyUp={handletest}
+          onKeyPress={handletest}
           placeholder="검색"
           radius="20px"
           border="none"
