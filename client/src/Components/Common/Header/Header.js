@@ -210,6 +210,7 @@ const NavCategory = () => {
   );
 };
 const NavUser = () => {
+  const navigate = useNavigate();
   return (
     <LoginSection>
       <LoginBox>

@@ -42,7 +42,7 @@ const MypageProfileMain = ({ props }) => {
 
           <Logins.IdBox style={{ paddingTop: '5px' }}>
             <Logins.NameBox>아이디</Logins.NameBox>
-            <Logins.InputBox id="userid" type="text" defaultValue={name} />
+            <Logins.InputBox  type="text" defaultValue={name} />
             <Signups.Certified>
               <Signups.CertifiedButton style={{ marginLeft: '55px' }} onClick={() => changeId()}>
                 아이디 변경하기
