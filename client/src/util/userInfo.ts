@@ -56,8 +56,19 @@ const betaDeleteUser = () => {
   };
   return { deleteInfo };
 };
+
+
 const editUserInfo = () => {
-  
+  const editInfo = async (email: string, info: object) => {
+    try {
+      const respone = await loginAPi.put(`user`, info);
+      alert('수정 되었습니다.');
+      return location.replace('/main');
+    } catch {
+      alert('실패 하였습니다. 관리자에게 문의해주세요');
+    }
+  };
+  return { editInfo };
 };
 
-export { postUserInfo, betaPostUserInfo };
+export { postUserInfo, betaPostUserInfo, editUserInfo, betaDeleteUser };
