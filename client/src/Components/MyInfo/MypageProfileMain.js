@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MypageSideBar from './MypageSideBar';
 import Draws from '../Withdraw/WithdrawPageStyle';
 import Logins from '../Modals/Login/General/LoginStyle';
@@ -8,28 +8,38 @@ import styled from 'styled-components';
 import axios from 'axios';
 import { betaPostUserInfo } from '../../util/userInfo';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { editUserInfo } from '../../util/userInfo';
 const MypageProfileMain = ({ props }) => {
-  const { email, name } = betaPostUserInfo();
+  const { email, name, userId } = betaPostUserInfo();
   const editName = useDispatch();
-  console.log(email, name);
-
-  const changeId = () => {
-    axios
-      .put('http://3.34.181.86:8081/member/update', {
-        headers: { 'Content-Type': 'application/json' },
-        id: props.userid,
-      })
-      .then((res) => {
-        window.alert('아이디를 수정하였습니다.');
-        navigate('/mypage');
-      })
-      .catch((err) => {
-        window.alert('아이디 수정을 실패했습니다.');
-        console.log(err);
-      });
+  const [editInput, setEdit] = useState('');
+  console.log(email, name, userId);
+  const { editInfo } = editUserInfo();
+  const accessToken = localStorage.getItem('accessToken');
+  console.log(accessToken);
+  const infoo = {
+    email,
+    name: editInput,
+    userId,
+    accessToken,
   };
-  console.log(email, name);
+  console.log(infoo);
+
+  // const changeId = () => {
+  //   axios
+  //     .put('http://3.34.181.86:8081/member/update', {
+  //       headers: { 'Content-Type': 'application/json' },
+  //       id: props.userid,
+  //     })
+  //     .then((res) => {
+  //       window.alert('아이디를 수정하였습니다.');
+  //       navigate('/mypage');
+  //     })
+  //     .catch((err) => {
+  //       window.alert('아이디 수정을 실패했습니다.');
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <Draws.Container>
@@ -42,9 +52,16 @@ const MypageProfileMain = ({ props }) => {
 
           <Logins.IdBox style={{ paddingTop: '5px' }}>
             <Logins.NameBox>아이디</Logins.NameBox>
-            <Logins.InputBox  type="text" defaultValue={name} />
+            <Logins.InputBox
+              type="text"
+              defaultValue={name}
+              onChange={(e) => setEdit(e.target.value)}
+            />
             <Signups.Certified>
-              <Signups.CertifiedButton style={{ marginLeft: '55px' }} onClick={() => changeId()}>
+              <Signups.CertifiedButton
+                style={{ marginLeft: '55px' }}
+                onClick={() => editInfo(email, infoo)}
+              >
                 아이디 변경하기
               </Signups.CertifiedButton>
             </Signups.Certified>
