@@ -32,6 +32,7 @@ import {
   keepLogin,
   postLogout,
   chekckLocal,
+  socialCheck,
   localLogout,
   keeplocalLogin,
 } from '../../../util/requestLogin';
@@ -41,7 +42,9 @@ const Header = () => {
   const [signUpModalOn, setSignUpModalOn] = useState({ open: false });
   const [signInModalOn, setSignInModalOn] = useState({ open: false });
   const [fwModalOn, setFwModalOn] = useState({ open: false });
+  const navigate = useNavigate();
   keeplocalLogin();
+
   const closeSignInModal = (value) => {
     if (value === 'login') {
       setSignInModalOn({ open: false });
@@ -95,10 +98,21 @@ const Header = () => {
       <ButtonSection>
         {/* {signUpModalOn ? <Modal /> : null} */}
         <p>
-          <img className="manIcon" src={NavIcon.user} onClick={() => navigate('/mypage')} />
+          <img
+            className="manIcon"
+            src={NavIcon.user}
+            onClick={() =>
+              chekckLocal || socialCheck ? navigate('/mypage') : openSignInModal('login')
+            }
+          />
         </p>
         <p>
-          <img src={NavIcon.message3} onClick={() => navigate('/chat')} />
+          <img
+            src={NavIcon.message3}
+            onClick={() =>
+              chekckLocal || socialCheck ? navigate('/chat') : openSignInModal('login')
+            }
+          />
         </p>
         <p>
           <img
@@ -111,6 +125,7 @@ const Header = () => {
     );
   };
   const NavNonUser = () => {
+    console.log(localStorage.getItem('socialtoken'));
     return (
       <LoginSection>
         <LoginBox>
@@ -139,7 +154,9 @@ const Header = () => {
       </Modal>
       <HeaderContainer>
         <NavbarSection>
-          <NavbarTop>{chekckLocal ? <NavUser /> : <NavNonUser />}</NavbarTop>
+          <NavbarTop>
+            {chekckLocal || socialCheck ? <NavUser navigate={navigate} /> : <NavNonUser />}
+          </NavbarTop>
           <NavbarMiddle>
             <NavbarMain>
               <NavLogo />
@@ -210,10 +227,11 @@ const NavCategory = () => {
   );
 };
 const NavUser = () => {
+  const navigate = useNavigate();
   return (
     <LoginSection>
       <LoginBox>
-        <p className="log_left" onClick={() => navigate('/mypage')}>
+        <p className="log_left" onClick={() => navigate('/')}>
           마이페이지
         </p>
         <p className="log_right" onClick={() => localLogout()}>
