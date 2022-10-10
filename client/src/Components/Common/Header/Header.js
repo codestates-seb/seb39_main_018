@@ -92,8 +92,8 @@ const Header = (props) => {
 
   const NavButton = () => {
     const dispatch = useDispatch();
-    const selector = useSelector((state) => state.items.isLoad);
     const navigate = useNavigate();
+    const isLoad = useSelector((state) => state.items.isLoad);
     return (
       <ButtonSection>
         {/* {signUpModalOn ? <Modal /> : null} */}
@@ -109,6 +109,9 @@ const Header = (props) => {
             src={NavIcon.message3}
             onClick={() => (chekckLocal ? navigate('/chat') : openSignInModal('login'))}
           />
+        </p>
+        <p>
+          <img src={NavIcon.menu} onClick={() => dispatch(closeCategory(!isLoad))} />
         </p>
       </ButtonSection>
     );
@@ -191,14 +194,14 @@ const NavSearch = () => {
 
 const NavCategory = () => {
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.items.isLoad);
+  const isLoad = useSelector((state) => state.items.isLoad);
   const categorylist = useSelector((state) => state.items.categorys);
   const abcd = useSelector((state) => state.items.tags);
   const focusCategory = useSelector((state) => state.items.category);
 
   return (
     <>
-      {!selector ? null : (
+      {!isLoad ? null : (
         <BottomUnderLine>
           <CategorySection>
             {categorylist.map((li, i) => {
