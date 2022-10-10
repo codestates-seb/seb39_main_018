@@ -102,6 +102,16 @@ const Btn = styled(InfoSetting)`
     width: 100%;
     height: 100%;
   }
+  .like_icon {
+    .heart_icon {
+      margin-top: 5px;
+      width: 25px;
+      height: 25px;
+    }
+  }
+  .like_text {
+    margin-right: 60px;
+  }
 `;
 
 ///--------------------------------------
@@ -169,7 +179,7 @@ const SubInfo = styled(AllSetting)`
   padding-bottom: 50px;
   margin: 100px 0;
   border-bottom: 1px solid var(--lightgray);
-  
+
   .subinfo_title {
     margin: 0 0 10px 0;
     font-size: 18px;
@@ -265,7 +275,6 @@ const Detail_Review = styled(AllSetting)`
   .border_line {
     margin-top: 20px;
     height: 120px;
-  
   }
 `;
 const ReviewSetting = styled.div`
