@@ -95,16 +95,20 @@ const Header = () => {
       <ButtonSection>
         {/* {signUpModalOn ? <Modal /> : null} */}
         <p>
-          <img className="manIcon" src={NavIcon.user} onClick={() => navigate('/mypage')} />
-        </p>
-        <p>
-          <img src={NavIcon.message3} onClick={() => navigate('/chat')} />
+          <img
+            className="manIcon"
+            src={NavIcon.user}
+            onClick={() =>
+              chekckLocal || socialCheck ? navigate('/mypage') : openSignInModal('login')
+            }
+          />
         </p>
         <p>
           <img
-            className="burger"
-            src={NavIcon.menu}
-            onClick={() => dispatch(closeCategory(!selector))}
+            src={NavIcon.message3}
+            onClick={() =>
+              chekckLocal || socialCheck ? navigate('/chat') : openSignInModal('login')
+            }
           />
         </p>
       </ButtonSection>
