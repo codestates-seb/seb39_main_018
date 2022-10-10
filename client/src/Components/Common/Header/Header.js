@@ -32,7 +32,6 @@ import {
   keepLogin,
   postLogout,
   chekckLocal,
-  socialCheck,
   localLogout,
   keeplocalLogin,
 } from '../../../util/requestLogin';
@@ -44,7 +43,6 @@ const Header = (props) => {
   const [fwModalOn, setFwModalOn] = useState({ open: false });
   const navigate = useNavigate();
   keeplocalLogin();
-
   const closeSignInModal = (value) => {
     if (value === 'login') {
       setSignInModalOn({ open: false });
@@ -103,17 +101,13 @@ const Header = (props) => {
           <img
             className="manIcon"
             src={NavIcon.user}
-            onClick={() =>
-              chekckLocal || socialCheck ? navigate('/mypage') : openSignInModal('login')
-            }
+            onClick={() => (chekckLocal ? navigate('/mypage') : openSignInModal('login'))}
           />
         </p>
         <p>
           <img
             src={NavIcon.message3}
-            onClick={() =>
-              chekckLocal || socialCheck ? navigate('/chat') : openSignInModal('login')
-            }
+            onClick={() => (chekckLocal ? navigate('/chat') : openSignInModal('login'))}
           />
         </p>
       </ButtonSection>
@@ -149,9 +143,7 @@ const Header = (props) => {
       </Modal>
       <HeaderContainer>
         <NavbarSection>
-          <NavbarTop>
-            {chekckLocal || socialCheck ? <NavUser navigate={navigate} /> : <NavNonUser />}
-          </NavbarTop>
+          <NavbarTop>{chekckLocal ? <NavUser navigate={navigate} /> : <NavNonUser />}</NavbarTop>
           <NavbarMiddle>
             <NavbarMain>
               <NavLogo />
