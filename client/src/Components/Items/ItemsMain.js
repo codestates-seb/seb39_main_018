@@ -23,7 +23,8 @@ const ItemsMain = () => {
   const viewCount = useSelector((state) => state.items.value);
   const { sort, status, keyword } = useSelector((state) => state.items.apiInfo);
   const api = sort + status + keyword;
-  const dataloads = getItems(sort + status + keyword);
+  const dataloads =  getItems(api);
+
   const itemsData = dataloads[0].slice(0, viewCount);
   const isLoading = dataloads[1];
 

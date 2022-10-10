@@ -21,29 +21,53 @@ const AllOption = styled.div`
   align-items: center;
   margin: 10px 0;
   width: 100%;
+
+  @media screen and (max-width: 720px) {
+    p {
+      font-size: 15px;
+    }
+  }
+  @media screen and (max-width: 620px) {
+    p {
+      font-size: 12px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    p {
+      font-size: 8px;
+    }
+  }
 `;
 
 const FilterSection = styled.div`
   width: 1200px;
+  margin: 0 20px;
+  display: flex;
+  justify-content: center;
 `;
 const FilterBox = styled(AllOption)`
-  width: 1180px;
-  height: 150px;
+  width: 100%;
+  height: 100px;
   flex-wrap: wrap;
 `;
 
 const FilterOption = styled.div`
   display: flex;
-  align-items: center;
   width: 100%;
-  height: 80px;
+  height: 60px;
 `;
 const FilterTopBox = styled(FilterOption)`
   border-bottom: 2px solid var(--lightgray);
+  height: 62px;
 `;
 const FilterBottomBox = styled(FilterOption)``;
 const FilterLeft = styled(FilterOption)`
   width: 60%;
+  @media screen and (max-width: 450px) {
+    display: flex;
+    height: 40px;
+    margin-top: 20px;
+  }
 `;
 const FilterRight = styled(FilterOption)`
   width: 100%;
@@ -64,9 +88,21 @@ const SellType = styled.div`
   padding: 0 10px;
   border-bottom: 5px solid ${(prop) => prop.color || 'none'};
   font-size: 20px;
+
   p {
     cursor: pointer;
     color: ${(prop) => prop.color || 'gray'};
+  }
+
+  @media screen and (max-width: 450px) {
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    width: 55px;
+    padding: 0 0px;
+    p {
+      font-size: 13px;
+    }
   }
 `;
 const SearchSection = styled.div`
@@ -117,6 +153,19 @@ const SortByOption = styled.div`
     margin-top: 5px;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 720px) {
+    margin-top: 25px;
+    width: 70px;
+    height: 20px;
+    font-size: 10px;
+  }
+  @media screen and (max-width: 430px) {
+    width: 50px;
+    p {
+      font-size: 8px;
+    }
+  }
 `;
 
 const SortOpDropbar = styled(SortByOption)`
@@ -147,6 +196,16 @@ const SortOpDropbar = styled(SortByOption)`
     color: #ffffff;
     cursor: pointer;
   }
+  @media screen and (max-width: 720px) {
+    margin-top: 15px;
+    width: 70px;
+    p {
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 430px) {
+    width: 50px;
+  }
 `;
 
 const TagSection = styled.div`
@@ -169,6 +228,9 @@ const ViewMoreBtn = styled.div`
   box-shadow: 1px 1px 3px;
   border: 1px solid var(--lightgray);
   border-radius: 10px;
+  @media screen and (max-width: 720px) {
+    font-size: 15px;
+  }
 `;
 
 export {
