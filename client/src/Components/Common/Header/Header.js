@@ -38,7 +38,7 @@ import {
 } from '../../../util/requestLogin';
 import axios from 'axios';
 
-const Header = () => {
+const Header = (props) => {
   const [signUpModalOn, setSignUpModalOn] = useState({ open: false });
   const [signInModalOn, setSignInModalOn] = useState({ open: false });
   const [fwModalOn, setFwModalOn] = useState({ open: false });
@@ -81,6 +81,7 @@ const Header = () => {
   // 로그인창 안에서 pw찾기 누를때
   const loginCloseFindOpen = () => {
     setSignInModalOn({ open: false });
+    setSignUpModalOn({ open: false });
     setFwModalOn({ open: true });
   };
 
@@ -88,6 +89,7 @@ const Header = () => {
   const findCloseLoginOpen = () => {
     setFwModalOn({ open: false });
     setSignInModalOn({ open: true });
+    setFwModalOn({ open: false });
   };
 
   const NavButton = () => {
@@ -140,10 +142,10 @@ const Header = () => {
       </Modal>
 
       <Modal open={signInModalOn.open} close={() => closeSignInModal('login')}>
-        <Login open={loginCloseSignupOpen} close={loginCloseFindOpen} />
+        <Login findClickInLogin={loginCloseFindOpen} signupClickInLogin={loginCloseSignupOpen} />
       </Modal>
       <Modal open={fwModalOn.open} close={() => closeSignInModal('find')}>
-        <Find open={() => props.open()} />
+        <Find open={findCloseLoginOpen} />
       </Modal>
       <HeaderContainer>
         <NavbarSection>
@@ -228,7 +230,7 @@ const NavUser = () => {
   return (
     <LoginSection>
       <LoginBox>
-        <p className="log_left" onClick={() => navigate('/')}>
+        <p className="log_left" onClick={() => navigate('/mypage')}>
           마이페이지
         </p>
         <p className="log_right" onClick={() => localLogout()}>

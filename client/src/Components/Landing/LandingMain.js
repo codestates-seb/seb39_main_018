@@ -31,8 +31,8 @@ import { AllviewBtn } from './LandingStyle.jsx';
 import { RightIcon } from '../Common/Icons/Icons.js';
 import { BasicBtn } from '../Common/Button/Button.js';
 import Logins from '../Modals/Login/General/LoginStyle';
+import LandingCarousel from './LandingCarousel';
 
-// background-color: transparent;
 const LandingMain = () => {
   const latestDatas = getItems('landing');
   const navigate = useNavigate();
@@ -41,19 +41,20 @@ const LandingMain = () => {
     window.scrollTo(0, 0);
   };
   return (
-    <Lands.Container>
-      <Lands.Header>
-        <img src={sortlogo} onClick={() => navigate('/main')} />
-        <Lands.HeaderRight>
-          <a href="https://github.com/codestates-seb/seb39_main_018">
-            <VscGithubAlt />
-          </a>
-          <a>
-            <IoLogoInstagram />
-          </a>
-        </Lands.HeaderRight>
-      </Lands.Header>
-      {/* 
+    <>
+      <Lands.Container>
+        <Lands.Header>
+          <img src={sortlogo} onClick={() => navigate('/main')} />
+          <Lands.HeaderRight>
+            <a href="https://github.com/codestates-seb/seb39_main_018">
+              <VscGithubAlt />
+            </a>
+            <a>
+              <IoLogoInstagram />
+            </a>
+          </Lands.HeaderRight>
+        </Lands.Header>
+        {/* 
       <Lands.MainContainer>
         <Lands.MainContent>
           <Lands.MainText>
@@ -78,46 +79,48 @@ const LandingMain = () => {
           </Lands.MainText>
         </Lands.MainContent>
       </Lands.MainContainer> */}
-      <Lands.MainContainer>
-        <Lands.MainContent>
-          <Lands.MainText>
-            <Lands.BoldText>SELL OWN REGION TICKET</Lands.BoldText>
-            <Lands.SubText>
-              <Lands.PP>
-                <Lands.SortMean>올바른 티켓의 시작</Lands.SortMean>
-                <br />
-                <Lands.SortLittle>지역인증 기반 티켓 중고 거래</Lands.SortLittle>
-                <img className="sortmokup" src={mokup} />
-              </Lands.PP>
-              <AllviewBtn
-                style={{ marginTop: '1.3rem', width: '8rem' }}
-                onClick={() => pageMove('/main')}
-              >
-                <BasicBtn>
-                  Welcome
-                  <RightIcon />
-                </BasicBtn>
-              </AllviewBtn>
-            </Lands.SubText>
-          </Lands.MainText>
-        </Lands.MainContent>
-      </Lands.MainContainer>
-      <EndBanner />
-      <ItemsView latestDatas={latestDatas} />
-      <Lands.Subscribe>
-        <Lands.SubForm>
-          <Lands.SubFormContainer>
-            <Lands.SubTitle>SORT의 소식을 보내드려요</Lands.SubTitle>
-            <Lands.SubMini>저희 팀의 멤버가 되어보세요.</Lands.SubMini>
-            <Logins.InputBox placeholder="이메일 입력 후 Enter를 누르세요." />
-          </Lands.SubFormContainer>
-        </Lands.SubForm>
-      </Lands.Subscribe>
-    </Lands.Container>
+        <Lands.MainContainer>
+          <Lands.MainContent>
+            <Lands.MainText>
+              <Lands.BoldText>SELL OWN REGION TICKET</Lands.BoldText>
+              <Lands.SubText>
+                <Lands.PP>
+                  <Lands.SortMean>올바른 티켓의 시작</Lands.SortMean>
+                  <br />
+                  <Lands.SortLittle>지역인증 기반 티켓 중고 거래</Lands.SortLittle>
+                  <img className="sortmokup" src={mokup} />
+                </Lands.PP>
+                <AllviewBtn
+                  style={{ marginTop: '1.3rem', width: '8rem' }}
+                  onClick={() => pageMove('/main')}
+                >
+                  <BasicBtn>
+                    Welcome
+                    <RightIcon />
+                  </BasicBtn>
+                </AllviewBtn>
+              </Lands.SubText>
+            </Lands.MainText>
+          </Lands.MainContent>
+        </Lands.MainContainer>
+
+        <EndBanner />
+        <ItemsView latestDatas={latestDatas} />
+
+        <Lands.Subscribe>
+          <Lands.SubForm>
+            <Lands.SubFormContainer>
+              <Lands.SubTitle>SORT의 소식을 보내드려요</Lands.SubTitle>
+              <Lands.SubMini>저희 팀의 멤버가 되어보세요</Lands.SubMini>
+              <Logins.InputBox placeholder="이메일 입력 후 Enter를 누르세요." />
+            </Lands.SubFormContainer>
+          </Lands.SubForm>
+        </Lands.Subscribe>
+      </Lands.Container>
+
+      <LandingCarousel />
+    </>
   );
 };
 
 export default LandingMain;
-{
-  /* <img className="sortmokup" src={mokup} /> */
-}

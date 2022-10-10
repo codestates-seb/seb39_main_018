@@ -33,14 +33,14 @@ const BtnSection = styled.div`
 
 const ItemsView_Container = styled(AllOption)`
   margin-left: 0;
-  padding-left: 0;
+  padding-left: 30px;
   margin-right: 0;
-  padding-right: 0;
+  padding-right: 30px;
 
   padding-top: 800px;
   padding-bottom: 300px;
 
-  width: 65%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -51,7 +51,7 @@ const ItemsView_Container = styled(AllOption)`
     /* width: 100%; */
     display: flex;
     align-items: center;
-    margin: 10px 15px;
+    /* margin: 10px 15px; */
     font-size: 20px;
   }
   @media only screen and (max-width: 960px) {
@@ -61,7 +61,13 @@ const ItemsView_Container = styled(AllOption)`
 `;
 
 const PreviewList = styled(AllOption)`
-  justify-content: space-around;
+  justify-content: center;
+  /* width: 100%; */
+  gap: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @media only screen and (max-width: 960px) {
+  }
 `;
 
 const ItemPreview = styled.div`
@@ -71,8 +77,8 @@ const ItemPreview = styled.div`
   border-radius: 5px;
   background: #ffffff;
   ${ItemPreview}:hover {
-    transform: scale(1.4);
-    transition: all 0.25s;
+    transform: scale(1.05);
+    transition: all 0.3s;
   }
 
   @media only screen and (max-width: 960px) {
@@ -100,13 +106,13 @@ const PreviewInfo = styled.div`
   margin-left: 5px;
 
   .title {
-    font-size: 18px;
+    font-size: 15px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
   p {
-    font-size: 15px;
+    font-size: 13px;
     margin-top: 10px;
   }
 
@@ -176,6 +182,7 @@ const EndBanner_Container = styled(AllOption)`
 
   animation: slides 3s ease-out;
   position: absolute;
+
   @keyframes slides {
     from {
       right: 100px;

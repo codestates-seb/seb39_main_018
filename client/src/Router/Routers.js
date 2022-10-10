@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import TEST2 from '../Components/Modals/Login/KaKao/eKaKaoRestApi';
 import MainPage from '../Pages/MainPage.js';
 import ChatPage from '../Pages/ChatPage.js';
@@ -23,7 +23,7 @@ import WritePage from '../Pages/WritePage';
 import ErrorPage from '../Pages/ErrorPage';
 import KakaoRediect from '../Components/Modals/Login/KaKao/eKakaoLoginbtn';
 import EditMain from '../Components/Write/EditMain';
-import Modal from '../Components/Modals/Modal';
+import { AnimatePresence } from 'framer-motion';
 
 const Routers = () => {
   return (
@@ -36,38 +36,34 @@ const Routers = () => {
 };
 
 const Pages = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (window.location.pathname.includes('my') || window.location.pathname.includes('write')) {
+      navigate('/error');
+    }
+  }, [useLocation]);
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/main" element={<MainPage />} />
-      <Route path="/chat" element={<ChatPage />} />
-      <Route path="/write" element={<WritePage />} />
-      <Route path="/my/sell/edit/:id" element={<EditMain />} />
-      <Route path="/mypage" element={<MyPage />} />
-      <Route path="/my/map" element={<MyPageMap />} />
-      <Route path="/my/review" element={<MyPageReview />} />
-      <Route path="/my/profile" element={<MyPageProfile />} />
-      <Route path="/my/wish" element={<MyPageWish />} />
-      <Route path="/my/sell" element={<MyPageSell />} />
-      <Route path="/my/buy" element={<MyPageBuy />} />
-      <Route path="/loginfindsign" element={<LoginFindSignup />} />
-      <Route path="/detail" element={<DetailPage />} />
-      <Route path="/withdraw" element={<WithdrawPage />} />
-      <Route path="/error" element={<ErrorPage />} />
-      <Route path="/main/detail/:id" element={<DetailPage />} />
-      <Route path="/modal" element={<Modal />} />
-    </Routes>
-  );
-};
-
-const Member = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/main" element={<MainPage />} />
-      <Route path="/main/detail/:id" element={<DetailPage />} />
-      <Route path="/find" element={<Find />} />
-    </Routes>
+    <AnimatePresence>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/main" element={<MainPage />} />
+        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/write" element={<WritePage />} />
+        <Route path="/mypage/sell/edit/:id" element={<EditMain />} />
+        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/mypage/map" element={<MyPageMap />} />
+        <Route path="/mypage/review" element={<MyPageReview />} />
+        <Route path="/mypage/profile" element={<MyPageProfile />} />
+        <Route path="/mypage/wish" element={<MyPageWish />} />
+        <Route path="/mypage/sell" element={<MyPageSell />} />
+        <Route path="/mypage/buy" element={<MyPageBuy />} />
+        <Route path="/loginfindsign" element={<LoginFindSignup />} />s
+        <Route path="/mypage/withdraw" element={<WithdrawPage />} />
+        <Route path="/error" element={<ErrorPage />} />
+        <Route path="/find" element={<Find />} />
+        <Route path="/main/detail/:id" element={<DetailPage />} />
+      </Routes>
+    </AnimatePresence>
   );
 };
 

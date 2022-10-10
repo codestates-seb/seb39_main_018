@@ -12,19 +12,19 @@ const MypageSideBar = () => {
       <Sides.ShoppingInfo>
         <Sides.MiniTitle>거래정보</Sides.MiniTitle>
         <Sides.LiLinks>
-          <Sides.LiLink onClick={() => navigate('/my/buy')}>구매 상품</Sides.LiLink>
-          <Sides.LiLink onClick={() => navigate('/my/sell')}>판매 상품</Sides.LiLink>
-          <Sides.LiLink onClick={() => navigate('/my/wish')}>찜 리스트</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/mypage/buy')}>구매 상품</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/mypage/sell')}>판매 상품</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/mypage/wish')}>찜 리스트</Sides.LiLink>
         </Sides.LiLinks>
       </Sides.ShoppingInfo>
       <Sides.Line />
       <Sides.ShoppingInfo>
         <Sides.MiniTitle>내 정보</Sides.MiniTitle>
         <Sides.LiLinks>
-          <Sides.LiLink onClick={() => navigate('/my/profile')}>내 프로필</Sides.LiLink>
-          <Sides.LiLink onClick={() => navigate('/my/review')}>거래 후기</Sides.LiLink>
-          <Sides.LiLink onClick={() => navigate('/my/map')}>지역 인증</Sides.LiLink>
-          <Sides.LiLink onClick={() => navigate('/withdraw')}>회원 탈퇴</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/mypage/profile')}>내 프로필</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/mypage/review')}>거래 후기</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/mypage/map')}>지역 인증</Sides.LiLink>
+          <Sides.LiLink onClick={() => navigate('/mypage/withdraw')}>회원 탈퇴</Sides.LiLink>
         </Sides.LiLinks>
       </Sides.ShoppingInfo>
       <Sides.Line />

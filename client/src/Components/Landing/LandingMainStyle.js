@@ -16,11 +16,13 @@ const Header = styled.div`
   right: 0;
   top: 0;
   transition-duration: 0.3s;
-  background-color: transparent;
+  background-color: white;
+  opacity: 0.93;
   height: 70px;
   text-align: right;
   padding: 0 25px 0 30px;
-  transition-property: background-color;
+
+  z-index: 1232354123;
   img {
     width: 150px;
     opacity: 0.6;
@@ -51,10 +53,8 @@ const HeaderRight = styled.div`
 const MainContainer = styled.div`
   display: inline-block;
   width: 80%;
-  /* height: 100%; */
   height: 800px;
   margin-bottom: 100px;
-
 `;
 
 const MainContent = styled.div`
@@ -67,11 +67,11 @@ const MainContent = styled.div`
 const MainText = styled.div`
   font-size: 12px;
   font-weight: 500;
-  margin-top: 30px;
-  @media only screen and (max-width: 960px) {
-    margin-left: 50px;
-  }
+  margin-top: 80px;
+  margin-left: 50px;
 
+  @media only screen and (max-width: 960px) {
+  }
 `;
 
 const BoldText = styled.h3`
@@ -89,17 +89,12 @@ const BoldText = styled.h3`
       opacity: 0;
     }
     to {
-      left: 0px;
+      left: 50px;
       opacity: 1;
     }
   }
 
-
   @media only screen and (max-width: 960px) {
-    font-size: 5em;
-    line-height: 90px;
-    font-weight: 900;
-
     @keyframes slide {
       from {
         left: -400px;
@@ -116,8 +111,6 @@ const BoldText = styled.h3`
 const SubText = styled.div`
   padding-top: 400px;
 `;
-
-
 
 const PP = styled.p`
   font-size: 28px;
@@ -145,7 +138,6 @@ const PP = styled.p`
       margin-left: -100px;
     }
   }
-
 `;
 
 const SortMean = styled.span`
@@ -170,7 +162,6 @@ const Subscribe = styled.div`
   line-height: 1.5;
   padding-bottom: 150px;
   background-color: rgba(0, 0, 0, 0.015);
-
 `;
 
 const SubForm = styled.form`
@@ -195,7 +186,6 @@ const SubTitle = styled.div`
   @media only screen and (max-width: 960px) {
     font-size: 2rem;
   }
-
 `;
 
 const SubMini = styled.p`
