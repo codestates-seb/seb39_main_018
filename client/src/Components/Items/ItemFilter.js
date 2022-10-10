@@ -89,19 +89,6 @@ const SellTypeFilter = ({ tabFocus, sellTypeTab, tabHandler }) => {
   );
 };
 
-const SearchFilter = ({ inputdata, tagInputHandler }) => {
-  return (
-    <SearchSection>
-      <InputUI
-        placeholder="검색어를 입력해주세요"
-        onChange={tagInputHandler}
-        onKeyUp={tagInputHandler}
-      />
-      <p></p>
-    </SearchSection>
-  );
-};
-
 const SortOption = () => {
   const sortList = useSelector((state) => state.items.sortTypes);
   const choiced = useSelector((state) => state.items.choicedSort);
