@@ -27,6 +27,7 @@ type InitialState = {
   writeInfo: ItemType;
   itemsId: number[];
   isCheck: boolean[];
+  isLike: (boolean | number)[];
 };
 
 const initialState: InitialState = {
@@ -61,6 +62,7 @@ const initialState: InitialState = {
   },
   itemsId: [],
   isCheck: [false, false, false],
+  isLike: [false, 0],
 };
 
 // {id : 0 ,type : '정확순'},{id : 1 ,type : '인기순'},{id : 2 ,type : '최신순'},{id : 3 ,type : '오래된순'}
@@ -89,6 +91,7 @@ const itemSlice = createSlice({
     },
     deleteTag: (state, action) => {
       state.tags = state.tags.filter((taglist) => taglist !== action.payload);
+      state.apiInfo = { ...state.apiInfo, keyword: '' };
     },
     selectSort: (state, action) => {
       const result = action.payload;
@@ -124,6 +127,10 @@ const itemSlice = createSlice({
     },
     orderDelete: (state, action) => {},
     soldDelete: (state, action) => {},
+    likeFeature: (state, action) => {
+      const onclick = action.payload;
+      state.isLike = [onclick, onclick ? 1 : 0];
+    },
   },
 });
 
@@ -142,4 +149,5 @@ export const {
   checkItems,
   orderDelete,
   soldDelete,
+  likeFeature,
 } = itemSlice.actions;
