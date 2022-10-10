@@ -29,7 +29,6 @@ const ItemsMain = () => {
 
   return (
     <MainContainer>
-     
       <Filter />
       <MainContent>
         <ItemList itemsData={itemsData} pageMove={pageMove} />
