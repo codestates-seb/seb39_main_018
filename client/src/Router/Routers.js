@@ -38,7 +38,11 @@ const Routers = () => {
 const Pages = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    if (window.location.pathname.includes('my') || window.location.pathname.includes('write')) {
+    if (
+      window.location.pathname.includes('my') ||
+      window.location.pathname.includes('write') ||
+      window.location.pathname.includes('chat')
+    ) {
       navigate('/error');
     }
   }, [useLocation]);
