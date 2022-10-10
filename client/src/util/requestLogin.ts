@@ -111,7 +111,8 @@ const postLogout = () => {
 };
 
 // 토큰 로컬 확인 로직
-export const chekckLocal = localStorage.getItem('accessToken' || 'socialtoken');
+export const chekckLocal = localStorage.getItem('accessToken') 
+export const socialCheck = localStorage.getItem('socialtoken');
 
 // 임시 로컬 저장용
 export const LocalpostLogin = (info: LoginType) => {

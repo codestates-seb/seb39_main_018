@@ -7,10 +7,9 @@ import Wishs from './MypageWishStyle';
 import { postUserInfo, betaPostUserInfo } from '../../util/userInfo';
 import { useSelector } from 'react-redux';
 
-const MypageMain = () => {
+const MypageMain = ({email , name}) => {
   const navigate = useNavigate();
-  const userEmail = useSelector((state) => state.account.userinfo);
-  const { email, name } = betaPostUserInfo();
+console.log(email , name);
   return (
     <Draws.Container>
       <MypageSideBar />

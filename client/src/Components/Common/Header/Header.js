@@ -32,6 +32,7 @@ import {
   keepLogin,
   postLogout,
   chekckLocal,
+  socialCheck,
   localLogout,
   keeplocalLogin,
 } from '../../../util/requestLogin';
@@ -41,7 +42,9 @@ const Header = () => {
   const [signUpModalOn, setSignUpModalOn] = useState({ open: false });
   const [signInModalOn, setSignInModalOn] = useState({ open: false });
   const [fwModalOn, setFwModalOn] = useState({ open: false });
+  const navigate = useNavigate();
   keeplocalLogin();
+
   const closeSignInModal = (value) => {
     if (value === 'login') {
       setSignInModalOn({ open: false });
@@ -115,6 +118,7 @@ const Header = () => {
     );
   };
   const NavNonUser = () => {
+    console.log(localStorage.getItem('socialtoken'));
     return (
       <LoginSection>
         <LoginBox>
@@ -143,7 +147,9 @@ const Header = () => {
       </Modal>
       <HeaderContainer>
         <NavbarSection>
-          <NavbarTop>{chekckLocal ? <NavUser /> : <NavNonUser />}</NavbarTop>
+          <NavbarTop>
+            {chekckLocal || socialCheck ? <NavUser navigate={navigate} /> : <NavNonUser />}
+          </NavbarTop>
           <NavbarMiddle>
             <NavbarMain>
               <NavLogo />
@@ -222,7 +228,7 @@ const NavUser = () => {
   return (
     <LoginSection>
       <LoginBox>
-        <p className="log_left" onClick={() => navigate('/mypage')}>
+        <p className="log_left" onClick={() => navigate('/')}>
           마이페이지
         </p>
         <p className="log_right" onClick={() => localLogout()}>
