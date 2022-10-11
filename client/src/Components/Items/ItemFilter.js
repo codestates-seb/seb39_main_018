@@ -32,7 +32,6 @@ const Filter = () => {
   const dispatch = useDispatch();
   const tagInputHandler = (e) => {
     const inputs = e.target.value;
-    console.log(inputs);
     e.key === 'Enter' && !tagList.includes(inputs) && inputs
       ? (dispatch(createTag(inputs)), (e.target.value = ''))
       : null;
@@ -79,6 +78,7 @@ const SellTypeFilter = ({ tabFocus, sellTypeTab, tabHandler }) => {
       {sellTypes.map((tab) => {
         return (
           <SellType
+            key={tab.id}
             color={tab.name == focusType ? 'black' : ''}
             onClick={() => dispatch(selectFilter(tab.name))}
           >
@@ -95,7 +95,6 @@ const SortOption = () => {
   const choiced = useSelector((state) => state.items.choicedSort);
   const isSelect = useSelector((state) => state.items.onChoice);
   const dispatch = useDispatch();
-  console.log(isSelect);
   return (
     <SortSection>
       <SortByOption>

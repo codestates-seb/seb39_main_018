@@ -19,9 +19,6 @@ const MypageBuyMain = () => {
   const check = useSelector((state) => state.items.isCheck);
   const itemid = useSelector((state) => state.items.itemsId);
   const { postData } = deleteItem();
-  console.log(itemid);
-  let num;
-
   return (
     <Draws.Container>
       <MypageSideBar />

@@ -26,7 +26,6 @@ const reloading = () => {};
 export const keepLogin = (refreshToken: string) => {
   const JWT_EndTime = 3600;
   axios.defaults.headers.common['Authorization'] ? true : false;
-  console.log(checkLogin);
   if (!checkLogin) return;
 
   const replay = () => {
@@ -37,7 +36,6 @@ export const keepLogin = (refreshToken: string) => {
       .then((res) => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         axios.defaults.headers.common['Authorizations'] = `Bearer ${refreshToken}`;
-        console.log('성공');
       })
       .catch((err) => {
         alert('로그아웃 되었습니다!');
@@ -97,7 +95,6 @@ const postLogin = (info: LoginType) => {
       const { refreshToken } = respone.data.data;
       axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
       axios.defaults.headers.common['Authorizations'] = `Bearer ${refreshToken}`;
-      console.log(accessToken, refreshToken);
       // return location.reload();
     } catch (err) {
       return alert('아이디와 비밀번호를 확인해 주세요');
@@ -129,7 +126,6 @@ export const LocalpostLogin = (info: LoginType) => {
       localStorage.setItem('email', info['email']);
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
-      console.log(accessToken, refreshToken);
       return location.reload();
     } catch (err) {
       return alert('아이디와 비밀번호를 확인해 주세요');
@@ -154,10 +150,8 @@ export const keeplocalLogin = (Token: string) => {
         const { refreshToken } = res.data.data;
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem('refreshToken', refreshToken);
-        console.log(res);
       })
       .catch((err) => {
-        console.log(err);
         // alert('로그아웃 되었습니다!');
       });
   };

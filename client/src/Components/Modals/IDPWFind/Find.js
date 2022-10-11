@@ -26,12 +26,11 @@ const Find = (props) => {
           data: { email: email },
         })
         .then((res) => {
-          console.log(res);
+   
           window.alert('이메일을 발송했습니다. 메일함을 확인해주세요.');
         })
         .catch((err) => {
-          window.alert('이메일 발송에 실패했습니다. 이메일 주소를 다시 확인해주세요.');
-          console.log(err);
+
         });
     }
   };

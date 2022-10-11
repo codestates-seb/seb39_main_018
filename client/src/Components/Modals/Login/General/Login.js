@@ -31,13 +31,10 @@ const Login = (props) => {
     //   passwordInput.current.focus();
     //   return;
     // }
-    console.log(info);
     login(info);
   };
 
   const userlogin = () => {
-    console.log(userid.value);
-    console.log(userPassword.value);
 
     if (userid.value !== '' && userPassword.value !== '') {
       axios
@@ -60,10 +57,9 @@ const Login = (props) => {
         })
         .catch((err) => {
           window.alert('로그인 실패!');
-          console.log(err);
+
         });
     } else {
-      console.log('로그인 실패');
     }
   };
 
@@ -90,8 +86,6 @@ const Login = (props) => {
   const FindClick = () => {
     props.findClickInLogin();
   };
-
-  console.log(checkLogin);
 
   // 자동로그인 체크박스
   const [checkedBox, setCheckedBox] = useState(false);

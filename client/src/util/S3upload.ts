@@ -7,8 +7,6 @@ const imgUpload = (file: any, imgurl: string): void => {
   const resion = 'ap-northeast-2';
   const Bucket = 'projectsor';
   const files = file;
-
-  console.log(files);
   AWS.config.update({
     accessKeyId: 'AKIAYLHCCXYHFWWZKOWJ',
     secretAccessKey: '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',
@@ -38,7 +36,6 @@ const imgUpload = (file: any, imgurl: string): void => {
     const s3 = new AWS.S3();
     s3.putObject(params)
       .on('httpUploadProgress', (evt :any) => {
-        console.log('성공함' + evt);
       })
       .send((err: Error) => {
         if (err) console.log(err);

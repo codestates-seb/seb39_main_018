@@ -34,13 +34,12 @@ const EditMain = () => {
     end_date,
   };
 
-  console.log(editPost);
 
   //-- 사진 미리보기 --//
 
   useParams;
   const { EditData } = useEdit();
-  console.log(EditData);
+
 
   const [showImages, setShowImages] = useState([]);
   const lemegon = getDetail(16);
@@ -67,8 +66,6 @@ const EditMain = () => {
   //-- input 관리 --//
 
   const dispatch = useDispatch();
-
-  console.log(writeinfo);
   const onChange = (e) => {
     const { value, name } = e.target;
     setInputs({ ...inputs, [name]: value });
@@ -137,7 +134,6 @@ const EditMain = () => {
   // const tests = postItem();
   const { postData, caseByResult } = useEdit();
   caseByResult;
-  console.log(caseByResult);
   //-- 티켓 사용일 --//
 
   return (
@@ -191,7 +187,6 @@ const EditMain = () => {
               placeholder="제목을 입력해주세요."
               onChange={(e) => {
                 editPost['title'] = e.target.value;
-                // console.log(lego);
               }}
             ></Writes.GreyInput>
           </Writes.ImgWrap>

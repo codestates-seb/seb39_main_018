@@ -21,7 +21,6 @@ const WithdrawMain = () => {
         return navigate('/main');
       })
       .catch((err) => {
-        console.log(err);
         alert('탈퇴 실패 했습니다 관리자에게 문의하세요!');
       });
   };
@@ -86,35 +85,30 @@ const WithdrawMain = () => {
   const [isChecked, setIsChecked] = useState(false);
   const onClickCheck = () => {
     setIsChecked(!isChecked);
-    console.log('1번');
   };
 
   // 2번 체크박스 체크
   const [isChecked2, setIsChecked2] = useState(false);
   const onClickCheck2 = () => {
     setIsChecked2(!isChecked2);
-    console.log('2번');
   };
 
   // 3번 체크박스 체크
   const [isChecked3, setIsChecked3] = useState(false);
   const onClickCheck3 = () => {
     setIsChecked3(!isChecked3);
-    console.log('3번');
   };
 
   // 4번 체크박스 체크
   const [isChecked4, setIsChecked4] = useState(false);
   const onClickCheck4 = () => {
     setIsChecked4(!isChecked4);
-    console.log('4번');
   };
 
   // 5번 체크박스 체크
   const [isChecked5, setIsChecked5] = useState(false);
   const onClickCheck5 = (value) => {
     setIsChecked5(!isChecked5);
-    console.log('5번');
   };
 
   return (

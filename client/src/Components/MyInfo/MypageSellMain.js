@@ -27,7 +27,6 @@ function MypageSellMain() {
   };
   const dispatch = useDispatch();
   const check = useSelector((state) => state.items.itemsId);
-  console.log(check);
   checkItems;
   return (
     <Draws.Container>

@@ -7,7 +7,6 @@ export const calculateDate = (date: string): string => {
     let day = Math.floor(dateCount / (1000 * 60 * 60 * 24));
     let mon = Math.floor(dateCount / (1000 * 60 * 60 * 24 * 30));
     let year = Math.floor(dateCount / (1000 * 60 * 60 * 24 * 30 * 12));
-    console.log(date);
     return year
       ? `${year} 년전`
       : mon

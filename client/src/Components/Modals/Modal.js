@@ -9,25 +9,6 @@ const Modal = (props) => {
   const [animate, setAnimate] = useState(false);
   // 실제 컴포넌트가 사라지는 시점을 지연시키기 위한 값
   const [visible, setVisible] = useState(props.open);
-
-  useEffect(() => {
-    // open true -> false 가 되는 것을 감지 (즉, 모달창을 닫을 때)
-    // console.log(visible)
-    // console.log(props.open)
-    // if (visible && !props.open) {
-    //   setAnimate(true);
-    //   setTimeout(() => setAnimate(false), 250);
-    // }
-    // setAnimate(props.open);
-  }, [props]);
-
-  // if (!animate && !visible) return null;
-  // if (!props.open) props.close();
-
-  // useEffect(() => {
-  //   console.log(open)
-  // }, [])
-
   const modalClose = () => {
     props.close();
   };

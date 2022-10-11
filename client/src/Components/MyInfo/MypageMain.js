@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux';
 
 const MypageMain = ({email , name}) => {
   const navigate = useNavigate();
-console.log(email , name);
   return (
     <Draws.Container>
       <MypageSideBar />

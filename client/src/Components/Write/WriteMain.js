@@ -51,7 +51,6 @@ const WriteMain = () => {
 
   const writeinfo = useSelector((state) => state.items.writeInfo);
   const { title, price, seat_number, body } = inputs;
-  console.log(writeinfo);
   const onChange = (e) => {
     const { value, name } = e.target;
     setInputs({ ...inputs, [name]: value });
@@ -120,7 +119,6 @@ const WriteMain = () => {
   // const tests = postItem();
   const { postData, caseByResult } = usePost();
   caseByResult 
-  console.log(caseByResult);
   //-- 티켓 사용일 --//
 
   return (

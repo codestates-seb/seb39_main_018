@@ -9,7 +9,6 @@ const client = new StompJs.Client({
     passcode: 'password',
   },
   debug: (str) => {
-    console.log(str);
   },
   reconnectDelay: 5000, //자동 재 연결
   heartbeatIncoming: 4000,
@@ -19,8 +18,7 @@ const client = new StompJs.Client({
 client.onConnect = (frame) => {};
 
 client.onStompError = (frame) => {
-  console.log('Broker reported error: ' + frame.headers['message']);
-  console.log('Additional details: ' + frame.body);
+
 };
 
 // 메세지 요청

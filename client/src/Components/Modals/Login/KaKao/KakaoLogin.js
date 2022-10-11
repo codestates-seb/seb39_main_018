@@ -6,7 +6,6 @@ import axios from 'axios';
 
 function kakaoLogout() {
   // if (!Kakao.Auth.getAccessToken()) {
-  //   console.log('Not logged in.');
   //   return;
   // }
   Kakao.Auth.logout(function (response) {

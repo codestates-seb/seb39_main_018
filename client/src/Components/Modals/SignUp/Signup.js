@@ -36,17 +36,8 @@ const Signup = (props) => {
 
   const dispatch = useDispatch();
 
-
   const checkInfo = (key) => (e) => {
     setNewUser({ ...newUser, [key]: e.target.value });
-  };
-
-  const reqSignup = (data) => {
-    console.log(data);
-    axios
-      .post(`${process.env.LOGIN_API_URL}signup`, data)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
   };
 
   const login = {
@@ -58,13 +49,6 @@ const Signup = (props) => {
   const [refreshToken, setRefresh] = useState('');
   const extension_tokken = 24 * 3600 * 1000;
 
-  // const sendLogin = (data) => {
-  //   axios
-  //     .post('/v1/login', data)
-  //     .then((res) => console.log(res))
-  //     .catch((err) => console.log(err));
-  // };
-
   const sendLogin = (info) => {
     axios
       .post(`${process.env.LOGIN_API_URL}login`, info)
@@ -72,12 +56,10 @@ const Signup = (props) => {
         const { accessToken } = res.data.data;
         setAccess(res.data.data.accessToken);
         setRefresh(res.data.data.refreshToken);
-        console.log(res.data);
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         setTimeout(s, extension_tokken - 60000);
       })
       .catch((err) => {
-        console.log(err);
         return err;
       });
   };
@@ -92,22 +74,6 @@ const Signup = (props) => {
       emailInput.current.focus();
       return;
     }
-
-    // if (email.value !== '') {
-    //   axios
-    //     .get('http://3.34.181.86:8081/mailCheck', {
-    //       headers: { 'Content-Type': 'application/json' },
-    //       email: email,
-    //     })
-    //     .then((res) => {
-    //       console.log(res);
-    //       window.alert('이메일을 발송했습니다. 메일함을 확인해주세요.');
-    //     })
-    //     .catch((err) => {
-    //       window.alert('이메일을 전송하지 못했습니다. 주소를 확인해주세요.');
-    //       console.log(err);
-    //     });
-    // }
   };
 
   const register = () => {
@@ -124,27 +90,6 @@ const Signup = (props) => {
       passwordCheckInput.current.focus();
       return;
     }
-
-
-    // if (email.value !== '' && id.value !== '' && passwordCheck.hidden) {
-    //   axios
-    //     .post('http://3.34.181.86:8081/api/v1/join', {
-    //       headers: { 'Content-Type': 'application/json' },
-    //       data: {
-    //         email: email,
-    //         password: password,
-    //         username: id,
-    //       },
-    //     })
-    //     .then((res) => {
-    //       window.alert('반갑습니다. 로그인 해주세요.');
-    //       navigate('/');
-    //     })
-    //     .catch((err) => {
-    //       window.alert('회원가입에 실패하였습니다.');
-    //       console.log(err);
-    //     });
-    // }
   };
 
   const checkId = (value) => {
@@ -197,13 +142,12 @@ const Signup = (props) => {
     }
     setEmail({ value: value, text: '', hidden: true });
   };
-  
+
   //-------------------
   const [newUser, setNewUser] = useState({ email: '', password: '', name: '' });
   const Test = useSelector((state) => state.items.signupInfo);
   const userData = useSelector((state) => state.account.signupInfo);
   const { signup: sendSignup } = postSignup();
-console.log(userData);
   return (
     <Logins.Container>
       <Logins.Box>

@@ -15,7 +15,6 @@ const postUserInfo = (tokken: string) => {
         const response = await loginAPi.get(`user/${tokken}`);
         setUser(response.data);
       } catch (err) {
-        console.log(err);
         navigate('/error');
       }
     };
@@ -27,15 +26,12 @@ const betaPostUserInfo = () => {
   const [userData, setUser] = useState('');
   const navigate = useNavigate();
   const email = localStorage.getItem('email');
-  console.log(email);
   useEffect(() => {
     const userinfo = async () => {
       try {
         const response = await loginAPi.get(`user/email/${email}?lang=ko`);
         setUser(response.data.data);
-        console.log(response.data);
       } catch (err) {
-        console.log(err);
         navigate('/error');
       }
     };
@@ -56,7 +52,6 @@ const betaDeleteUser = () => {
   };
   return { deleteInfo };
 };
-
 
 const editUserInfo = () => {
   const editInfo = async (email: string, info: object) => {

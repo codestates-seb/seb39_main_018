@@ -12,7 +12,6 @@ const Naver = () => {
   function GetUser() {
     const location = window.location.href.split('=')[1];
     const token = location.split('&')[0];
-    console.log('token: ', token);
 
     axios
       .post(`${API}/account/sign-in`, {
@@ -28,7 +27,7 @@ const Naver = () => {
         navigate('/main');
       })
       .catch((err) => {
-        console.log('소셜로그인 에러', err);
+
         window.alert('로그인에 실패하였습니다.');
         navigate('/login'); // 로그인 실패하면 로그인화면으로 돌려보냄
       });

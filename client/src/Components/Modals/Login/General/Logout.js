@@ -6,13 +6,12 @@ function Logout() {
     axios
       .delete('http://3.34.181.86:8081/user/logout')
       .then((res) => {
-        //console.log(res.data)
+
         alert('로그아웃 되었습니다.');
         navigate('/');
       })
       .catch((err) => {
         window.alert('로그아웃 실패했습니다.');
-        console.log(err);
       });
   };
 

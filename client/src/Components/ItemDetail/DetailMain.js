@@ -16,7 +16,6 @@ const DetailMain = () => {
   const { id } = useParams();
   const { title, body, price, end_date, seat_number, createdDate, region, photo } = getDetail(id);
   const detailPageDate = calculateDate(createdDate);
-    console.log(title)
   return (
     <Detail_Container>
       <Detail_Section>

@@ -13,33 +13,14 @@ const MypageProfileMain = ({ props }) => {
   const { email, name, userId } = betaPostUserInfo();
   const editName = useDispatch();
   const [editInput, setEdit] = useState('');
-  console.log(email, name, userId);
   const { editInfo } = editUserInfo();
   const accessToken = localStorage.getItem('accessToken');
-  console.log(accessToken);
   const infoo = {
     email,
     name: editInput,
     userId,
     accessToken,
   };
-  console.log(infoo);
-
-  // const changeId = () => {
-  //   axios
-  //     .put('http://3.34.181.86:8081/member/update', {
-  //       headers: { 'Content-Type': 'application/json' },
-  //       id: props.userid,
-  //     })
-  //     .then((res) => {
-  //       window.alert('아이디를 수정하였습니다.');
-  //       navigate('/mypage');
-  //     })
-  //     .catch((err) => {
-  //       window.alert('아이디 수정을 실패했습니다.');
-  //       console.log(err);
-  //     });
-  // };
 
   return (
     <Draws.Container>

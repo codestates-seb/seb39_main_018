@@ -117,7 +117,6 @@ const Header = (props) => {
     );
   };
   const NavNonUser = () => {
-    console.log(localStorage.getItem('socialtoken'));
     return (
       <LoginSection>
         <LoginBox>
@@ -171,8 +170,6 @@ const NavSearch = () => {
       dispatch(createTag(data));
       e.target.value = '';
     }
-    // e.key === 'Enter' ? dispatch(createTag(data)), (e.target.value = '')) : null;
-    // console.log(data);
   };
   return (
     <SearchSection>

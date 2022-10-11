@@ -7,7 +7,6 @@ import MypageProfileMain from './MypageProfileMain';
 const Myinfo = () => {
   const userEmail = useSelector((state) => state.account.userinfo);
   const { email, name } = betaPostUserInfo();
-  console.log(email, name);
   return (
     <>
       <MypageMain email={email} name={name} />
