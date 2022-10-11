@@ -215,7 +215,7 @@ const HeaderContainer = styled(AllSetting)`
   width: 100%;
   height: 160px;
   flex-wrap: wrap;
-  z-index: 100;
+  z-index: 10;
   background: #ffffff;
 `;
 
