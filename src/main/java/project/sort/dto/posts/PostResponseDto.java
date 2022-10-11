@@ -24,6 +24,9 @@ public class PostResponseDto extends BaseTimeEntity {
 
     private String region;
 
-    private LocalDateTime created_date;
+    private String photo;
 
+    private String status;
+
+    private LocalDateTime createdDate;
 }

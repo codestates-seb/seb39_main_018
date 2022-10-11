@@ -29,6 +29,7 @@ import project.sort.service.user.SignService;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class SignController {
 
     private final JwtProvider jwtProvider;
@@ -39,6 +40,7 @@ public class SignController {
 
     @ApiOperation(value = "로그인", notes = "이메일로 로그인을 합니다.")
     @PostMapping("/login")
+    @CrossOrigin(origins = "http://localhost:8080")
     public SingleResult<TokenDto> login(
             @ApiParam(value = "로그인 요청 DTO", required = true)
             @RequestBody UserLoginRequestDto userLoginRequestDto) {
@@ -49,6 +51,7 @@ public class SignController {
 
     @ApiOperation(value = "회원가입", notes = "회원가입을 합니다.")
     @PostMapping("/signup")
+    @CrossOrigin(origins = "http://localhost:8080")
     public SingleResult<Long> signup(
             @ApiParam(value = "회원 가입 요청 DTO", required = true)
             @RequestBody UserSignupRequestDto userSignupRequestDto) {
@@ -60,6 +63,7 @@ public class SignController {
             value = "액세스, 리프레시 토큰 재발급",
             notes = "엑세스 토큰 만료시 회원 검증 후 리프레쉬 토큰을 검증해서 액세스 토큰과 리프레시 토큰을 재발급합니다.")
     @PostMapping("/reissue")
+    @CrossOrigin(origins = "http://localhost:8080")
     public SingleResult<TokenDto> reissue(
             @ApiParam(value = "토큰 재발급 요청 DTO", required = true)
             @RequestBody TokenRequestDto tokenRequestDto) {
@@ -70,12 +74,13 @@ public class SignController {
             value = "소셜 로그인 - kakao",
             notes = "카카오로 로그인을 합니다.")
     @PostMapping("/social/login/kakao")
+    @CrossOrigin(origins = "http://localhost:8080")
     public SingleResult<TokenDto> loginByKakao(
             @ApiParam(value = "소셜 로그인 dto", required = true)
             @RequestBody UserSocialLoginRequestDto socialLoginRequestDto) {
 
-        KakaoProfile kakaoProfile = kakaoService.getKakaoProfile(socialLoginRequestDto.getAccessToken());
-        if (kakaoProfile == null) throw new CUserNotFoundException();
+            KakaoProfile kakaoProfile = kakaoService.getKakaoProfile(socialLoginRequestDto.getAccessToken());
+            if (kakaoProfile == null) throw new CUserNotFoundException();
 
         Users users = usersJpaRepo.findByEmailAndProvider(kakaoProfile.getKakaoAccount().getEmail(), "kakao")
                 .orElseThrow(CUserNotFoundException::new);
@@ -84,9 +89,9 @@ public class SignController {
 
     @ApiOperation(
             value = "소셜 회원가입 - kakao",
-            notes = "카카오로 회원가입을 합니다."
-    )
+            notes = "카카오로 회원가입을 합니다.")
     @PostMapping("/social/signup/kakao")
+    @CrossOrigin(origins = "http://localhost:8080")
     public CommonResult signupBySocial(
             @ApiParam(value = "소셜 회원가입 dto", required = true)
             @RequestBody UserSocialSignupRequestDto socialSignupRequestDto) {
@@ -101,7 +106,7 @@ public class SignController {
 
         Long userId = signService.socialSignup(UserSignupRequestDto.builder()
                 .email(kakaoProfile.getKakaoAccount().getEmail())
-//                .name(kakaoProfile.getProperties().getNickname())
+                .name(kakaoProfile.getProperties().getNickname())
 //                .nickName(kakaoProfile.getProperties().getNickname())
                 .provider("kakao")
                 .build());

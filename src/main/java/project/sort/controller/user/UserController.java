@@ -16,6 +16,7 @@ import project.sort.service.user.UserService;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     private final UserService userService;
@@ -29,6 +30,7 @@ public class UserController {
                     required = true, dataType = "String", paramType = "header")
     })
     @ApiOperation(value = "회원 단건 검색", notes = "userId로 회원을 조회합니다.")
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping("/user/id/{userId}")
     public SingleResult<UserResponseDto> findUserById
     (@ApiParam(value = "회원 ID", required = true) @PathVariable Long userId,
@@ -44,6 +46,7 @@ public class UserController {
     })
     @ApiOperation(value = "회원 단건 검색 (이메일)", notes = "이메일로 회원을 조회합니다.")
     @GetMapping("/user/email/{email}")
+    @CrossOrigin(origins = "http://localhost:8080")
     public SingleResult<UserResponseDto> findUserByEmail
             (@ApiParam(value = "회원 이메일", required = true) @PathVariable String email,
              @ApiParam(value = "언어", defaultValue = "ko") @RequestParam String lang) {
@@ -58,6 +61,7 @@ public class UserController {
     })
     @ApiOperation(value = "회원 목록 조회", notes = "모든 회원을 조회합니다.")
     @GetMapping("/users")
+    @CrossOrigin(origins = "http://localhost:8080")
     public ListResult<UserResponseDto> findAllUser() {
         return responseService.getListResult(userService.findAllUser());
     }
@@ -70,12 +74,15 @@ public class UserController {
     })
     @ApiOperation(value = "회원 수정", notes = "회원 정보를 수정합니다.")
     @PutMapping("/user")
+    @CrossOrigin(origins = "http://localhost:8080")
     public SingleResult<Long> update (
             @ApiParam(value = "회원 ID", required = true) @RequestParam Long userId
-//            ,@ApiParam(value = "회원 이름", required = true) @RequestParam String nickName
+           ,@ApiParam(value = "회원 이름", required = true) @RequestParam String name
+            ,@ApiParam(value = "회원 이메일", required = true) @RequestParam String email
             ) {
         UserRequestDto userRequestDto = UserRequestDto.builder()
-//                .nickName(nickName)
+                .name(name)
+                .email(email)
                 .build();
         return responseService.getSingleResult(userService.update(userId, userRequestDto));
     }
@@ -88,6 +95,7 @@ public class UserController {
     })
     @ApiOperation(value = "회원 삭제", notes = "회원을 삭제합니다.")
     @DeleteMapping("/user/{userId}")
+    @CrossOrigin(origins = "http://localhost:8080")
     public CommonResult delete(
             @ApiParam(value = "회원 아이디", required = true) @PathVariable Long userId) {
         userService.delete(userId);

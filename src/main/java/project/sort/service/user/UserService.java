@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import project.sort.advice.exception.CUserNotFoundException;
 import project.sort.dto.user.UserRequestDto;
 import project.sort.dto.user.UserResponseDto;
@@ -14,6 +15,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Service
 @AllArgsConstructor
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class UserService {
     private UsersJpaRepo usersJpaRepo;
 
@@ -57,7 +59,13 @@ public class UserService {
     public void delete(Long id) {
         usersJpaRepo.deleteById(id);
     }
+
+    public Users findUserByEmailMethod(String userEmail) {
+        return usersJpaRepo.findUsersByEmail(userEmail);
+    }
 }
+
+
 
 //
 //import lombok.RequiredArgsConstructor;

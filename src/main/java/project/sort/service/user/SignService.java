@@ -6,6 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import project.sort.advice.exception.*;
 import project.sort.config.security.JwtProvider;
 import project.sort.dto.jwt.TokenDto;
@@ -20,6 +21,7 @@ import project.sort.entity.user.UsersJpaRepo;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class SignService {
     private final UsersJpaRepo usersJpaRepo;
     private final PasswordEncoder passwordEncoder;

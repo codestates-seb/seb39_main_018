@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import project.sort.entity.user.Users;
 import java.util.Collections;
 
@@ -12,10 +13,11 @@ import java.util.Collections;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class UserSignupRequestDto {
     private String email;
     private String password;
-//    private String name;
+    private String name;
 //    private String nickName;
     private String provider;
 
@@ -24,7 +26,7 @@ public class UserSignupRequestDto {
                 .email(email)
                 .password(passwordEncoder.encode(password))
 //                .nickName(nickName)
-//                .name(name)
+                .name(name)
                 .roles(Collections.singletonList("ROLE_USER"))
                 .build();
     }
@@ -33,7 +35,7 @@ public class UserSignupRequestDto {
         return Users.builder()
                 .email(email)
 //                .nickName(nickName)
-//                .name(name)
+                .name(name)
                 .provider(provider)
                 .roles(Collections.singletonList("ROLE_USER"))
                 .build();

@@ -1,13 +1,15 @@
 package project.sort.dto.social;
 
 import lombok.Getter;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Getter
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class RetKakaoOAuth {
-    private String tokenType;
-    private String accessToken;
-    private Integer expiresIn;
-    private String refreshToken;
-    private String refreshTokenExpiresIn;
+    private String token_type;
+    private String access_token;
+    private Integer expires_in;
+    private String refresh_token;
+    private String refresh_token_expires_in;
     private String scope;
 }

@@ -36,8 +36,8 @@ public class Users extends BaseTimeEntity implements UserDetails {
     @Column(nullable = false, unique = true, length = 30)
     private String email;
 
-//    @Column(nullable = false, length = 100)
-//    private String name;
+    @Column(nullable = false, length = 100)
+    private String name;
 //
 //    @Column(nullable = false, length = 20)
 //    private String nickName;
@@ -49,6 +49,10 @@ public class Users extends BaseTimeEntity implements UserDetails {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "refreshToken_id")
     private RefreshToken refreshToken;
+
+    //포스트와 유저 일대다 매핑
+    @OneToMany(mappedBy = "users", orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL) //, orphanRemoval = true, fetch = FetchType.LAZY, cascade = CascadeType.ALL 추가설정할 수 있음
+    private List<Posts> posts = new ArrayList<Posts>();
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Builder.Default

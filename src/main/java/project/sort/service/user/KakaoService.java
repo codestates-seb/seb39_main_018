@@ -9,6 +9,7 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.client.RestTemplate;
 import project.sort.advice.exception.CCommunicationException;
 import project.sort.dto.social.KakaoProfile;
@@ -17,6 +18,7 @@ import project.sort.dto.social.RetKakaoOAuth;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class KakaoService {
 
     private final Environment env;

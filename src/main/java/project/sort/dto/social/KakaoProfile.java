@@ -1,10 +1,15 @@
 package project.sort.dto.social;
 
 import lombok.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+import java.util.Properties;
+
 @Getter
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class KakaoProfile {
     private Long id;
-//    private Properties properties;
+    private Properties properties;
     private KakaoAccount kakaoAccount;
 
     @Getter
@@ -13,11 +18,11 @@ public class KakaoProfile {
         private String email;
     }
 
-//    @Getter
-//    @ToString
-//    public static class Properties {
-//        private String nickname;
-//    }
+    @Getter
+    @ToString
+    public static class Properties {
+        private String nickname;
+    }
 }
 /*
 {

@@ -2,6 +2,8 @@ package project.sort.service.user;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import project.sort.response.CommonResponse;
 import project.sort.response.CommonResult;
 import project.sort.response.ListResult;
 import project.sort.response.SingleResult;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Service
 @Slf4j
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class ResponseService {
 
     // 단일건 결과 처리 메소드
