@@ -15,7 +15,7 @@ type InitialState = {
   category: string;
   tags: string[];
   sortTypes: string[];
-  choicedSort: string;
+  choicedSort: string | undefined;
   onChoice: boolean;
   filterTypes: ObjState[];
   choicedFilter: string;
