@@ -4,6 +4,7 @@ import axios from 'axios';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { kakaoSave } from '../../../../redux/loginslice';
+import MainPage from '../../../../Pages/MainPage';
 
 const KakaoRediect = () => {
   const navigate = useNavigate();
@@ -25,13 +26,12 @@ const KakaoRediect = () => {
         // dispatch(kakaoSave(access_token));
         console.log(res.data);
         localStorage.setItem('socialtoken', access_token); //예시로 로컬에 저장함
-        navigate('/main'); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+        navigate('/main');
       })
       .catch((err) => {
-        console.log('소셜로그인 에러', err); // 로그인 실패하면 로그인화면으로 돌려보냄
+        navigate('/error');
       });
   }, []);
-
-  return <div>ㄴㅇㄴㅇㄴ</div>;
+  return <MainPage />;
 };
 export default KakaoRediect;

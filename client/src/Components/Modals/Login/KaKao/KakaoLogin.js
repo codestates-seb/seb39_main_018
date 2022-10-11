@@ -16,7 +16,7 @@ function kakaoLogout() {
 }
 
 const KakaoLogin = () => {
-  const REDIRECT_URI = 'http://localhost:3003/oauth/callback/kakao';
+  const REDIRECT_URI = `${process.env.WEB_URL}oauth/callback/kakao`;
   const site = `https://kauth.kakao.com/oauth/oauth/authorize?client_id=${process.env.HI_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   const btn = () => {
     useEffect(() => {}, []);

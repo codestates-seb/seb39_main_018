@@ -5,9 +5,10 @@ const webpack = require('webpack');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const refreshPlugin = ['react-refresh/babel'];
+const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  mode: 'development',
+  mode,
   entry: './src/index.jsx',
   devtool: 'eval',
   output: {
@@ -43,7 +44,7 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env', '@babel/preset-react'],
-          // plugins: refreshPlugin,
+          plugins: mode === 'development' ? refreshPlugin : null,
         },
       },
       {

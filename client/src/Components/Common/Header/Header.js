@@ -32,7 +32,6 @@ import {
   keepLogin,
   postLogout,
   chekckLocal,
-  socialCheck,
   localLogout,
   keeplocalLogin,
 } from '../../../util/requestLogin';
@@ -44,7 +43,6 @@ const Header = (props) => {
   const [fwModalOn, setFwModalOn] = useState({ open: false });
   const navigate = useNavigate();
   keeplocalLogin();
-
   const closeSignInModal = (value) => {
     if (value === 'login') {
       setSignInModalOn({ open: false });
@@ -94,8 +92,8 @@ const Header = (props) => {
 
   const NavButton = () => {
     const dispatch = useDispatch();
-    const selector = useSelector((state) => state.items.isLoad);
     const navigate = useNavigate();
+    const isLoad = useSelector((state) => state.items.isLoad);
     return (
       <ButtonSection>
         {/* {signUpModalOn ? <Modal /> : null} */}
@@ -103,18 +101,17 @@ const Header = (props) => {
           <img
             className="manIcon"
             src={NavIcon.user}
-            onClick={() =>
-              chekckLocal || socialCheck ? navigate('/mypage') : openSignInModal('login')
-            }
+            onClick={() => (chekckLocal ? navigate('/mypage') : openSignInModal('login'))}
           />
         </p>
         <p>
           <img
             src={NavIcon.message3}
-            onClick={() =>
-              chekckLocal || socialCheck ? navigate('/chat') : openSignInModal('login')
-            }
+            onClick={() => (chekckLocal ? navigate('/chat') : openSignInModal('login'))}
           />
+        </p>
+        <p>
+          <img src={NavIcon.menu} onClick={() => dispatch(closeCategory(!isLoad))} />
         </p>
       </ButtonSection>
     );
@@ -149,9 +146,7 @@ const Header = (props) => {
       </Modal>
       <HeaderContainer>
         <NavbarSection>
-          <NavbarTop>
-            {chekckLocal || socialCheck ? <NavUser navigate={navigate} /> : <NavNonUser />}
-          </NavbarTop>
+          <NavbarTop>{chekckLocal ? <NavUser navigate={navigate} /> : <NavNonUser />}</NavbarTop>
           <NavbarMiddle>
             <NavbarMain>
               <NavLogo />
@@ -199,14 +194,14 @@ const NavSearch = () => {
 
 const NavCategory = () => {
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.items.isLoad);
+  const isLoad = useSelector((state) => state.items.isLoad);
   const categorylist = useSelector((state) => state.items.categorys);
   const abcd = useSelector((state) => state.items.tags);
   const focusCategory = useSelector((state) => state.items.category);
 
   return (
     <>
-      {!selector ? null : (
+      {!isLoad ? null : (
         <BottomUnderLine>
           <CategorySection>
             {categorylist.map((li, i) => {

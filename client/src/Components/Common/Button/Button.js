@@ -80,6 +80,15 @@ const SellbtnComponent = styled.div`
     font-size: 18px;
     margin-right: 3px;
   }
+  @media screen and (max-width: 450px) {
+    width: 70px;
+    height: 30px;
+    right: 10px;
+    bottom: 20px;
+    p {
+      font-size: 12px;
+    }
+  }
 `;
 
 /// -------------------------------------- ///

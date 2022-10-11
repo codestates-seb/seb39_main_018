@@ -78,10 +78,11 @@ const SellTypeFilter = ({ tabFocus, sellTypeTab, tabHandler }) => {
     <>
       {sellTypes.map((tab) => {
         return (
-          <SellType color={tab.name == focusType ? 'black' : ''}>
-            <p key={tab.id} onClick={() => dispatch(selectFilter(tab.name))}>
-              {tab.name}
-            </p>
+          <SellType
+            color={tab.name == focusType ? 'black' : ''}
+            onClick={() => dispatch(selectFilter(tab.name))}
+          >
+            <p key={tab.id}>{tab.name}</p>
           </SellType>
         );
       })}

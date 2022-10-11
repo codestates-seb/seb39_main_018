@@ -13,9 +13,15 @@ import {
 import { TagUI } from '../Common/Tag/Tag';
 import { BasicBtn } from '../Common/Button/Button.js';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { likeFeature } from '../../redux/itemslice.ts';
+import { HeartIcon, NonHeartIcon } from '../Common/Icons/Icons.js';
 
 const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region, photo }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const like = useSelector((state) => state.items.isLike);
+
   return (
     <Detail_ItemInfo>
       <InfoTop>
@@ -58,7 +64,16 @@ const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region, phot
             </BasicBtn>
           </div>
           <div className="bottom_btn">
-            <BasicBtn background="#fcbdbd">찜하기</BasicBtn>
+            <BasicBtn background="#fcbdbd" onClick={() => dispatch(likeFeature(!like[0]))}>
+              <p className="like_icon">
+                {like[0] ? (
+                  <HeartIcon className="heart_icon" color="#d94c5a" />
+                ) : (
+                  <NonHeartIcon className="heart_icon" color="#d94c5a" />
+                )}
+              </p>
+              <p className="like_text">찜하기</p>
+            </BasicBtn>
           </div>
         </Btn>
       </InfoBottom>
