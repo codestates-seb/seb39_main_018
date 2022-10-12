@@ -9,6 +9,7 @@ import { getDetail, getItems } from '../../util/requestItem';
 import Sellbtn from '../Common/Button/Sellbtn';
 import { sellButton } from '../Imgs/mainImgs/imgExport';
 import axios from 'axios';
+import ModalMain from '../Modals/ModalMain';
 const ItemsMain = () => {
   const navigate = useNavigate();
   // useEffect( ( ) => {
@@ -23,12 +24,13 @@ const ItemsMain = () => {
   const viewCount = useSelector((state) => state.items.value);
   const { sort, status, keyword } = useSelector((state) => state.items.apiInfo);
   const api = sort + status + keyword;
-  const dataloads =  getItems(api);
+  const dataloads = getItems(api);
 
   const itemsData = dataloads[0].slice(0, viewCount);
   const isLoading = dataloads[1];
 
   return (
+      
     <MainContainer>
       <Filter />
       <MainContent>
