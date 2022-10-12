@@ -1,0 +1,11 @@
+# 커밋하기 전에 민감한 파일 설정
+
+# client
+node_modules
+.DS_Store
+.env
+repository.md
+docs
+reuselogic
+S3upload
+.vscode
