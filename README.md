@@ -61,7 +61,7 @@
 <br/>
 
 ## 🧂 팀원 소개
-|Frontend|Frontend|Backend|Backend|
+|FullStack(leader)|Frontend|Backend|Backend|
 |:-:|:-:|:-:|:-:|
 |![](https://github.com/2-phones.png?size=160)|![](https://github.com/yeonkr.png?size=160)|![](https://github.com/hyeding.png?size=160)|<img src="https://avatars.githubusercontent.com/u/94733559?v=4" width=160px>|
 |[@2-phones](https://github.com/2-phones)|[@yeonkr](https://github.com/yeonkr)|[@hyeding](https://github.com/hyeding)|[@KimJiHong3](https://github.com/KimJiHong3)|
