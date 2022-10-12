@@ -8,7 +8,7 @@ import Signups from './SignupStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../../../redux/loginslice';
 import { postSignup, usePost, postLogin } from '../../../util/requestLogin';
-import { Button } from 'react-bootstrap';
+
 // import jwt_decode from 'jwt-decode';
 
 const Signup = (props) => {
@@ -35,7 +35,6 @@ const Signup = (props) => {
   }
 
   const dispatch = useDispatch();
-
 
   const checkInfo = (key) => (e) => {
     setNewUser({ ...newUser, [key]: e.target.value });
@@ -125,7 +124,6 @@ const Signup = (props) => {
       return;
     }
 
-
     // if (email.value !== '' && id.value !== '' && passwordCheck.hidden) {
     //   axios
     //     .post('http://3.34.181.86:8081/api/v1/join', {
@@ -197,13 +195,13 @@ const Signup = (props) => {
     }
     setEmail({ value: value, text: '', hidden: true });
   };
-  
+
   //-------------------
   const [newUser, setNewUser] = useState({ email: '', password: '', name: '' });
   const Test = useSelector((state) => state.items.signupInfo);
   const userData = useSelector((state) => state.account.signupInfo);
   const { signup: sendSignup } = postSignup();
-console.log(userData);
+  console.log(userData);
   return (
     <Logins.Container>
       <Logins.Box>
