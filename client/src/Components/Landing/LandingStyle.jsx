@@ -73,7 +73,7 @@ const PreviewList = styled(AllOption)`
 const ItemPreview = styled.div`
   width: 200px;
   height: 240px;
-  border: 2px solid #b8b4b4;
+  border: 1px solid #e5e5e5;
   border-radius: 5px;
   background: #ffffff;
   ${ItemPreview}:hover {
@@ -91,7 +91,6 @@ const PreviewImg = styled.div`
   height: 160px;
   margin-bottom: 15px;
   background: lightgray;
-  border: 1px solid;
   img {
     width: 100%;
     height: 100%;
@@ -106,6 +105,7 @@ const PreviewInfo = styled.div`
   margin-left: 5px;
 
   .title {
+    margin-top: 25px;
     font-size: 15px;
     text-overflow: ellipsis;
     white-space: nowrap;

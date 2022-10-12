@@ -20,6 +20,7 @@ const ItemsView = ({ latestDatas }) => {
     window.scrollTo(0, 0);
   };
 
+
   return (
     <ItemsView_Container>
       <div className="Previe_title">최근상품</div>

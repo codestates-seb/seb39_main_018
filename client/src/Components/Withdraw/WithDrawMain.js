@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import MypageSideBar from '../MyInfo/MypageSideBar.js';
 import { useSelector } from 'react-redux';
 import { loginAPi } from '../../util/requestLogin.ts';
+import ModalMain from '../Modals/ModalMain.js';
 
 const WithdrawMain = () => {
   // 탈퇴사유 적어야 탈퇴신청 가능
@@ -116,8 +117,9 @@ const WithdrawMain = () => {
     setIsChecked5(!isChecked5);
     console.log('5번');
   };
-
   return (
+    <>
+   
     <Draws.Container>
       <MypageSideBar />
       <Draws.CustomerContent>
@@ -203,6 +205,7 @@ const WithdrawMain = () => {
         </Draws.CustomerWithdraw>
       </Draws.CustomerContent>
     </Draws.Container>
+    </>
   );
 };
 

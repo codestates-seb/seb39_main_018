@@ -24,18 +24,19 @@ const BasicBtn = styled.div`
   width: ${(prop) => prop.width || '100%'};
   height: ${(prop) => prop.height || '100%'};
   display: flex;
-
   align-items: center;
   justify-content: center;
   cursor: pointer;
   border-radius: var(--b-small);
+  border: ${(prop) => prop.border || 'none'};
   background: ${(prop) => prop.background || 'black'};
+  box-shadow: ${(prop) => prop.shadow || ''};
   color: ${(prop) => prop.color || 'white'};
   font-size: ${(props) => props.size || ''};
-  box-shadow: none;
   margin-left: ${(prop) => prop.left || ''};
   ${BasicBtn}:hover {
-    background: #727c8a;
+    background: ${(prop) => prop.hoverbackground || '#b0aeae'};
+    color: ${(prop) => prop.hovercolor || ''};
     transition-duration: 0.3s;
   }
   p {
@@ -67,9 +68,10 @@ const SellbtnComponent = styled.div`
   box-shadow: 2px 3px 1px 1px gray;
   color: #2e2d2d;
   &:hover {
-    background: #b0b0b0;
+    background: ${(prop) => prop.hover || '#b0b0b0'};
     color: #ffffff;
   }
+
   img {
     width: 100%;
     height: 100%;
