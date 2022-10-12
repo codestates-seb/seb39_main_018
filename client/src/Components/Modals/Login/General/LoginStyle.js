@@ -165,7 +165,6 @@ export default {
   TopHeader,
   Title,
   SubTitle,
-  NameBox,
   InputBox,
   HiddenMessage,
   PasswordBox,
@@ -177,3 +176,5 @@ export default {
   AreYouAMember,
   RealJoin,
 };
+
+export {InputBox};
