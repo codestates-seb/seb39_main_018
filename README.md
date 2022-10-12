@@ -4,7 +4,10 @@
 
 <br/>
 <h2> SORT(Sell Own Region Ticket) </h2>
- 지역인증 기반 티켓 중고 거래 플랫폼 서비스
+ 
+ [지역인증 기반 티켓 중고 거래 플랫폼 서비스](https://ticketissort.com/)
+
+ 
 <br/>
 </div>
 
@@ -30,14 +33,7 @@
 <br/>
 
 ## 🛠 기술 스택
-### Frontend
-
-<img src="https://user-images.githubusercontent.com/104279155/195328509-cdb977e8-8cd8-4471-87c5-b2ae5ad66222.png" width="400" />
-
-<br/>
-<br/>
-
-### Backend
-
-<img src="https://user-images.githubusercontent.com/104279155/195329350-7d0d3e99-b01a-4089-aed5-8dbe0739fcea.png" width="400" />
+| Frontend | Backend |
+| :----------------: | :-----------: |
+|<img src="https://user-images.githubusercontent.com/104279155/195328509-cdb977e8-8cd8-4471-87c5-b2ae5ad66222.png" width="400" />|<img src="https://user-images.githubusercontent.com/104279155/195329350-7d0d3e99-b01a-4089-aed5-8dbe0739fcea.png" width="400" />
 
