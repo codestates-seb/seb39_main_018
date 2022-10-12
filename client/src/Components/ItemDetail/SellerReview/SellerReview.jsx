@@ -6,7 +6,9 @@ import {
   ReviewProfile,
   ReviewRating,
   ReviewBody,
-} from './DetailStyle.jsx';
+} from './style';
+
+
 
 const SellerReview = () => {
   return (

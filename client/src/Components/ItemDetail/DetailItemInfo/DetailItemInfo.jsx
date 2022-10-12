@@ -1,21 +1,20 @@
 import React from 'react';
+import { TagUI } from '../../Common/Tag/Tag';
+import { BasicBtn } from '../../Common/Button/Button';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { likeFeature } from '../../../redux/itemslice.ts';
+import { HeartIcon, NonHeartIcon } from '../../Common/Icons/Icons.js';
 import {
   Detail_ItemInfo,
   InfoTop,
   InfoBottom,
-  Tags,
-  Seat,
   StartDate,
   EndDate,
+  Seat,
+  Tags,
   Btn,
-} from './DetailStyle.jsx';
-
-import { TagUI } from '../Common/Tag/Tag';
-import { BasicBtn } from '../Common/Button/Button.js';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { likeFeature } from '../../redux/itemslice.ts';
-import { HeartIcon, NonHeartIcon } from '../Common/Icons/Icons.js';
+} from './InfoStyle';
 
 const DetailItemInfo = ({ title, price, createdDate, endDate, seat, region, photo }) => {
   const navigate = useNavigate();

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Detail_Container, Detail_Section } from './DetailStyle.jsx';
-import ItemCategory from './ItemCategory';
+import { Detail_Container, Detail_Section } from './DetailStyle';
+import ItemCategory from './ItemCategory/ItemCategory';
 import DetailImg from './DetailImg/DetailImg';
-import DetailItemInfo from './DetailItemInfo';
-import ImgList from './ImgList';
-import { Description, ItemSubInfo } from './ItemDescription';
-import ItemSeller from './ItemSeller';
-import SellerReview from './SellerReviw';
+import DetailItemInfo from './DetailItemInfo/DetailItemInfo';
+import ImgList from './ImgList/ImgList';
+import { Description, ItemSubInfo } from './ItemDescription/ItemDescription';
+import ItemSeller from './ItemSeller/ItemSeller';
+import SellerReview from './SellerReview/SellerReview';
 import { calculateDate } from '../../util/calculateDate';
 import { getDetail } from '../../util/requestItem';
 

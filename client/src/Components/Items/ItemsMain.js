@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { MainContainer, MainContent } from './MainStyle';
-import ItemList from './Item';
-import Filter from './ItemFilter';
-import ViewMore from './ViewMore';
+import ItemList from './ItemLIst/ItemList';
+import Filter from './ItemFilter/ItemFilter';
+import ViewMore from './ViewMore/ViewMore';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDetail, getItems } from '../../util/requestItem';
-import Sellbtn from '../Common/Button/Sellbtn';
-import { sellButton } from '../Imgs/mainImgs/imgExport';
-import axios from 'axios';
-import ModalMain from '../Modals/ModalMain';
+
 const ItemsMain = () => {
   const navigate = useNavigate();
   // useEffect( ( ) => {
@@ -19,18 +16,14 @@ const ItemsMain = () => {
     navigate(url);
     window.scrollTo(0, 0);
   };
-
   const dispatch = useDispatch();
   const viewCount = useSelector((state) => state.items.value);
   const { sort, status, keyword } = useSelector((state) => state.items.apiInfo);
   const api = sort + status + keyword;
   const dataloads = getItems(api);
-
   const itemsData = dataloads[0].slice(0, viewCount);
   const isLoading = dataloads[1];
-
   return (
-      
     <MainContainer>
       <Filter />
       <MainContent>

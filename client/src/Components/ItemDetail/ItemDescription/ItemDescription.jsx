@@ -1,12 +1,12 @@
 import React from 'react';
-import { Detail_Description, SubInfo, SellArea, Views } from './DetailStyle.jsx';
+import { Detail_Description, SubInfo, SellArea, Views } from './style';
 
 const Description = ({ description }) => {
   return (
     <Detail_Description>
       <div className="item_description">
         <p className="item_title">상품설명</p>
-        <p className='item_body'>{description}</p>
+        <p className="item_body">{description}</p>
       </div>
     </Detail_Description>
   );
