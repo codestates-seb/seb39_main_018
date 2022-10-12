@@ -95,6 +95,8 @@ const BoldText = styled.h3`
   }
 
   @media only screen and (max-width: 960px) {
+    font-size: 5.2rem;
+
     @keyframes slide {
       from {
         left: -400px;
@@ -132,10 +134,10 @@ const PP = styled.p`
     line-height: 30px;
 
     img {
-      width: 400px;
-      height: 700px;
+      width: 300px;
+      height: 500px;
 
-      margin-left: -100px;
+      margin-left: -50px;
     }
   }
 `;
@@ -184,7 +186,7 @@ const SubTitle = styled.div`
   font-size: 2.5rem;
   letter-spacing: 1px;
   @media only screen and (max-width: 960px) {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 `;
 
