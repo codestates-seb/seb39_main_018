@@ -279,7 +279,7 @@ const Signup = (props) => {
               id="password-check"
               type="password"
               defaultValue={passwordCheck.value}
-              onChange={(e) => checkInfo('passowrd')}
+              onChange={onChangePasswordCheck}
             />
             <Logins.HiddenMessage hidden={passwordCheck.hidden}>
               {passwordCheck.text}
@@ -289,7 +289,6 @@ const Signup = (props) => {
             <Logins.HiddenMessage>비밀번호가 일치하지 않습니다.</Logins.HiddenMessage>
           )}
         </Logins.PasswordBox>
-
         <Logins.Button
           onClick={() => {
             sendSignup(userData);
