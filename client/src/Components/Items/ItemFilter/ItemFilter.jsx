@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
-import { DownIcon, CancelIcon, SearchIcon } from '../Common/Icons/Icons';
-import { TagComponent } from '../Common/Tag/TagStyle';
-import { InputUI } from '../Common/Input/Input';
+import { DownIcon, CancelIcon, SearchIcon } from '../../Common/Icons/Icons';
+import { TagComponent } from '../../Common/Tag/TagStyle';
 import {
   FilterSection,
   FilterBox,
   FilterLeft,
   FilterRight,
   SellType,
-  SearchSection,
   SortSection,
   SortByOption,
   TagSection,
   FilterTopBox,
   FilterBottomBox,
   SortOpDropbar,
-} from './MainStyle';
+} from './FilterStyle';
 import { useDispatch, useSelector } from 'react-redux';
-import { createTag, deleteTag, selectSort, openDropbar, selectFilter } from '../../redux/itemslice';
-import Sellbtn from '../Common/Button/Sellbtn';
+import {
+  createTag,
+  deleteTag,
+  selectSort,
+  openDropbar,
+  selectFilter,
+} from '../../../redux/itemslice';
+import Sellbtn from '../../Common/Button/Sellbtn';
 
 const Filter = () => {
   const [selectOP, setSelectOP] = useState(['인기순', '최신순', '정확도순', '오래된순']);

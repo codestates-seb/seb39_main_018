@@ -1,6 +1,6 @@
 import React from 'react';
-import { Detail_ImgList, Detail_NextImg } from './DetailStyle.jsx';
-import { LeftIcon, RightIcon, CheckIcon } from '../Common/Icons/Icons';
+import { Detail_ImgList, Detail_NextImg } from './imgListStyle';
+import { LeftIcon, RightIcon, CheckIcon } from '../../Common/Icons/Icons';
 
 const ImgList = ({ photo }) => {
   return (

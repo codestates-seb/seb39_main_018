@@ -1,8 +1,8 @@
 import React from 'react';
-import { ViewMoreSection, ViewMoreBtn } from './MainStyle';
-import { BasicBtn } from '../Common/Button/Button';
-import { viewsCount } from '../../redux/itemslice';
-import { DownIcon } from '../Common/Icons/Icons';
+import { ViewMoreSection, ViewMoreBtn } from './ViewMoreStyle';
+import { BasicBtn } from '../../Common/Button/Button';
+import { viewsCount } from '../../../redux/itemslice';
+import { DownIcon } from '../../Common/Icons/Icons';
 
 const ViewMore = ({ dispatch }) => {
   return (

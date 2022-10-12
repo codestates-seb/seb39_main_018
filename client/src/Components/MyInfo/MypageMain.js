@@ -7,9 +7,9 @@ import Wishs from './MypageWishStyle';
 import { postUserInfo, betaPostUserInfo } from '../../util/userInfo';
 import { useSelector } from 'react-redux';
 
-const MypageMain = ({email , name}) => {
+const MypageMain = ({ email, name }) => {
   const navigate = useNavigate();
-console.log(email , name);
+  console.log(email, name);
   return (
     <Draws.Container>
       <MypageSideBar />
@@ -29,7 +29,7 @@ console.log(email , name);
                 <Mains.UserEmail>{email}</Mains.UserEmail>
               </Mains.UserInfo>
               <Mains.UserRight>
-                <Mains.ProfileButton onClick={() => navigate('/my/profile')}>
+                <Mains.ProfileButton onClick={() => navigate('/mypage/profile')}>
                   프로필 수정
                 </Mains.ProfileButton>
               </Mains.UserRight>
@@ -38,7 +38,7 @@ console.log(email , name);
             <Mains.Just>
               <Mains.TitleMore>
                 <Mains.Title>구매 상품</Mains.Title>
-                <Mains.More onClick={() => navigate('/my/buy')}>더보기 ﹥</Mains.More>
+                <Mains.More onClick={() => navigate('/mypage/buy')}>더보기 ﹥</Mains.More>
               </Mains.TitleMore>
               <Wishs.Content style={{ marginBottom: '100px' }}>
                 <Wishs.Item>
@@ -84,7 +84,7 @@ console.log(email , name);
             <Mains.Just>
               <Mains.TitleMore>
                 <Mains.Title>판매 상품</Mains.Title>
-                <Mains.More onClick={() => navigate('/my/sell')}>더보기 ﹥</Mains.More>
+                <Mains.More onClick={() => navigate('/mypage/sell')}>더보기 ﹥</Mains.More>
               </Mains.TitleMore>
               <Wishs.Content>
                 <Wishs.Item>

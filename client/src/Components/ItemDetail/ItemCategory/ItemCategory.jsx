@@ -1,5 +1,5 @@
 import React from 'react';
-import { Detail_Category } from './DetailStyle.jsx';
+import { Detail_Category } from './CaegoryStyle';
 
 const ItemCategory = () => {
   return (

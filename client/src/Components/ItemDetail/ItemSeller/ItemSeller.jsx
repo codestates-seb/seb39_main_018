@@ -1,7 +1,7 @@
 import React from 'react';
-import { Detail_Seller, SellerTitle, SellerInfo, SellInfoBox, SellerBtn } from './DetailStyle.jsx';
-import { CheckIcon } from '../Common/Icons/Icons';
-import { BasicBtn } from '../Common/Button/Button.js';
+import { Detail_Seller, SellerTitle, SellerInfo, SellInfoBox, SellerBtn } from './style';
+import { CheckIcon } from '../../Common/Icons/Icons';
+import { BasicBtn } from '../../Common/Button/Button.js';
 
 const ItemSeller = () => {
   return (
@@ -10,7 +10,7 @@ const ItemSeller = () => {
       <SellerInfo>
         <div className="img">
           <img src="https://i.pinimg.com/474x/07/08/ff/0708ff1a9c43249e39813d1c262adb34--amumu-league-of-legends-league-of-legends-tattoo.jpg" />
-          <p className='seller_name'>최붕대 님</p>
+          <p className="seller_name">최붕대 님</p>
         </div>
         <SellInfoBox>
           <div className="rating_info">
