@@ -221,12 +221,12 @@ const Featuree = styled.div`
     height: 100px;
 
     img {
-      width: 110px;
-      height: 80px;
+      width: 100px;
+      height: 60px;
     }
     p {
       margin: 22px;
-      font-size: 11px;
+      font-size: 9px;
     }
   }
 `;
