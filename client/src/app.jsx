@@ -4,6 +4,7 @@ import Routers from './Router/Routers.js';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store.ts';
+import ModalMain from './Components/Modals/ModalMain.js';
 
 const App = () => {
   return (
