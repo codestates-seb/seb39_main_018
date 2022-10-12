@@ -10,7 +10,7 @@ const EndBanner = () => {
     <EndBanner_Container>
       {endbannerImgs.map((imgs, i) => {
         return (
-          <Featuree>
+          <Featuree key={i}>
             <img className={imgName[i]} src={imgs} />
             <p>{endbannerText[i]}</p>
           </Featuree>
