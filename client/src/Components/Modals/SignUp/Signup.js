@@ -8,7 +8,6 @@ import Signups from './SignupStyle';
 import { useDispatch, useSelector } from 'react-redux';
 import { createUser } from '../../../redux/loginslice';
 import { postSignup, usePost, postLogin } from '../../../util/requestLogin';
-import { Button } from 'react-bootstrap';
 // import jwt_decode from 'jwt-decode';
 
 const Signup = (props) => {

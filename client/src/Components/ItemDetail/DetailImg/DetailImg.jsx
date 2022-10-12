@@ -1,5 +1,5 @@
 import React from 'react';
-import { Detail_Img } from './DetailStyle.jsx';
+import { Detail_Img } from './ImgStyle';
 
 const DetailImg = ({ photo }) => {
   return (
