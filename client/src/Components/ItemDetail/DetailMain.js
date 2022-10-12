@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Detail_Container, Detail_Section } from './DetailStyle.jsx';
 import ItemCategory from './ItemCategory';
-import DetailImg from './DetailImg';
+import DetailImg from './DetailImg/DetailImg';
 import DetailItemInfo from './DetailItemInfo';
 import ImgList from './ImgList';
 import { Description, ItemSubInfo } from './ItemDescription';
@@ -12,11 +12,10 @@ import { calculateDate } from '../../util/calculateDate';
 import { getDetail } from '../../util/requestItem';
 
 const DetailMain = () => {
-
   const { id } = useParams();
   const { title, body, price, end_date, seat_number, createdDate, region, photo } = getDetail(id);
   const detailPageDate = calculateDate(createdDate);
-    console.log(title)
+  console.log(title);
   return (
     <Detail_Container>
       <Detail_Section>
