@@ -23,6 +23,7 @@
     "webpack-s3-plugin": "^1.2.0-rc.0"
   },
   "devDependencies": {
+    "nth-check": ">=2.0.1",
     "@babel/core": "^7.19.1",
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-react": "^7.18.6",
