@@ -132,7 +132,7 @@ export const LocalpostLogin = (info: LoginType) => {
       console.log(accessToken, refreshToken);
       return location.reload();
     } catch (err) {
-      return alert('아이디와 비밀번호를 확인해 주세요');
+      return window.alert('아이디와 비밀번호를 확인해 주세요');
     }
   };
   return { login };
