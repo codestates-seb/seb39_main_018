@@ -16,4 +16,3 @@ client
 └───package.json
 └───webpack.config.json
 ```
-
