@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import MypageSideBar from './MypageSideBar';
-import Draws from '../Withdraw/WithdrawPageStyle';
-import Sells from './MypageSellStyle';
-import { deleteItem, getItems } from '../../util/requestItem';
-import { BasicBtn } from '../Common/Button/Button';
+import Draws from '../Withdraw/WithdrawStyle';
+import Sells from './SellStyle';
+
+import { deleteItem, getItems } from '../../../util/requestItem';
+import { BasicBtn } from '../../Common/Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { checkItems } from '../../redux/itemslice';
+import { checkItems } from '../../../redux/itemslice';
 import { useNavigate } from 'react-router-dom';
+import SideBar from '../SideBar/SideBar';
 // 판매상품이 있을 때
-function MypageSellMain() {
+function MySell() {
   const navigate = useNavigate();
   const [count, setcount] = useState([]);
   const itemList = getItems('/')[0].slice(12, 15);
@@ -30,8 +31,8 @@ function MypageSellMain() {
   console.log(check);
   checkItems;
   return (
-    <Draws.Container>
-      <MypageSideBar />
+    <>
+      
       <Draws.CustomerContent>
         <Draws.CustomerWithdraw>
           <Draws.ContentTitle>
@@ -72,8 +73,8 @@ function MypageSellMain() {
           </Sells.Content>
         </Draws.CustomerWithdraw>
       </Draws.CustomerContent>
-    </Draws.Container>
+    </>
   );
 }
 
-export default MypageSellMain;
+export default MySell;

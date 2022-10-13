@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
-  margin: 0 auto;
-  padding: 40px 40px 160px;
-  max-width: 1280px;
-  width: 100%;
-  box-sizing: border-box;
 
-  @media only screen and (max-width: 960px) {
-    padding: 40px 0px 80px;
-  }
+const ContentTitle = styled.div`
+  position: relative;
+  width: 100%;
 `;
 
 const UserContainter = styled.div`
@@ -139,7 +133,7 @@ const More = styled.a`
 `;
 
 export default {
-  Container,
+  ContentTitle,
   UserContainter,
   UserUSer,
   UserInfo,
@@ -152,3 +146,4 @@ export default {
   Title,
   More,
 };
+

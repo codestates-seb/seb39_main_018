@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
-import MypageSideBar from './MypageSideBar';
-import Draws from '../Withdraw/WithdrawPageStyle';
-import Logins from '../Modals/Login/General/LoginStyle';
-import Signups from '../Modals/SignUp/SignupStyle';
-import Sides from './MypageSideBarStyle';
-import styled from 'styled-components';
+import Draws from '../Withdraw/WithdrawStyle';
+import Sides from '../SideBar/SideBarStyle';
 import axios from 'axios';
-import { betaPostUserInfo } from '../../util/userInfo';
+import { betaPostUserInfo } from '../../../util/userInfo';
 import { useDispatch, useSelector } from 'react-redux';
-import { editUserInfo } from '../../util/userInfo';
-const MypageProfileMain = ({ props }) => {
+import { editUserInfo } from '../../../util/userInfo';
+import {
+  Advertise,
+  Certified,
+  CertifiedButton,
+  Checkbox,
+  IdBox,
+  NameBox,
+  InputBox,
+  PasswordBox,
+} from './ProfileStyle';
+
+const MyProfile = ({ props }) => {
   const { email, name, userId } = betaPostUserInfo();
   const editName = useDispatch();
   const [editInput, setEdit] = useState('');
@@ -43,41 +50,36 @@ const MypageProfileMain = ({ props }) => {
 
   return (
     <Draws.Container>
-      <MypageSideBar />
       <Draws.CustomerContent>
         <Draws.CustomerWithdraw style={{ maxWidth: '480px' }}>
           <Draws.ContentTitle>
             <Draws.Title style={{ paddingBottom: '8px' }}>내 프로필</Draws.Title>
           </Draws.ContentTitle>
 
-          <Logins.IdBox style={{ paddingTop: '5px' }}>
-            <Logins.NameBox>아이디</Logins.NameBox>
-            <Logins.InputBox
-              type="text"
-              defaultValue={name}
-              onChange={(e) => setEdit(e.target.value)}
-            />
-            <Signups.Certified>
-              <Signups.CertifiedButton
+          <IdBox style={{ paddingTop: '5px' }}>
+            <NameBox>아이디</NameBox>
+            <InputBox type="text" defaultValue={name} onChange={(e) => setEdit(e.target.value)} />
+            <Certified>
+              <CertifiedButton
                 style={{ marginLeft: '55px' }}
                 onClick={() => editInfo(email, infoo)}
               >
                 아이디 변경하기
-              </Signups.CertifiedButton>
-            </Signups.Certified>
-          </Logins.IdBox>
+              </CertifiedButton>
+            </Certified>
+          </IdBox>
 
-          <Logins.IdBox style={{ paddingTop: '5px' }}>
-            <Logins.NameBox>이메일</Logins.NameBox>
+          <IdBox style={{ paddingTop: '5px' }}>
+            <NameBox>이메일</NameBox>
             <div className="info_default">{email}ssss</div>
-          </Logins.IdBox>
+          </IdBox>
 
-          <Logins.PasswordBox style={{ paddingTop: '10px' }}>
-            <Logins.NameBox>
+          <PasswordBox style={{ paddingTop: '10px' }}>
+            <NameBox>
               비밀번호
               <div className="info_default">●●●●●●●●</div>
-            </Logins.NameBox>
-          </Logins.PasswordBox>
+            </NameBox>
+          </PasswordBox>
 
           <Sides.ShoppingInfo>
             <Sides.MiniTitle>이벤트 정보 수신</Sides.MiniTitle>
@@ -96,19 +98,4 @@ const MypageProfileMain = ({ props }) => {
   );
 };
 
-export default MypageProfileMain;
-
-const Advertise = styled.p`
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  letter-spacing: -0.1px;
-  padding-top: 6px;
-  padding: 30px 40px 25px 2px;
-  border-bottom: 1px solid #ebebeb;
-  opacity: 0.8;
-`;
-
-const Checkbox = styled.input`
-  width: 50px;
-`;
+export default MyProfile;

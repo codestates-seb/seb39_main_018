@@ -1,26 +1,14 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-import { useState } from 'react';
-import Modal from '../Modal';
-import Logins from '../Login/General/LoginStyle';
-import Draws from '../../Withdraw/WithdrawPageStyle';
+import Draws from '../../MyInfo/Withdraw/WithdrawStyle';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const { kakao } = window;
 
-const MapState = () => {
+const MyResion = () => {
   const navigate = useNavigate();
-  // 모달 오픈 여부
-  const [mapModalOn, setMapModalOn] = useState(false);
-
-  const openMapModal = () => {
-    setMapModalOn(true);
-  };
-  const closeMapModal = () => {
-    setMapModalOn(false); 
-  };
 
   // 인증하기 버튼 클릭
   // 위도, 경도, 사용자 위치 주소
@@ -30,16 +18,12 @@ const MapState = () => {
 
   // 현재위치 전송
   const mapLocationCheck = () => {
-    const str = address.split(' ');
-    const addressStr = str.splice(0, 2);
-    const addressStrJoin = addressStr.join(' ');
-
     axios({
       method: '',
       url: '',
       headers: { '': '' },
       data: {
-        address: addressStrJoin,
+        address: address,
       },
     })
       .then((res) => {
@@ -167,44 +151,53 @@ const MapState = () => {
   //
 
   return (
-    <>
-      <React.Fragment>
-        <button onClick={openMapModal}>지역인증</button>
-        <Modal open={mapModalOn} close={closeMapModal}>
-          <Draws.Title style={{ paddingTop: '20px', paddingBottom: '15px' }}>지역인증</Draws.Title>
-          <Map // 지도
-            center={state.center}
-            style={{
-              width: '100%',
-              height: '350px',
-            }}
-            level={3}
-            draggable={draggable}
-          >
-            {!state.isLoading && (
-              <MapMarker position={state.center}>
-                {/* <div style={{ padding: '5px', color: '#000' }}>
+    <Draws.CustomerContent>
+      <Draws.CustomerWithdraw>
+        <Draws.ContentTitle
+          style={{
+            paddingBottom: '15px',
+          }}
+        >
+          <Draws.Title>지역인증</Draws.Title>
+        </Draws.ContentTitle>
+
+        <Map // 지도
+          center={state.center}
+          style={{
+            width: '100%',
+            height: '350px',
+            paddingTop: '20px',
+            paddingBottom: '15px',
+          }}
+          level={3}
+          draggable={draggable}
+        >
+          {!state.isLoading && (
+            <MapMarker position={state.center}>
+              {/* <div style={{ padding: '5px', color: '#000' }}>
               {state.errMsg ? state.errMsg : '여기에 계신가요?!'}
             </div> */}
-              </MapMarker>
-            )}
-          </Map>
+            </MapMarker>
+          )}
+        </Map>
 
-          <div>
-            {/* <div className="map_wrap"> */}
-            <div id="map"></div>
-            <Draws.H3>
-              나의 현재 위치는 '
-              <span id="centerAddr" style={{ color: 'black', fontWeight: '500' }}></span>' 입니다.
-            </Draws.H3>
-
-            <Logins.Button onClick={() => mapLocationCheck()}>지역인증 완료하기</Logins.Button>
-            {/* </div> */}
-          </div>
-        </Modal>
-      </React.Fragment>
-    </>
+        <div>
+          {/* <div className="map_wrap"> */}
+          <div id="map"></div>
+          <Draws.H3>
+            나의 현재 위치는 '
+            <span id="centerAddr" style={{ color: 'black', fontWeight: '500' }} />' 입니다.
+          </Draws.H3>
+          <Draws.RealAgree>
+            <Draws.WhiteButtonBox style={{ fontWeight: '350' }} onClick={() => mapLocationCheck()}>
+              지역인증 완료하기
+            </Draws.WhiteButtonBox>
+          </Draws.RealAgree>
+          {/* </div> */}
+        </div>
+      </Draws.CustomerWithdraw>
+    </Draws.CustomerContent>
   );
 };
 
-export default MapState;
+export default MyResion;

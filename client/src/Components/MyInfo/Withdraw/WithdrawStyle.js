@@ -30,7 +30,6 @@ const Title = styled.div`
   color: #111111;
   font-weight: bold;
   letter-spacing: 0.03em;
-
   @media only screen and (max-width: 960px) {
     font-size: 18px;
   }
@@ -71,11 +70,9 @@ const Checkbox = styled.div`
 const CheckboxInput = styled.input`
   visibility: hidden;
   margin-bottom: 10px;
-
   @media only screen and (max-width: 960px) {
     margin-bottom: 7px;
   }
-
   ${({ isChecked }) =>
     isChecked
       ? css`
@@ -156,7 +153,6 @@ const WriteInput = styled.textarea`
   color: black;
   line-height: 1.8em;
   min-height: 130px;
-
   @media only screen and (max-width: 960px) {
     font-size: 10px;
   }
@@ -173,7 +169,6 @@ const H3 = styled.h3`
   font-size: 15px;
   color: #606060;
   font-weight: normal;
-
   @media only screen and (max-width: 960px) {
     font-size: 12px;
   }
@@ -186,7 +181,6 @@ const Li = styled.li`
   padding-left: 14px;
   font-size: 13px;
   padding-bottom: 3px;
-
   @media only screen and (max-width: 960px) {
     font-size: 10px;
   }
@@ -226,7 +220,6 @@ const WhiteButtonBox = styled.div`
   border-radius: 6px;
   font-size: 14px;
   letter-spacing: -0.18px;
-
   &:hover {
     opacity: 2;
     transition-duration: 0.25s;

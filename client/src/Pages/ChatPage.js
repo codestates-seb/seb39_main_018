@@ -93,7 +93,7 @@
 //---/
 import React, { useEffect, useState, useCallback } from 'react';
 import Chats from '../Components/Chat/ChatStyle';
-import Draws from '../Components/Withdraw/WithdrawPageStyle';
+import Draws from '../Components/MyInfo/Withdraw/WithdrawStyle';
 import io from 'socket.io-client';
 import Header from '../Components/Common/Header/Header';
 import Footer from '../Components/Common/Footer/Footer';
