@@ -3,7 +3,7 @@ import Writes from './WriteMainStyle';
 import { useState } from 'react';
 import axios from 'axios';
 import { BsCameraFill } from 'react-icons/bs';
-import Draws from '../Withdraw/WithdrawPageStyle';
+import Draws from '../MyInfo/Withdraw/WithdrawStyle';
 import { VscClose } from 'react-icons/vsc';
 import { useDispatch, useSelector } from 'react-redux';
 import { writePost } from '../../redux/itemslice';
@@ -119,7 +119,7 @@ const WriteMain = () => {
   }, [writeTag]);
   // const tests = postItem();
   const { postData, caseByResult } = usePost();
-  caseByResult 
+  caseByResult;
   console.log(caseByResult);
   //-- 티켓 사용일 --//
 

@@ -62,7 +62,6 @@ const NameBox = styled.div`
     font-size: 13px;
     color: #a3a3a3;
   }
-
 `;
 
 const InputBox = styled.input`
@@ -177,3 +176,5 @@ export default {
   AreYouAMember,
   RealJoin,
 };
+
+export { InputBox };
