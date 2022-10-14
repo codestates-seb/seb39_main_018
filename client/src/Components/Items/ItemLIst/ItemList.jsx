@@ -14,7 +14,6 @@ const ItemList = ({ itemsData, pageMove, isLoading }) => {
         {itemsData &&
           itemsData.map((dataList) => {
             const dateResult = calculateDate(dataList.createdDate);
-            console.log(dataList);
             return (
               <ItemComponent
                 pageMove={pageMove}
