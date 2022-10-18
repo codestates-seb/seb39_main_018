@@ -9,4 +9,4 @@
 
 
 ## New_ver
-https://github.com/sort-ver2/sort_ver2/blob/main/README.md
+https://github.com/sort-ver2/sort_ver2
