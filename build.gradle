@@ -1,3 +1,5 @@
+import java.time.LocalDateTime
+
 plugins {
 	id 'org.springframework.boot' version '2.7.3'
 	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
@@ -16,6 +18,7 @@ configurations {
 
 repositories {
 	mavenCentral()
+
 }
 
 dependencies {
@@ -30,7 +33,14 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'mysql:mysql-connector-java'
 	implementation 'commons-io:commons-io:2.6'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+	implementation 'io.springfox:springfox-swagger2:3.0.0'
+	implementation 'io.springfox:springfox-swagger-ui:3.0.0'
+
 }
+
+
 
 tasks.named('test') {
 	useJUnitPlatform()

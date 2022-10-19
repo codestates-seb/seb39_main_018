@@ -1,10 +1,10 @@
 package com.main.posts.dto;
 
 
-import com.main.posts.repository.BaseTimeEntity;
-import com.main.posts.repository.Posts;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,7 +12,7 @@ public class PostPatchDto {
 
     private String title;
 
-    private String text;
+    private String body;
 
     private String price;
 
@@ -21,6 +21,12 @@ public class PostPatchDto {
     private String seat_number;
 
     private String region;
+
+    private String photo;
+
+    private String status;
+
+    private LocalDateTime createdDate;
 
 
 }

@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -16,7 +17,7 @@ public class PostDto  {
 
     private String title;
 
-    private String text;
+    private String body;
 
     private String price;
 
@@ -25,6 +26,12 @@ public class PostDto  {
     private String seat_number;
 
     private String region;
+
+    private String photo;
+
+    private String status;
+
+    private LocalDateTime createdDate;
 
 
 
