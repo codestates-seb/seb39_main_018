@@ -9,7 +9,7 @@
  
  [지역인증 기반 티켓 중고 거래 플랫폼 서비스](https://ticketissort.com/)<br><br>
 
-![스크린샷 2022-10-22 오후 8 30](https://user-images.githubusercontent.com/87120463/197336766-f80eacec-44fd-4135-96e4-34a788473ba0.png)
+![스크린샷 2022-10-22 오후 8 30  (1)](https://user-images.githubusercontent.com/87120463/197336798-63aa8fa2-f3d7-43da-8f95-4db06115794b.png)
 
 ## New_ver
 
