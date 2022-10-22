@@ -9,6 +9,8 @@
 
 
 ## New_ver
+현재 새로운 리포지토리에서 리팩토링 중입니다.
+ 
 https://github.com/Sort-Project/sort_ver2
 
 
