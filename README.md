@@ -1,12 +1,15 @@
 <div align="center">
 
 ![솔트로고2 (1)](https://user-images.githubusercontent.com/104279155/195317360-06a22c15-b9dc-4191-80e1-a88dc74dcf79.svg)<br>
-현재 새로운 리포지토리에서 리팩토링 중입니다.
+
+### 현재 새로운 리포지토리에서 리팩토링 중입니다.
+ 
 <br/>
 <h2> SORT(Sell Own Region Ticket) </h2>
  
- [지역인증 기반 티켓 중고 거래 플랫폼 서비스](https://ticketissort.com/)
+ [지역인증 기반 티켓 중고 거래 플랫폼 서비스](https://ticketissort.com/)<br><br>
 
+![스크린샷 2022-10-22 오후 8 30 39](https://user-images.githubusercontent.com/87120463/197336713-21de3448-11ca-4c55-81e1-d3dd8d38f8c3.png)
 
 ## New_ver
 
