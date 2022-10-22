@@ -1,6 +1,5 @@
 <div align="center">
 
-![솔트로고2 (1)](https://user-images.githubusercontent.com/104279155/195317360-06a22c15-b9dc-4191-80e1-a88dc74dcf79.svg)<br>
 
 ### 현재 새로운 리포지토리에서 리팩토링 중입니다.
  
@@ -16,11 +15,6 @@
  
 https://github.com/Sort-Project/sort_ver2
 
-
-
-
-<br/>
-<br/>
 
 ## 🧂 팀원 소개
 |Frontend (팀장)|Frontend|Backend|
