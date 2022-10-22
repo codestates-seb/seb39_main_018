@@ -1,7 +1,7 @@
 <div align="center">
 
 ![솔트로고2 (1)](https://user-images.githubusercontent.com/104279155/195317360-06a22c15-b9dc-4191-80e1-a88dc74dcf79.svg)
-
+현재 새로운 리포지토리에서 리팩토링 중입니다.
 <br/>
 <h2> SORT(Sell Own Region Ticket) </h2>
  
@@ -9,7 +9,7 @@
 
 
 ## New_ver
-현재 새로운 리포지토리에서 리팩토링 중입니다.
+
  
 https://github.com/Sort-Project/sort_ver2
 
