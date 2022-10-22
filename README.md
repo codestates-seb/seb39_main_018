@@ -4,7 +4,8 @@
 <br/>
 <h2> SORT(Sell Own Region Ticket) </h2>
  <br>
-### 현재 새로운 리포지토리에서 리팩토링 중입니다.
+ 
+### 현재 새로운 리포지토리에서 리팩토링 중입니다.<br>
  https://github.com/Sort-Project/sort_ver2
  <br><br>
 
