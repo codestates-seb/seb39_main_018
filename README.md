@@ -5,8 +5,8 @@
 <h2> SORT(Sell Own Region Ticket) </h2>
  <br>
 ### 현재 새로운 리포지토리에서 리팩토링 중입니다. https://github.com/Sort-Project/sort_ver2
-**
  <br><br>
+ 
  [지역인증 기반 티켓 중고 거래 플랫폼 서비스](https://ticketissort.com/)<br><br>
 
 ![스크린샷 2022-10-22 오후 8 30  (1)](https://user-images.githubusercontent.com/87120463/197336798-63aa8fa2-f3d7-43da-8f95-4db06115794b.png)
