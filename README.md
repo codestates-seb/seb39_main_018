@@ -1,7 +1,5 @@
 <div align="center">
 
-<div align="center">
-
  ### 현재 새로운 리포지토리에서 리팩토링 중입니다.<br>
  https://github.com/Sort-Project/sort_ver2
 
